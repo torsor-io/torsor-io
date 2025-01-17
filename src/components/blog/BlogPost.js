@@ -15,7 +15,6 @@ const BlogPost = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const [mathJaxReady, setMathJaxReady] = useState(false);
     
   // Theme variables (matching BlogPage)
-  const bgColor = isDark ? 'bg-slate-900' : 'bg-amber-50';
   const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
   const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
   const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';

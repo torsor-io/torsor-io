@@ -673,7 +673,6 @@ const Terminal = ({ onClose, isSwitched, setIsSwitched, books, setBooks, sudoMod
     const [currentInput, setCurrentInput] = useState('');
     const inputRef = useRef(null);
     const [awaitingPassword, setAwaitingPassword] = useState(false);
-    const [activeBackground, setActiveBackground] = useState('default');
     const [commandHistory, setCommandHistory] = useState([]); // Store command history
     const [historyIndex, setHistoryIndex] = useState(-1); // Track position in history
     const outputRef = useRef(null); // Add ref for the output div
@@ -769,7 +768,6 @@ const Terminal = ({ onClose, isSwitched, setIsSwitched, books, setBooks, sudoMod
       
       // Handle sudo specially
       if (command.toLowerCase() === 'sudo' && !sudoMode) {
-	  const command = args[0];
 	  setAwaitingPassword(true);
 	  return ['Enter password:'];
       }
@@ -856,10 +854,14 @@ const Terminal = ({ onClose, isSwitched, setIsSwitched, books, setBooks, sudoMod
 		  godMessages[messageIndex],
 		  `\n...connection maintained...`
 	      ];
+	  default:
+	      {
+		  return [`Error: no special command ${args[0]}.`];
+	      }
 	  }
       }
       
-      {/* To remove
+      /* To remove
       if (command.toLowerCase() === 'sudo' && sudoMode) {
 	  switch(args[0].toLowerCase()) {
           case 'make_coffee':
@@ -880,7 +882,7 @@ const Terminal = ({ onClose, isSwitched, setIsSwitched, books, setBooks, sudoMod
 		  return ['Single-origin double ristretto, prepped in a high school chemistry lab.'];
 	      }
 	  }
-	  } */}
+	  } */
       
       switch(command.toLowerCase()) {
       case 'echo':
@@ -911,7 +913,6 @@ case 'cd':
   // Handle full paths
   if (newPath.includes('/')) {
     const segments = newPath.split('/').filter(Boolean); // Remove empty segments
-    let currentCheck = currentDirectory === '~' ? '~' : currentDirectory;
     let validPath = true;
     let tempDir = fileSystem['~'];
     
@@ -1024,7 +1025,7 @@ case 'cd':
 		`  •  Focusing on innovations that benefit all.\n-----\n MORE INFORMATION`,
 	    '  •  Check out the directory or external storage to learn about our projects.',
             '  •  Echo environmental variables like $HOME and $FOUNDER for organizational details.',
-	    '  •  You can access our library with the \`books\` command.',
+	    '  •  You can access our library with the `books` command.',
 	       ];
       case 'pwd':
         return [`${currentDirectory}`];
@@ -1265,7 +1266,6 @@ const InteractiveLanding = ({ isSwitched, setIsSwitched, books, setBooks, weird,
     const [displayMode, setDisplayMode] = useState('normal'); // 'normal', 'debug', or 'display'
     const [showTerminal, setShowTerminal] = useState(false);
     const [showTerminalText, setShowTerminalText] = useState(false);
-    const [activeBackground, setActiveBackground] = useState('default');
     const [showFileExplorer, setShowFileExplorer] = useState(false);
     const [frameRect, setFrameRect] = useState(null);
     // For transition
@@ -1725,13 +1725,6 @@ useEffect(() => {
 },    
 ];
 
-  // Handle image load and window resize
-  const handleImageLoad = (e) => {
-    const img = e.target;
-    const { width, height } = img.getBoundingClientRect();
-    setImageDimensions({ width, height });
-  };
-
   useEffect(() => {
     const handleResize = () => {
       const img = document.getElementById('main-image');
@@ -1937,10 +1930,10 @@ useEffect(() => {
   <PortalTunnel weird={weird} setWeird={setWeird} active={activeArea === 'portal' && !showTerminal} />
 )}
 {area.id === 'muzik' && (
-  <CDLight1 active={isPlaying || activeArea === 'muzik' && !showTerminal} />
+	<CDLight1 active={isPlaying || (activeArea === 'muzik') && !showTerminal} />
 )}
 {area.id === 'muzik' && (
-  <CDLight2 active={isPlaying || activeArea === 'muzik' && !showTerminal} />
+	<CDLight2 active={isPlaying || (activeArea === 'muzik') && !showTerminal} />
 )}
             {/* Hover Text */}
           {(activeArea === area.id && (displayMode === 'debug' || displayMode === 'display' )) && (

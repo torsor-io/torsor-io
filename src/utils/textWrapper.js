@@ -12,7 +12,6 @@ const wrapTerminalText = (text, maxWidth = 90) => {
     // Find indentation if any
     const indentMatch = line.match(/^(\s+)/);
     const indent = indentMatch ? indentMatch[0] : '';
-    const indentWidth = indent.length;
     
     // Initialize variables for word wrapping
     const words = line.split(' ');

@@ -1,24 +1,18 @@
 // src/components/ProductsPage/index.js
 import { RocketLaunchIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
-import Footer from '../shared/Footer';
-import { format } from 'date-fns';
 
 const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 
   // Theme variables (matching your AboutPage)
-  const bgColor = isDark ? 'bg-slate-900' : 'bg-amber-50';
   const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
   const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
   const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
   const headerBg = isDark ? 'bg-slate-900/80' : 'bg-amber-50/70';
   const borderColor = isDark ? 'border-slate-800' : 'border-stone-300';
-  const cardBg = isDark ? 'bg-slate-800/50' : 'bg-orange-100/50';
   const buttonBg = isDark ? 'bg-slate-800/50 hover:bg-slate-700/50' : 'bg-orange-100/50 hover:bg-orange-200';
-    const footerColor = isDark ? 'to-slate-1000' : 'to-amber-100'
   const gradientBg = isDark 
   ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
 	: 'bg-gradient-to-b from-amber-50 to-amber-100';
