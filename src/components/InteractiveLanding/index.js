@@ -1325,6 +1325,8 @@ useEffect(() => {
     document.removeEventListener('mousedown', handleClickOutside);
   };
 }, [showEncodedMessage]);
+
+  const activeBackground = 'default';
     
 // Background images for each area
   const backgroundImages = {
