@@ -46,7 +46,7 @@ const App = () => {
             setWeird={setWeird}
           />
         } />
-        <Route path="/about" element={
+        <Route path="about" element={
           <AboutPage 
             isDark={isDark} 
             setIsDark={setIsDark}
@@ -54,7 +54,7 @@ const App = () => {
             setWaveState={setWaveState}
           />
         } />
-        <Route path="/blog" element={
+        <Route path="blog" element={
           <BlogPage 
             isDark={isDark} 
             setIsDark={setIsDark}
@@ -62,7 +62,7 @@ const App = () => {
             setWaveState={setWaveState}
           />
         } />
-        <Route path="/blog/:id" element={
+        <Route path="blog/:id" element={
           <BlogPost 
             isDark={isDark} 
             setIsDark={setIsDark}
@@ -70,7 +70,7 @@ const App = () => {
             setWaveState={setWaveState}
           />
         } />
-        <Route path="/research" element={
+        <Route path="research" element={
           <ResearchPage 
             isDark={isDark} 
             setIsDark={setIsDark}
@@ -78,7 +78,7 @@ const App = () => {
             setWaveState={setWaveState}
           />
         } />
-        <Route path="/products" element={
+        <Route path="products" element={
           <ProductsPage 
             isDark={isDark} 
             setIsDark={setIsDark}
@@ -86,7 +86,7 @@ const App = () => {
             setWaveState={setWaveState}
           />
         } />
-        <Route path="/team" element={
+        <Route path="team" element={
           <TeamPage 
             isDark={isDark} 
             setIsDark={setIsDark}
@@ -94,7 +94,7 @@ const App = () => {
             setWaveState={setWaveState}
           />
         } />
-        <Route path="/yaw" element={
+        <Route path="yaw" element={
           <YawTemp 
             isDark={isDark} 
             setIsDark={setIsDark}
