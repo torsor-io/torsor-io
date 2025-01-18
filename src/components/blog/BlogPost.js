@@ -1,5 +1,5 @@
 // src/components/blog/BlogPost.js
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
@@ -127,12 +127,12 @@ useEffect(() => {
       
             {/* Navigation */}
             <div className={`flex items-center justify-between pt-6 border-t ${borderColor}`}>
-              <button 
-                onClick={() => navigate('blog')}
-                className={`${textColor} hover:opacity-80 transition-opacity flex items-center gap-2`}
-              >
-          <div className={`text-sm font-comm`}><i>← Back to blog</i></div>
-              </button>
+<Link 
+  to="/blog"  // or just "blog" works too with HashRouter
+  className={`${textColor} hover:opacity-80 transition-opacity flex items-center gap-2`}
+>
+  <div className={`text-sm font-comm`}><i>← Back to blog</i></div>
+</Link>
             </div>
           </motion.article>
         </main>
