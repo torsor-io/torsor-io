@@ -7,6 +7,7 @@ import BlogPost from './components/blog/BlogPost';  // Add this import
 import ResearchPage from './components/ResearchPage';
 import ProductsPage from './components/ProductsPage';
 import TeamPage from './components/TeamPage';
+import YawTemp from './components/YawTemp';
 
 const App = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -87,6 +88,14 @@ const App = () => {
         } />
         <Route path="/team" element={
           <TeamPage 
+            isDark={isDark} 
+            setIsDark={setIsDark}
+            waveState={waveState}
+            setWaveState={setWaveState}
+          />
+        } />
+        <Route path="/yaw" element={
+          <YawTemp 
             isDark={isDark} 
             setIsDark={setIsDark}
             waveState={waveState}

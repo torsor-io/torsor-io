@@ -53,7 +53,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 >
             <RocketLaunchIcon className={`h-6 w-6  ${textColor}`} />
           </a>
-	  <p>Check back soon! </p>
+	  <p>Subscribe for updates!</p>
 	  </div>
 	 </motion.div>
 	  </main>
