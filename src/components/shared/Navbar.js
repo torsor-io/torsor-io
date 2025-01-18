@@ -46,13 +46,13 @@ const Navbar = ({
       <header className={`fixed top-0 w-full ${headerBg} backdrop-blur-xl border-b ${borderColor} z-40`}>
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex space-x-8">
-            <a href="about" className={`${navText} hover:opacity-50 text-xl`}>
+            <a href="#about" className={`${navText} hover:opacity-50 text-xl`}>
               <HomeModernIcon className={`h-6 w-6 mt-0 mr-2 stroke-1 ${navText}`} />
             </a>
-            <a href="blog" className={`${navText} hover:opacity-50`}>Blog</a>
-            <a href="research" className={`${navText} hover:opacity-50`}>Research</a>
-            <a href="products" className={`${navText} hover:opacity-50`}>Products</a>
-            <a href="team" className={`${navText} hover:opacity-50`}>Team</a>
+            <a href="#blog" className={`${navText} hover:opacity-50`}>Blog</a>
+            <a href="#research" className={`${navText} hover:opacity-50`}>Research</a>
+            <a href="#products" className={`${navText} hover:opacity-50`}>Products</a>
+            <a href="#team" className={`${navText} hover:opacity-50`}>Team</a>
           </div>
         </nav>
       </header>

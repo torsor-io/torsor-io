@@ -115,7 +115,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         >
           {/* Yaw Card */}
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
-  <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}><a href="yaw">yaw</a></h3>
+  <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}><a href="#yaw">yaw</a></h3>
   <p className={subtleText}>
             A tech stack for planning, building and running high-level quantum software, based on a new approach to quantum computing.
             </p> 
