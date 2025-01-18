@@ -128,7 +128,7 @@ useEffect(() => {
             {/* Navigation */}
             <div className={`flex items-center justify-between pt-6 border-t ${borderColor}`}>
               <button 
-                onClick={() => navigate('/#blog')}
+                onClick={() => navigate('blog')}
                 className={`${textColor} hover:opacity-80 transition-opacity flex items-center gap-2`}
               >
           <div className={`text-sm font-comm`}><i>← Back to blog</i></div>
