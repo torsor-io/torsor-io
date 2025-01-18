@@ -566,7 +566,7 @@ const FileExplorer = ({ onClose }) => {
           {/* Active Directory */}
           <div 
       className="cursor-pointer flex items-center p-1 hover:bg-slate-400"
-      onClick={() => window.location.href = '/yaw'}
+      onClick={() => window.location.href = 'yaw'}
           >
           <img 
       src={folder}
@@ -1360,7 +1360,7 @@ useEffect(() => {
       top: 0.107,
       width: 0.165,
       height: 0.266,
-	hoverText: '/about',
+	hoverText: 'about',
 	visible:!weird
     },
     {
@@ -1864,7 +1864,7 @@ useEffect(() => {
 		    });
 		    // Short delay to allow state to update before navigation
 		    setTimeout(() => {
-			navigate('/about', { state: { frameRect } });
+			navigate('about', { state: { frameRect } });
 		    }, 50);
 		}
 		if (area.id === 'map') {

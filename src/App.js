@@ -34,7 +34,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={
+        <Route path="" element={
           <InteractiveLanding 
             isDark={isDark} 
             setIsDark={setIsDark}

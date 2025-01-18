@@ -57,7 +57,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             >
               {/* Title */}
               <h2 className={`text-2xl font-bold font-comfortaa ${textColor} mb-3`}>
-                <a href={`/blog/${post.id}`} className="hover:opacity-80 transition-opacity">
+                <a href={`blog/${post.id}`} className="hover:opacity-80 transition-opacity">
                   {post.title}
                 </a>
               </h2>
@@ -94,7 +94,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               
               {/* Read more link */}
               <a 
-                href={`/blog/${post.id}`}
+                href={`blog/${post.id}`}
                 className={`inline-block font-comm ${textColor} hover:opacity-80 transition-opacity`}
               >
                 <i className="text-sm">Read more →</i> 
