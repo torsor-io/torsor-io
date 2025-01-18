@@ -54,7 +54,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           className="space-y-12"
         >
           <div className={`text-lg text-center ${subtleText}`}>
-	  <p>This is a temporary placeholder; Yaw will get its own page soon.</p><br/>
+	  <p>Coming soon: link to a permanent homepage for Yaw, our next-gen quantum programming platform</p><br/>
 	  <a 
   href="mailto:updates@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >

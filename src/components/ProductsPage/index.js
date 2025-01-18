@@ -48,7 +48,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           className="space-y-12"
         >
           <div className={`text-lg text-center ${subtleText}`}>
-	  <p>Product briefs will live here!</p><br/>
+	  <p>Coming soon: product overviews, demos, and technical documentation</p><br/>
 	  <a 
   href="mailto:updates@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
