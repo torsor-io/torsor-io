@@ -5,7 +5,7 @@ export const blogPosts = [
   {
     "id": "HelloWorld",
     "title": "Hello world",
-    "date": "2025-01-13",
+    "date": "2025-01-18",
     "author": "David Wakeham (DW)",
     "tags": [
       "Announcements",
