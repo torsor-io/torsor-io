@@ -566,7 +566,7 @@ const FileExplorer = ({ onClose }) => {
           {/* Active Directory */}
           <div 
       className="cursor-pointer flex items-center p-1 hover:bg-slate-400"
-      onClick={() => window.location.href = 'yaw'}
+      onClick={() => window.location.href = '#yaw'}
           >
           <img 
       src={folder}
