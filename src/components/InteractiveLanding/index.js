@@ -7,7 +7,7 @@ import switchBg from '../../assets/bgS.png';
 import switchMapBg from '../../assets/bgMS.png';
 import switchLabBg from '../../assets/bgLS.png';
 import overlayBooks from '../../assets/overlayBooks.png';
-import audioFile1 from '../../assets/audio1.mp3';
+import audioFile1 from '../../assets/audio1.wav';
 import folder from '../../assets/folderIcon.png';
 import hiddenFolder from '../../assets/hiddenFolderIcon.png';
 import wrapTerminalText, { wrapTerminalLines } from '../../utils/textWrapper.js';
