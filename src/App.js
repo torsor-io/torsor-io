@@ -32,7 +32,7 @@ const App = () => {
   }, [isDark]);
 
   return (
-    <Router>
+    <Router basename="/">
       <Routes>
         <Route path="" element={
           <InteractiveLanding 
