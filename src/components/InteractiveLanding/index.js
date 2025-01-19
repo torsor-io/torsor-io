@@ -487,7 +487,7 @@ const encoder = [
     '⁙', // m
     '˥', // n
     '∿', // o
-    '𝖲', // p
+    '⛷', // p
     '◾', // q
     '◫', // r
     '⋉', // s
@@ -679,7 +679,7 @@ const Terminal = ({ onClose, isSwitched, setIsSwitched, books, setBooks, sudoMod
 
     // To remove?
     const godMessages = [
-	`Bla`
+	`No messages right now.`
     ];
     
     const handleKeyDown = (e) => {
@@ -734,8 +734,8 @@ const Terminal = ({ onClose, isSwitched, setIsSwitched, books, setBooks, sudoMod
 	'ψ˥λ∿⍾ψ': 'Turn words into symbolic gibberish.', //encode
 	//'∿♺⋒ψ⋉⏀ψ': 'Tickle the rsh hardware wavefunction.', //observe
 	'ы⋉ψψ𝆦': 'Directly contact CEO.', // greet
-	'λ∿⁙⁙𝒜˥ψ': 'Read mail from portal terminal.', //commune
-	'⏀ψ↻◫⍾⋉𝖲♂λψ': 'Open portal.', //weirdspace
+	//'λ∿⁙⁙𝒜˥ψ': 'Read mail from portal terminal.', //commune
+	'⏀ψ↻◫⍾⋉⛷♂λψ': 'Open portal.', //weirdspace
 	// Add more secret commands
     };
     
