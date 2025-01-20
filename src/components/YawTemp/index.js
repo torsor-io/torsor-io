@@ -56,7 +56,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           <div className={`text-lg text-center ${subtleText}`}>
 	  <p>Coming soon: link to a permanent homepage for Yaw, our next-gen quantum programming platform.</p><br/>
 	  <a 
-  href="mailto:updates@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+  href="mailto:contact@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
             <RocketLaunchIcon className={`h-6 w-6  ${textColor}`} />
           </a>
