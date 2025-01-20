@@ -1586,7 +1586,7 @@ useEffect(() => {
     top: 0.539,
     width: 0.006,  // Books are typically narrow
     height: 0.115,  // and tall
-    hoverText: '𝖲',
+    hoverText: '⛷',
 	  link: 'https://raymondsmullyan.com/',
 	  	visible:(books && !weird)
       },
