@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Puzzle from './components/InteractiveLanding';
 import AboutPage from './components/AboutPage';
 import BlogPage from './components/blog';
-import BlogPost from './components/blog/BlogPost';  // Add this import
+import BlogPost from './components/blog/BlogPost'; 
 import ResearchPage from './components/ResearchPage';
 import ProductsPage from './components/ProductsPage';
 import TeamPage from './components/TeamPage';
