@@ -105,7 +105,22 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
+            >
+
+	        {/* Mission Section */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="max-w-3xl mx-auto text-center"
         >
+<h2 className={`text-3xl font-comfortaa font-bold ${textColor} mb-6`}><a href="/#puzzle">Shift reality.</a></h2>
+	    <p className={`${subtleText} text-lg mb-8`}>
+	    Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems. We also believe in making our ideas accessible, and crafting products that improve people's lives.
+          </p>
+<p className={`${subtleText} text-lg mb-8`}>
+Check out <a href="#team" className="underline">careers</a> if this sounds like your jam!
+</p>
         {/* Projects Grid */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -139,20 +154,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             </motion.div>
 	    </motion.div>
 
-        {/* Mission Section */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="max-w-3xl mx-auto text-center"
-        >
-<h2 className={`text-3xl font-comfortaa font-bold ${textColor} mb-6`}><a href="/#puzzle">Shift reality.</a></h2>
-	    <p className={`${subtleText} text-lg mb-8`}>
-	    Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems. We also believe in making our ideas accessible, and crafting products that improve people's lives.
-          </p>
-<p className={`${subtleText} text-lg mb-8`}>
-Check out <a href="#team" className="underline">careers</a> if this sounds like your jam!
-</p>          <a 
+          <a 
   href="mailto:contact@rsh.dev"
   className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
