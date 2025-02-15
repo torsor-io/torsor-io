@@ -132,7 +132,7 @@ Check out <a href="#team" className="underline">careers</a> if this sounds like 
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}><a href="#yaw">yaw</a></h3>
   <p className={subtleText}>
-            What 
+            Is quantum programming more than machine code?
             </p> 
           </div>
 
@@ -140,7 +140,7 @@ Check out <a href="#team" className="underline">careers</a> if this sounds like 
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>ςil</h3>
   <p className={subtleText}>
-            A cryptographic framework for watermarking AI-generated content and constructing traceable agent workflows.
+            How can we future-proof our Turing tests?
             </p>
           </div>
 
@@ -148,7 +148,7 @@ Check out <a href="#team" className="underline">careers</a> if this sounds like 
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa font-bold text-2xl ${textColor} mb-3`}>paχ</h3>
   <p className={subtleText}>
-            A partially centralized cryptosystem where computation is distributed in a scalable, verifiable way by untrusted core nodes.
+            Are fully decentralized protocols actually necessary?
             </p>
           </div>
             </motion.div>
