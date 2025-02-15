@@ -117,7 +117,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}><a href="#yaw">yaw</a></h3>
   <p className={subtleText}>
-            A tech stack for planning, building and running high-level quantum software, based on a new approach to quantum computing.
+            Plan, build and run high-level quantum software, using a new approach to quantum computing.
             </p> 
           </div>
 
@@ -146,12 +146,12 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-3xl mx-auto text-center"
         >
-<h2 className={`text-3xl font-comfortaa font-bold ${textColor} mb-6`}><a href="/puzzle">Shift reality.</a></h2>
+<h2 className={`text-3xl font-comfortaa font-bold ${textColor} mb-6`}><a href="/#puzzle">Shift reality.</a></h2>
 	    <p className={`${subtleText} text-lg mb-8`}>
 	    Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems. We also believe in making our ideas accessible, and crafting products that improve people's lives.
           </p>
 <p className={`${subtleText} text-lg mb-8`}>
-Check out <a href="team" className="underline">careers</a> if this sounds like your jam!
+Check out <a href="#team" className="underline">careers</a> if this sounds like your jam!
 </p>          <a 
   href="mailto:contact@rsh.dev"
   className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
