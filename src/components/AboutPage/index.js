@@ -31,9 +31,10 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const headerBg = isDark ? 'bg-slate-900/80' : 'bg-amber-50/70';
   const borderColor = isDark ? 'border-slate-800' : 'border-stone-300';
   const cardBg = isDark ? 'bg-slate-800/50' : 'bg-orange-100/50';
+  const cardBgOff = isDark ? 'bg-slate-800/20' : 'bg-orange-100/20';
   const buttonBg = isDark ? 'bg-slate-800/50 hover:bg-slate-700/50' : 'bg-orange-100/50 hover:bg-orange-200';
-    const logo = isDark ? LogoNight : LogoDay;
-    const footerColor = isDark ? 'to-slate-1000' : 'to-amber-100'
+  const logo = isDark ? LogoNight : LogoDay;
+  const footerColor = isDark ? 'to-slate-1000' : 'to-amber-100'
   const gradientBg = isDark 
   ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
 	: 'bg-gradient-to-b from-amber-50 to-amber-100';
