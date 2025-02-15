@@ -156,7 +156,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 Check out <a href="#team" className="underline">careers</a> if this sounds like your jam!
 </p>
           <a 
-  href="mailto:contact@rsh.dev"
+  href="mailto:contact@torsor.io"
   className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
             <ChatBubbleBottomCenterTextIcon className={`h-6 w-6  ${textColor}`} />
