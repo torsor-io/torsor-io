@@ -118,7 +118,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}><a href="#yaw">yaw</a></h3>
   <p className={subtleText}>
-            Is quantum programming more than machine code?
+            Can quantum programming be more than machine code? And how does this tie into near-term applications?
             </p> 
           </div>
 
@@ -126,7 +126,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>ςil</h3>
   <p className={subtleText}>
-            How can we future-proof our Turing tests?
+            How can we future-proof our Turing tests? Are there ways to enforce chains of trust in distributed agent workflows?
             </p>
           </div>
 
@@ -134,7 +134,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa font-bold text-2xl ${textColor} mb-3`}>paχ</h3>
   <p className={subtleText}>
-            Are fully decentralized protocols actually necessary?
+            If trust is the main issue, are fully decentralized protocols actually necessary?
             </p>
           </div>
             </motion.div>
