@@ -668,7 +668,7 @@ const Terminal = ({ onClose, isSwitched, setIsSwitched, books, setBooks, sudoMod
       
     </span> 
     : 
-    'Welcome to the Redshift Shell! (rsh v1.0.0)'
+    'Welcome to the Fibre! (fbr v1.0.0)'
 ]);
     const [currentInput, setCurrentInput] = useState('');
     const inputRef = useRef(null);
@@ -762,7 +762,7 @@ const Terminal = ({ onClose, isSwitched, setIsSwitched, books, setBooks, sudoMod
 	    const face1 = faces[roll1-1];
 	    const face2 = faces[roll2-1];
 	    const emailBody = `Dear talent community management,\n\nI used the secret \`dice\` command on rsh and rolled ${face1} and ${face2} (question ${sum}):\n\n"${question}"\n\nMy answer follows:`;
-	    window.location.href = `mailto:careers@rsh.dev?subject=Redshift Labs Application&body=${encodeURIComponent(emailBody)}`;
+	    window.location.href = `mailto:careers@torsor.io?subject=Torsor Labs Application&body=${encodeURIComponent(emailBody)}`;
 	    return [`Opening email client with dice roll ${face1}+${face2}...`];
 	}
       
@@ -804,8 +804,8 @@ const Terminal = ({ onClose, isSwitched, setIsSwitched, books, setBooks, sudoMod
 		  return ['Portal closed.'];
 	      }
 	  case 'greet': {
-	      window.location.href = 'mailto:david@rsh.dev';
-	      return ['Opening direct line to CEO...'];
+	      window.location.href = 'mailto:david@torsor.io';
+	      return ['Opening direct line to founder...'];
 	  }
 	  case 'encode': {
 	      if (args.length < 2) {
@@ -887,13 +887,13 @@ const Terminal = ({ onClose, isSwitched, setIsSwitched, books, setBooks, sudoMod
       switch(command.toLowerCase()) {
       case 'echo':
 	  if (args.join(' ') === '$HOME') {
-              return ['/Canada/British_Columbia/Vancouver/Redshift_Labs'];
+              return ['/Canada/British_Columbia/Vancouver/Torsor_Labs'];
 	  }
 	  if (args.join(' ') === '$FOUNDER') {
-              return ['/Canada/British_Columbia/Vancouver/Redshift_Labs/David_Wakeham'];
+              return ['/Canada/British_Columbia/Vancouver/Torsor_Labs/David_Wakeham'];
 	  }
 	  if (args.join(' ') === '$TERM') {
-              return ['rshterm'];
+              return ['fbr'];
 	  }
 	  return [args.join(' ')];
       
@@ -977,7 +977,7 @@ case 'cd':
 	    output = [
 		'Available commands:',
 		'  help   - Show this help message.',
-		'  man    - About Redshift Labs.',
+		'  man    - About Torsor Labs.',
 		'  jobs   - Careers and openings.',
 		'  mail   - Contact us.',
 		'  clear  - Clear terminal.',
@@ -997,7 +997,7 @@ case 'cd':
 	    output = [
 		'Available commands:',
 		'  help  - Show this help message.',
-		'  man   - About Redshift Labs.',
+		'  man   - About Torsor Labs.',
 		'  jobs  - Careers and openings.',
 		'  mail  - Contact us.',
 		'  clear - Clear terminal.',
@@ -1016,7 +1016,7 @@ case 'cd':
 	}
       case 'man':
         return [
-	    `REDSHIFT LABS\nRedshift Labs is a startup focused on research-led innovation in various topics, including quantum computing, AI, and distributed systems. These innovations power beautiful and useful products that improve people's lives.\n-----`,
+	    `TORSOR LABS\nTorsor Labs is a startup focused on research-led innovation and bespoke consultancy on various topics, including quantum computing, AI, and distributed systems.\n-----`,
 	    `VALUES\nWe believe in:`,
 		`  •  Wonder, play, and the joy of discovery`,
 		`  •  Working with interdisciplinary abandon`,
@@ -1141,7 +1141,7 @@ const getCurrentDir = (path) => {
 	  onClick={(e) => e.stopPropagation()}>
         {/* Terminal Header */}
           <div className={!weird ? "border-b border-green-500/30 p-2 flex justify-between items-center" : "border-b border-red-200/30 p-2 flex justify-between items-center"}>
-          <span className={!weird ? "text-green-400 font-mono text-sm" : "text-red-500 font-mono text-sm"}>{weird ? 'göd' : 'rsh'}</span>
+          <span className={!weird ? "text-green-400 font-mono text-sm" : "text-red-500 font-mono text-sm"}>{weird ? 'göd' : 'fbr'}</span>
           <button 
             onClick={onClose}
       className={!weird ? "text-green-400 hover:text-green-300 transition-colors" : "text-red-500 hover:text-red-300 transition-colors"}
@@ -1345,7 +1345,7 @@ useEffect(() => {
   const areas = [
     {
       id: 'terminal',
-      name: 'Redshift Shell',
+      name: 'Fibre',
       left: 0.269,   // 25% from left
       top: 0.54,    // 45% from top
       width: 0.145,  // 35% of image width
@@ -1864,7 +1864,7 @@ useEffect(() => {
 		    });
 		    // Short delay to allow state to update before navigation
 		    setTimeout(() => {
-			navigate('about', { state: { frameRect } });
+			navigate('', { state: { frameRect } });
 		    }, 50);
 		}
 		if (area.id === 'map') {
