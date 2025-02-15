@@ -124,7 +124,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           </div>
 
           {/* Sigil Card */}
-<div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
+<div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>ςil</h3>
   <p className={subtleText}>
             How can we future-proof our Turing tests? Are there ways to enforce chains of trust in distributed agent workflows?
@@ -132,7 +132,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           </div>
 
           {/* Paχ Card */}
-<div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
+<div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa font-bold text-2xl ${textColor} mb-3`}>paχ</h3>
   <p className={subtleText}>
             If trust is the main concern, are fully decentralized protocols actually necessary, or is partial centralization possible?
