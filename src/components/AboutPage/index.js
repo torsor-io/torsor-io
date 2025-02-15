@@ -92,12 +92,12 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	    <p className={`text-xl ${subtleText} max-w-3xl mx-auto font-poppins`}>
 	    <div className="mb-4 flex justify-center items-center">	    <img
 	src={logo}
-      alt="Redshift Logo" 
+      alt="Torsor Logo" 
       className="w-1/2 h-1/2 object-cover"
 	    />
 	    </div>
-            <b>Redshift Labs</b> is a deep tech startup based in Vancouver, BC. We turn cutting-edge research on quantum computing, AI, and
-        distributed systems into beautiful and useful products.
+            <b>Torsor Labs</b> is a startup performing fundamental research on quantum computing, AI, and distributed systems.
+	    We offer bespoke research consulting, and make our research available through open source software and high-quality educational materials.
           </p>
         </motion.div>
 
