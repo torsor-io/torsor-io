@@ -90,7 +90,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	    <h1 className={`font-young text-4xl sm:text-5xl font-bold ${textColor} mb-6`}>
 	</h1>
 	    <p className={`text-xl ${subtleText} max-w-3xl mx-auto font-poppins`}>
-	    <div className="mb-14 flex justify-center items-center">	    <img
+	    <div className="mb-4 flex justify-center items-center">	    <img
 	src={logo}
       alt="Redshift Logo" 
       className="w-1/2 h-1/2 object-cover"
