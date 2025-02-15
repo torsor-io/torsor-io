@@ -134,7 +134,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa font-bold text-2xl ${textColor} mb-3`}>paχ</h3>
   <p className={subtleText}>
-            If trust is the main issue, are fully decentralized protocols actually necessary?
+            If trust is the main concern, are fully decentralized protocols actually necessary? Or is partial centralization with more robust protocols possible?
             </p>
           </div>
             </motion.div>
