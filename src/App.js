@@ -1,6 +1,6 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import InteractiveLanding from './components/InteractiveLanding';
+import Puzzle from './components/InteractiveLanding';
 import AboutPage from './components/AboutPage';
 import BlogPage from './components/blog';
 import BlogPost from './components/blog/BlogPost';  // Add this import
@@ -35,8 +35,8 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="" element={
-          <InteractiveLanding 
+        <Route path="puzzle" element={
+          <Puzzle 
             isDark={isDark} 
             setIsDark={setIsDark}
             isSwitched={isSwitched}
@@ -47,7 +47,7 @@ const App = () => {
             setWeird={setWeird}
           />
         } />
-        <Route path="about" element={
+        <Route path="" element={
           <AboutPage 
             isDark={isDark} 
             setIsDark={setIsDark}
