@@ -92,7 +92,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	</h1>
 	    <p className={`text-xl ${subtleText} max-w-3xl mx-auto font-poppins`}>
 <div class="mb-4 flex justify-center items-center">
-  <a href="/#puzzle">
+  <a href="/#puzzle" class="inline-block">
     <img 
       src={logo} 
       alt="Torsor Logo" 
