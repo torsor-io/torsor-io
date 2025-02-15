@@ -91,12 +91,15 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	    <h1 className={`font-young text-4xl sm:text-5xl font-bold ${textColor} mb-6`}>
 	</h1>
 	    <p className={`text-xl ${subtleText} max-w-3xl mx-auto font-poppins`}>
-	    <div className="mb-4 flex justify-center items-center">	  <a href="/#puzzle" class="inline-block"><img
-	src={logo}
+<div class="mb-4 flex justify-center items-center">
+  <a href="/#puzzle">
+    <img 
+      src={logo} 
       alt="Torsor Logo" 
-      className="w-1/2 h-1/2 object-cover"
-	    /></a>
-	    </div>
+      class="w-1/2 h-1/2 object-cover"
+    />
+  </a>
+</div>
             <b>Torsor Labs</b> performs fundamental research on quantum computing, AI, and distributed systems.
 	    We offer bespoke research consulting, develop open source software, and create high-quality educational materials in order to make our research is accessible and useful.
           </p>
