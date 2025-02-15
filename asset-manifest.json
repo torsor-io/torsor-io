@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.d1a602aa.css",
-    "main.js": "/static/js/main.95c078cd.js",
+    "main.js": "/static/js/main.7e55b794.js",
     "static/media/audio1.wav": "/static/media/audio1.69d7c7f09e86e23882bd.wav",
-    "static/media/bgLS.png": "/static/media/bgLS.8766c9072aa09b69e340.png",
     "static/media/bgMS.png": "/static/media/bgMS.6ed87699b673e626b2ad.png",
-    "static/media/bgL.png": "/static/media/bgL.a2989ed6e68c774f5a88.png",
     "static/media/bgM.png": "/static/media/bgM.a0cfa1e5e532da077513.png",
+    "static/media/bgLS.png": "/static/media/bgLS.8f93bea5190ee7dd3ad7.png",
     "static/media/bgS.png": "/static/media/bgS.5af4fe95ca706c015486.png",
+    "static/media/bgL.png": "/static/media/bgL.4d70e8bd0ee499763f7a.png",
     "static/media/bg.png": "/static/media/bg.2bf04d0ac3a199960271.png",
     "static/media/weirdspace.png": "/static/media/weirdspace.d74ea041452195780301.png",
     "static/media/overlayBooks.png": "/static/media/overlayBooks.1d0c4eca31c24c9199cb.png",
@@ -15,10 +15,10 @@
     "static/media/logonight.png": "/static/media/logonight.49ce77b4fe6aaf0ffa35.png",
     "index.html": "/index.html",
     "main.d1a602aa.css.map": "/static/css/main.d1a602aa.css.map",
-    "main.95c078cd.js.map": "/static/js/main.95c078cd.js.map"
+    "main.7e55b794.js.map": "/static/js/main.7e55b794.js.map"
   },
   "entrypoints": [
     "static/css/main.d1a602aa.css",
-    "static/js/main.95c078cd.js"
+    "static/js/main.7e55b794.js"
   ]
 }
