@@ -111,9 +111,8 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-3xl mx-auto"
             >
-<h2 className={`text-3xl font-comfortaa font-bold ${textColor} mb-6`}>The virtues of stupidity</h2>
 	    <p className={`${subtleText} text-lg mb-8`}>
-	  The word "torsor" comes from the French <i>torseur</i> for "twister".
+	    
           </p>
         </motion.div>
       </main>
