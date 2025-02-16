@@ -111,11 +111,11 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-3xl mx-auto"
             >
-	    <p className={`${subtleText} text-lg mb-8`}>
+	    <p className={`${subtleText} text-lg`}>
 	    Borges <a href="https://www.labster8.net/wp-content/uploads/2019/09/The-Fearful-Sphere-of-Pascal.pdf">writes</a> about the metaphor of the infinite sphere, whose
-	center is everywhere but whose circumference is nowhere. It starts with Hermes Tresmegistus as an assertion of the intelligibility of God, but ends with a despondent
-	Pascal who describes Nature as a "fearful sphere"; although Borges invents this quote, Pascal did write</p>
-	    <blockquote href="https://www.penseesdepascal.fr/Transition/Transition7-moderne.php"><i>Le silence éternel de ces espaces infinis m’effraie.</i></blockquote>
+	center is everywhere but whose circumference is nowhere. It starts with Hermes Tresmegistus as an assertion of the intelligibility of God, but ends with
+	    Pascal as a statement of imprisonment and loss. who describes Nature as a "fearful sphere"; although Borges invents this quote, Pascal <a href="https://www.penseesdepascal.fr/Transition/Transition7-moderne.php">did write</a></p>
+	    <blockquote className={`${subtleText} text-lg`} ><i>Le silence éternel de ces espaces infinis m’effraie.</i> (The eternal silence of these infinite spaces frightens me.)</blockquote>
             <p className={`${subtleText} text-lg mb-8`}>
 	    or
         </p>
