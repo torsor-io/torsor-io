@@ -112,16 +112,8 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
           className="max-w-3xl mx-auto"
         >
 	    <p className={`${subtleText} text-lg mb-8`}>
-	    How do you invent something genuinely new? I'm not sure. But I can tell you a few ways <i>not to</i> invent it:</p>
-<ul className={`${subtleText} text-lg mb-8`}>
-<li>Commission a panel of experts.</li>
-<li>Put it in your OKRs.</li>
-<li>Ask ChatGPT.</li>
-<li>Pay your employees to do it.</li>
-<li>Put it out to tender.</li>
-<li>Do a literature review.</li>
-<li>Take a course.</li>
-</ul>
+	  
+          </p>
         </motion.div>
       </main>
 
