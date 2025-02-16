@@ -112,7 +112,10 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
           className="max-w-3xl mx-auto"
         >
 	    <p className={`${subtleText} text-lg mb-8`}>
-	    How do you invent something new? I'm not sure, but I can tell you how not to do it:
+	    How do you invent something genuinely new? I'm not sure. But I can tell you some ways to <i>not to</i> invent it:
+<ul>
+<li></li>
+</ul>
 </p>
           <a 
   href="mailto:contact@torsor.io"
