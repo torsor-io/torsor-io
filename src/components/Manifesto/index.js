@@ -114,7 +114,7 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	    <p className={`${subtleText} text-lg mb-8`}>
 	    How do you invent something genuinely new? I'm not sure. But I can tell you a few ways <i>not to</i> invent it:
 <ul>
-<li>Convene a panel of experts.</li>
+<li>Commission a panel of experts.</li>
 <li>Put it in your OKRs.</li>
 <li>Ask ChatGPT.</li>
 <li>Ask ChatGPT.</li>
