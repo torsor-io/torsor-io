@@ -117,15 +117,9 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <li>Commission a panel of experts.</li>
 <li>Put it in your OKRs.</li>
 <li>Ask ChatGPT.</li>
-<li>Ask ChatGPT.</li>
+<li>Pay your employees to do it.</li>
 </ul>
 </p>
-          <a 
-  href="mailto:contact@torsor.io"
-  className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
->
-            <ChatBubbleBottomCenterTextIcon className={`h-6 w-6  ${textColor}`} />
-          </a>
         </motion.div>
       </main>
 
