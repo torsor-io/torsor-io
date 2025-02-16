@@ -1864,7 +1864,7 @@ useEffect(() => {
 		    });
 		    // Short delay to allow state to update before navigation
 		    setTimeout(() => {
-			navigate('https://torsor.io', { state: { frameRect } });
+			window.location.href = 'https://torsor.io';
 		    }, 50);
 		}
 		if (area.id === 'map') {
