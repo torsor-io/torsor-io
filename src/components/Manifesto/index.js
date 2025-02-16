@@ -118,6 +118,8 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <li>Put it in your OKRs.</li>
 <li>Ask ChatGPT.</li>
 <li>Pay your employees to do it.</li>
+<li>Put it out to tender.</li>
+<li>Hold a conference.</li>
 </ul>
 </p>
         </motion.div>
