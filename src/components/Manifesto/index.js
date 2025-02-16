@@ -116,7 +116,7 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	center is everywhere but whose circumference is nowhere. It starts with Hermes Tresmegistus as an assertion of the intelligibility of God, but ends with
 	    Pascal as a statement of imprisonment and loss. who describes Nature as a "fearful sphere"; although Borges invents this quote, Pascal <a href="https://www.penseesdepascal.fr/Transition/Transition7-moderne.php">did write</a></p>
 	    <blockquote className={`${subtleText} text-lg`} ><i>Le silence éternel de ces espaces infinis m’effraie.</i> (The eternal silence of these infinite spaces frightens me.)</blockquote>
-            <p className={`${subtleText} text-lg mb-8`}>
+            <p className={`${subtleText} text-lg`}>
 	    or
         </p>
         </motion.div>
