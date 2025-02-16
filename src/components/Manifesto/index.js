@@ -111,7 +111,6 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-3xl mx-auto text-center"
         >
-<h2 className={`text-3xl font-comfortaa font-bold ${textColor} mb-6`}><a href="/#puzzle">Shaped by difference.</a></h2>
 	    <p className={`${subtleText} text-lg mb-8`}>
 	    Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems.
 Check out <a href="#team" className="underline">careers</a> if this sounds like your jam!
