@@ -109,11 +109,10 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-3xl mx-auto"
         >
 	    <p className={`${subtleText} text-lg mb-8`}>
-	    Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems.
-Check out <a href="#team" className="underline">careers</a> if this sounds like your jam!
+	    How do you invent something new? I'm not sure, but I can tell you how not to do it:
 </p>
           <a 
   href="mailto:contact@torsor.io"
