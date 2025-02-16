@@ -112,8 +112,8 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
           className="max-w-3xl mx-auto"
             >
 	    <p className={`${subtleText} text-lg mb-8`}>
-	    Borges <a href="https://www.labster8.net/wp-content/uploads/2019/09/The-Fearful-Sphere-of-Pascal.pdf">writes</a> about the infinite sphere whose
-	center is everywhere but whose circumference is nowhere. This starts with Hermes Tresmegistus as an assertion of the intelligibility of God, but
+	    Borges <a href="https://www.labster8.net/wp-content/uploads/2019/09/The-Fearful-Sphere-of-Pascal.pdf">writes</a> about the metaphor of the infinite sphere, whose
+	center is everywhere but whose circumference is nowhere. It starts with Hermes Tresmegistus as an assertion of the intelligibility of God, but ends with Pascal
 	ends
           </p>
         </motion.div>
