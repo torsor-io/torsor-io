@@ -117,7 +117,7 @@ const Manifesto = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	    Pascal as a statement of the unknowability of Nature, or imprisonment and loss. Pascal calls it a "fearful sphere"; although Borges invents this quote, Pascal <a href="https://www.penseesdepascal.fr/Transition/Transition7-moderne.php">did write</a></p><br>
 	    <blockquote className={`${subtleText} text-lg items-center`} ><i>Le silence éternel de ces espaces infinis m’effraie</i></blockquote><br>
             <p className={`${subtleText} text-lg`}>
-	    or "The eternal silence of these infinite spaces frightens me."
+	    or "The eternal silence of these infinite spaces frightens me." A bad case of cosmic agoraphobia.
         </p>
         </motion.div>
       </main>
