@@ -4,64 +4,88 @@ import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
 
-const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
+const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
+  // ... existing theme variables ...
 
-  // Theme variables (matching your AboutPage)
-  const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
-  const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
-  const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
-  const headerBg = isDark ? 'bg-slate-900/80' : 'bg-amber-50/70';
-  const borderColor = isDark ? 'border-slate-800' : 'border-stone-300';
-  const buttonBg = isDark ? 'bg-slate-800/50 hover:bg-slate-700/50' : 'bg-orange-100/50 hover:bg-orange-200';
-  const gradientBg = isDark 
-  ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
-	: 'bg-gradient-to-b from-amber-50 to-amber-100';
-    
   return (
     <div className={`min-h-screen transition-colors`}>
-      	{/* Keep wave fixed */}
-	    <div className="fixed top-0 left-0 w-full h-full z-[-5] opacity-50">
-	    <WaveBackground isDark={isDark} waveState={waveState} />
-	  </div>
+      {/* ... existing wave and gradient backgrounds ... */}
+      
+      <div className="relative min-h-screen z-0">
+        <Navbar {...navbarProps} />
 
-      <div className={`fixed top-0 left-0 w-full h-full z-[-10] ${gradientBg} opacity-100 transition-colors`} />
+        {/* Main Content */}
+        <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-12"
+          >
+            {/* Paper Showcase */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Paper Image */}
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <img
+                    src="/path-to-your-paper-image.png"
+                    alt="Paper visualization"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Paper Details */}
+                <div className="space-y-4">
+                  <h2 className={`text-2xl font-bold ${textColor}`}>
+                    Your Paper Title
+                  </h2>
+                  <p className={`${subtleText} text-sm`}>
+                    Authors • Date
+                  </p>
+                  <p className={`${subtleText}`}>
+                    Your edited abstract goes here. Make it engaging and accessible
+                    while maintaining academic rigor.
+                  </p>
+                  <div className="flex space-x-4">
+                    
+                      href="/path-to-paper"
+                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
+                    >
+                      Read Paper
+                    </a>
+                    
+                      href="/path-to-code"
+                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
+                    >
+                      View Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
 
-	  <div className="relative min-h-screen z-0">
-      {/* Navbar */}
-      <Navbar 
-        isDark={isDark}
-        setIsDark={setIsDark}
-        waveState={waveState}
-        setWaveState={setWaveState}
-        headerBg={headerBg}
-        borderColor={borderColor}
-        navText={navText}
-        buttonBg={buttonBg}
-      />
-
-      {/* Main Content */}
-      <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-12"
-        >
-          <div className={`text-lg text-center ${subtleText}`}>
-	  <p>Coming soon: our research papers, learning resources, and library.</p><br/>
-	  <a 
-  href="mailto:contact@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
->
-            <RocketLaunchIcon className={`h-6 w-6  ${textColor}`} />
-          </a>
-	  <p>Subscribe for updates!</p>
-	  </div>
-	 </motion.div>
-	  </main>
-	        {/* Footer */}
-	  </div>
+            {/* Existing Subscribe Section */}
+            <div className={`text-lg text-center ${subtleText}`}>
+              <p>More research papers, learning resources, and library coming soon.</p>
+              <br/>
+              <a 
+                href="mailto:contact@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!"
+                className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+              >
+                <RocketLaunchIcon className={`h-6 w-6 ${textColor}`} />
+              </a>
+              <p>Subscribe for updates!</p>
+            </div>
+          </motion.div>
+        </main>
+      </div>
     </div>
   );
 };
 
-export default BlogPage;
+export default ResearchPage;
