@@ -67,18 +67,18 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 {/* Paper Details */}
                 <div className="space-y-4">
                   <h2 className={`text-2xl font-bold ${textColor}`}>
-                    Your Paper Title
+          A Short History of Rocks
                   </h2>
                   <p className={`${subtleText} text-sm`}>
-                    Authors • Date
+          David Wakeham • February 17, 2025
                   </p>
                   <p className={`${subtleText}`}>
-                    Your edited abstract goes here. Make it engaging and accessible
-                    while maintaining academic rigor.
+                    This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, the in- troduction of reversible circuits, and Richard Feynman’s allied pro- posal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor in- deed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing—in 1946. <br>
+Feynman suggested we “quantize” state, and turn classically re- versible circuits into quantum reversible, unitary ones. In contrast, we speculate that von Neumann, with his background in functional analysis and quantum logic, would seek to “quantize” the operators of Boolean algebra, and with tools made available in 1946 could suc- cessfully do so. This leads to a simpler, more flexible circuit calculus and beautiful parallels to classical logic, as we detail in a forthcoming companion paper.
                   </p>
                   <div className="flex space-x-4">
                     
-                      <a href="/assets/rocks.pdf"
+                      <a href="./assets/rocks.pdf"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
                       Read Paper
