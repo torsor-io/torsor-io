@@ -60,7 +60,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <img
                     src="/assets/rocks/johnny.png"
                     alt="Paper visualization"
-                    className="w-full h-full object-cover"
+                    className="w-1/2 h-full object-cover"
                   />
                 </div>
                 
@@ -68,7 +68,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 <div className="space-y-4">
                   <h2 className={`text-2xl font-bold ${textColor}`}>
           A Short History of Rocks
-                  </h2>
+      </h2> <h3 className={`text-xl font-bold ${textColor}`}><i>Or, How to Invent Quantum Computing</i></h3>
                   <p className={`${subtleText} text-sm`}>
           David Wakeham • February 17, 2025
                   </p>
