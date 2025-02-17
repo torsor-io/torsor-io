@@ -8,26 +8,40 @@ import { useState } from 'react';
 const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const [expandedCase, setExpandedCase] = useState(null);
   
+      // Theme variables (matching your AboutPage)
   const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
-  const subtleText = isDark ? 'text-slate-300' : 'text-stone-700';
+  const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
+  const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
   const headerBg = isDark ? 'bg-slate-900/80' : 'bg-amber-50/70';
   const borderColor = isDark ? 'border-slate-800' : 'border-stone-300';
-  const cardBg = isDark ? 'bg-slate-800/50' : 'bg-orange-100/50';
-
-  const caseStudies = [
-    {
-      id: 'fidelity',
-      logo: '/logos/fidelity.png',
-      title: 'Quantum ML for Financial Services',
-      brief: 'Developed novel quantum machine learning approaches',
-      details: `Led the development of innovative quantum machine learning techniques
-                in collaboration with Fidelity Investments, focusing on...`
-    },
-    // Add other case studies
-  ];
-
+  const buttonBg = isDark ? 'bg-slate-800/50 hover:bg-slate-700/50' : 'bg-orange-100/50 hover:bg-orange-200';
+  const gradientBg = isDark 
+  ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
+	: 'bg-gradient-to-b from-amber-50 to-amber-100';
+    
   return (
-    <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <div className={`min-h-screen transition-colors`}>
+      	{/* Keep wave fixed */}
+	    <div className="fixed top-0 left-0 w-full h-full z-[-5] opacity-50">
+	    <WaveBackground isDark={isDark} waveState={waveState} />
+	  </div>
+
+      <div className={`fixed top-0 left-0 w-full h-full z-[-10] ${gradientBg} opacity-100 transition-colors`} />
+
+	  <div className="relative min-h-screen z-0">
+      {/* Navbar */}
+      <Navbar 
+        isDark={isDark}
+        setIsDark={setIsDark}
+        waveState={waveState}
+        setWaveState={setWaveState}
+        headerBg={headerBg}
+        borderColor={borderColor}
+        navText={navText}
+        buttonBg={buttonBg}
+      />
+	  <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+	  
       {/* Value Proposition */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
