@@ -1,4 +1,4 @@
-// src/components/TeamPage/index.js
+// src/components/ResearchPage/index.js
 import { RocketLaunchIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
@@ -6,7 +6,7 @@ import Navbar from '../shared/Navbar';
 
 const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 
-  // Theme variables (matching your AboutPage)
+      // Theme variables (matching your AboutPage)
   const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
   const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
   const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
@@ -39,27 +39,91 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         buttonBg={buttonBg}
       />
 
-      {/* Main Content */}
-      <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-12"
-        >
-          <div className={`text-med text-center ${subtleText}`}>
-	  <p>A</p><br/>
-	  <a 
-  href="mailto:contact@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+        {/* Main Content */}
+        <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-12"
+          >
+            {/* Paper Showcase */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Paper Image */}
+                <div className="aspect-auto rounded-lg overflow-hidden">
+                  <img
+                    src="/assets/team/david.png"
+                    alt="Paper visualization"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Paper Details */}
+                <div className="space-y-4">
+                  <h2 className={`text-2xl font-bold ${textColor}`}>
+          Meet the Founder
+      </h2>
+                  <p className={`${subtleText} text-sm`}>
+          David Wakeham • Founder and CEO
+                  </p>
+                  <p className={`${subtleText}`}>
+                    David
+                  </p>
+                  <div className="flex space-x-4">
+                    
+                      <a href="/assets/rocks/rocks.pdf"
+                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
+                    >
+                      Read Paper
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+{/* Talks and Posters Section */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+  className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
 >
-            <RocketLaunchIcon className={`h-6 w-6  ${textColor}`} />
-          </a>
-	  <p>Subscribe for updates!</p>
-	  </div>
-	 </motion.div>
-	  </main>
-	  
-	  </div>
+  <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
+    Talks and Posters
+  </h2>
+  <ul className="space-y-3">
+    <li>
+      <a 
+        href="/assets/qdays-poster.pdf" 
+        className={`${subtleText} hover:underline`}
+      >
+          "A New Foundation for Quantum Programming".
+      </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}><i>Quantum Days</i>, Feb 19–21, 2025.</a>
+    </li>
+    {/* Add more talks/posters as needed */}
+  </ul>
+</motion.div>
+      
+            {/* Existing Subscribe Section */}
+            <div className={`text-med text-center ${subtleText}`}>
+              <br/>
+              <a 
+                href="mailto:contact@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!"
+                className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+              >
+                <RocketLaunchIcon className={`h-6 w-6 ${textColor}`} />
+              </a>
+              <p>Subscribe for updates!</p>
+            </div>
+          </motion.div>
+        </main>
+      </div>
     </div>
   );
 };
