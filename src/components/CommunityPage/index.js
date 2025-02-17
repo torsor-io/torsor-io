@@ -95,7 +95,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             {/* Subscribe Section */}
           <div className={`text-lg text-center ${subtleText}`}>
 	  <a 
-  href="mailto:contacts@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+  href="mailto:contacts@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
             <RocketLaunchIcon className={`h-6 w-6  ${textColor}`} />
           </a>
