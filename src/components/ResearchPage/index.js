@@ -58,7 +58,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 {/* Paper Image */}
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <img
-                    src="/path-to-your-paper-image.png"
+                    src="./assets/johnny.png"
                     alt="Paper visualization"
                     className="w-full h-full object-cover"
                   />
