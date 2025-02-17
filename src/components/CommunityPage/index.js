@@ -46,9 +46,54 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="space-y-12"
-        >
+          >
+
+{/* Education Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
+                Education
+              </h2>
+              <div className={`${subtleText}`}>
+                <p className="mb-4">
+                  Tutorials, guides, and learning resources for quantum computing and related technologies.
+                </p>
+                <ul className="space-y-3">
+                  <li>Coming soon: Interactive tutorials on quantum programming</li>
+                  <li>Coming soon: Educational blog posts and articles</li>
+                  {/* Add more educational resources as they become available */}
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Open Source Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
+                Open Source
+              </h2>
+              <div className={`${subtleText}`}>
+                <p className="mb-4">
+                  Open source projects and contributions to the quantum computing community.
+                </p>
+                <ul className="space-y-3">
+                  <li>Coming soon: Yaw quantum development platform</li>
+                  <li>Coming soon: Documentation and examples</li>
+                  {/* Add more open source projects as they become available */}
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Subscribe Section */}
           <div className={`text-lg text-center ${subtleText}`}>
-	  <p>Coming soon: open source software, education.</p><br/>
 	  <a 
   href="mailto:contacts@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
