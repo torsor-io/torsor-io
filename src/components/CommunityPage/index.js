@@ -4,7 +4,7 @@ import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
 
-const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
+const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 
   // Theme variables (matching your AboutPage)
   const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
@@ -108,4 +108,4 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   );
 };
 
-export default BlogPage;
+export default CommunityPage;

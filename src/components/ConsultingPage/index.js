@@ -1,14 +1,12 @@
-// src/components/ProductsPage/index.js
+// src/components/CommunityPage/index.js
 import { RocketLaunchIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
-import { useState } from 'react';
 
 const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
-  const [expandedCase, setExpandedCase] = useState(null);
-  
-      // Theme variables (matching your AboutPage)
+
+  // Theme variables (matching your AboutPage)
   const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
   const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
   const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
@@ -40,84 +38,73 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         navText={navText}
         buttonBg={buttonBg}
       />
-	  <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-	  
-      {/* Value Proposition */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-16 text-center"
-      >
-        <h1 className={`text-4xl font-bold mb-6 ${textColor}`}>
-          Research-Driven Innovation
-        </h1>
-        <p className={`text-xl ${subtleText}`}>
-          We bring mathematical depth and novel approaches to complex technical challenges,
-          discovering insights that transform how you think about your problems.
-        </p>
-      </motion.section>
 
-      {/* Areas of Expertise */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="mb-16"
-      >
-        <h2 className={`text-2xl font-bold mb-6 ${textColor}`}>Areas of Expertise</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {['Quantum Computing Architecture', 'Hardware Co-design', 'Error Correction', 
-            'Algorithm Design'].map((area, i) => (
-            <div key={i} className={`p-4 rounded-lg ${cardBg} border ${borderColor}`}>
-              <h3 className={`font-bold ${textColor}`}>{area}</h3>
-            </div>
-          ))}
-        </div>
-      </motion.section>
+      {/* Main Content */}
+      <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-12"
+          >
 
-      {/* Case Studies */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-      >
-        <h2 className={`text-2xl font-bold mb-6 ${textColor}`}>Case Studies</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {caseStudies.map((study) => (
+{/* Education Section */}
             <motion.div
-              key={study.id}
-              className={`cursor-pointer p-4 rounded-lg ${cardBg} border ${borderColor}
-                         hover:scale-105 transition-transform`}
-              onClick={() => setExpandedCase(expandedCase === study.id ? null : study.id)}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
-              <img 
-                src={study.logo} 
-                alt={study.title}
-                className="w-full h-auto opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
+                Education
+              </h2>
+              <div className={`${subtleText}`}>
+                <p className="mb-4">
+                  Tutorials, guides, and learning resources for quantum computing and related technologies.
+                </p>
+                <ul className="space-y-3">
+                  <li>• <i>Coming soon:</i> Hacking reality</li>
+      {/* Add more educational resources as they become available */}
+                </ul>
+              </div>
             </motion.div>
-          ))}
-        </div>
 
-        <AnimatePresence>
-          {expandedCase && (
+            {/* Open Source Section */}
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className={`mt-4 p-6 rounded-lg ${cardBg} border ${borderColor}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
-              <h3 className={`text-xl font-bold mb-4 ${textColor}`}>
-                {caseStudies.find(s => s.id === expandedCase)?.title}
-              </h3>
-              <p className={subtleText}>
-                {caseStudies.find(s => s.id === expandedCase)?.details}
-              </p>
+              <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
+                Open source
+              </h2>
+              <div className={`${subtleText}`}>
+                <p className="mb-4">
+          Open source projects and documentation.
+                </p>
+                <ul className="space-y-3">
+                  <li>• <i>Coming soon:</i> The YAW Algebraic Way</li>
+                  <li>• <i>Coming soon:</i> Contribution guidelines</li>
+      {/* Add more open source projects as they become available */}
+                </ul>
+              </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.section>
-    </main>
+
+            {/* Subscribe Section */}
+          <div className={`text-med text-center ${subtleText}`}>
+	  <a 
+  href="mailto:contacts@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+>
+            <RocketLaunchIcon className={`h-6 w-6  ${textColor}`} />
+          </a>
+	  <p>Subscribe for updates!</p>
+	  </div>
+	 </motion.div>
+	  </main>
+
+	  </div>
+    </div>
   );
 };
 
