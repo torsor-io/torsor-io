@@ -46,48 +46,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="space-y-12"
-          >
-
-            {/* Paper Showcase */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
-            >
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Paper Image */}
-                <div className="aspect-auto rounded-lg overflow-hidden">
-                  <img
-                    src="/assets/rocks/johnny.png"
-                    alt="Paper visualization"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Paper Details */}
-                <div className="space-y-4">
-                  <h2 className={`text-2xl font-bold ${textColor}`}>
-          A Short History of Rocks
-      </h2>
-                  <p className={`${subtleText} text-sm`}>
-          David Wakeham • February 17, 2025
-                  </p>
-                  <p className={`${subtleText}`}>
-                    This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946.
-                  </p>
-                  <div className="flex space-x-4">
-                    
-                      <a href="/assets/rocks/rocks.pdf"
-                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
-                    >
-                      Read Paper
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-      
+        >
           <div className={`text-lg text-center ${subtleText}`}>
 	  <p>Coming soon: open source software, education.</p><br/>
 	  <a 
