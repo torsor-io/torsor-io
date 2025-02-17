@@ -69,6 +69,37 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </div>
             </motion.div>
 
+{/* Talks and Posters Section */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+  className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+>
+  <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
+    Talks and Posters
+  </h2>
+  <ul className="space-y-3">
+    <li>
+      <a 
+        href="/path-to-talk1" 
+        className={`${subtleText} hover:underline flex items-center`}
+      >
+        "Talk Title" - Conference Name, Date
+      </a>
+    </li>
+    <li>
+      <a 
+        href="/path-to-poster1" 
+        className={`${subtleText} hover:underline flex items-center`}
+      >
+        "Poster Title" - Conference Name, Date
+      </a>
+    </li>
+    {/* Add more talks/posters as needed */}
+  </ul>
+</motion.div>
+      
             {/* Existing Subscribe Section */}
             <div className={`text-lg text-center ${subtleText}`}>
               <p>More research papers, learning resources, and library coming soon.</p>
