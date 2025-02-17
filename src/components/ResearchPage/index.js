@@ -114,7 +114,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             <div className={`text-lg text-center ${subtleText}`}>
               <br/>
               <a 
-                href="mailto:contact@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!"
+                href="mailto:contact@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!"
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
                 <RocketLaunchIcon className={`h-6 w-6 ${textColor}`} />
