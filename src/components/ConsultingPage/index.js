@@ -48,7 +48,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           className="space-y-12"
           >
 
-{/* Education Section */}
+{/* Value prop Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -56,11 +56,11 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-                Education
+                Consulting services
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
-                  Tutorials, guides, and learning resources for quantum computing and related technologies.
+                  Torsor Labs offers 
                 </p>
                 <ul className="space-y-3">
                   <li>• <i>Coming soon:</i> Hacking reality</li>
