@@ -92,7 +92,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             </motion.div>
 
             {/* Subscribe Section */}
-          <div className={`text-lg text-center ${subtleText}`}>
+          <div className={`text-med text-center ${subtleText}`}>
 	  <a 
   href="mailto:contacts@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >

@@ -111,7 +111,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 </motion.div>
       
             {/* Existing Subscribe Section */}
-            <div className={`text-lg text-center ${subtleText}`}>
+            <div className={`text-med text-center ${subtleText}`}>
               <br/>
               <a 
                 href="mailto:contact@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!"
