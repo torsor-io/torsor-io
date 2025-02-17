@@ -64,7 +64,8 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 </p>
                 <ul className="space-y-3">
                   <li>• <i>Coming soon:</i> Interactive Yaw tutorials</li>
-                  {/* Add more educational resources as they become available */}
+                  <li>• <i>Coming soon:</i> Hacking reality</li>
+      {/* Add more educational resources as they become available */}
                 </ul>
               </div>
             </motion.div>
