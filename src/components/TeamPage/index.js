@@ -70,7 +70,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Meet the Founder
       </h2>
                   <p className={`${subtleText} text-sm`}>
-          David Wakeham • Founder and CEO
+          David Wakeham • Founder, CEO and Interdimensional Wizard
                   </p>
                   <p className={`${subtleText}`}>
           David has a PhD in string theory and black holes (UBC, 2022), a masters degree in particle physics, and undergraduate degrees in logic and mathematics.
