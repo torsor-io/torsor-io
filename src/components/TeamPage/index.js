@@ -73,14 +73,14 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           David Wakeham • Founder, CEO and Interdimensional Wizard
                   </p>
                   <p className={`${subtleText}`}>
-          David has a PhD in string theory and black holes (UBC, 2022), a masters degree in particle physics, and undergraduate degrees in logic and mathematics. He worked at <a href="https://www.xanadu.ai/">Xanadu</a> from 2022–25,
+          David has a PhD in string theory and black holes (UBC, 2022), a masters degree in particle physics, and undergraduate degrees in logic and mathematics. He worked at <a href="https://www.xanadu.ai/">Xanadu</a> from 2022–25, where he was one of the architects of the <a href="https://pennylane.ai/codebook">PennyLane Quantum Codebook</a>, an interactive, code-first introduction to quantum computing.
                   </p>
                   <div className="flex space-x-4">
                     
-                      <a href="/assets/rocks/rocks.pdf"
+                      <a href="https://hapax.github.io/"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
-                      Read Paper
+                      Personal website
                     </a>
                   </div>
                 </div>
