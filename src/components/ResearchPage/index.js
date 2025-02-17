@@ -58,7 +58,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 {/* Paper Image */}
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <img
-                    src="./assets/rocks/johnny.png"
+                    src="/assets/rocks/johnny.png"
                     alt="Paper visualization"
                     className="w-full h-full object-cover"
                   />
@@ -77,7 +77,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   </p>
                   <div className="flex space-x-4">
                     
-                      <a href="./assets/rocksrocks.pdf"
+                      <a href="/assets/rocksrocks.pdf"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
                       Read Paper
