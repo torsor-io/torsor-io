@@ -48,7 +48,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           className="space-y-12"
         >
           <div className={`text-med text-center ${subtleText}`}>
-	  <p>Coming soon: information about our team, talent community, and career options.</p><br/>
+	  <p>A</p><br/>
 	  <a 
   href="mailto:contact@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
