@@ -101,10 +101,10 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
     <li>
       <a 
         href="/assets/qdays-poster.pdf" 
-        className={`${subtleText} hover:underline flex items-center`}
+        className={`${subtleText} hover:underline`}
       >
           "A New Foundation for Quantum Programming".
-      </a> <a href="https://2025.quantumdays.ca/">Quantum Days</a>, Feb 19–21, 2025.
+      </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}>Quantum Days</a>, Feb 19–21, 2025.
     </li>
     {/* Add more talks/posters as needed */}
   </ul>
@@ -112,7 +112,6 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       
             {/* Existing Subscribe Section */}
             <div className={`text-lg text-center ${subtleText}`}>
-              <p>More research papers, learning resources, and library coming soon.</p>
               <br/>
               <a 
                 href="mailto:contact@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!"
