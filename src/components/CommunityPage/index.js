@@ -63,7 +63,6 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   Tutorials, guides, and learning resources for quantum computing and related technologies.
                 </p>
                 <ul className="space-y-3">
-                  <li>• <i>Coming soon:</i> Interactive Yaw tutorials</li>
                   <li>• <i>Coming soon:</i> Hacking reality</li>
       {/* Add more educational resources as they become available */}
                 </ul>
@@ -82,11 +81,12 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
-          Open source projects, documentation, and contribution guidelines.
+          Open source projects and documentation.
                 </p>
                 <ul className="space-y-3">
                   <li>• <i>Coming soon:</i> The YAW Algebraic Way</li>
-                  {/* Add more open source projects as they become available */}
+                  <li>• <i>Coming soon:</i> Contribution guidelines</li>
+      {/* Add more open source projects as they become available */}
                 </ul>
               </div>
             </motion.div>
