@@ -5,62 +5,28 @@ import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
 
 const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
-  const location = useLocation();
-  const frameRect = location.state?.frameRect;
 
-// Calculate initial styles based on frame position
-  const initial = frameRect ? {
-    position: 'fixed',
-    left: frameRect.left,
-    top: frameRect.top,
-    width: frameRect.width,
-    height: frameRect.height,
-    scale: 1,
-  } : {
-    opacity: 0,
-  };
-    
+      // Theme variables (matching your AboutPage)
   const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
   const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
   const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
   const headerBg = isDark ? 'bg-slate-900/80' : 'bg-amber-50/70';
   const borderColor = isDark ? 'border-slate-800' : 'border-stone-300';
-  const cardBg = isDark ? 'bg-slate-800/50' : 'bg-orange-100/50';
-  const cardBgOff = isDark ? 'bg-slate-800/20' : 'bg-orange-100/20';
   const buttonBg = isDark ? 'bg-slate-800/50 hover:bg-slate-700/50' : 'bg-orange-100/50 hover:bg-orange-200';
-  const logo = isDark ? LogoNight : LogoDay;
-  const footerColor = isDark ? 'to-slate-1000' : 'to-amber-100'
   const gradientBg = isDark 
   ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
 	: 'bg-gradient-to-b from-amber-50 to-amber-100';
     
-    return (
-	<AnimatePresence>
-      <motion.div 
-        initial={initial}
-        animate={{
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          width: '100%',
-          height: 'auto',
-          scale: 1,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.5,
-          ease: [0.45, 0, 0.55, 1], // Smooth easing
-        }}
-        className={`min-h-screen ${gradientBg} transition-colors -z-10`}
-	    >
-	
-	    <div className={`min-h-screen transition-colors duration-800`}>
-
+  return (
+    <div className={`min-h-screen transition-colors`}>
       	{/* Keep wave fixed */}
-	    <div className="fixed top-0 left-0 w-full h-full -z-20 opacity-50">
+	    <div className="fixed top-0 left-0 w-full h-full z-[-5] opacity-50">
 	    <WaveBackground isDark={isDark} waveState={waveState} />
 	  </div>
-	
+
+      <div className={`fixed top-0 left-0 w-full h-full z-[-10] ${gradientBg} opacity-100 transition-colors`} />
+
+	  <div className="relative min-h-screen z-0">
       {/* Navbar */}
       <Navbar 
         isDark={isDark}
