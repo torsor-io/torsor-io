@@ -53,13 +53,13 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   </p>
                   <div className="flex space-x-4">
                     
-                      href="/assets/rocks.pdf"
+                      <a href="/assets/rocks.pdf"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
                       Read Paper
                     </a>
                     
-                      href="/path-to-code"
+                     <a href="/path-to-code"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
                       View Code
