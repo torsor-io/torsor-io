@@ -10,6 +10,6 @@ Reality has symmetries, but to find them, we need to draw the right maps. This i
 
 The "twister" part comes from the fact that torsors allow the map to *change*. A familar example is the globe revolving on its axis; at each point in time, it's a sphere, but from moment to moment the description *twists*. This idea of shifting, connected patterns of symmetry is another basic phenomenon of research. Insights from one realm can often be ported directly to another, provided we draw the right maps and think big. So, "torsor" neatly packages some crucial insights into the nature of reality and ways of understanding it.
 
-**Torsor Labs** is a place we'll be drawing these maps. We hope to solve real problems, but let the maps dictate those problems rather than the other way round. Our initial focus is on a new high-level approach to quantum programming, but that's just the beginning. If you're interested in [joining our team](https://torsor.io/#team) or [exploring research possibilities](https://torsor.io/#consulting), we'd love to hear from you.
+At **Torsor Labs**, we'll be drawing these maps. We hope to solve real problems, but we'll let the maps dictate the problems rather than the other way round. Our initial focus is on a new high-level approach to quantum programming, but that's just the beginning. If you're interested in [joining our team](https://torsor.io/#team) or [exploring research possibilities](https://torsor.io/#consulting), we'd love to hear from you.
 
 Welcome to Torsor Labs. Reality is beautifully twisted.
