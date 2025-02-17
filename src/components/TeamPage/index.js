@@ -73,7 +73,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           David Wakeham • Founder, CEO and Interdimensional Wizard
                   </p>
                   <p className={`${subtleText}`}>
-          David has a PhD in string theory and black holes (UBC, 2022), a masters degree in particle physics, and undergraduate degrees in logic and mathematics.
+          David has a PhD in string theory and black holes (UBC, 2022), a masters degree in particle physics, and undergraduate degrees in logic and mathematics. He worked at <a href="https://www.xanadu.ai/">Xanadu</a> from 2022–25,
                   </p>
                   <div className="flex space-x-4">
                     
@@ -87,15 +87,15 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </div>
             </motion.div>
 
-{/* Talks and Posters Section */}
+{/* Join us */}
 <motion.div
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, delay: 0.3 }}
   className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
 >
-  <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-    Talks and Posters
+  <h2 className={`text-2xl font-bold ${textColor} mb-4 items-center`}>
+    Join us
   </h2>
   <ul className="space-y-3">
     <li>
