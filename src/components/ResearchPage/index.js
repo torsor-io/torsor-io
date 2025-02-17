@@ -60,7 +60,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <img
                     src="/assets/rocks/johnny.png"
                     alt="Paper visualization"
-                    className="w-1/2 h-full object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 
