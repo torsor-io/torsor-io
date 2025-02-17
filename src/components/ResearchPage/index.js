@@ -108,10 +108,10 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
     </li>
     <li>
       <a 
-        href="/path-to-poster1" 
+        href="/assets/qdays-poster.pdf" 
         className={`${subtleText} hover:underline flex items-center`}
       >
-        "Poster Title" - Conference Name, Date
+          <i>A New Foundation for Quantum Programming</i>. <a href="https://2025.quantumdays.ca/">Quantum Days</a>, Feb 19–21, 2025.
       </a>
     </li>
     {/* Add more talks/posters as needed */}
