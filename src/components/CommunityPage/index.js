@@ -63,8 +63,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   Tutorials, guides, and learning resources for quantum computing and related technologies.
                 </p>
                 <ul className="space-y-3">
-                  <li>• Coming soon: Interactive tutorials on quantum programming</li>
-                  <li>• Coming soon: Educational blog posts and articles</li>
+                  <li>• <i>Coming soon:</i> Interactive Yaw tutorials</li>
                   {/* Add more educational resources as they become available */}
                 </ul>
               </div>
