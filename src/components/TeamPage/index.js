@@ -115,7 +115,7 @@ Applying is simple! Please visit the <a href="/#puzzle" className={`hover:underl
               >
                 <UserGroupIcon className={`h-6 w-6 ${textColor}`} />
               </a>
-              <p>Subscribe for updates!</p>
+              <p>Want keep up to date with openings?</p>
             </div>
           </motion.div>
         </main>
