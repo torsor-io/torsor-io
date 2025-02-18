@@ -104,7 +104,6 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 >
             <LightBulbIcon className={`h-6 w-6  ${textColor}`} />
           </a>
-	  	  <p>Have a bright idea you want to talk about? Hit us up!</p>
       </div>
 	  
 	 </motion.div>
