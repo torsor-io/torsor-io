@@ -21,7 +21,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 const cases = [
     {
       id: 'fidelity',
-      logo: '/logos/fidelity.png',
+      logo: '/logos/fidinv.png',
       title: 'Fidelity Investments',
       brief: 'Developed novel quantum statistical methods for financial outlier detection, advancing fundamental understanding of QFT-based quantum machine learning.'
     },
@@ -88,7 +88,7 @@ const cases = [
                 <ul className="space-y-1 mb-4">
                   <li>• setting up open, creative, and effective research cultures;</li>
                   <li>• framing new research programs;</li>
-                  <li>• conducting domain audits to help surface questions.</li>
+                  <li>• conducting domain audits to surface new lines of inquiry.</li>
                 </ul>
                 <p>
                   In short, we can teach you to fish, help you land the big one, or both. Get in touch to talk how we can help shape your research process!
