@@ -69,7 +69,6 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       {/* Add more educational resources as they become available */}
       </ul>
 	  <p className="mb-2">
-	  Get access to world-class thinkers with unique interdisciplinary perspectives and problem-solving nous.
           But as much as we like solving problems, we like helping clients <i>ask the right questions</i> even more. We can assist in:</p>
        <ul className="space-y-2 mb-2">
           <li>• setting up open, creative, and effective research cultures;</li>
