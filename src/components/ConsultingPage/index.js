@@ -93,18 +93,7 @@ const cases = [
                 <p>
                   In short, we can teach you to fish or help you land the big one. Get in touch to talk about how we can help shape your research process!
                 </p>
-              </div>
-            </motion.div>
 
-{/* Case Studies Section */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.3 }}
-  className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
->
-  <h2 className={`text-2xl font-bold ${textColor} mb-4`}>Case studies</h2>
-  <div className="space-y-6">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {cases.map((study) => (
         <motion.div
