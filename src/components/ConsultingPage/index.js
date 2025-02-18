@@ -61,9 +61,12 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               <div className={`${subtleText}`}>
                 <p className="mb-4">
           <b>Torsor Labs</b> offers bespoke research consulting, with a primary focus on quantum software and algorithms.
+	  Our goal is to answer questions no one else can.
+	  Here are a few
                 </p>
-                <ul className="space-y-3">
-                  <li>• <i>Coming soon:</i> Hacking reality</li>
+                <ul className="space-y-2">
+                  <li>• How can we solve differential equations with boson sampling?</li>
+                  <li>• How can we solve differential equations with boson sampling?</li>
       {/* Add more educational resources as they become available */}
                 </ul>
               </div>
