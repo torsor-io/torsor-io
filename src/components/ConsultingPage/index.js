@@ -56,7 +56,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-                Research consulting
+                Fish and fishing
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
@@ -97,7 +97,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	  <a 
   href="mailto:consulting@torsor.io" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
-            <ChatBubbleLeftRightIcon className={`h-6 w-6  ${textColor}`} />
+            <LightBulbIcon className={`h-6 w-6  ${textColor}`} />
           </a>
 	  <p>Subscribe for updates!</p>
 	  </div>
