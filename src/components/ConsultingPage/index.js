@@ -56,11 +56,11 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-                Consulting services
+                Shaped by difference
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
-          Torsor Labs offers bespoke research consulting, with a current focus on 
+          Have a tough research question in quantum algorithms or software?
                 </p>
                 <ul className="space-y-3">
                   <li>• <i>Coming soon:</i> Hacking reality</li>
