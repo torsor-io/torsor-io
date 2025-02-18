@@ -113,13 +113,13 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             {/* Existing Subscribe Section */}
             <div className={`text-med text-center ${subtleText}`}>
           <br/>
-	  <p>We love to chat research!</p>
               <a 
                 href="mailto:research@torsor.io"
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
                 <AcademicCapIcon className={`h-6 w-6 ${textColor}`} />
-              </a>
+          </a>
+	  	  <p>We love to chat research!</p>
             </div>
           </motion.div>
         </main>
