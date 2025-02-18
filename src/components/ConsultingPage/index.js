@@ -23,19 +23,19 @@ const cases = [
       id: 'fidelity',
       logo: '/logos/fidelity.png',
       title: 'Fidelity Investments',
-      brief: 'Developed novel quantum statistical methods for financial outlier detection, advancing fundamental understanding of QFT-based quantum machine learning applications in finance.'
+      brief: 'Developed novel quantum statistical methods for financial outlier detection, advancing fundamental understanding of QFT-based quantum machine learning.'
     },
     {
       id: 'xanadu',
       logo: '/logos/xanadu.png',
       title: 'Xanadu',
-      brief: 'Created a quantum adaptation of classical item analysis techniques, leading to breakthrough improvements in adaptive quantum Fourier transforms and significant reductions in sample complexity.'
+      brief: 'Extended Bahadur\'s classical item analysis to the quantum case, leading to dataset-adaptive quantum Fourier transform with a potential reduction in sample complexity.'
     },
     {
       id: 'unimelb',
       logo: '/logos/unimelb.png',
       title: 'University of Melbourne',
-      brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide, demonstrating our ability to turn technical insights into scalable solutions.'
+      brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide.'
     }
   ];
     
