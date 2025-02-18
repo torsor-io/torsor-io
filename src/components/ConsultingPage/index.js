@@ -1,5 +1,5 @@
 // src/components/CommunityPage/index.js
-import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid';
+import { LightBulbIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
@@ -56,17 +56,15 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-                Shaped by difference
+                Research consulting
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
-          <b>Torsor Labs</b> offers bespoke research consulting, with a primary focus on quantum software and algorithms.
-	  Our goal is to answer questions no one else can.
-	  Here are a few
+          <b>Torsor Labs</b> offers bespoke research consulting. Our goal is to 
                 </p>
                 <ul className="space-y-2">
                   <li>• How can we solve differential equations with boson sampling?</li>
-                  <li>• How can we solve differential equations with boson sampling?</li>
+                  <li>• What is the connection bet?</li>
       {/* Add more educational resources as they become available */}
                 </ul>
               </div>
@@ -80,13 +78,13 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-                Open source
+                Software consulting
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
           Open source projects and documentation.
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   <li>• <i>Coming soon:</i> The YAW Algebraic Way</li>
                   <li>• <i>Coming soon:</i> Contribution guidelines</li>
       {/* Add more open source projects as they become available */}
@@ -97,7 +95,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             {/* Subscribe Section */}
           <div className={`text-med text-center ${subtleText}`}>
 	  <a 
-  href="mailto:contacts@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+  href="mailto:consulting@torsor.io" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
             <ChatBubbleLeftRightIcon className={`h-6 w-6  ${textColor}`} />
           </a>
@@ -111,4 +109,4 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   );
 };
 
-export default ConsultingPage;
+export default LightBulbIcon;
