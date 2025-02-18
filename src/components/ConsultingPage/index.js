@@ -67,7 +67,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           <li>• Metrology, signal processing and machine learning</li>
 	  <li>• Technical outreach, education and cognitive media</li>
       {/* Add more educational resources as they become available */}
-      </ul>
+      </ul><br/>
 	  <p className="mb-4">
           We can help solve problems, but we are most interested in helping clients ask the right questions, 
                 </p>
