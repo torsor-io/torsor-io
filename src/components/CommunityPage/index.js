@@ -62,7 +62,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 <p className="mb-4">
                   Tutorials, guides, and learning resources for quantum computing and related technologies.
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   <li>• <i>Coming soon: </i>Learning guides</li>
                   <li>• <i>Coming soon:</i> Hacking reality</li>
       {/* Add more educational resources as they become available */}
@@ -84,7 +84,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 <p className="mb-4">
           Open source projects and documentation.
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   <li>• <i>Coming soon:</i> The YAW Algebraic Way</li>
                   <li>• <i>Coming soon:</i> Contribution guidelines</li>
       {/* Add more open source projects as they become available */}
