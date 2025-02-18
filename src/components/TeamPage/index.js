@@ -96,7 +96,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 >
 
 <p className={`${subtleText}`}>
-If you'd like to learn more about careers, please first visit the <a href="/#puzzle" className={`hover:underline`}>terminal</a> and try <tt>dice > mail</tt>.
+If you'd like to learn more about careers, please visit the <a href="/#puzzle" className={`hover:underline`}>fbr terminal</a> and input <tt>dice > mail</tt>.
 </p>
 </motion.div>
       
