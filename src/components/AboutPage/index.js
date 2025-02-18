@@ -3,7 +3,7 @@ import WaveBackground from '../shared/WaveBackground';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { PuzzlePieceIcon } from '@heroicons/react/24/outline';
+import { PuzzlePieceIcon } from '@heroicons/react/24/solid';
 import Navbar from '../shared/Navbar';
 import Footer from '../shared/Footer';
 import LogoDay from '../../assets/logoday.png';

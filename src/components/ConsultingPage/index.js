@@ -98,12 +98,13 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 
             {/* Subscribe Section */}
           <div className={`text-med text-center ${subtleText}`}>
+	  <p>Tell us about your problems!</p>
 	  <a 
   href="mailto:consulting@torsor.io" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
             <LightBulbIcon className={`h-6 w-6  ${textColor}`} />
           </a>
-	  <p>Subscribe for updates!</p>
+	  
 	  </div>
 	 </motion.div>
 	  </main>
