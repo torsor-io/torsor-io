@@ -82,7 +82,7 @@ const cases = [
                   <li>• technical outreach and education.</li>
                 </ul>
                 <p className="mb-4">
-                  This leverages our domain expertise on quantum programming and QML and unique interdisciplinary perspective. 
+                  This leverages our domain expertise and unique interdisciplinary perspective. 
                   As much as we like solving problems, we like helping clients ask the right questions even more. We can assist in:
                 </p>
                 <ul className="space-y-1 mb-4">
