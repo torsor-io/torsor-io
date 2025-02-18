@@ -83,7 +83,7 @@ const cases = [
                 </ul>
                 <p className="mb-4">
                   This leverages our domain expertise and unique interdisciplinary perspective. 
-                  As much as we like solving problems, we like helping clients ask the right questions even more. We can assist in:
+                  As much as we like solving problems, we like helping people ask the right questions even more. We can assist in:
                 </p>
                 <ul className="space-y-1 mb-4">
                   <li>• setting up open, creative, and effective research cultures;</li>
