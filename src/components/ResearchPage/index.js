@@ -119,6 +119,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               >
                 <AcademicCapIcon className={`h-6 w-6 ${textColor}`} />
           </a>
+	  	  <p></p>
             </div>
           </motion.div>
         </main>

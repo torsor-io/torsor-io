@@ -115,6 +115,7 @@ Applying is simple! Please visit the <a href="/#puzzle" className={`hover:underl
               >
                 <UserGroupIcon className={`h-6 w-6 ${textColor}`} />
               </a>
+              <p></p>
             </div>
           </motion.div>
         </main>
