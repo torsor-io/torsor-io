@@ -29,7 +29,7 @@ const cases = [
       id: 'xanadu',
       logo: '/logos/xanadu.png',
       title: 'Xanadu',
-      brief: 'Extended Bahadur\'s classical item analysis to the quantum case, leading to dataset-adaptive quantum Fourier transform with a potential reduction in sample complexity.'
+      brief: 'Extended Bahadur\'s classical item analysis to the quantum case, leading to a dataset-adaptive quantum Fourier transform with a potential reduction in sample complexity.'
     },
     {
       id: 'unimelb',
