@@ -65,7 +65,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 <ul className="space-y-1">
           <li>• Quantum software and algorithm design</li>
           <li>• Metrology, signal processing and machine learning</li>
-	  <li>• Technical outreach, education and cognitive media</li>
+	  <li>• Technical outreach and education</li>
       {/* Add more educational resources as they become available */}
       </ul><br/>
 	  <p className="mb-4">
