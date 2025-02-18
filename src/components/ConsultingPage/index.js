@@ -56,11 +56,11 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-                Fish and fishing
+                Fish vs. fishing
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
-          <b>Torsor Labs</b> offers bespoke research consulting. Our goal is to 
+          We can 
                 </p>
                 <ul className="space-y-2">
                   <li>• How can we solve differential equations with boson sampling?</li>
@@ -109,4 +109,4 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   );
 };
 
-export default LightBulbIcon;
+export default ConsultingPage;
