@@ -69,12 +69,12 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       {/* Add more educational resources as they become available */}
       </ul>
 	  <p className="mb-2">
-	  This leverages our domain expertise on quantum programming and QML, paired with unique interdisciplinary perspectives and problem-solving nous.
-          But as much as we like solving problems, we like helping clients <i>ask the right questions</i> even more. We can assist in:</p>
+	  This leverages our domain expertise on quantum programming and QML and unique interdisciplinary perspective.
+          As much as we like solving problems, we like helping clients <i>ask the right questions</i> even more. We can assist in:</p>
        <ul className="space-y-2 mb-2">
           <li>• setting up open, creative, and effective research cultures;</li>
           <li>• framing new research programs;</li>
-	  <li>• conducting domain audits to help surface questions hiding in plain sight.</li>
+	  <li>• conducting domain audits to help surface questions.</li>
       </ul>
 	  <p className="mb-2">In short, we can teach you to fish, help you land the big one, or both. <a href="mailto:consulting@torsor.io" className={`hover:underline`}>Get in touch</a> to talk how we can help shape your research process!</p>
               </div>
