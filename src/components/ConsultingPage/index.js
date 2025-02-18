@@ -60,13 +60,17 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
-          We can 
+          <b>Torsor Labs</b> offers research consulting on a number of topics, including:
                 </p>
                 <ul className="space-y-2">
-                  <li>• How can we solve differential equations with boson sampling?</li>
-                  <li>• What is the connection bet?</li>
+          <li>• Quantum software and algorithms</li>
+          <li>• Metrology, signal processing and machine learning</li>
+	  <li>• Technical outreach, education and cognitive media</li>
       {/* Add more educational resources as they become available */}
-                </ul>
+      </ul>
+	  <p className="mb-4">
+          <b>Torsor Labs</b> offers research consulting on a number of topics, including:
+                </p>
               </div>
             </motion.div>
 
