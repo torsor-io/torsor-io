@@ -91,7 +91,7 @@ const cases = [
                   <li>• conducting domain audits to surface new lines of inquiry.</li>
                 </ul>
                 <p>
-                  In short, we can teach you to fish or help you land the big one. Get in touch to talk how we can help shape your research process!
+                  In short, we can teach you to fish or help you land the big one. Get in touch to talk about how we can help shape your research process!
                 </p>
               </div>
             </motion.div>
