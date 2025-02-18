@@ -88,7 +88,7 @@ const cases = [
                 <ul className="space-y-1 mb-4">
                   <li>• setting up open, creative, and effective research cultures;</li>
                   <li>• framing new research programs;</li>
-                  <li>• conducting domain audits to surface new lines of inquiry.</li>
+                  <li>• conducting domain audits to surface fresh lines of inquiry.</li>
                 </ul>
                 <p>
                   In short, we can teach you to fish or help you land the big one. Get in touch to talk about how we can help shape your research process!
