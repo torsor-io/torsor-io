@@ -63,15 +63,20 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           <b>Torsor Labs</b> offers research consulting on a number of topics, including:
                 </p>
                 <ul className="space-y-1">
-          <li>• Quantum software and algorithm design</li>
-          <li>• Metrology, signal processing and machine learning</li>
-	  <li>• Technical outreach and education</li>
+          <li>• quantum software and algorithm design;</li>
+          <li>• metrology, signal processing and machine learning;</li>
+	  <li>• technical outreach and education.</li>
       {/* Add more educational resources as they become available */}
       </ul><br/>
 	  <p className="mb-4">
 	  Get access to world-class thinkers with unique interdisciplinary perspectives and problem-solving nous.
-          As much as we like solving problems, we like helping clients ask the right questions even more. We'll help you
-         set up open, creative, and effective research cultures which thrive in their domains.
+          But as much as we like solving problems, we like helping clients <i>ask the right questions</i> even more. We'll help you:
+       <ul className="space-y-1">
+          <li>• set up open, creative, and effective research cultures;</li>
+          <li>• frame new research programs;</li>
+	  <li>• conduct domain audits.</li>
+      {/* Add more educational resources as they become available */}
+      </ul><br/>
                 </p>
               </div>
             </motion.div>
