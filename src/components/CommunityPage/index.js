@@ -63,7 +63,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   Tutorials, guides, and learning resources for quantum computing and related technologies.
                 </p>
                 <ul className="space-y-3">
-                  <li>• <i>Coming soon:</i>Learning guides</li>
+                  <li>• <i>Coming soon: </i>Learning guides</li>
                   <li>• <i>Coming soon:</i> Hacking reality</li>
       {/* Add more educational resources as they become available */}
                 </ul>
