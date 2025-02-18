@@ -136,7 +136,7 @@ const cases = [
                      ${isDark ? 'bg-slate-800/30' : 'bg-orange-50/30'} mt-4`}
         >
           <div className="p-4">
-            <p className={`text-sm ${subtleText}`}>
+            <p className={`text-med ${subtleText}`}>
               {cases.find(study => study.id === expandedCase)?.brief}
             </p>
           </div>
