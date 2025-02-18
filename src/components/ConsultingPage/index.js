@@ -60,7 +60,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
-                  Torsor Labs offers 
+          Torsor Labs offers bespoke research consulting, with a current focus on 
                 </p>
                 <ul className="space-y-3">
                   <li>• <i>Coming soon:</i> Hacking reality</li>
