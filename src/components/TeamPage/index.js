@@ -70,10 +70,10 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Meet the Founder
       </h2>
                   <p className={`${subtleText} text-sm`}>
-          David Wakeham • Founder, CEO and Interdimensional Wizard
+          David Wakeham • Founder & Interdimensional Wizard
                   </p>
                   <p className={`${subtleText}`}>
-          David has a PhD in string theory and black holes (UBC, 2022), a masters degree in particle physics, and undergraduate degrees in logic and mathematics. He worked at <a href="https://www.xanadu.ai/">Xanadu</a> from 2022–25, where he was one of the architects of the <a href="https://pennylane.ai/codebook">PennyLane Quantum Codebook</a>, an interactive, code-first introduction to quantum computing.
+          David has a PhD in string theory and black holes (UBC 2022), a masters degree in particle physics, and undergraduate degrees in logic and math. He worked at <a href="https://www.xanadu.ai/">Xanadu</a> (2022–25) where he was one of the architects of the <a href="https://pennylane.ai/codebook" classname={`hover:underline`}>PennyLane Quantum Codebook</a>, created the company's first <a href="https://pennylane.ai/qml/demos/circuits_as_fourier_series" classname={`hover:underline`}>first interactive demos</a>, <a href="https://pennylane.ai/blog/2024/04/quantum_transformers" classname={`hover:underline`}>thought critically</a> about quantum and LLMs, and thought up <a href="https://arxiv.org/abs/2409.00172" classname={`hover:underline`}>new ways</a> to use quantum computers for AI. He has a wide range of interests and like to making the impossible look easy.
                   </p>
                   <div className="flex space-x-4">
                     
