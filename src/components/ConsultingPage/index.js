@@ -134,6 +134,8 @@ const cases = [
           </AnimatePresence>
         </div>
       </motion.div>
+    ))}
+</div>
 
             {/* Contact Section */}
             <div className={`text-med text-center ${subtleText}`}>
