@@ -1,5 +1,5 @@
 // src/components/CommunityPage/index.js
-import { RocketLaunchIcon } from '@heroicons/react/24/solid';
+import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
@@ -60,7 +60,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
-          Have a tough research question in quantum algorithms or software?
+          <b>Torsor Labs</b> offers bespoke research consulting in the hard science, with a primary focus on quantum software and algorithms.
                 </p>
                 <ul className="space-y-3">
                   <li>• <i>Coming soon:</i> Hacking reality</li>
@@ -96,7 +96,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	  <a 
   href="mailto:contacts@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
-            <RocketLaunchIcon className={`h-6 w-6  ${textColor}`} />
+            <ChatBubbleLeftRightIcon className={`h-6 w-6  ${textColor}`} />
           </a>
 	  <p>Subscribe for updates!</p>
 	  </div>
