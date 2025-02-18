@@ -81,7 +81,13 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
                       Personal website
-                    </a>
+      </a>
+
+                            <a href="https://scholar.google.com/citations?user=WAgYEwYAAAAJ&hl=en"
+                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
+                    >
+                      Google Scholar
+      </a>
                   </div>
                 </div>
               </div>
