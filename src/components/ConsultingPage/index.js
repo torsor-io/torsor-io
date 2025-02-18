@@ -92,7 +92,7 @@ const cases = [
                 </ul>
                 <p>
                   In short, we can teach you to fish or help you land the big one. Get in touch to talk about how we can help shape your research process!
-                </p>
+                </p> <br/>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {cases.map((study) => (
