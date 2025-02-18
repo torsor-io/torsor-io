@@ -118,7 +118,7 @@ const cases = [
           <img 
             src={study.logo}
             alt={study.title}
-            className="w-full h-30 object-contain"
+            className="w-full h-12 object-contain"
           />
           <AnimatePresence>
             {expandedCase === study.id && (
@@ -134,8 +134,6 @@ const cases = [
           </AnimatePresence>
         </div>
       </motion.div>
-    ))}
-  </div>
 
             {/* Contact Section */}
             <div className={`text-med text-center ${subtleText}`}>
