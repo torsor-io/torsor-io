@@ -63,7 +63,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           <b>Torsor Labs</b> offers research consulting on a number of topics, including:
                 </p>
                 <ul className="space-y-1">
-          <li>• Quantum software and algorithms</li>
+          <li>• Quantum software and algorithm design</li>
           <li>• Metrology, signal processing and machine learning</li>
 	  <li>• Technical outreach, education and cognitive media</li>
       {/* Add more educational resources as they become available */}
