@@ -69,7 +69,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       {/* Add more educational resources as they become available */}
       </ul><br/>
 	  <p className="mb-4">
-	  Get access to world class thinkers with unique perspectives and problem-solving nous.
+	  Get access to world-class thinkers with unique interdisciplinary perspectives and problem-solving nous.
           We like solving problems. But even more, we like helping clients ask the right questions, and setting up open, creative, and interdisciplinary
           research cultures which thrive in their domains. We think 
                 </p>
