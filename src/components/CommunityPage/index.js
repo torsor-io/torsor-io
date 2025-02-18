@@ -104,11 +104,6 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	 </motion.div>
 	  </main>
 
-	  </div>
-    </div>
-  );
-};
-
       {/* Footer */}
       <Footer 
   subtleText={subtleText}
