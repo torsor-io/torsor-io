@@ -95,7 +95,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
 >
 
-<p className=`${subtleText}`>
+<p className={`${subtleText}`}>
 If you'd like to learn more about careers, please first visit the <a href="/#puzzle" className={`hover:underline`}>terminal</a> and try <tt>dice > mail</tt>.
 </p>
 </motion.div>
