@@ -71,11 +71,11 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	  <p className="mb-2">
 	  Get access to world-class thinkers with unique interdisciplinary perspectives and problem-solving nous.
           But as much as we like solving problems, we like helping clients <i>ask the right questions</i> even more. We can assist in:</p>
-       <ul className="space-y-1">
+       <ul className="space-y-1 mb-1">
           <li>• setting up open, creative, and effective research cultures;</li>
           <li>• framing new research programs;</li>
 	  <li>• conducting domain audits to help identify questions "hiding in plain sight".</li>
-      </ul><br/>
+      </ul>
 	  <p className="mb-1">In short, we'd rather teach you how to fish than fish for you.</p>
               </div>
             </motion.div>
