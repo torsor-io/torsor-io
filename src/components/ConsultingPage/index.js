@@ -78,6 +78,23 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       </ul>
 	  <p className="mb-2">In short, we can teach you to fish, help you land the big one, or both. <a href="mailto:consulting@torsor.io" className={`hover:underline`}>Get in touch</a> to talk how we can help shape your research process!</p>
               </div>
+          </motion.div>
+
+            {/* Open Source Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
+                Case studies
+              </h2>
+              <div className={`${subtleText}`}>
+                <p className="mb-4">
+          Coming soon!
+                </p>
+              </div>
             </motion.div>
 
             {/* Subscribe Section */}
