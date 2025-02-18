@@ -69,7 +69,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       {/* Add more educational resources as they become available */}
       </ul>
 	  <p className="mb-4">
-          <b>Torsor Labs</b> offers research consulting on a number of topics, including:
+          We can help solve problems, but we are most interested in helping clients ask the right questions, 
                 </p>
               </div>
             </motion.div>
