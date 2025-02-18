@@ -126,23 +126,26 @@ const cases = [
       ))}
     </div>
     
-    <AnimatePresence>
-      {expandedCase && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className={`rounded-lg border ${borderColor} overflow-hidden
-                     ${isDark ? 'bg-slate-800/30' : 'bg-orange-50/30'} mt-4`}
-        >
-          <div className="p-4">
-            <p className={`text-med ${subtleText}`}>
-              {cases.find(study => study.id === expandedCase)?.brief}
-            </p>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+<AnimatePresence>
+  {expandedCase && (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className={`rounded-lg border ${borderColor} overflow-hidden
+                 ${isDark ? 'bg-slate-800/30' : 'bg-orange-50/30'} mt-4`}
+    >
+      <div className="p-4 space-y-2">
+        <h3 className={`font-bold ${textColor}`}>
+          {cases.find(study => study.id === expandedCase)?.title}
+        </h3>
+        <p className={`text-sm ${subtleText}`}>
+          {cases.find(study => study.id === expandedCase)?.brief}
+        </p>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
   </div>
 </motion.div>
 
