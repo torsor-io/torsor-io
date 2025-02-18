@@ -104,15 +104,8 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	 </motion.div>
 	  </main>
 
-      {/* Footer */}
-      <Footer 
-  subtleText={subtleText}
-  borderColor={borderColor}
-  footerColor={footerColor}
-      />
+	  </div>
     </div>
-</motion.div>
-    </AnimatePresence>
   );
 };
 

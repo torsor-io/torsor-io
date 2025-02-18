@@ -118,17 +118,9 @@ Applying is simple! Please visit the <a href="/#puzzle" className={`hover:underl
               <p>Subscribe for updates!</p>
             </div>
           </motion.div>
-          </main>
-	  
-      {/* Footer */}
-      <Footer 
-  subtleText={subtleText}
-  borderColor={borderColor}
-  footerColor={footerColor}
-      />
+        </main>
+      </div>
     </div>
-</motion.div>
-    </AnimatePresence>
   );
 };
 
