@@ -76,7 +76,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           <li>• framing new research programs;</li>
 	  <li>• conducting domain audits to help identify questions "hiding in plain sight".</li>
       </ul>
-	  <p className="mb-1">In short, we'd rather teach you how to fish than fish for you.</p>
+	  <p className="mb-1">In short, we can teach you to fish, help you land the big one, or both.</p>
               </div>
             </motion.div>
 
