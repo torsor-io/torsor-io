@@ -1,5 +1,5 @@
 // src/components/ResearchPage/index.js
-import { RocketLaunchIcon } from '@heroicons/react/24/solid';
+import { UserGroupIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
@@ -107,7 +107,7 @@ Applying is simple! Please visit the <a href="/#puzzle" className={`hover:underl
                 href="mailto:contact@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!"
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
-                <RocketLaunchIcon className={`h-6 w-6 ${textColor}`} />
+                <UserGroupIcon className={`h-6 w-6 ${textColor}`} />
               </a>
               <p>Subscribe for updates!</p>
             </div>
