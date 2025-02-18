@@ -124,4 +124,16 @@ Applying is simple! Please visit the <a href="/#puzzle" className={`hover:underl
   );
 };
 
+      {/* Footer */}
+      <Footer 
+  subtleText={subtleText}
+  borderColor={borderColor}
+  footerColor={footerColor}
+      />
+    </div>
+</motion.div>
+    </AnimatePresence>
+  );
+};
+
 export default TeamPage;

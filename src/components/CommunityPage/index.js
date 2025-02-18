@@ -109,4 +109,16 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   );
 };
 
+      {/* Footer */}
+      <Footer 
+  subtleText={subtleText}
+  borderColor={borderColor}
+  footerColor={footerColor}
+      />
+    </div>
+</motion.div>
+    </AnimatePresence>
+  );
+};
+
 export default CommunityPage;
