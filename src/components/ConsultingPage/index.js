@@ -59,10 +59,10 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 Research consulting
               </h2>
               <div className={`${subtleText}`}>
-                <p className="mb-1">
+                <p className="mb-2">
           <b>Torsor Labs</b> offers research consulting on a number of topics, including:
                 </p>
-                <ul className="space-y-1 mb-2">
+                <ul className="space-y-2 mb-2">
           <li>• quantum software and algorithm design;</li>
           <li>• metrology, signal processing and machine learning;</li>
 	  <li>• technical outreach and education.</li>
@@ -71,12 +71,12 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	  <p className="mb-2">
 	  Get access to world-class thinkers with unique interdisciplinary perspectives and problem-solving nous.
           But as much as we like solving problems, we like helping clients <i>ask the right questions</i> even more. We can assist in:</p>
-       <ul className="space-y-1 mb-1">
+       <ul className="space-y-2 mb-2">
           <li>• setting up open, creative, and effective research cultures;</li>
           <li>• framing new research programs;</li>
 	  <li>• conducting domain audits to help identify questions "hiding in plain sight".</li>
       </ul>
-	  <p className="mb-1">In short, we can teach you to fish, help you land the big one, or both.</p>
+	  <p className="mb-2">In short, we can teach you to fish, help you land the big one, or both.</p>
               </div>
             </motion.div>
 
