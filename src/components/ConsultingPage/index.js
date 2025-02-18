@@ -76,7 +76,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           <li>• framing new research programs;</li>
 	  <li>• conducting domain audits to help identify questions "hiding in plain sight".</li>
       </ul>
-	  <p className="mb-2">In short, we can teach you to fish, help you land the big one, or both. <a href="mailto:consulting@torsor.io" className={`hover:underline`}>Get in touch</a> to start a discussion!</p>
+	  <p className="mb-2">In short, we can teach you to fish, help you land the big one, or both. <a href="mailto:consulting@torsor.io" className={`hover:underline`}>Get in touch</a> to talk how we can help shape your research process!</p>
               </div>
             </motion.div>
 
