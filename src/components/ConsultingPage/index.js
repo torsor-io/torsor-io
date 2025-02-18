@@ -80,28 +80,6 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </div>
             </motion.div>
 
-            {/* Open Source Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
-            >
-              <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-                Software consulting
-              </h2>
-              <div className={`${subtleText}`}>
-                <p className="mb-4">
-          Open source projects and documentation.
-                </p>
-                <ul className="space-y-1">
-                  <li>• <i>Coming soon:</i> The YAW Algebraic Way</li>
-                  <li>• <i>Coming soon:</i> Contribution guidelines</li>
-      {/* Add more open source projects as they become available */}
-                </ul>
-              </div>
-            </motion.div>
-
             {/* Subscribe Section */}
           <div className={`text-med text-center ${subtleText}`}>
 	  <a 
