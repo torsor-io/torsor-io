@@ -98,7 +98,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 
             {/* Subscribe Section */}
           <div className={`text-med text-center ${subtleText}`}>
-	  <p>Tell us about your problems!</p>
+	  <p>Have a bright idea?</p>
 	  <a 
   href="mailto:consulting@torsor.io" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
