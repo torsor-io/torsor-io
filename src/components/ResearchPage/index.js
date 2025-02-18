@@ -114,7 +114,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             <div className={`text-med text-center ${subtleText}`}>
               <br/>
               <a 
-                href="mailto:contact@torsor.io?subject=Subscribe&body=Please add me to the Torsor Labs mailing list!"
+                href="mailto:research@torsor.io"
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
                 <AcademicCapIcon className={`h-6 w-6 ${textColor}`} />
