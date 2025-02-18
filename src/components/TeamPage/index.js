@@ -94,20 +94,10 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   transition={{ duration: 0.8, delay: 0.3 }}
   className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
 >
-  <h2 className={`text-2xl font-bold ${textColor} mb-4 items-center`}>
-    Join us
-  </h2>
-  <ul className="space-y-3">
-    <li>
-      <a 
-        href="/assets/qdays-poster.pdf" 
-        className={`${subtleText} hover:underline`}
-      >
-          "A New Foundation for Quantum Programming".
-      </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}><i>Quantum Days</i>, Feb 19–21, 2025.</a>
-    </li>
-    {/* Add more talks/posters as needed */}
-  </ul>
+
+<p className=`${subtleText}`>
+If you'd like to learn more about careers, please first visit the <a href="/#puzzle" className={`hover:underline`}>terminal</a> and try <tt>dice > mail</tt>.
+</p>
 </motion.div>
       
             {/* Existing Subscribe Section */}
