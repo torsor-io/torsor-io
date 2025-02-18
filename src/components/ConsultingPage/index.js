@@ -118,7 +118,7 @@ const cases = [
           <img 
             src={study.logo}
             alt={study.title}
-            className="w-full h-12 object-contain"
+            className="w-full h-24 object-contain"
           />
           <AnimatePresence>
             {expandedCase === study.id && (
