@@ -99,7 +99,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 >
             <BuildingLibraryIcon className={`h-6 w-6  ${textColor}`} />
           </a>
-	  <p>Subscribe to join our community!</p>
+	  <p></p>
 	  </div>
 	 </motion.div>
 	  </main>
