@@ -70,8 +70,8 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       </ul><br/>
 	  <p className="mb-4">
 	  Get access to world-class thinkers with unique interdisciplinary perspectives and problem-solving nous.
-          We like solving problems. But even more, we like helping clients ask the right questions, and setting up open, creative, and interdisciplinary
-          research cultures which thrive in their domains. We think 
+          As much as we like solving problems, we like helping clients ask the right questions even more. We'll help you
+         set up open, creative, and effective research cultures which thrive in their domains.
                 </p>
               </div>
             </motion.div>
