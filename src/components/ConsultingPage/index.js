@@ -62,13 +62,14 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 <p className="mb-4">
           <b>Torsor Labs</b> offers research consulting on a number of topics, including:
                 </p>
-                <ul className="space-y-2">
+                <ul className="space-y-1">
           <li>• Quantum software and algorithms</li>
           <li>• Metrology, signal processing and machine learning</li>
 	  <li>• Technical outreach, education and cognitive media</li>
       {/* Add more educational resources as they become available */}
       </ul><br/>
 	  <p className="mb-4">
+	  Get access to world class thinkers with unique perspectives and problem-solving nous.
           We like solving problems. But even more, we like helping clients ask the right questions, and setting up open, creative, and interdisciplinary
           research cultures which thrive in their domains. We think 
                 </p>
@@ -89,7 +90,7 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 <p className="mb-4">
           Open source projects and documentation.
                 </p>
-                <ul className="space-y-2">
+                <ul className="space-y-1">
                   <li>• <i>Coming soon:</i> The YAW Algebraic Way</li>
                   <li>• <i>Coming soon:</i> Contribution guidelines</li>
       {/* Add more open source projects as they become available */}
