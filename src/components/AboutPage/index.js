@@ -3,7 +3,7 @@ import WaveBackground from '../shared/WaveBackground';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline';
+import { PuzzlePieceIcon } from '@heroicons/react/24/outline';
 import Navbar from '../shared/Navbar';
 import Footer from '../shared/Footer';
 import LogoDay from '../../assets/logoday.png';
@@ -92,13 +92,11 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	</h1>
 	    <p className={`text-xl ${subtleText} max-w-3xl mx-auto font-poppins`}>
 <div class="flex justify-center items-center">
-  <a href="/#puzzle">
     <img 
       src={logo} 
       alt="Torsor Logo" 
       class="mx-auto max-w-md w-full"
     />
-  </a>
 </div>
             <b>Torsor Labs</b> performs fundamental research on quantum computing, AI, and distributed systems.
 	    We offer bespoke research consulting, develop open source software, and create high-quality educational materials in order to make our research is accessible and useful.
@@ -157,10 +155,10 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	    Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems.
 </p>
           <a 
-  href="mailto:contact@torsor.io"
+  href="/#puzzle"
   className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
-            <ChatBubbleBottomCenterTextIcon className={`h-6 w-6  ${textColor}`} />
+            <PuzzlePieceIcon className={`h-6 w-6  ${textColor}`} />
           </a>
         </motion.div>
       </main>
