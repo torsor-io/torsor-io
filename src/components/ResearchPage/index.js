@@ -110,15 +110,15 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         className={`${subtleText} hover:underline`}
       >
           • "An algebraic foundation for quantum programming".
-	  </a> <i>Seminar, Perimeter Institute</i>, Feb 25, 2025.
+	   <i>Seminar, Perimeter Institute</i>, Feb 25, 2025.</a>
 	  </li>
     <li>
       <a 
         href="/assets/qdays-poster.pdf" 
         className={`${subtleText} hover:underline`}
       >
-          • "A New Foundation for Quantum Programming".
-      </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}><i>Quantum Days</i></a>, Feb 19–21, 2025.
+          • "An new foundation for quantum programming".
+      </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}><i>Quantum Days</i>, Feb 19–21, 2025.</a>
 	  </li>
     {/* Add more talks/posters as needed */}
   </ul>
