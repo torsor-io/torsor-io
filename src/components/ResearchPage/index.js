@@ -81,7 +81,13 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
                       Read Paper
-                    </a>
+      </a>
+
+      <a href="https://arxiv.org/abs/2503.00005"
+                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
+                    >
+                      arXiv
+      </a>
                   </div>
                 </div>
               </div>
