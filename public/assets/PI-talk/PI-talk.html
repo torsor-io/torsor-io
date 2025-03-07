@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title></title>
+<!-- 2025-02-24 Mon 22:16 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" ><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/haskell.min.js"></script><h1><i>An algebraic foundation for quantum programming</i></h1><hr>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title"></h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Math and logic</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Logic 101</a></li>
+<li><a href="#sec-1-2">1.2. Boolean algebra</a></li>
+<li><a href="#sec-1-3">1.3. Gelfand duality</a></li>
+<li><a href="#sec-1-4">1.4. Noncommutative algebras</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. Physics and computation</a>
+<ul>
+<li><a href="#sec-2-1">2.1. Boolean circuits</a></li>
+<li><a href="#sec-2-2">2.2. Equivalent resistance</a></li>
+<li><a href="#sec-2-3">2.3. Noncommutative circuits</a></li>
+<li><a href="#sec-2-4">2.4. Isbell duality*</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+Quantum programming sucks. It's low-level, bug-ridden, and maddening
+to have to think in qubits, which is essentially machine code in
+braket notation. Finding better ways to talk to quantum
+computers is a nice research problem because
+</p>
+
+<ul class="org-ul">
+<li>it's way easier than actually <i>building</i> the dang thing;
+</li>
+<li>very few people are thinking about this;
+</li>
+<li>it will probably make all of our lives more pleasant;
+</li>
+<li>in the best case, it could actually be useful!
+</li>
+</ul>
+
+<p>
+That's my general motivation for working on this.
+Today, I want to tell you about a possible solution, but less from a
+practical software standpoint and more from the formal standpoint of
+logic and algebra. Here's a very minimal outline:
+</p>
+
+<ul class="org-ul">
+<li>we talk about some dualities in math and logic;
+</li>
+<li>we revisit these in the context of circuits;
+</li>
+<li>we arrive at a new way of looking at quantum computing.
+</li>
+</ul>
+
+<p>
+This is work in progress, and that your feedback will help me make even better! So
+please pepper me with questions, comments, and suggestions for improvement.
+</p>
+
+
+<div class="figure">
+<p><img src="./img/lumu.png" alt="lumu" align="center" width="450px" style="display:inline;margin:-60px 0 -25px 0;" />
+</p>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Math and logic</h2>
+<div class="outline-text-2" id="text-1">
+<hr  />
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Logic 101</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Classical (propositional) logic is all about how to break logical statements
+down into their components. We represent propositions as variables
+like \(p, q, r, \ldots\), and join
+them together with <i>connectives</i> like \(\texttt{AND}\) (\(\wedge\)),
+\(\texttt{OR}\) (\(\vee\)), \(\texttt{XOR}\) (\(\oplus\)), \(\texttt{NOT}\) (\(\neg\)) and
+\(\texttt{IMPLIES}\) (\(\to\)):
+\[
+p \wedge q, \quad q \to r, \quad r \vee q, \quad \neg p.
+\]
+The set of formulas created from a set of propositional variables
+\(\mathbb{P}\) by connectives is denoted \(\mathbb{F}_{\mathcal{P}}\), or
+simply \(\mathcal{F}\).
+There are two ways to check if a logical formula is correct. The first
+is to use <i>syntax</i>, which usually means a proof system. These take
+many forms, but Gentzen's "natural deduction", which has introduction
+and elimination rules for connectives, are probably the easiest to
+use. For instance, for \(\to\) these are the (perhaps) familiar rules
+of <i>modus ponens</i> and <i>condtional proof</i>:
+\[
+\frac{\Gamma \vdash A, \, A \to B}{\Gamma \vdash B} \,\,(\to\! \text{E}),
+\quad \frac{\Gamma \vdash [A]_a, \cdots, B}{\Gamma \vdash A \to
+B} \,\,(\to\! \text{I}: a),
+\]
+where \(\cdots\) means that we deduce \(B\) conditional on assuming \(A\) at
+line \(a\). Also \(\Gamma\) is
+a set of formulas, \(A, B \in \mathcal{F}\) and
+\(\vdash\) is the <i>syntactic turnstile</i>. A <i>theorem</i> is a formula which follows from the
+empty set, e.g. \(\vdash p \to p\), since starting with \(p\) we deduce \(p\).
+</p>
+
+<p>
+This is a purely formal affair. The second way involves <i>semantics</i>,
+i.e. how we interpret a formula. For classical propositional logic,
+this means assigning <i>truth values</i> \(\{0, 1\} = \mathbb{Z}_2\).
+A <i>valuation</i> is just an assignment of truth
+values to each propositional variable, \(v \in
+\mathbb{Z}_2^{\mathcal{P}}\). We then figure out truth values for
+compound formulas by recursion, i.e. if \(\mathcal{F}\) is
+the set of formulas, \(v\) determines an assigment \(\phi_v \in
+\mathbb{Z}_2^{\mathcal{F}}\). As an example,
+\[
+\phi_v(A \vee B) = \max\{\phi_v (A), \phi_v (B)\}, \quad
+\phi_v (\neg A) = 1 - \phi_v(A).
+\]
+We write \(\Gamma \vDash A\) if any time a valuation assigns
+\(\phi (\gamma) = 1\) to
+all elements of \(\gamma \in \Gamma\), it assigns \(\phi(A)=1\). The
+symbol \(\vDash\) is called the <i>semantic turnstile</i>, and a formula that
+is always true, for any valuation, is called <i>valid</i>. As an example,
+\(\vDash p \vee \neg p\) since one of \(p\) and \(\neg p\) is assigned \(1\).
+</p>
+
+<p>
+Note that, for formulas over a finite set of propositional variables
+\(\mathcal{P}\), we only need to consider the \(2^{|\mathcal{P}|}\) binary
+assignments for those variables. Enumerating these assignments we get
+what is called a <i>truth table</i>, introduced by no less venerable a
+figure than Wittgenstein. The truth table has a bit more structure
+than meets the eye. Given a formula \(A\), we can restrict to the
+subset of the truth table that makes it true, so
+\[
+\phi(A) = 1,
+\]
+which we usually just write as \(A \in \phi\).
+For instance, restricting to the entries for which \(p\) is true cuts
+the table in half, or <i>filters</i> it. (This is a technical term we won't
+dwell on.)
+There is a lovely structural correspondence between filters and
+logic, but to see it, we'll need to introduce some algebra
+and topology!
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Boolean algebra</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+First, we'll need to translate this classical logical jazz into the language of algebra.
+The basic idea is to view propositional variables \(\mathcal{P}\) as unknowns, and do high-school
+algebra with them, adding and multiplying according to the usual
+rules, e.g.
+\[
+p(q + r) = pq + pr.
+\]
+We can then define logical connectives using algebra:
+\[
+p \wedge q = pq, \quad \neg r = I - r, \quad p \oplus q = p + q.
+\]
+Here, \(I\) is a special identity variable satisfying \(I\cdot \phi=
+\phi\), and we can scalar multiply by elements of \(\mathbb{Z}_2 =
+\mathbb{F}_2\), where we now view this as the field of \(2\)
+elements. Thus, our algebra \(\mathcal{B}\) is not merely a
+vector space over \(\mathbb{F}_2\) but a commutative ring (associative,
+distributive, commutative product, etc). We need one
+more thing to make it Boolean, however, namely the property of <i>idempotence</i>:
+\[
+p^2 = p.
+\]
+Logically, this makes sense because \((p \wedge p) \leftrightarrow
+p\); arithmetically, it makes sense because variables takes values in
+\(\mathbb{F}_2\).
+</p>
+
+<p>
+This formulation gives us access to the tools and concepts of algebra,
+and with a more effort, topology.
+First, note that the field \(\mathbb{F}_2\) itself forms a Boolean
+algebra with no variables, \(\mathcal{B}_{\varnothing}\).
+The valutions \(\phi\) on formulas that we were talking about before are
+not just any old function; the recursion rules ensure it is a
+structure-preserving map, or <i>homomorphism</i> from the Boolean algebra
+\(\mathcal{B}\) to the trivial algebra \(\mathbb{F}_2\):
+\[
+\phi(A + B) = \phi(A) + \phi(B), \quad \phi(A)\phi(B) = \phi(A)\phi(B).
+\]
+We'll call this set of maps
+\[
+S(\mathcal{B}) = \text{Hom}(\mathcal{B}, \mathbb{F}_2).
+\]
+In logical terms, \(S(\mathcal{B})\) is just the set of entries in the
+truth table! The <i>filters</i> we talked about before are sets
+\[
+\mathcal{O}_A = \{\phi \in S(\mathcal{B}) : A \in \phi\}.
+\]
+We will take these as the <i>basis</i> of a topology, i.e. they generate
+the collection open sets by union. With the resulting topology,
+\(S(\mathcal{B})\) is called a <i>Stone space</i> after Marshall
+Stone. It has the following defining properties (proof omitted!):
+</p>
+<ul class="org-ul">
+<li>Hausdorff (any two points have disjoint neighbourhoods);
+</li>
+<li>totally disconnected (only singletons are connected); and
+</li>
+<li>compact (any cover has a finite subcover).
+</li>
+</ul>
+
+<p>
+Because \(A \notin \phi\) just in case \(\neg\phi \in \phi\), we have
+\[
+\mathcal{O}_{\neg A} = \overline{\mathcal{O}_A},
+\]
+where \(\overline{U}\) is the complement.
+Hence, our basic filters \(\mathcal{O}_\phi\) are not only open, but
+closed, so <i>clopen</i>. Stone proved these are the <i>only</i> clopen sets,
+which shows that the clopen sets of the Stone space \(S(\mathcal{B})\)
+are in one-to-one correspondence with the Boolean algebra
+\(\mathcal{B}\).
+In fact, these clopen sets form a Boolean algebra with e.g.
+\[
+U \vee V = U \cup V, \quad \neg U = \overline{U}.
+\]
+This algebra is isomorphic!
+This result is called the <i>Stone representation theorem</i>, because
+it tells us that we can faithfully represent an abstract Boolean
+algebra with a concrete filter structure on the truth
+table.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Gelfand duality</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+How far can we push this? There is a nice reformulation of the clopen
+sets that paves the way for a more general result.
+The set
+\[
+\mathcal{O}_A = \{\phi \in S(\mathcal{B}) : \phi(A) = 1\}
+\]
+can be identified with a binary function \(\hat{A}\) on
+\(S(\mathcal{B})\), simply by setting
+\[
+\hat{A}(\phi) = \phi(A).
+\]
+We just swapped things around! It's a dumb trick, but turns out to be
+incredibly useful. In functional analysis, it is called the <i>Gelfand
+representation</i>, and gives rise to the Fourier transform, Mellin
+transform, and other such deep things. Moreover, this isn't just any
+binary function; since \(\hat{A}^{-1}(1) = \mathcal{O}_A\) and
+\(\hat{A}^{-1}(0) = \mathcal{O}_{\neg A}\), the inverse image of open
+sets is open and the map is <i>continuous</i>. Since all homomorphisms are
+of this form, we have
+\[
+\mathcal{B} \cong C_0[S(\mathcal{B})],
+\]
+where \(C_0\) is the set of continuous binary functions, and \(\cong\)
+is an isomorphism of algebras given by the Gelfand
+representation. (Incidentally, I've never seen this stated anywhere!)
+</p>
+
+<p>
+We've been working over the field \(\mathbb{F}_2\), which makes sense
+for Boolean logic. The next simplest field is \(\mathbb{C}\) (the real
+numbers are trickier because they have algebraic "holes"). Consider a
+commutative algebra \(\mathcal{A}\) over \(\mathbb{C}\), so as before,
+it's a vector space with scalar
+multiplication over \(\mathbb{C}\) and forms a commutative ring.
+Homomorphisms \(\phi: \mathcal{A} \to \mathbb{C}\) are linear and
+multiplicative, just like valuations:
+\[
+\phi(AB) = \phi(A)\phi(B), \quad \phi(\alpha A + \beta B) =
+\alpha\phi(A) + \beta \phi(B).
+\]
+These homomorphisms are called <i>characters</i> rather than valuations,
+and together, they form what is called the <i>spectrum</i> of the algebra,
+which we write \(\text{Spec}(\mathcal{A}) =
+\text{Hom}(\mathcal{A},\mathbb{C})\).
+Different field, different names, but the structure is very similiar!
+The Gelfand representation associates to
+an element \(A \in \mathcal{A}\) a function \(\hat{A}: \text{Spec}(\mathcal{A}) \to
+\mathbb{C}\) defined by swapping,
+\[
+\hat{A}(\phi) = \phi(A),
+\]
+just like we did above.
+Following the analogy, the spectrum \(\text{Spec}(\mathcal{A})\) is the "truth
+table" for the commutative algebra \(\mathcal{A}\), and the functions
+\(\hat{A}\) are continuous functions on the truth table.
+</p>
+
+<p>
+For Boolean algebras, the Gelfand map is an isomorphism.
+For a general commutative algebra, this isn't necessarily the case; to
+make it true, we need some condition analogous to idempotence.
+The necessary condition is a bit more involved, and we need to add a
+new operation \(\ast:\mathcal{A}\to\mathcal{A}\), an
+involutive automorphism which generalizes complex conjugation:
+\[
+A^{**} = A, \quad (AB)^* =
+B^*A^*, \quad (\alpha A + \beta B)^* = \alpha^* A^* + \beta^* B^*.
+\]
+We also need to measure the size of elements use the <i>operator
+norm</i>, i.e. the maximum absolute eigenvalue:
+\[
+\Vert A \Vert = \sup \{|\lambda| : \lambda \in \mathbb{C}, \, A - \lambda I
+\text{ is not invertible}\} = \sup\{|\lambda| : \lambda \in
+\text{spec}(A)\}.
+\]
+(We use lower case "spec" for the spectrum of an operator.)
+The \(\ast\) operation must be norm-preserving, \(\Vert A^* \Vert = \Vert
+A \Vert\), but the special condition equivalent to idempotence is
+something called the <i>C* identity</i>:
+\[
+\Vert A A^*\Vert = \Vert A \Vert^2.
+\]
+Equipped with such a \(\ast\) operation, \(\mathcal{A}\) becomes a <i>commutative C* algebra</i>.
+The Gelfand representation, like the Stone representation, is an
+isomorphism, with
+\[
+\mathcal{A} \cong C_0[\text{Spec}(\mathcal{A})]
+\]
+where \(\cong\) indicates not only that they are isomorphic as
+algebras (homomorphisms each way), but the norm is the same.
+Often, this is written
+\[
+\mathcal{A} \cong C_0[\Phi]
+\]
+where \(\Phi\) is the spectrum, which viewed as a topological space is
+locally compact and Hausdorff (a bit like the Stone space).
+If the analogue of the set of switches \(\mathcal{P}\) is finite, then
+the spectrum is a vector space \(\mathbb{C}^{|\mathcal{P}|}\) on which
+the algebra acts diagonally.
+The moral of the story: in the same way an abstract Boolean algebra
+can be realized concretely using continuous functions on the truth table, a
+commutative C* algebra can be realized using
+continuous functions on the spectrum, which in simple cases takes the
+form of a finite-dimensional vector space.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Noncommutative algebras</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+At this point, it hopefully feels natural to ask what happens when the
+product is <i>noncommutative</i>, so that
+\[
+A \cdot B \neq B \cdot A
+\]
+in general. If the C* condition and all the other axioms still hold,
+this will form a <i>noncommutative C* algebra</i>.
+It can no longer be the case that such an algebra, say \(\mathcal{A}\),
+is isomorphic to continuous complex-valued functions on a space \(\Phi\),
+since these functions necessarily commute:
+\[
+(A\cdot B)(\phi) = A(\phi) B(\phi) = B(\phi) A(\phi)
+\]
+for \(\phi \in \Phi\).
+We observed before that, in the commutative case, the algebra for
+a finite-dimensional spectrum can be represented by diagonal
+linear operators. Here, we simply replace diagonal operators by
+bounded ones! In other words, we expect the spectrum to be a vector
+space on which the algebra \(\mathcal{A}\) acts like matrices.
+</p>
+
+<p>
+This intuition is right, but the details are a little more complicated.
+Before, we defined the spectrum as the set of characters, essentially
+the one-dimensional representations of \(\mathcal{A}\), i.e. on \(\mathbb{C}\).
+Similarly, we now try to construct the spectrum as the set of
+representations of \(\mathcal{A}\) acting on some Hilbert
+space. It turns out that these can built from objects called <i>states</i>
+\(\phi \in \Phi_{\mathcal{A}}\), defined as unital linear
+functionals:
+\[
+\phi(\alpha A + \beta B) = \alpha \phi(A) + \beta \phi(B), \quad
+\phi(I) = 1.
+\]
+There is a lovely construction due to Gelfand-Naimark-Segal (GNS)
+showing how to explicitly build, for each state \(\phi\):
+</p>
+<ul class="org-ul">
+<li>a Hilbert space \(\mathcal{H}_\phi\);
+</li>
+<li>a ring homomorphism \(\mathcal{\pi}_\phi: \mathcal{A} \to
+  \mathcal{B}(\mathcal{H}_\phi)\) from \(\mathcal{A}\) to bounded
+operators on \(\mathcal{H}_\phi\);
+</li>
+<li>and finally, a vector \(\xi_\phi \in \mathcal{H}_\phi\)
+which reproduces the linear functional \(\phi\) from <i>expectations</i>:
+\[
+  \phi(A) = \langle \pi_\phi(A) \xi_\phi, \xi_\phi\rangle.
+  \]
+</li>
+</ul>
+
+<p>
+At this point, we have a disorganized collection of representations.
+It turns out that states form a convex set (by the Banach–Alaoglu
+theorem), and the extreme points of this set \(\partial\Phi_{\mathcal{A}}\) correspond to
+<i>irreducible representations (irreps)</i>, which cannot be broken down into direct
+sums of others. The direct sum of representations
+\[
+\mathcal{H}_{\mathcal{A}} = \bigoplus_{\phi \in
+\partial\Phi_{\mathcal{A}}} \mathcal{H}_{\phi}, \quad \pi_{\mathcal{A}} = \bigoplus_{\phi \in
+\partial\Phi_{\mathcal{A}}} \pi_\phi
+\]
+is <i>faithful</i>, with \(\mathcal{A}\) is isometrically isomorphic to the bounded
+operators acting on \(\mathcal{H}_{\mathcal{A}}\),
+\[
+\mathcal{A} \cong \mathcal{B}(\mathcal{H}_{\mathcal{A}}),
+\]
+with a map given by \(\pi_{\mathcal{A}}\). This is a bit harder to grok
+than the earlier examples, but secretly, it's pretty similar. Earlier,
+we built a space from characters,
+irreducible representations that happened to be one-dimensional, and this
+time we built it from irreducible representations that "blew up" into
+Hilbert spaces of potentially many dimensions. The states turns out to be the key tool; they are
+the analogue of the truth table.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Physics and computation</h2>
+<div class="outline-text-2" id="text-2">
+<hr  />
+
+<p>
+So far, all of this has been math. The point was to lay out a nice set of
+analogies taking us from Boolean algebra to noncommutative C*
+algebras.
+Now, however, we want to switch gears and think about the physics of
+these different setups; the punchline will be a different way of doing
+quantum computing.
+</p>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Boolean circuits</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let's return to Boolean algebras. In the 30s, various people, most
+prominently Claude Elwood Shannon, realized you could implement logic
+on a circuit. His idea was to replace propositional variables
+\(\mathcal{P}\) by <i>switches</i> that could be turned on or off. Connecting
+switches in series corresponds to \(\texttt{AND}\), or the product in
+the Boolean algebra:
+</p>
+
+
+<div class="figure">
+<p><img src="./img/shannon0.png" alt="lumu" align="center" width="250px" style="display:inline;margin:-70px 0 -70px 0;" />
+</p>
+</div>
+
+<p>
+Similarly, connecting them in series corresponds to \(\texttt{OR}\),
+which (as Shannon points out) can be interpreted as \(+\).
+Shannon was interested in using Boolean algebra to simplify the design
+of switching circuits. As a very simple example, we can take this
+complicated beast
+</p>
+
+
+<div class="figure">
+<p><img src="./img/shannon1.png" alt="lumu" align="center" width="350px" style="display:inline;margin:-50px 0 -50px 0;" />
+</p>
+</div>
+
+<p>
+and reduce it to this:
+</p>
+
+
+<div class="figure">
+<p><img src="./img/shannon2.png" alt="lumu" align="center" width="350px" style="display:inline;margin:-60px 0 -60px 0;" />
+</p>
+</div>
+
+<p>
+(Note that \('\) indicates \(\texttt{NOT}\).) He does many other things
+besides, but this is a key insight: by translating the physical
+structure of the circuit into algebra, we can use math to optimize the
+design. In fact, we can map proof systems like the natural deduction
+rules I mentioned above to optimization routines. This is a primitive instance of the
+<i>Curry-Howard isomorphism</i>, which tells us that proofs are programs.
+</p>
+
+<p>
+This is the syntactic side of things; in the images above, switches
+are "unknowns", just like high school algebra, and we reason
+symbolically. But what about semantics?
+Entries in the truth table are just definite states of the switches. A
+switch is "on" (nonzero conductance) iff the corresponding variable is
+assigned \(1\) and "off" (zero conductance) iff the variable is assigned \(0\).
+The conductance of the component switches determine the overall
+conductance of the circuit.
+This is all kind of obvious, but what's cool is that here is where
+physics, and specifically <i>compositional measurement</i>, makes its appearance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Equivalent resistance</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Shannon used this binary measurement of "hindrance" (conductance), but
+we can imagine replacing switches wih variable resistors \(\mathcal{P}\), connecting
+them in series and parallel as before, and making exact conductance
+measurements. The rules for conductance \(G\) follow from the rules for
+resistance:
+\[
+G_\text{parallel}(p, q) = G(p)+G(q), \quad
+G_\text{series}(p, q) = \frac{G(p)G(q)}{G(p)+G(q)} = G_\text{series}(q, p),
+\]
+where we are using the fact that \(G(p), G(q) \in \mathbb{R}\) to
+swap the order.
+We need to ban short circuits to make sure the conductance doesn't
+blow up (having positive conductance is enough), but with that
+proviso, we can embed our circuits in a commutative C* algebra.
+</p>
+
+<p>
+In the first course on circuits, we spend a lot of time finding
+"equivalent resistance"; under the hood, we are implementing some
+version of the Curry-Howard isomorphism over a commutative C* algebra.
+This is the amusingly Bourbaki way of viewing high school circuits!
+</p>
+
+
+<div class="figure">
+<p><img src="./img/cube.png" alt="lumu" align="center" width="200px" style="display:inline;margin:-30px 0 -30px 0;" />
+</p>
+</div>
+
+<p>
+But the serious point is that there is a precise analogy to what
+Shannon was doing.
+If high school resistor problems are the syntax, what is the semantics?
+Instead of assigning a truth value to each switch, we assign
+conductance or resistance to
+each variable resistor in the set \(\mathcal{P}\). 
+The algebra acts continuously on this set by Gelfand duality. Since a
+symbolic expression is just a circuit, this means we continuously
+assign an equivalent resistance once we assign resistance to each
+element of \(\mathcal{P}\).
+Once again, it's a story of compositional
+observation.
+</p>
+
+<p>
+We can imagine playing the same game with any set of classical
+observations. The set \(\mathcal{P}\) of "propositional variables" would
+be atomic measurements or things we directly control, like the
+switches and variable resistors. A circuit maps the variables
+\(\mathcal{P}\) into a commutative C* algebra. The elements of
+\(\mathcal{P}\) are essentially <i>generators</i> of the algebra. We can use
+syntactic manipulations, including laws of physics represented by an assumption set \(\Gamma\), to
+simplify the circuit layouts. The set \(\Gamma\) represents <i>relations</i>,
+and we write
+\[
+\mathcal{A} = \langle \mathcal{P} | \Gamma\rangle_\text{comm} =
+\langle \mathcal{P} | \Gamma\cup \mathcal{P}_\text{comm}\rangle,
+\]
+for the corresponding algebra, where \(\mathcal{P}_\text{comm}\) are
+relations to the effect that all variables commute.
+On the semantic side, we have a device interface (switches, variable
+resistors, etc) which lets us pluck out a line of the truth table. The
+compositional part of the semantics is realized by Nature itself.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Noncommutative circuits</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Given the leadup, you can guess what happens next: we consider
+noncommutative circuits. We'll have a set of noncommutative variables
+\(\mathcal{P}\), and a set of assumptions or relations \(\Gamma\), which
+together make a noncommutative C* algebra:
+\[
+\mathcal{A} = \langle \mathcal{P} | \Gamma\rangle.
+\]
+We can draw circuits, with the simplest convention being Shannon's,
+i.e. variables in series denotes products and in parallel denote
+sums. We can also add numbers in circles to represent multiples of the
+identity:
+</p>
+
+
+<div class="figure">
+<p><img src="./img/circuit-laws.png" alt="lumu" align="center" width="350px" style="display:inline;margin:-40px 0 -30px 0;" />
+</p>
+</div>
+
+<p>
+We employ algebraic reasoning on the syntactic side. The semantics is
+a bit more interesting, though. A line in the truth table now corresponds
+to an irrep; irreps correspond to extreme elements of the set of
+states \(\Phi_{\mathcal{A}}\), also called <i>pure states</i>.
+The topology of this convex blob is hard to reason about, and Størmer
+found a nicer way: to each state \(\phi \in \Phi_{\mathcal{A}}\) we can
+associate a family of <i>sharp</i> or zero variance operators:
+\[
+\mathcal{S}_\phi = \{A \in \mathcal{A}: \Delta_\rho^2 A =
+\rho(|A|^2)-|\rho(A)|^2 = 0\}.
+\]
+The pure states are those for which \(\mathcal{S}_\phi\) is <i>maximal</i>,
+i.e. cannot be extended. In terms of ordinary linear algebra, this is
+just an eigenstate. In terms of logic, this is an element of the truth
+table. And from the perspective of measurement, it will specify an
+exact observation (or observations) from which a
+compound measurement can be derived.
+</p>
+
+<p>
+We can link back to Boolean algebra in an elegant way. Recall the
+spectrum of an operator:
+\[
+\text{spec}(A) = \{\lambda \in \mathbb{C} : A - \lambda I \quad
+\text{not invertible}\}.
+\]
+We can determine these using the minimal polynomial. An important
+example is <i>projectors</i>, Hermitian operators satisfying
+\[
+\Pi^2 - \Pi = \Pi(\Pi - I) = 0 \quad \Longrightarrow \quad \text{spec }
+\Pi = \{0, 1\}.
+\]
+These correspond to binary measurements (you're in or out of a closed
+subspace) but also gives the noncommutative version of the idempotence condition!
+Von Neumann and Birkhoff used this to develop the theory of <i>quantum logic</i>, by
+analogy with the lattice-theoretic treatment of classical logic.
+But this ultimately ended up as a bit of a mathematical dead-end; it
+seems we need the full richness of C* algebras to get something
+interesting, e.g. quantum computing.
+But that's a talk for another day!
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Isbell duality*</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Instead, I want to finish with a fun speculation.
+We can summarize the analogies so far in the form of an equation:
+\[
+\frac{\text{syntax}}{\text{semantics}} =
+\frac{\text{algebra}}{\text{geometry}} =
+\frac{\text{programs}}{\text{measurement}}.
+\]
+The first lies in the domain of logic, the second math, and the last
+physics (with "computation" understood in the sense of interpretable physi).
+A natural question is: what is the common ratio?
+A wild guess is <i>Isbell duality</i>, encapsulated by a scary-looking commutative diagram:
+</p>
+
+
+<div class="figure">
+<p><img src="./img/Isbell_duality.png" alt="lumu" align="center" width="350px" style="display:inline;margin:-40px 0 -40px 0;" />
+</p>
+</div>
+
+<p>
+In the diagram, we have a few things going on:
+</p>
+<ul class="org-ul">
+<li>\(\mathcal{A}\) is playing the role of algebra;
+</li>
+<li>\(\mathcal{V}\) the role of vector space;
+</li>
+<li>\(y\) is the Yoneda embedding and \(z\) the dual Yoneda embedding;
+</li>
+<li>\(\mathcal{O}\) the "algebra of operators" functor akin to \(C_0\) and \(\mathcal{B}\);
+</li>
+<li>\(\text{Spec}\) the "spectrum" functor as above.
+</li>
+</ul>
+
+<p>
+The diagram just states a categorical version of the Gelfand swap: for
+every object \(A, B\) of \(\mathcal{A}\),
+\[
+\text{Hom}_{[\mathcal{A},\mathcal{V}]^\text{op}}(\mathcal{O} z(A), y(B))
+\cong\text{Hom}_{[\mathcal{A}^\text{op},\mathcal{V}]}(z(A), \text{Spec }y(B)),
+\]
+William Lawvere wrote that this link is "the first step toward expressing the duality between space
+and quantity fundamental to mathematics".
+These make the most sense in the context of mathematics; are probably
+related to Stone duality for logic; and for computation I have no idea.
+But the links <i>between</i> analogies are also interesting:
+</p>
+
+
+<div class="figure">
+<p><img src="./img/triangle.png" alt="lumu" align="center" width="400px" style="display:inline;margin:-20px 0 -30px 0;" />
+</p>
+</div>
+
+<p>
+The links were historically made between dark names, but by virtue of
+ Isbell duality also link light names.
+The end result is a richly suggestive web of dualities; could be a fun thing to
+ explore further! And it never hurts to sink your foundations deeper;
+ it tends to make the house more stable.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

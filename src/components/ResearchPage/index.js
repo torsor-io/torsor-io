@@ -100,12 +100,20 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   <ul className="space-y-3">
     <li>
       <a 
+        href="/assets/PI-talk/PI-talk" 
+        className={`${subtleText} hover:underline`}
+      >
+          • "An algebraic foundation for quantum programming".
+	  </a> <i>Seminar, Perimeter Institute</i>, Feb 25, 2025.
+	  </li>
+    <li>
+      <a 
         href="/assets/qdays-poster.pdf" 
         className={`${subtleText} hover:underline`}
       >
-          "A New Foundation for Quantum Programming".
-      </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}><i>Quantum Days</i>, Feb 19–21, 2025.</a>
-    </li>
+          • "A New Foundation for Quantum Programming".
+      </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}><i>Quantum Days</i></a>, Feb 19–21, 2025.
+	  </li>
     {/* Add more talks/posters as needed */}
   </ul>
 </motion.div>
