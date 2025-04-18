@@ -128,7 +128,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>ςil</h3>
   <p className={subtleText}>
-            Future-proof your Turing tests with robust AI watermarking.
+            Future-proof your Turing tests and agent workflows with robust AI watermarking.
             </p>
           </div>
 
@@ -152,7 +152,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         >
 <h2 className={`text-3xl font-comfortaa font-bold ${textColor} mb-6`}><a href="/#manifesto">Shaped by difference.</a></h2>
 	    <p className={`${subtleText} text-lg mb-8`}>
-	    Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems.
+	    Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems. We live out this philosophy in our approach to research, education, and consulting, where we take 
 </p>
           <a 
   href="/#puzzle"
