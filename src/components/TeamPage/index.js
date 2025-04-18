@@ -114,6 +114,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               >
                 <UserPlusIcon className={`h-6 w-6 ${textColor}`} />
               </a>
+	  <p>Join our Slack!</p>
               <p></p>
             </div>
           </motion.div>
