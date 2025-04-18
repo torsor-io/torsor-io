@@ -102,6 +102,14 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	  <p>Join our Slack!</p>
 	  <p></p>
 	  </div>
+
+      {/* Footer */}
+      <Footer 
+  subtleText={subtleText}
+  borderColor={borderColor}
+  footerColor={footerColor}
+      />
+    </div>
 	 </motion.div>
 	  </main>
       
