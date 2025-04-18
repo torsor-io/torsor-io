@@ -109,7 +109,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             <div className={`text-med text-center ${subtleText}`}>
               <br/>
               <a 
-                href="mailto:team@torsor.io"
+                href="https://join.slack.com/t/torsorlabs/shared_invite/zt-32rdqmuv7-TDtDznLIzXoiVfd24Kxhxw"
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
                 <UserGroupIcon className={`h-6 w-6 ${textColor}`} />
