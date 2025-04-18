@@ -145,7 +145,8 @@ const cases = [
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
                 <ChatBubbleLeftRightIcon className={`h-6 w-6 ${textColor}`} />
-              </a>
+          </a>
+	  	  <p>Start a chat!</p>
             </div>
           </motion.div>
         </main>
