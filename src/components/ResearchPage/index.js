@@ -122,18 +122,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
     {/* Add more talks/posters as needed */}
   </ul>
 </motion.div>
-      
-            {/* Existing Subscribe Section */}
-            <div className={`text-med text-center ${subtleText}`}>
-          <br/>
-              <a 
-                href="mailto:research@torsor.io"
-                className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
-              >
-                <AcademicCapIcon className={`h-6 w-6 ${textColor}`} />
-          </a>
-	  	  <p></p>
-            </div>
+     
           </motion.div>
         </main>
       </div>
