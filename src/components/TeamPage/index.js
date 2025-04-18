@@ -101,9 +101,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
 >
 
-<p className={`${subtleText}`}>
-Applying is simple! Please visit the <a href="/#puzzle" className={`hover:underline`}><tt>fbr</tt> terminal</a> and submit an application using the command <tt>dice > mail</tt>.
-</p>
+{/* <p className={`${subtleText}`}>Applying is simple! Please visit the <a href="/#puzzle" className={`hover:underline`}><tt>fbr</tt> terminal</a> and submit an application using the command <tt>dice > mail</tt>.</p>*/}
 </motion.div>
       
             {/* Existing Subscribe Section */}
