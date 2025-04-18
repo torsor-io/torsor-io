@@ -73,7 +73,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           David Wakeham • Founder & Interdimensional Wizard
                   </p>
                   <p className={`${subtleText}`}>
-          David has a PhD in string theory and black holes (UBC 2022), a masters degree in particle physics, and undergraduate degrees in philosophy and math. Before going rogue, he worked at <a href="https://www.xanadu.ai/" className={`hover:underline`}>Xanadu</a> (2022–25), where he helped architect the <a href="https://pennylane.ai/codebook" className={`hover:underline`}>PennyLane Quantum Codebook</a>, created Xanadu's <a href="https://pennylane.ai/qml/demos/circuits_as_fourier_series" className={`hover:underline`}>first interactive demo</a>, and worked on <a href="https://arxiv.org/abs/2409.00172" className={`hover:underline`}>new ways to use quantum computers for ML</a>.
+          David has a PhD in string theory and black holes (UBC 2022), a masters degree in particle physics, and undergraduate degrees in philosophy and math. Before going rogue, he worked at <a href="https://www.xanadu.ai/" className={`hover:underline`}>Xanadu</a> (2022–25), where he helped architect the <a href="https://pennylane.ai/codebook" className={`hover:underline`}>PennyLane Quantum Codebook</a>, created Xanadu's <a href="https://pennylane.ai/qml/demos/circuits_as_fourier_series" className={`hover:underline`}>first interactive demo</a>, and worked on <a href="https://arxiv.org/abs/2409.00172" className={`hover:underline`}>new ways to use quantum computers for machine learning</a>.
                   </p>
                   <div className="flex space-x-4">
                     
