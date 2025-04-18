@@ -62,6 +62,14 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           </a>
 	  <p>Join our Slack!</p>
 	  </div>
+
+      {/* Footer */}
+      <Footer 
+  subtleText={subtleText}
+  borderColor={borderColor}
+  footerColor={footerColor}
+      />
+    </div>
 	 </motion.div>
 	  </main>
 	  
