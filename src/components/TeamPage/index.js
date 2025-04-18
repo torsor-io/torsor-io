@@ -1,5 +1,5 @@
 // src/components/ResearchPage/index.js
-import { UserGroupIcon } from '@heroicons/react/24/solid';
+import { UserPlusIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
@@ -112,7 +112,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 href="https://join.slack.com/t/torsorlabs/shared_invite/zt-32rdqmuv7-TDtDznLIzXoiVfd24Kxhxw"
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
-                <UserGroupIcon className={`h-6 w-6 ${textColor}`} />
+                <UserPlusIcon className={`h-6 w-6 ${textColor}`} />
               </a>
               <p></p>
             </div>
