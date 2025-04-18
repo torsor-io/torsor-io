@@ -147,7 +147,15 @@ const cases = [
                 <ChatBubbleLeftRightIcon className={`h-6 w-6 ${textColor}`} />
           </a>
 	  	  <p>Start a chat!</p>
-            </div>
+          </div>
+
+      {/* Footer */}
+      <Footer 
+  subtleText={subtleText}
+  borderColor={borderColor}
+  footerColor={footerColor}
+      />
+    </div>
           </motion.div>
         </main>
       </div>
