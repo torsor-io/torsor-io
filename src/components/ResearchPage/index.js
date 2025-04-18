@@ -104,10 +104,10 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
     Talks and Posters
   </h2>
   <ul className="space-y-3">
-    <li>
+    <li className={`${subtleText}`}>
       <a 
         href="/assets/PI-talk" 
-        className={`${subtleText} hover:underline`}
+        className={`hover:underline`}
       >
           • "An algebraic foundation for quantum programming".</a> Seminar, <i>Perimeter Institute</i>, Feb 25, 2025.
 	  </li>
