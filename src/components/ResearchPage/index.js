@@ -116,7 +116,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         className={`${subtleText} hover:underline`}
       >
           • "An new foundation for quantum programming".
-      </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}><i>Quantum Days</i>, Feb 19–21, 2025.</a>
+	  </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}>Poster, <i>Quantum Days</i>, Feb 19–21, 2025.</a>
 	  </li>
     {/* Add more talks/posters as needed */}
   </ul>
