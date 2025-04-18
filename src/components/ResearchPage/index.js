@@ -1,5 +1,4 @@
 // src/components/ResearchPage/index.js
-import { AcademicCapIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
