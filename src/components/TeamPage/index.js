@@ -119,13 +119,6 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               <p></p>
             </div>
 
-      {/* Footer */}
-      <Footer 
-  subtleText={subtleText}
-  borderColor={borderColor}
-  footerColor={footerColor}
-      />
-    </div>
           </motion.div>
         </main>
       </div>

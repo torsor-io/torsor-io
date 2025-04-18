@@ -149,14 +149,6 @@ const cases = [
           </a>
 	  	  <p>Start a chat!</p>
           </div>
-
-      {/* Footer */}
-      <Footer 
-  subtleText={subtleText}
-  borderColor={borderColor}
-  footerColor={footerColor}
-      />
-    </div>
           </motion.div>
         </main>
       </div>

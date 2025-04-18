@@ -122,14 +122,6 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
     {/* Add more talks/posters as needed */}
   </ul>
 </motion.div>
-
-            {/* Footer */}
-      <Footer 
-  subtleText={subtleText}
-  borderColor={borderColor}
-  footerColor={footerColor}
-      />
-    </div>
           </motion.div>
         </main>
       </div>
