@@ -99,7 +99,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 >
             <CodeBracketSquareIcon className={`h-6 w-6  ${textColor}`} />
           </a>
-	  <p>Join our Slack!</p>
+	  <p>Visit our GitHub page!</p>
 	  <p></p>
 	  </div>
 
