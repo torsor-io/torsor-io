@@ -4,7 +4,6 @@ import WaveBackground from '../shared/WaveBackground';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
-import Footer from '../shared/Footer';
 import { format } from 'date-fns';
 
 const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
@@ -62,14 +61,7 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           </a>
 	  <p>Join our Slack!</p>
 	  </div>
-
-      {/* Footer */}
-      <Footer 
-  subtleText={subtleText}
-  borderColor={borderColor}
-  footerColor={footerColor}
-      />
-    </div>
+	  
 	 </motion.div>
 	  </main>
 	  
