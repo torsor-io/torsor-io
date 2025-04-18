@@ -1,4 +1,4 @@
-import { BuildingLibraryIcon } from '@heroicons/react/24/solid';
+import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../shared/Navbar';
@@ -141,7 +141,7 @@ const cases = [
             {/* Contact Section */}
             <div className={`text-med text-center ${subtleText}`}>
               <a 
-                href="mailto:community@torsor.io" 
+                href="mailto:consulting@torsor.io" 
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
                 <BuildingLibraryIcon className={`h-6 w-6 ${textColor}`} />
