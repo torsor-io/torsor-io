@@ -1,5 +1,5 @@
 // src/components/YawTemp/index.js
-import { RocketLaunchIcon } from '@heroicons/react/24/solid';
+import { UserPlusIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -56,11 +56,11 @@ const BlogPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           <div className={`text-lg text-center ${subtleText}`}>
 	  <p>Coming soon: link to a permanent homepage for Yaw, our next-gen quantum programming platform.</p><br/>
 	  <a 
-  href="mailto:contact@rsh.dev?subject=Subscribe&body=Please add me to the Redshift Labs mailing list!" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+                href="https://join.slack.com/t/torsorlabs/shared_invite/zt-32rdqmuv7-TDtDznLIzXoiVfd24Kxhxw" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
-            <RocketLaunchIcon className={`h-6 w-6  ${textColor}`} />
+            <UserPlusIcon className={`h-6 w-6  ${textColor}`} />
           </a>
-	  <p>Subscribe for updates!</p>
+	  <p>Join our Slack!</p>
 	  </div>
 	 </motion.div>
 	  </main>
