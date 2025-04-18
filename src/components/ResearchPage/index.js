@@ -109,7 +109,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         href="/assets/PI-talk" 
         className={`${subtleText} hover:underline`}
       >
-          • "An algebraic foundation for quantum programming". <i>Seminar, Perimeter Institute</i>, Feb 25, 2025.</a>
+          • "An algebraic foundation for quantum programming".</a> Seminar, <i>Perimeter Institute</i>, Feb 25, 2025.
 	  </li>
     <li>
       <a 
