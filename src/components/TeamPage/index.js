@@ -3,6 +3,7 @@ import { UserPlusIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
+import Footer from '../shared/Footer';
 
 const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 

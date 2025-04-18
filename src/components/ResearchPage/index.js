@@ -2,6 +2,7 @@
 import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
+import Footer from '../shared/Footer';
 
 const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 

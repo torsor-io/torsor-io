@@ -2,6 +2,7 @@ import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../shared/Navbar';
+import Footer from '../shared/Footer';
 import { useState } from 'react';
 
 const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
