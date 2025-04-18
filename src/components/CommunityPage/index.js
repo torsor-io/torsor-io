@@ -95,7 +95,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             {/* Subscribe Section */}
           <div className={`text-med text-center ${subtleText}`}>
 	  <a 
-                href="https://join.slack.com/t/torsorlabs/shared_invite/zt-32rdqmuv7-TDtDznLIzXoiVfd24Kxhxw" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+                href="https://github.com/torsor-io" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
             <CodeBracketSquareIcon className={`h-6 w-6  ${textColor}`} />
           </a>
