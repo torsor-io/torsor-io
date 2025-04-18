@@ -118,7 +118,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         >
           {/* Yaw Card */}
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
-  <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}><a href="#yaw">yaw</a></h3>
+  <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}><a href="#research">yaw</a></h3>
   <p className={subtleText}>
             Stop programming in quantum machine code! A post-qubit future awaits.
             </p> 
