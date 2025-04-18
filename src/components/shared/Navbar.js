@@ -45,7 +45,7 @@ const Navbar = ({
 
       <header className={`fixed top-0 w-full ${headerBg} backdrop-blur-xl border-b ${borderColor} z-40`}>
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex space-x-8">
+          <div className="flex overflow-x-auto whitespace-nowrap space-x-6 sm:space-x-8 px-2 sm:px-0 no-scrollbar">
             <a href="" className={`${navText} hover:opacity-50 text-xl`}>
               <HomeModernIcon className={`h-6 w-6 mt-0 mr-2 stroke-1 ${navText}`} />
             </a>
