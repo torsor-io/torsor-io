@@ -102,7 +102,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 >
 
 {/* <p className={`${subtleText}`}>Applying is simple! Please visit the <a href="/#puzzle" className={`hover:underline`}><tt>fbr</tt> terminal</a> and submit an application using the command <tt>dice > mail</tt>.</p>*/}
-<p className={`${subtleText}`}>We're not hiring right now, but feel free to visit the <a href="/#puzzle" className={`hover:underline`}>terminal</a> and express interest in future openings via <tt>dice > mail</tt>.</p>
+<p className={`${subtleText}`}>We're not hiring right now, but feel free to visit the <a href="/#puzzle" className={`hover:underline`}>terminal</a> and <tt>dice > mail</tt>, or join our Slack below.</p>
 </motion.div>
       
             {/* Existing Subscribe Section */}
