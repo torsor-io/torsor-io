@@ -152,7 +152,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         >
 <h2 className={`text-3xl font-comfortaa font-bold ${textColor} mb-6`}><a href="/#manifesto">Shaped by difference.</a></h2>
 	    <p className={`${subtleText} text-lg mb-8`}>
-	    Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems. We live out this philosophy in our research, education, and consulting.
+	    Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems. We live this philosophy in our research, education, and consulting.
 </p>
           <a 
   href="/#puzzle"
