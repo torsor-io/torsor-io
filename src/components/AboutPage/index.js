@@ -128,7 +128,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>ςil</h3>
   <p className={subtleText}>
-            Future-proof your Turing tests and agent workflows with robust AI watermarking.
+            Future-proof your Turing tests and agent workflows with watermarking.
             </p>
           </div>
 
