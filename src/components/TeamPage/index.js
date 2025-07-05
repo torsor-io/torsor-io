@@ -57,7 +57,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 <div className="aspect-auto rounded-lg overflow-hidden">
                   <img
                     src="/assets/team/david.png"
-                    alt="Paper visualization"
+                    alt="David Wakeham"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -99,8 +99,8 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="aspect-auto rounded-lg overflow-hidden">
                   <img
-                    src="/assets/team/mike-bw.png"
-                    alt="Paper visualization"
+                    src="/assets/team/mike-bw.jpg"
+                    alt="Michael Kinach"
                     className="w-full h-full object-cover"
                   />
                 </div>
