@@ -113,7 +113,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Michael Kinach • Scientific consultant
                   </p>
                   <p className={`${subtleText}`}>
-          Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on pedagogical innovation and programming language design.
+          Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on pedagogical innovation and language design.
                   </p>
                   <div className="flex space-x-4">
                     
