@@ -47,7 +47,6 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             transition={{ duration: 0.6 }}
             className="space-y-12"
           >
-            {/* Paper Showcase */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -55,7 +54,6 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Paper Image */}
                 <div className="aspect-auto rounded-lg overflow-hidden">
                   <img
                     src="/assets/team/david.png"
@@ -64,13 +62,12 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   />
                 </div>
                 
-                {/* Paper Details */}
                 <div className="space-y-4">
                   <h2 className={`text-2xl font-bold ${textColor}`}>
           Meet the Founder
       </h2>
                   <p className={`${subtleText} text-sm`}>
-          David Wakeham • Founder & Interdimensional Wizard
+          David Wakeham • Founder & CEO
                   </p>
                   <p className={`${subtleText}`}>
           David has a PhD in string theory and black holes (UBC 2022), a masters degree in particle physics, and undergraduate degrees in philosophy and math. Before going rogue, he worked at <a href="https://www.xanadu.ai/" className={`hover:underline`}>Xanadu</a> (2022–25), where he helped architect the <a href="https://pennylane.ai/codebook" className={`hover:underline`}>PennyLane Quantum Codebook</a>, created Xanadu's <a href="https://pennylane.ai/qml/demos/circuits_as_fourier_series" className={`hover:underline`}>first interactive demo</a>, and worked on <a href="https://arxiv.org/abs/2409.00172" className={`hover:underline`}>new ways to use quantum computers for machine learning</a>.
@@ -93,6 +90,51 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </div>
             </motion.div>
 
+        <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-12"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="aspect-auto rounded-lg overflow-hidden">
+                  <img
+                    src="/assets/team/mike-bw.png"
+                    alt="Paper visualization"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                <div className="space-y-4">
+                  <h2 className={`text-2xl font-bold ${textColor}`}>
+          Meet the Team
+      </h2>
+                  <p className={`${subtleText} text-sm`}>
+          Michael Kinach • Scientific consultant
+                  </p>
+                  <p className={`${subtleText}`}>
+          Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on pedagogical innovation and programming language design.
+                  </p>
+                  <div className="flex space-x-4">
+                    
+                      <a href="https://kinach.ca/"
+                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
+                    >
+                      Personal website
+      </a>
+
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
 {/* Join us */}
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -102,7 +144,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 >
 
 {/* <p className={`${subtleText}`}>Applying is simple! Please visit the <a href="/#puzzle" className={`hover:underline`}><tt>fbr</tt> terminal</a> and submit an application using the command <tt>dice > mail</tt>.</p>*/}
-<p className={`${subtleText}`}>We're not hiring right now, but feel free to visit the <a href="/#puzzle" className={`hover:underline`}>terminal</a> and <tt>dice > mail</tt>, or join our Slack below.</p>
+<p className={`${subtleText}`}>Visit the <a href="/#puzzle" className={`hover:underline`}>terminal</a> and roll <tt>dice > mail</tt> to express interest. Or join our Slack below!</p>
 </motion.div>
       
             {/* Existing Subscribe Section */}
