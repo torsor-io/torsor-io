@@ -99,8 +99,8 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="aspect-auto rounded-lg overflow-hidden">
                   <img
-                    src="/assets/team/jude.jpg"
-                    alt="Jude McDonald"
+                    src="/assets/team/mike-bw.jpg"
+                    alt="Michael Kinach"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -109,22 +109,6 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <h2 className={`text-2xl font-bold ${textColor}`}>
           Meet the Team
       </h2>
-<p className={`${subtleText} text-sm`}>
-          Jude McDonald • Research intern
-                  </p>
-                  <p className={`${subtleText}`}>
-          Jude studies physics and mathematics at the University of Victoria, and previously participated in the prestigious QSYS program, connecting promising students with world-leading researchers in quantum computing. At Torsor, he focuses on the algebraic foundations of the <a href="#research" className={`font-comfortaa font-bold ${textColor} mb-3`}>yaw</a> programming language.
-                  </p>
-                    
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="aspect-auto rounded-lg overflow-hidden">
-                  <img
-                    src="/assets/team/mike-bw.jpg"
-                    alt="Michael Kinach"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
                   <p className={`${subtleText} text-sm`}>
           Michael Kinach • Scientific consultant
                   </p>
