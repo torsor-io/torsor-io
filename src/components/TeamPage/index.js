@@ -99,8 +99,8 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="aspect-auto rounded-lg overflow-hidden">
                   <img
-                    src="/assets/team/mike-bw.jpg"
-                    alt="Michael Kinach"
+                    src="/assets/team/jude.jpg"
+                    alt="Jude McDonald"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -117,13 +117,14 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   </p>
                   <div className="flex space-x-4">
                     
-                      <a href="https://kinach.ca/"
-                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
-                    >
-                      Personal website
-      </a>
-
-                  </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="aspect-auto rounded-lg overflow-hidden">
+                  <img
+                    src="/assets/team/mike-bw.jpg"
+                    alt="Michael Kinach"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
                   <p className={`${subtleText} text-sm`}>
           Michael Kinach • Scientific consultant
