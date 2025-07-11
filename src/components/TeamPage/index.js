@@ -114,41 +114,35 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   </div>
 </div>
                 
-  <div className="space-y-4">
-  <h2 className={`text-2xl font-bold ${textColor}`}>
-    Meet the Team
-  </h2>
-  
-  {/* Jude's section */}
-  <div>
-    <p className={`${subtleText} text-sm`}>
-      Jude McDonald • Research intern
-    </p>
-    <p className={`${subtleText}`}>
-      Jude studies physics and mathematics at the University of Victoria, and previously participated in the Quantum School for Young Students (QSYS) at UWaterloo, connecting promising students with world-leading quantum researchers. At Torsor Labs, he focuses on the mathematical foundations of the Yaw programming language.
-    </p>
-    <div className="flex space-x-4">
-      {/* Jude's buttons if any */}
-    </div>
-  </div>
+                <div className="space-y-4">
+                  <h2 className={`text-2xl font-bold ${textColor}`}>
+          Meet the Team
+      </h2>
+                  <p className={`${subtleText} text-sm`}>
+          Jude McDonald • Research intern
+                  </p>
+                  <p className={`${subtleText}`}>
+          Jude studies physics and mathematics at the University of Victoria, and previously participated in the Quantum School for Young Students (QSYS) at UWaterloo, connecting promising students with world-leading quantum researchers. At Torsor Labs, he focuses on the mathematical foundations of the Yaw programming language.
+                  </p>
+                  <div className="flex space-x-4">
 
-  {/* Mike's section - add margin-top to align with his photo */}
-  <div className="mt-8"> {/* Adjust this value as needed */}
-    <p className={`${subtleText} text-sm`}>
-      Michael Kinach • Scientific consultant
-    </p>
-    <p className={`${subtleText}`}>
-      Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on education and language design.
-    </p>
-    <div className="flex space-x-4">
-      <a href="https://kinach.ca/"
-        className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
-      >
-        Personal website
+                  </div>
+                  <p className={`${subtleText} text-sm mt-8`}>
+          Michael Kinach • Scientific consultant
+                  </p>
+                  <p className={`${subtleText}`}>
+          Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on education and language design.
+                  </p>
+                  <div className="flex space-x-4">
+                    
+                      <a href="https://kinach.ca/"
+                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
+                    >
+                      Personal website
       </a>
-    </div>
-  </div>
-</div>
+
+                  </div>
+                </div>
               </div>
             </motion.div>
 
