@@ -124,10 +124,10 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <p className={`${subtleText}`}>
           Jude studies physics and mathematics at the University of Victoria, and previously participated in the Quantum School for Young Students (QSYS) at UWaterloo, connecting promising students with world-leading quantum researchers. At Torsor Labs, he focuses on the mathematical foundations of the Yaw programming language.
                   </p>
-                  <div className="flex space-x-4 mb-12">
-
+                  <div className="flex space-x-4">
+	  <p></p>
                   </div>
-                  <p className={`${subtleText} text-sm mt-12`}>
+                  <p className={`${subtleText} text-sm `}>
           Michael Kinach • Scientific consultant
                   </p>
                   <p className={`${subtleText}`}>
