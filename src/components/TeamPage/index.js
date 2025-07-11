@@ -98,6 +98,11 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             >
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="aspect-auto rounded-lg overflow-hidden">
+                     <img
+                    src="/assets/team/jude.jpg"
+                    alt="Jude McDonald"
+                    className="w-full h-full object-cover"
+                  />
                   <img
                     src="/assets/team/mike-bw.jpg"
                     alt="Michael Kinach"
@@ -110,10 +115,10 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Meet the Team
       </h2>
                   <p className={`${subtleText} text-sm`}>
-          Michael Kinach • Scientific consultant
+          Jude McDonald • Research intern
                   </p>
                   <p className={`${subtleText}`}>
-          Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on pedagogical innovation and language design.
+          Jude studies physics and mathematics at the University of Victoria, and previously participated in the prestigious QSYS program, connecting promising students with world-leading quantum researchers. At Torsor Labs, he focuses on the mathematical foundations of the Yaw programming language.
                   </p>
                   <div className="flex space-x-4">
                     
@@ -128,7 +133,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Michael Kinach • Scientific consultant
                   </p>
                   <p className={`${subtleText}`}>
-          Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on pedagogical innovation and language design.
+          Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on education and language design.
                   </p>
                   <div className="flex space-x-4">
                     
