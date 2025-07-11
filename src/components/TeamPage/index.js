@@ -103,9 +103,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                     alt="Jude McDonald"
                     className="w-full h-full object-cover"
                   />
-                </div>
 
-<div className="aspect-auto rounded-lg overflow-hidden">
                   <img
                     src="/assets/team/mike-bw.jpg"
                     alt="Michael Kinach"
