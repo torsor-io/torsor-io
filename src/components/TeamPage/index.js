@@ -99,7 +99,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="aspect-auto rounded-lg overflow-hidden">
                      <img
-                    src="/assets/team/jude.jpg"
+                    src="/assets/team/jude.jpeg"
                     alt="Jude McDonald"
                     className="w-full h-full object-cover"
                   />
