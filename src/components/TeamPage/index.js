@@ -124,6 +124,15 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       </a>
 
                   </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="aspect-auto rounded-lg overflow-hidden">
+                  <img
+                    src="/assets/team/jude.jpeg"
+                    alt="Jude McDonald"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 </div>
               </div>
             </motion.div>
