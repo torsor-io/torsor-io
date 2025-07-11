@@ -70,7 +70,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           David Wakeham • Founder & CEO
                   </p>
                   <p className={`${subtleText}`}>
-          David has a <a href="https://hapax.github.io/assets/ubc_2022_november_wakeham_david.pdf">PhD</a> in string theory and black holes (UBC 2022), a masters degree in particle physics, and undergraduate degrees in philosophy and math. Before going rogue, he worked at <a href="https://www.xanadu.ai/" className={`hover:underline`}>Xanadu</a> (2022–25).
+          David has a <a href="https://hapax.github.io/assets/ubc_2022_november_wakeham_david.pdf" className={`hover:underline`}>PhD</a> in string theory and black holes (UBC 2022), a masters degree in particle physics, and undergraduate degrees in philosophy and math. Before going rogue, he worked at <a href="https://www.xanadu.ai/" className={`hover:underline`}>Xanadu</a> (2022–25).
                   </p>
                   <div className="flex space-x-4">
                     
