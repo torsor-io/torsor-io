@@ -97,21 +97,22 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="aspect-auto rounded-lg overflow-hidden">
-                     <img
-                    src="/assets/team/jude.jpeg"
-                    alt="Jude McDonald"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-<div className="aspect-auto rounded-lg overflow-hidden">
-                  <img
-                    src="/assets/team/mike-bw.jpg"
-                    alt="Michael Kinach"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+<div className="space-y-4">
+  <div className="aspect-auto rounded-lg overflow-hidden">
+    <img
+      src="/assets/team/jude.jpeg"
+      alt="Jude McDonald"
+      className="w-full h-full object-cover"
+    />
+  </div>
+  <div className="aspect-auto rounded-lg overflow-hidden">
+    <img
+      src="/assets/team/mike-bw.jpg"
+      alt="Michael Kinach"
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
                 
                 <div className="space-y-4">
                   <h2 className={`text-2xl font-bold ${textColor}`}>
