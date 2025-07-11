@@ -121,7 +121,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <p className={`${subtleText} text-sm`}>
           Jude McDonald • Research intern
                   </p>
-                  <p className={`${subtleText} !mb-8`}>
+                  <p className={`${subtleText} !mb-12`}>
           Jude studies physics and mathematics at the University of Victoria, and previously participated in the Quantum School for Young Students (QSYS) at UWaterloo, connecting promising students with world-leading quantum researchers. At Torsor Labs, he focuses on the mathematical foundations of the Yaw programming language.
                   </p>
                   <div className="flex space-x-4">
