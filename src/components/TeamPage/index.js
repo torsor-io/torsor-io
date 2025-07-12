@@ -122,7 +122,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Jude McDonald • Research intern
                   </p>
                   <p className={`${subtleText} !mb-20`}>
-          Jude studies physics and mathematics at the University of Victoria. He participated in the Quantum School for Young Students (QSYS) at UWaterloo, connecting promising students with world-leading quantum researchers, and at Torsor focuses on the mathematical foundations of Yaw.
+          Jude studies physics and mathematics at the University of Victoria. He participated in the Quantum School for Young Students (QSYS) at UWaterloo, connecting promising students with world-leading quantum researchers. At Torsor, Jude focuses on the algebraic foundations of Yaw.
                   </p>
                   <div className="flex space-x-4">
 
