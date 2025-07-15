@@ -124,19 +124,19 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             </p> 
           </div>
 
+          { /*λix Card */ }
+<div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
+  <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>λix</h3>
+  <p className={subtleText}>
+            Any sufficiently advanced quantum system is indistinguishable from a computer.
+            </p>
+            </div>
+	
           {/* Sigil Card */}
 <div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>ςil</h3>
   <p className={subtleText}>
             Future-proof your Turing tests and agent workflows with watermarking.
-            </p>
-          </div>
-
-          {/* Paχ Card */}
-<div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
-  <h3 className={`font-comfortaa font-bold text-2xl ${textColor} mb-3`}>paχ</h3>
-  <p className={subtleText}>
-            Want to bootstrap a network? Decentralization is overkill.
             </p>
           </div>
             </motion.div>
