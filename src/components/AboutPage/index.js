@@ -120,41 +120,25 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}><a href="#research">yaw</a></h3>
   <p className={subtleText}>
-            Stop programming in quantum machine code.
+            Stop programming in quantum machine code! A post-qubit future awaits.
             </p> 
-            </div>
-
-          { /*λix Card */ }
-<div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
-  <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>λix</h3>
-  <p className={subtleText}>
-            Any sufficiently advanced quantum system is indistinguishable from a computer.
-            </p>
-            </div>
-
-          { /*λix Card */ }
-<div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
-  <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>λix</h3>
-  <p className={subtleText}>
-            Any sufficiently advanced quantum system is indistinguishable from a computer.
-            </p>
           </div>
 
-          /*{ Sigil Card }
+          {/* Sigil Card */}
 <div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>ςil</h3>
   <p className={subtleText}>
             Future-proof your Turing tests and agent workflows with watermarking.
             </p>
-          </div>*/
+          </div>
 
-          /*{ Paχ Card}
+          {/* Paχ Card */}
 <div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa font-bold text-2xl ${textColor} mb-3`}>paχ</h3>
   <p className={subtleText}>
             Want to bootstrap a network? Decentralization is overkill.
             </p>
-          </div>*/
+          </div>
             </motion.div>
 	    </motion.div>
 
