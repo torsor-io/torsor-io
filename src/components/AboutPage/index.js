@@ -114,7 +114,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
         >
           {/* Yaw Card */}
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
@@ -128,7 +128,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>λix</h3>
   <p className={subtleText}>
-            Any sufficiently advanced quantum system is indistinguishable from a computer.
+            Any sufficiently advanced system is indistinguishable from a computer.
             </p>
           </div>
 
