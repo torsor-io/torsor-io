@@ -114,7 +114,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto px-6 mb-16"
         >
           {/* Yaw Card */}
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
