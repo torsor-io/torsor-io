@@ -139,14 +139,6 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             Future-proof your Turing tests, agent workflows, and training stack.
             </p>
           </div>
-
-          /*{ Paχ Card }
-<div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
-  <h3 className={`font-comfortaa font-bold text-2xl ${textColor} mb-3`}>paχ</h3>
-  <p className={subtleText}>
-            Want to bootstrap a network? Decentralization is overkill.
-            </p>
-          </div>*/
             </motion.div>
 	    </motion.div>
 
