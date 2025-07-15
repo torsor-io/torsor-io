@@ -120,7 +120,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}><a href="#research">yaw</a></h3>
   <p className={subtleText}>
-            Stop programming in quantum machine code! A post-qubit future awaits.
+            Stop programming in quantum machine code and use high-school algebra instead.
             </p> 
           </div>
 
