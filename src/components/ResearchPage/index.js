@@ -72,7 +72,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           David Wakeham • February 17, 2025
                   </p>
                   <p className={`${subtleText}`}>
-                    This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946.
+          {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
                   </p>
                   <div className="flex space-x-4">
                     
@@ -92,6 +92,29 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </div>
             </motion.div>
 
+{/* Papers Section */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+  className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+>
+  <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
+    Research Papers
+  </h2>
+  <ul className="space-y-3">
+    <li className={`${subtleText}`}>
+      <a 
+        href="/assets/PI-talk" 
+        className={`hover:underline`}
+      >
+          • “A Short History of Rocks: or, How to Invent Quantum Computing.”
+	  </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}>Poster, <i>Quantum Days</i>, Feb 19–21, 2025.</a>
+	  </li>
+    {/* Add more talks/posters as needed */}
+  </ul>
+</motion.div>
+      
 {/* Talks and Posters Section */}
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -108,14 +131,14 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         href="/assets/PI-talk" 
         className={`hover:underline`}
       >
-          • "An algebraic foundation for quantum programming".</a> Seminar, <i>Perimeter Institute</i>, Feb 25, 2025.
+          • “An algebraic foundation for quantum programming.”</a> Seminar, <i>Perimeter Institute</i>, Feb 25, 2025.
 	  </li>
     <li>
       <a 
         href="/assets/qdays-poster.pdf" 
         className={`${subtleText} hover:underline`}
       >
-          • "An new foundation for quantum programming".
+          • “A new foundation for quantum programming.”
 	  </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}>Poster, <i>Quantum Days</i>, Feb 19–21, 2025.</a>
 	  </li>
     {/* Add more talks/posters as needed */}
