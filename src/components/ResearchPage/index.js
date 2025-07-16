@@ -1,11 +1,26 @@
 // src/components/ResearchPage/index.js
 import WaveBackground from '../shared/WaveBackground';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../shared/Navbar';
+import { useState } from 'react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 
 const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
+  const [expandedPapers, setExpandedPapers] = useState(new Set());
 
-      // Theme variables (matching your AboutPage)
+  const togglePaper = (paperId) => {
+    setExpandedPapers(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(paperId)) {
+        newSet.delete(paperId);
+      } else {
+        newSet.add(paperId);
+      }
+      return newSet;
+    });
+  };
+
+  // Theme variables (matching your AboutPage)
   const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
   const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
   const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
@@ -13,30 +28,43 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const borderColor = isDark ? 'border-slate-800' : 'border-stone-300';
   const buttonBg = isDark ? 'bg-slate-800/50 hover:bg-slate-700/50' : 'bg-orange-100/50 hover:bg-orange-200';
   const gradientBg = isDark 
-  ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
-	: 'bg-gradient-to-b from-amber-50 to-amber-100';
-    
+    ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
+    : 'bg-gradient-to-b from-amber-50 to-amber-100';
+
+  const papers = [
+    {
+      id: 'rocks-paper',
+      title: 'A Short History of Rocks: or, How to Invent Quantum Computing.',
+      pdfUrl: '/assets/rocks/rocks.pdf',
+      arxivUrl: 'https://arxiv.org/abs/2503.00005',
+      arxivId: 'arXiv:2503.00005',
+      date: 'Feb 14, 2025',
+      abstract: `This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman's allied proposal for quantum computing. We argue that Feynman's state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946.`
+    }
+    // Add more papers here as needed
+  ];
+
   return (
     <div className={`min-h-screen transition-colors`}>
-      	{/* Keep wave fixed */}
-	    <div className="fixed top-0 left-0 w-full h-full z-[-5] opacity-50">
-	    <WaveBackground isDark={isDark} waveState={waveState} />
-	  </div>
+      {/* Keep wave fixed */}
+      <div className="fixed top-0 left-0 w-full h-full z-[-5] opacity-50">
+        <WaveBackground isDark={isDark} waveState={waveState} />
+      </div>
 
       <div className={`fixed top-0 left-0 w-full h-full z-[-10] ${gradientBg} opacity-100 transition-colors`} />
 
-	  <div className="relative min-h-screen z-0">
-      {/* Navbar */}
-      <Navbar 
-        isDark={isDark}
-        setIsDark={setIsDark}
-        waveState={waveState}
-        setWaveState={setWaveState}
-        headerBg={headerBg}
-        borderColor={borderColor}
-        navText={navText}
-        buttonBg={buttonBg}
-      />
+      <div className="relative min-h-screen z-0">
+        {/* Navbar */}
+        <Navbar 
+          isDark={isDark}
+          setIsDark={setIsDark}
+          waveState={waveState}
+          setWaveState={setWaveState}
+          headerBg={headerBg}
+          borderColor={borderColor}
+          navText={navText}
+          buttonBg={buttonBg}
+        />
 
         {/* Main Content */}
         <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
@@ -66,84 +94,125 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 {/* Paper Details */}
                 <div className="space-y-4">
                   <h2 className={`text-2xl font-bold ${textColor}`}>
-          A Short History of Rocks
-      </h2>
+                    A Short History of Rocks
+                  </h2>
                   <p className={`${subtleText} text-sm`}>
-          David Wakeham • February 17, 2025
+                    David Wakeham • February 17, 2025
                   </p>
                   <p className={`${subtleText}`}>
-          {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
+                    {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman's allied proposal for quantum computing. We argue that Feynman's state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
                   </p>
                   <div className="flex space-x-4">
-                    
-                      <a href="/assets/rocks/rocks.pdf"
+                    <a href="/assets/rocks/rocks.pdf"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
                       Read Paper
-      </a>
+                    </a>
 
-      <a href="https://arxiv.org/abs/2503.00005"
+                    <a href="https://arxiv.org/abs/2503.00005"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
                       arXiv
-      </a>
+                    </a>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-{/* Papers Section */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.3 }}
-  className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
->
-  <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-    Research Papers
-  </h2>
-  <ul className="space-y-3">
-    <li className={`${subtleText}`}>
-      <a 
-        href="/assets/rocks/rocks.pdf" 
-        className={`hover:underline`}
-      >
-          • “A Short History of Rocks: or, How to Invent Quantum Computing.”
-      </a> <a href="https://arxiv.org/abs/2503.00005" className={`${subtleText}`}>arXiv:2503.00005, Feb 14, 2025.</a>
-	  </li>
-    {/* Add more talks/posters as needed */}
-  </ul>
-</motion.div>
-      
-{/* Talks and Posters Section */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.3 }}
-  className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
->
-  <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-    Talks and Posters
-  </h2>
-  <ul className="space-y-3">
-    <li className={`${subtleText}`}>
-      <a 
-        href="/assets/PI-talk" 
-        className={`hover:underline`}
-      >
-          • “An algebraic foundation for quantum programming.”</a> Seminar, <i>Perimeter Institute</i>, Feb 25, 2025.
-	  </li>
-    <li>
-      <a 
-        href="/assets/qdays-poster.pdf" 
-        className={`${subtleText} hover:underline`}
-      >
-          • “A new foundation for quantum programming.”
-	  </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}>Poster, <i>Quantum Days</i>, Feb 19–21, 2025.</a>
-	  </li>
-    {/* Add more talks/posters as needed */}
-  </ul>
-</motion.div>
+            {/* Papers Section with Collapsible Abstracts */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
+                Research Papers
+              </h2>
+              <ul className="space-y-3">
+                {papers.map((paper) => (
+                  <li key={paper.id} className={`${subtleText}`}>
+                    <div className="flex items-start gap-2">
+                      <button
+                        onClick={() => togglePaper(paper.id)}
+                        className={`mt-1 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors`}
+                        aria-label={expandedPapers.has(paper.id) ? 'Collapse abstract' : 'Expand abstract'}
+                      >
+                        {expandedPapers.has(paper.id) ? (
+                          <ChevronDown className="w-4 h-4" />
+                        ) : (
+                          <ChevronRight className="w-4 h-4" />
+                        )}
+                      </button>
+                      <div className="flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <a 
+                            href={paper.pdfUrl}
+                            className={`hover:underline`}
+                          >
+                            • "{paper.title}"
+                          </a>
+                          <a 
+                            href={paper.arxivUrl} 
+                            className={`${subtleText}`}
+                          >
+                            {paper.arxivId}, {paper.date}.
+                          </a>
+                        </div>
+                        
+                        <AnimatePresence>
+                          {expandedPapers.has(paper.id) && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden"
+                            >
+                              <div className={`mt-3 p-3 rounded-lg ${isDark ? 'bg-slate-800/50' : 'bg-gray-50'} ${subtleText} text-sm leading-relaxed`}>
+                                <strong className="block mb-2">Abstract:</strong>
+                                {paper.abstract}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+            
+            {/* Talks and Posters Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
+                Talks and Posters
+              </h2>
+              <ul className="space-y-3">
+                <li className={`${subtleText}`}>
+                  <a 
+                    href="/assets/PI-talk" 
+                    className={`hover:underline`}
+                  >
+                    • "An algebraic foundation for quantum programming."
+                  </a> Seminar, <i>Perimeter Institute</i>, Feb 25, 2025.
+                </li>
+                <li>
+                  <a 
+                    href="/assets/qdays-poster.pdf" 
+                    className={`${subtleText} hover:underline`}
+                  >
+                    • "A new foundation for quantum programming."
+                  </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}>Poster, <i>Quantum Days</i>, Feb 19–21, 2025.</a>
+                </li>
+                {/* Add more talks/posters as needed */}
+              </ul>
+            </motion.div>
           </motion.div>
         </main>
       </div>
