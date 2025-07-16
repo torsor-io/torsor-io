@@ -1,7 +1,22 @@
 // This file is auto-generated. Do not edit directly.
 
 
+
 export const blogPosts = [
+  {
+    "id": "history-rocks",
+    "title": "A Short History of Rocks, etc.",
+    "date": "2025-06-15",
+    "author": "DW",
+    "tags": [
+      "Announcements",
+      "Quantum Computing",
+      "Venture"
+    ],
+    "excerpt": "How to invent quantum computing, CDL Bootcamp, and other announcements.",
+    "content": `<p>After four months of intentional quiet, we end our radio silence with a few announcements:</p>\n<ol>\n<li><a href=\"https://arxiv.org/abs/2503.00005\"><em>A Short History of Rocks: or, How to Invent Quantum Computing</em></a> hit the arxiv in February. It starts with an unconventional history of rocks (and the scientists who commune with them), and ends with an alternate timeline in which John von Neumann discovers quantum computing, 35 years before Feynman’s famous conference address. Along the way, we leave a trail of breadcrumbs for those wishing to follow von Neumann’s (fictitious) footsteps. Check it out if you like historical science fiction, e.g. <em>The Difference Engine</em> or <em>The Baroque Cycle</em>.</li>\n<li>Torsor Labs was selected (along with 38 other startups) for the <a href=\"https://creativedestructionlab.com/streams/quantum/\">CDL Quantum 2025 Bootcamp</a>! This is part of CDL’s intake for the 2025 Quantum stream. The first week has primarily focused on business “basics”, though that apparently “basic” includes <a href=\"https://en.wikipedia.org/wiki/Quasi-rent\">appropriable quasi-rents</a> and Bayesian entrepreneurship, courtesy of <a href=\"https://www.kevinbryanecon.com/\">Kevin Bryan</a>. Fun stuff!</li>\n<li>Last but not least, we’ve been following the trail of breadcrumbs ourselves. Some time in the next few weeks, we’ll present an entirely new way of doing quantum programming, so stay tuned!</li>\n</ol>`,
+    "imageImports": ""
+  },
   {
     "id": "Welcome",
     "title": "Welcome",
