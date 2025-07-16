@@ -105,11 +105,11 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   <ul className="space-y-3">
     <li className={`${subtleText}`}>
       <a 
-        href="https://arxiv.org/abs/2503.00005" 
+        href="/assets/rocks/rocks.pdf" 
         className={`hover:underline`}
       >
           • “A Short History of Rocks: or, How to Invent Quantum Computing.”
-	  </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}>Poster, <i>Quantum Days</i>, Feb 19–21, 2025.</a>
+      </a> <a href="https://arxiv.org/abs/2503.00005" className={`${subtleText}`}>arXiv:2503.00005, Feb 14, 2025.</a>
 	  </li>
     {/* Add more talks/posters as needed */}
   </ul>
