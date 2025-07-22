@@ -111,7 +111,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           • “A Short History of Rocks: or, How to Invent Quantum Computing.”
       </a> <a href="https://arxiv.org/abs/2503.00005" className={`${subtleText}`}>arXiv:2503.00005, Feb 14, 2025.</a>
 	  </li>
-    {/* Add more talks/posters as needed */}
+    {/* Add more papers as needed */}
   </ul>
 	  </motion.div>
 	  

@@ -111,6 +111,13 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       alt="Michael Kinach"
       className="w-full h-full object-cover"
     />
+	  </div>
+  <div className="aspect-auto rounded-lg overflow-hidden">
+    <img
+      src="/assets/team/mieke.jpg"
+      alt="Mieke Westenbroek"
+      className="w-full h-full object-cover"
+    />
   </div>
 </div>
                 
@@ -140,6 +147,15 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                     >
                       Personal website
       </a>
+                  <p className={`${subtleText} text-sm`}>
+          Mieke Westenbroek • Product/strategy consultant
+                  </p>
+                  <p className={`${subtleText} !mb-20`}>
+	  Mieke holds an MSc in Management, specializing in Strategy & Entrepreneurship, from Catolica Lisbon School of Business and Economics. Her background is in product management and strategy, with a passion for helping companies develop, align and deliver strategies and products that deliver human value. At Torsor, Mieke works on product consulting and business strategy. 
+                  </p>
+                  <div className="flex space-x-4">
+
+                  </div>
 
                   </div>
                 </div>
