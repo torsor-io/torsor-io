@@ -140,7 +140,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <p className={`${subtleText}`}>
           Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on education and language design.
                   </p>
-                  <div className="flex space-x-4 !mb-24">
+                  <div className="flex space-x-4 !mb-30">
                     
                       <a href="https://kinach.ca/"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
