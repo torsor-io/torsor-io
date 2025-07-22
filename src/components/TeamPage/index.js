@@ -77,7 +77,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                       <a href="https://hapax.github.io/"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
-                      Personal website
+                      Blog
       </a>
 
                             <a href="https://scholar.google.com/citations?user=WAgYEwYAAAAJ&hl=en"
@@ -145,10 +145,10 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                       <a href="https://kinach.ca/"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
-                      Personal website
+                      Website
       </a>
 	                    </div>
-                  <p className={`${subtleText} text-sm !mt-20`}>
+                  <p className={`${subtleText} text-sm !mt-24`}>
           Mieke Westenbroek • Product/strategy consultant
                   </p>
                   <p className={`${subtleText} !mb-20`}>
