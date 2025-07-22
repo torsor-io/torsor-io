@@ -148,7 +148,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                       Website
       </a>
 	                    </div>
-                  <p className={`${subtleText} text-sm !mt-26`}>
+                  <p className={`${subtleText} text-sm !mt-24`}>
           Mieke Westenbroek • Product/strategy consultant
                   </p>
                   <p className={`${subtleText} !mb-26`}>
