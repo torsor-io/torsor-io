@@ -151,7 +151,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <p className={`${subtleText} text-sm !mt-24`}>
           Mieke Westenbroek • Product/strategy consultant
                   </p>
-                  <p className={`${subtleText} !mb-20`}>
+                  <p className={`${subtleText} !mb-24`}>
 	  Mieke holds an MSc in Management, specializing in Strategy & Entrepreneurship, from Catolica Lisbon School of Business and Economics. Her background is in product management and strategy, with a passion for helping companies develop, align and deliver strategies and products that deliver human value. At Torsor, Mieke works on product consulting and business strategy. 
                   </p>
                   <div className="flex space-x-4">
