@@ -114,7 +114,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	  </div>
   <div className="aspect-auto rounded-lg overflow-hidden">
     <img
-      src="/assets/team/mieke.jpg"
+      src="/assets/team/mieke.png"
       alt="Mieke Westenbroek"
       className="w-full h-full object-cover"
     />
