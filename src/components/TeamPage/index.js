@@ -147,6 +147,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                     >
                       Personal website
       </a>
+	                    </div>
                   <p className={`${subtleText} text-sm`}>
           Mieke Westenbroek • Product/strategy consultant
                   </p>
@@ -157,7 +158,6 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 
                   </div>
 
-                  </div>
                 </div>
               </div>
             </motion.div>
