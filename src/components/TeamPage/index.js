@@ -134,7 +134,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <div className="flex space-x-4">
 
                   </div>
-                  <p className={`${subtleText} text-sm !mt-20 !mb-20`}>
+                  <p className={`${subtleText} text-sm !mt-20 !mb-24`}>
           Michael Kinach • Scientific consultant
                   </p>
                   <p className={`${subtleText}`}>
