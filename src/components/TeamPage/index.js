@@ -140,18 +140,21 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <p className={`${subtleText}`}>
           Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on education and language design.
                   </p>
-                  <div className="flex space-x-4 !mb-26">
+                  <div className="flex space-x-4 !mb-24">
                     
                       <a href="https://kinach.ca/"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
                       Website
       </a>
-	                    </div>
-                  <p className={`${subtleText} text-sm !mt-26`}>
+	  </div>
+	                    <div className="flex space-x-4">
+
+                  </div>
+                  <p className={`${subtleText} text-sm !mt-24`}>
           Mieke Westenbroek • Product/strategy consultant
                   </p>
-                  <p className={`${subtleText} !mb-26`}>
+                  <p className={`${subtleText} !mb-24`}>
 	  Mieke holds an MSc in Management, specializing in Strategy & Entrepreneurship, from Catolica Lisbon School of Business and Economics. Her background is in product management and strategy, with a passion for helping companies develop, align and deliver strategies and products that deliver human value. At Torsor, Mieke works on product consulting and business strategy. 
                   </p>
                   <div className="flex space-x-4">
