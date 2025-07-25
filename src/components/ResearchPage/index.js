@@ -95,19 +95,11 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Paper Image */}
-          <div className="aspect-auto w-md overflow-hidden">
-                  <img
-                    src="/assets/rocks/rocks.png"
-                    alt="Paper visualization"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
                 
                 {/* Paper Details */}
                 <div className="space-y-4">
                   <h2 className={`text-2xl font-bold ${textColor}`}>
-          Quantum programming
+          Logic and foundations
       </h2>
                   <p className={`${subtleText}`}>
           {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
@@ -116,14 +108,21 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <ul className="space-y-3">
     <li className={`${subtleText}`}>
       <a 
-        href="https://arxiv.org/abs/2503.00005" 
+        href="/assets/PI-talk" 
         className={`hover:underline`}
       >
-          • “A Short History of Rocks: or, How to Invent Quantum Computing,”
-      </a> (Feb 2025). David Wakeham.
+          • “An algebraic foundation for quantum programming,”</a> (Feb 2025). Seminar, <i>Perimeter Institute</i>.
 	  </li>
     {/* Add more papers as needed */}
   </ul>
+          </div>
+	                  {/* Paper Image */}
+          <div className="aspect-auto w-md overflow-hidden">
+                  <img
+                    src="/assets/rocks/isbell.png"
+                    alt="Isbell duality"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </motion.div>
