@@ -75,11 +75,11 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <ul className="space-y-3">
     <li className={`${subtleText}`}>
       <a 
-        href="/assets/rocks/rocks.pdf" 
+        href="https://arxiv.org/abs/2503.00005" 
         className={`hover:underline`}
       >
           • “A Short History of Rocks: or, How to Invent Quantum Computing.”
-      </a> <a href="https://arxiv.org/abs/2503.00005" className={`${subtleText}`}>arXiv:2503.00005, Feb 14, 2025.</a>
+      </a> (Feb 2025), David Wakeham. arXiv:2503.00005.</a>
 	  </li>
     {/* Add more papers as needed */}
   </ul>
