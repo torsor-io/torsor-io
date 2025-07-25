@@ -55,7 +55,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             >
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Paper Image */}
-                <div className="aspect-auto rounded-lg overflow-hidden">
+                <div className="aspect-square rounded-lg overflow-hidden">
                   <img
                     src="/assets/rocks/johnny.png"
                     alt="Paper visualization"
@@ -66,7 +66,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 {/* Paper Details */}
                 <div className="space-y-4">
                   <h2 className={`text-2xl font-bold ${textColor}`}>
-          A Short History of Rocks
+          Quantum programming
       </h2>
                   <p className={`${subtleText} text-sm`}>
           David Wakeham • February 17, 2025
