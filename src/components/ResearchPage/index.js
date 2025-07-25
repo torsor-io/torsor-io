@@ -102,7 +102,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Logic and foundations
       </h2>
                   <p className={`${subtleText}`}>
-	  We believe that theory and practice go hand in hand. Our applied work on quantum programming is complemented by an interest in foundational issues and approaches, such as logic, category theory, universal algebras, and the role of dualities.
+	  We believe that theory and practice go hand in hand. Our applied work on quantum programming is complemented by an interest in foundational issues and approaches, such as logic, category theory, universal algebras, and the central role of duality in guiding new insights.
       </p>
 <ul className="space-y-3">
     <li className={`${subtleText}`}>
