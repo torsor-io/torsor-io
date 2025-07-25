@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="248.6684mm"
-   height="248.6684mm"
-   viewBox="0 0 248.6684 248.66839"
+   width="215.34938mm"
+   height="215.34938mm"
+   viewBox="0 0 215.34938 215.34938"
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
@@ -27,8 +27,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.52410024"
-     inkscape:cx="320.54937"
-     inkscape:cy="507.5365"
+     inkscape:cx="259.49234"
+     inkscape:cy="427.39915"
      inkscape:window-width="1584"
      inkscape:window-height="885"
      inkscape:window-x="0"
@@ -61,14 +61,14 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(556.56022,35.159117)">
+     transform="translate(540.40561,13.956112)">
     <rect
-       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1.01228;stroke-linejoin:round"
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.876645;stroke-linejoin:round"
        id="rect4"
-       width="247.65611"
-       height="247.65611"
-       x="-556.05408"
-       y="-34.652977" />
+       width="214.47273"
+       height="214.47273"
+       x="-777.74384"
+       y="-13.51779" />
     <ellipse
        style="fill:#838383;fill-opacity:1;stroke:#ffffff;stroke-width:1.10545;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="ellipse1"
