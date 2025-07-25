@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="280.97772mm"
-   height="280.97772mm"
-   viewBox="0 0 280.97773 280.97772"
+   width="248.6684mm"
+   height="248.6684mm"
+   viewBox="0 0 248.6684 248.66839"
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
@@ -27,8 +27,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.52410024"
-     inkscape:cx="381.60639"
-     inkscape:cy="568.59352"
+     inkscape:cx="320.54937"
+     inkscape:cy="507.5365"
      inkscape:window-width="1584"
      inkscape:window-height="885"
      inkscape:window-x="0"
@@ -61,14 +61,14 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(572.71491,51.313791)">
+     transform="translate(556.56022,35.159117)">
     <rect
-       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1.14381;stroke-linejoin:round"
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1.01228;stroke-linejoin:round"
        id="rect4"
-       width="279.83392"
-       height="279.83392"
-       x="-873.76917"
-       y="-50.741886" />
+       width="247.65611"
+       height="247.65611"
+       x="-556.05408"
+       y="-34.652977" />
     <ellipse
        style="fill:#838383;fill-opacity:1;stroke:#ffffff;stroke-width:1.10545;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="ellipse1"
@@ -210,24 +210,24 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.4085px;line-height:1;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.18018;stroke-linejoin:round;stroke-dasharray:none"
-       x="-494.75778"
+       x="-497.40366"
        y="74.95034"
        id="text15"><tspan
          sodipodi:role="line"
          id="tspan15"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Bold';fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.18019"
-         x="-494.75778"
+         x="-497.40366"
          y="74.95034">Boole</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.4085px;line-height:1;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.18018;stroke-linejoin:round;stroke-dasharray:none"
-       x="-395.13745"
+       x="-394.0791"
        y="74.445511"
        id="text16"><tspan
          sodipodi:role="line"
          id="tspan16"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Bold';fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.18019"
-         x="-395.13745"
+         x="-394.0791"
          y="74.445511">Curry</tspan></text>
     <text
        xml:space="preserve"
