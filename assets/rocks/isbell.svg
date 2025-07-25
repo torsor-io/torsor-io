@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.52410024"
-     inkscape:cx="259.49234"
-     inkscape:cy="427.39915"
+     inkscape:zoom="0.74118967"
+     inkscape:cx="388.56451"
+     inkscape:cy="342.69231"
      inkscape:window-width="1584"
      inkscape:window-height="885"
      inkscape:window-x="0"
@@ -67,7 +67,7 @@
        id="rect4"
        width="214.47273"
        height="214.47273"
-       x="-777.74384"
+       x="-539.96729"
        y="-13.51779" />
     <ellipse
        style="fill:#838383;fill-opacity:1;stroke:#ffffff;stroke-width:1.10545;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
@@ -283,8 +283,13 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:5.4, 5.4;stroke-dashoffset:0"
-       d="m -432.9299,74.099864 0.0934,21.927446"
+       d="m -439.80911,62.362486 0.0934,33.664824"
        id="path7"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:5.4, 5.4;stroke-dashoffset:0"
+       d="m -439.35911,62.362486 8.04452,0.0934"
+       id="path8"
        sodipodi:nodetypes="cc" />
   </g>
 </svg>
