@@ -78,38 +78,55 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         href="https://arxiv.org/abs/2503.00005" 
         className={`hover:underline`}
       >
-          • “A Short History of Rocks: or, How to Invent Quantum Computing.”
-      </a> (Feb 2025), David Wakeham.
+          • “A Short History of Rocks: or, How to Invent Quantum Computing,”
+      </a> (Feb 2025). David Wakeham.
 	  </li>
     {/* Add more papers as needed */}
   </ul>
                 </div>
               </div>
             </motion.div>
-
-{/* Papers Section */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.3 }}
-  className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
->
-  <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-    Research Papers
-  </h2>
-  <ul className="space-y-3">
+	  
+            {/* Paper Showcase */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Paper Image */}
+          <div className="aspect-auto w-md overflow-hidden">
+                  <img
+                    src="/assets/rocks/rocks.png"
+                    alt="Paper visualization"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Paper Details */}
+                <div className="space-y-4">
+                  <h2 className={`text-2xl font-bold ${textColor}`}>
+          Quantum programming
+      </h2>
+                  <p className={`${subtleText}`}>
+          {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
+      Quantum computer hardware is getting bigger, less error-prone and more performant every month. But in the 30 years since Shor published his method for factoring primes we've seen only a handful of new algorithmic primitives; relatedly, coding on quantum computers remains stalled at the machine-code level of circuit design. At Torsor, we're building a new and fundamentally different way to program quantum computers, based on high-school algebra.
+      </p>
+<ul className="space-y-3">
     <li className={`${subtleText}`}>
       <a 
-        href="/assets/rocks/rocks.pdf" 
+        href="https://arxiv.org/abs/2503.00005" 
         className={`hover:underline`}
       >
-          • “A Short History of Rocks: or, How to Invent Quantum Computing.”
-      </a> <a href="https://arxiv.org/abs/2503.00005" className={`${subtleText}`}>arXiv:2503.00005, Feb 14, 2025.</a>
+          • “A Short History of Rocks: or, How to Invent Quantum Computing,”
+      </a> (Feb 2025). David Wakeham.
 	  </li>
     {/* Add more papers as needed */}
   </ul>
-	  </motion.div>
-	  
+                </div>
+              </div>
+            </motion.div>
       
 {/* Talks and Posters Section */}
 <motion.div
@@ -127,7 +144,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         href="/assets/PI-talk" 
         className={`hover:underline`}
       >
-          • “An algebraic foundation for quantum programming.”</a> Seminar, <i>Perimeter Institute</i>, Feb 25, 2025.
+          • “An algebraic foundation for quantum programming,”</a> (Feb 2025). Seminar, <i>Perimeter Institute</i>.
 	  </li>
     <li>
       <a 
