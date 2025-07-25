@@ -79,7 +79,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         className={`hover:underline`}
       >
           • “A Short History of Rocks: or, How to Invent Quantum Computing.”
-      </a> (Feb 2025), David Wakeham. arXiv:2503.00005.
+      </a> (Feb 2025), David Wakeham.
 	  </li>
     {/* Add more papers as needed */}
   </ul>
