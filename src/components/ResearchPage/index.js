@@ -127,35 +127,6 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </div>
             </motion.div>
       
-{/* Talks and Posters Section */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.3 }}
-  className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
->
-  <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-    Talks and Posters
-  </h2>
-  <ul className="space-y-3">
-    <li className={`${subtleText}`}>
-      <a 
-        href="/assets/PI-talk" 
-        className={`hover:underline`}
-      >
-          • “An algebraic foundation for quantum programming,”</a> (Feb 2025). Seminar, <i>Perimeter Institute</i>.
-	  </li>
-    <li>
-      <a 
-        href="/assets/qdays-poster.pdf" 
-        className={`${subtleText} hover:underline`}
-      >
-          • “A new foundation for quantum programming.”
-	  </a> <a href="https://2025.quantumdays.ca/" className={`${subtleText}`}>Poster, <i>Quantum Days</i>, Feb 19–21, 2025.</a>
-	  </li>
-    {/* Add more talks/posters as needed */}
-  </ul>
-</motion.div>
           </motion.div>
         </main>
       </div>
