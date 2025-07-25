@@ -171,16 +171,6 @@
          x="-32.785881"
          y="208.57047"
          id="tspan18">ment</tspan></text>
-    <path
-       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.29011;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Triangle);marker-end:url(#Triangle)"
-       d="m -107.71698,93.186447 -32.59158,51.012923"
-       id="path10"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.29011;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Triangle);marker-end:url(#Triangle)"
-       d="m -87.47683,93.186447 32.59158,51.012923"
-       id="path13"
-       sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.4085px;line-height:1;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#080808;fill-opacity:1;stroke:none;stroke-width:1.18018;stroke-linejoin:round;stroke-dasharray:none"
@@ -192,6 +182,16 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Bold';fill:#080808;fill-opacity:1;stroke:none;stroke-width:1.18019"
          x="-119.94389"
          y="107.49131">semantics</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.29011;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Triangle);marker-end:url(#Triangle)"
+       d="m -107.71698,93.186447 -32.59158,51.012923"
+       id="path10"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.29011;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Triangle);marker-end:url(#Triangle)"
+       d="m -87.47683,93.186447 32.59158,51.012923"
+       id="path13"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.29011;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Triangle);marker-end:url(#Triangle)"
        d="m -60.546907,166.43767 -74.099993,0.17874"
