@@ -70,14 +70,14 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       </h2>
                   <p className={`${subtleText}`}>
           {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
- Quantum computing is making great strides in hardware. But software lags behind; in particular, quantum programming is locked into s
+      Quantum computer hardware is getting bigger, less error-prone and more performant. But software lags behind. In the 30 years since Shor published his algorithm for factoring primes, we have seen only a handful of genuinely new algorithms, and not unrelatedly, programming quantum computers remains an inhospitably low-level affair, like a course on microprocessor designs meets honours linear algebra meets marketing. At Torsor, we're building a new and fundamentally different way to code quantum computers.
       </p>
                   <div className="flex space-x-4">
                     
                       <a href="/assets/rocks/rocks.pdf"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
                     >
-                      Read Paper
+                      Read 
       </a>
 
       <a href="https://arxiv.org/abs/2503.00005"
