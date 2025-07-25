@@ -72,20 +72,17 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
       Quantum computer hardware is getting bigger, less error-prone and more performant every month. But in the 30 years since Shor published his method for factoring primes we've seen only a handful of new algorithmic primitives; relatedly, coding on quantum computers remains stalled at the machine-code level of circuit design. At Torsor, we're building a new and fundamentally different way to program quantum computers.
       </p>
-                  <div className="flex space-x-4">
-                    
-                      <a href="/assets/rocks/rocks.pdf"
-                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
-                    >
-                      Read 
-      </a>
-
-      <a href="https://arxiv.org/abs/2503.00005"
-                      className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
-                    >
-                      arXiv
-      </a>
-                  </div>
+<ul className="space-y-3">
+    <li className={`${subtleText}`}>
+      <a 
+        href="/assets/rocks/rocks.pdf" 
+        className={`hover:underline`}
+      >
+          • “A Short History of Rocks: or, How to Invent Quantum Computing.”
+      </a> <a href="https://arxiv.org/abs/2503.00005" className={`${subtleText}`}>arXiv:2503.00005, Feb 14, 2025.</a>
+	  </li>
+    {/* Add more papers as needed */}
+  </ul>
                 </div>
               </div>
             </motion.div>
