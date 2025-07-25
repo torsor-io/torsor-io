@@ -55,7 +55,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             >
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Paper Image */}
-                <div className="aspect-square rounded-lg overflow-hidden">
+                <div className="aspect-auto rounded-lg w-lg overflow-hidden">
                   <img
                     src="/assets/rocks/rocks.png"
                     alt="Paper visualization"
@@ -68,11 +68,9 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <h2 className={`text-2xl font-bold ${textColor}`}>
           Quantum programming
       </h2>
-                  <p className={`${subtleText} text-sm`}>
-          David Wakeham • February 17, 2025
-                  </p>
                   <p className={`${subtleText}`}>
-          {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
+          { Quantum computing is making great strides in hardware. But software lags behind; the "killer app"
+	      /*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
                   </p>
                   <div className="flex space-x-4">
                     
