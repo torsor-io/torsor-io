@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="198.92871mm"
-   height="198.92871mm"
-   viewBox="0 0 198.92871 198.92871"
+   width="261.63263mm"
+   height="174.42177mm"
+   viewBox="0 0 261.63263 174.42177"
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
@@ -27,8 +27,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.52410024"
-     inkscape:cx="255.67628"
-     inkscape:cy="433.12325"
+     inkscape:cx="248.04415"
+     inkscape:cy="412.1349"
      inkscape:window-width="1584"
      inkscape:window-height="885"
      inkscape:window-x="0"
@@ -61,26 +61,26 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(532.19524,5.7457761)">
+     transform="translate(561.98036,-7.0433393)">
     <rect
-       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.8098;stroke-linejoin:round"
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.869542;stroke-linejoin:round"
        id="rect4"
-       width="198.11891"
-       height="198.11891"
-       x="-752.40259"
-       y="-5.3408761" />
+       width="260.76309"
+       height="173.55223"
+       x="-928.05469"
+       y="7.4781103" />
     <ellipse
        style="fill:#838383;fill-opacity:1;stroke:#ffffff;stroke-width:1.10545;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="ellipse1"
        cx="-641.72546"
-       cy="65.287155"
+       cy="286.40421"
        rx="24.835257"
        ry="24.002888" />
     <ellipse
        style="fill:#080808;fill-opacity:1;stroke:#ffffff;stroke-width:1.10545;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="ellipse2"
        cx="-641.72546"
-       cy="31.801662"
+       cy="252.91872"
        rx="24.835257"
        ry="24.002888" />
     <text
@@ -103,21 +103,21 @@
        style="fill:#838383;fill-opacity:1;stroke:#ffffff;stroke-width:1.10545;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="ellipse3"
        cx="-706.34412"
-       cy="152.78751"
+       cy="373.90457"
        rx="24.835257"
        ry="24.002888" />
     <ellipse
        style="fill:#080808;fill-opacity:1;stroke:#ffffff;stroke-width:1.10545;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="ellipse4"
        cx="-706.34412"
-       cy="119.30201"
+       cy="340.41907"
        rx="24.835257"
        ry="24.002888" />
     <ellipse
        style="fill:#838383;fill-opacity:1;stroke:#ffffff;stroke-width:1.10545;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="ellipse5"
        cx="-576.28558"
-       cy="152.78751"
+       cy="373.90457"
        rx="24.835257"
        ry="24.002888" />
     <path
@@ -129,7 +129,7 @@
        style="fill:#080808;fill-opacity:1;stroke:#ffffff;stroke-width:1.10545;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="ellipse6"
        cx="-576.28558"
-       cy="119.30201"
+       cy="340.41907"
        rx="24.835257"
        ry="24.002888" />
     <text
