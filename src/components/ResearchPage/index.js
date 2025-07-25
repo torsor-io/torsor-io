@@ -70,7 +70,8 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       </h2>
                   <p className={`${subtleText}`}>
           {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
-                  </p>
+ Quantum computing is making great strides in hardware. But software lags behind; in particular, quantum programming is locked into s
+      </p>
                   <div className="flex space-x-4">
                     
                       <a href="/assets/rocks/rocks.pdf"
