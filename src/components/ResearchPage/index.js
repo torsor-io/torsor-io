@@ -117,7 +117,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   </ul>
           </div>
 	                  {/* Paper Image */}
-          <div className="aspect-auto w-md overflow-hidden">
+          <div className="aspect-auto w-sm overflow-hidden">
                   <img
                     src="/assets/rocks/isbell.png"
                     alt="Isbell duality"
