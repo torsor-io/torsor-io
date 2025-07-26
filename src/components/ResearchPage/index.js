@@ -71,8 +71,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <p className={`${subtleText}`}>
           {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
       Quantum computer hardware is getting bigger, less error-prone and more performant every month. But in the 30 years since Shor published his method for factoring numbers we've seen only a handful of new algorithmic primitives; relatedly, coding on quantum computers remains stalled at the machine-code level of circuit design. At Torsor, we're building a new and fundamentally different way to program quantum computers which we hope will make it easier to explore new ideas.
-	  </p>
-	  <hr>
+      </p>
 <ul className="space-y-3">
     <li className={`${subtleText}`}>
       <a 
