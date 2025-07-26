@@ -1,5 +1,5 @@
 // src/components/CommunityPage/index.js
-import { CodeBracketSquareIcon } from '@heroicons/react/24/solid';
+import { FilmIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion } from 'framer-motion';
 import Navbar from '../shared/Navbar';
@@ -95,9 +95,9 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             {/* Subscribe Section */}
           <div className={`text-med text-center ${subtleText}`}>
 	  <a 
-                href="https://github.com/torsor-io" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+                href="https://www.youtube.com/@torsor_labs" className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
 >
-            <CodeBracketSquareIcon className={`h-6 w-6  ${textColor}`} />
+            <FilmIcon className={`h-6 w-6  ${textColor}`} />
           </a>
 	  <p></p>
 	  </div>
