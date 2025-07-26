@@ -26,12 +26,6 @@ const cases = [
       brief: ''
     },
     {
-      id: 'xanadu',
-      logo: '/logos/xanadu.png',
-      title: 'Xanadu',
-      brief: ''
-    },
-    {
       id: 'unimelb',
       logo: '/logos/unimelb.png',
       title: 'University of Melbourne',
