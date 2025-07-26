@@ -56,7 +56,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <h2 className={`text-2xl font-bold ${textColor} mb-4`}>
-                Education
+                Learning resources
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
