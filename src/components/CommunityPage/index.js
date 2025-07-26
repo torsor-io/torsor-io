@@ -60,7 +60,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </h2>
               <div className={`${subtleText}`}>
                 <p className="mb-4">
-                  <i>Coming soon</i>: Tutorials, guides, and learning resources for quantum computing and related technologies.
+                  <i>Coming soon</i>: Tutorials, guides, and learning resources for quantum computing.
                 </p>
               </div>
             </motion.div>
