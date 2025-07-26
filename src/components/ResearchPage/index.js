@@ -55,7 +55,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             >
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Paper Image */}
-          <div className="aspect-auto w-md overflow-hidden">
+          <div className="aspect-3/2 w-md overflow-hidden">
                   <img
                     src="/assets/rocks/rocks.png"
                     alt="Paper visualization"
