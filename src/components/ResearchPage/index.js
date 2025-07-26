@@ -112,7 +112,8 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       </h2>
                   <p className={`${subtleText}`}>
 	  We believe that theory and practice go hand in hand. Our applied work on quantum programming is complemented by an interest in foundational issues and approaches, such as logic, type theory, and algebraic methods. Currently, our foundational work focuses on dualities and type theory for distributed processes.
-      </p>
+	  </p>
+	  <div className={`border-t ${borderColor} mb-4 mt-8`}></div>
 <ul className="space-y-3">
     <li className={`${subtleText}`}>
       <a 
