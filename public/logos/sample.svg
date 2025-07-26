@@ -2,13 +2,16 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="319.54498mm"
+   height="95.729004mm"
+   viewBox="0 0 319.54498 95.729004"
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
    sodipodi:docname="sample.svg"
+   inkscape:export-filename="sample1.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +27,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.26205012"
-     inkscape:cx="-228.96383"
-     inkscape:cy="744.13245"
+     inkscape:cx="801.37341"
+     inkscape:cy="347.26181"
      inkscape:window-width="1536"
      inkscape:window-height="805"
      inkscape:window-x="0"
@@ -37,16 +40,20 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(272.4004,-104.88496)">
     <circle
-       style="fill:#866c53;fill-opacity:1;stroke:#ffffff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#6ca797;fill-opacity:1;stroke:#ffffff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="path1"
        cx="-225.15572"
        cy="152.4597"
-       r="46.444679" />
+       r="46.444679"
+       inkscape:export-filename="sample1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <path
        sodipodi:type="star"
-       style="fill:#866c53;fill-opacity:1;stroke:#ffffff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#536786;fill-opacity:1;stroke:#ffffff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="path2"
        inkscape:flatsided="false"
        sodipodi:sides="3"
@@ -60,13 +67,19 @@
        inkscape:randomized="0"
        d="m -113.98056,113.42245 -26.81207,46.43988 -26.81208,46.43987 -26.81207,-46.43987 -26.81208,-46.43988 53.62415,0 z"
        inkscape:transform-center-y="-15.479958"
-       transform="matrix(1,0,0,-1,49.473678,311.98708)" />
+       transform="matrix(1,0,0,-1,49.473678,311.98708)"
+       inkscape:export-filename="sample2.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <rect
-       style="fill:#866c53;fill-opacity:1;stroke:#ffffff;stroke-width:1.589;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#865378;fill-opacity:1;stroke:#ffffff;stroke-width:1.589;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="rect2"
        width="93.709862"
        height="93.709862"
        x="-47.359783"
-       y="106.1096" />
+       y="106.1096"
+       inkscape:export-filename="sample3.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>
