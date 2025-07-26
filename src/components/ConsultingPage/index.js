@@ -23,19 +23,19 @@ const cases = [
       id: 'sample1',
       logo: '/logos/sample1.png',
       title: 'Sample 1',
-      brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide.'
+      brief: 'This will involve pure research.'
     },
     {
       id: 'sample2',
       logo: '/logos/sample2.png',
       title: 'Sample 2',
-      brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide.'
+      brief: 'This will involve applied research.'
     },
     {
       id: 'sample3',
       logo: '/logos/sample3.png',
       title: 'Sample 3',
-      brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide.'
+      brief: 'This will involve software.'
     },
   ];
     
