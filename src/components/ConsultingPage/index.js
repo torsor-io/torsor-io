@@ -23,13 +23,13 @@ const cases = [
       id: 'fidelity',
       logo: '/logos/fidinv.png',
       title: 'Fidelity Investments',
-      brief: 'Developed novel quantum statistical methods for financial outlier detection, advancing fundamental understanding of QFT-based quantum machine learning.'
+      brief: ''
     },
     {
       id: 'xanadu',
       logo: '/logos/xanadu.png',
       title: 'Xanadu',
-      brief: 'Extended Bahadur\'s classical item analysis to the quantum case, leading to a dataset-adaptive quantum Fourier transform with a potential reduction in sample complexity.'
+      brief: ''
     },
     {
       id: 'unimelb',
