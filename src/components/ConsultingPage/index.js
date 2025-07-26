@@ -27,8 +27,8 @@ const cases = [
     },
     {
       id: 'sample2',
-      logo: '/logos/sample3.png',
-      title: 'Sample 1',
+      logo: '/logos/sample2.png',
+      title: 'Sample 2',
       brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide.'
     },
     {
