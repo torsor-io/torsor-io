@@ -20,23 +20,23 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 
 const cases = [
     {
-      id: 'unimelb',
-      logo: '/logos/unimelb.png',
-      title: 'University of Melbourne',
+      id: 'sample1',
+      logo: '/logos/sample1.png',
+      title: 'Sample 1',
       brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide.'
     },
     {
-      id: 'unimelb',
-      logo: '/logos/unimelb.png',
-      title: 'University of Melbourne',
+      id: 'sample2',
+      logo: '/logos/sample3.png',
+      title: 'Sample 1',
       brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide.'
     },
     {
-      id: 'unimelb',
-      logo: '/logos/unimelb.png',
-      title: 'University of Melbourne',
+      id: 'sample3',
+      logo: '/logos/sample3.png',
+      title: 'Sample 3',
       brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide.'
-    }
+    },
   ];
     
   return (
