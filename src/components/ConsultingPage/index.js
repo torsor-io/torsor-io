@@ -20,10 +20,16 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 
 const cases = [
     {
-      id: 'fidelity',
-      logo: '/logos/fidinv.png',
-      title: 'Fidelity Investments',
-      brief: ''
+      id: 'unimelb',
+      logo: '/logos/unimelb.png',
+      title: 'University of Melbourne',
+      brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide.'
+    },
+    {
+      id: 'unimelb',
+      logo: '/logos/unimelb.png',
+      title: 'University of Melbourne',
+      brief: 'Designed core architecture for an interactive course planning system, now used by tens of thousands of students university-wide.'
     },
     {
       id: 'unimelb',
