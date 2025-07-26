@@ -79,7 +79,15 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         className={`hover:underline`}
       >
           • “A Short History of Rocks: or, How to Invent Quantum Computing,”
-      </a> (Feb 2025). David Wakeham.
+      </a> (Feb 2025). arXiv:2503.00005.
+	  </li>
+<li className={`${subtleText}`}>
+      <a 
+        href="/assets/qdays-poster.pdf" 
+        className={`hover:underline`}
+      >
+          • “A New Foundation for Quantum Programming,”
+      </a> (Feb 2025). Poster, <a href="https://2025.quantumdays.ca/"><i>Quantum Days 2025</i></a>.
 	  </li>
     {/* Add more papers as needed */}
   </ul>
