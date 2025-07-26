@@ -75,23 +75,7 @@ const cases = [
             >
               <h2 className={`text-2xl font-bold ${textColor} mb-4`}>Research consulting</h2>
               <div className={`${subtleText}`}>
-                <p className="mb-4">Torsor Labs offers research consulting on a number of topics, including:</p>
-                <ul className="space-y-1 mb-4">
-                  <li>• quantum software and algorithm design;</li>
-                  <li>• metrology, signal processing and machine learning;</li>
-                  <li>• technical outreach and education.</li>
-                </ul>
-                <p className="mb-4">
-                  This leverages our domain expertise and unique interdisciplinary perspective. 
-                  As much as we like solving problems, we like helping people ask the right questions even more. We can assist in:
-                </p>
-                <ul className="space-y-1 mb-4">
-                  <li>• setting up open, creative, and effective research cultures;</li>
-                  <li>• framing new research programs;</li>
-                  <li>• conducting domain audits to surface fresh lines of inquiry.</li>
-                </ul>
-                <p>
-                  In short, we can teach you to fish or help you land the big one. Get in touch to talk about how we can help shape your research process!
+                <p className="mb-4"><i>Coming soon</i>: Case studies.
                 </p> <br/>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
