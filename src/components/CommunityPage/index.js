@@ -64,7 +64,6 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 </p>
                 <ul className="space-y-1">
                   <li>• <i>Coming soon: </i>Learning guides</li>
-                  <li>• <i>Coming soon:</i> Hacking reality</li>
       {/* Add more educational resources as they become available */}
                 </ul>
               </div>
