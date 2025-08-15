@@ -88,7 +88,7 @@ the maximally entangled state is basis independent, i.e.
 $$
 |\Phi\rangle  = \frac{1}{\sqrt{2}} (|\phi\rangle \otimes |\phi\rangle + |\phi^\perp\rangle \otimes |\phi^\perp\rangle),
 $$
-for any pure state of a qubit $|\phi\rangle = U_\phi |0\rangle$ and an orthogonal state
+for any pure state of a qubit $|\phi\rangle = U_\phi |0\rangle$ and orthogonal state
 $|\phi^\perp\rangle=U_\phi |1\rangle$. On Alice's system, we can move
 the $U_\phi$ over from the shared Bell state to Alice's special state
 $|\psi\rangle$ when the Bell measurement is made. Thus, we can argue that, since any $U_\phi$ works and gives the
