@@ -96,20 +96,23 @@ $|\psi\rangle$ when she measures! This also suggests that
 the amplitudes don't depend on $|\psi\rangle$, and must therefore be
 uniform, $|\alpha_{ab}|^2 = 1/4$. This is also true!
 
-**Time travel.** Since information about $|\psi\rangle$ cannot
+**Richochet.** Since information about $|\psi\rangle$ cannot
 truly be erased, it must be moved onto Bob's system. Since Bob's state
 is no longer entangled with Alice (due to monogamy of entanglement),
 the most general form it can take is $U |\psi\rangle$
 for some unitary $U$. To figure what the unitary is, we use our last
-principle: acting on one end of an entangled pair is the same as
-acting on the other,
+principle: acting on one end of an entangled pair with $M$ is the same
+as acting on the other end with $M^\top$:
 $$
-(M \otimes I) |\Phi\rangle = (I \otimes M^\top) |\Phi\rangle.
+(M \otimes I)|\Phi\rangle = (I \otimes M^\top)|\Phi\rangle.
 $$
+
 
 **Summary.** So, let's recap how it all works:
 - Alice and Bob share a maximally entangled state.
 - Alice has a special state $|\psi\rangle$.
-- Alice does a Bell measurement on her state.
+- Alice does a Bell measurement on her state and obtains $(a, b)$.
 - By monogamy of entanglement, this separates Bob's state.
-- By conservation of information, Bob's state is a "masked" version of $|\psi\rangle$.
+- By conservation of information, Bob's state is a "masked" version of
+  $|\psi\rangle$.
+- By ricochet, the mask is $X^a Z^b$
