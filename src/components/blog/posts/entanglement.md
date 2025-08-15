@@ -46,7 +46,6 @@ $$
 the CKW inequality implies you the state is pure on all other
 subsystems, i.e. $\mbox{Tr}[\rho_{AB_\ell}^2] = 1$ for all $\ell\neq
 k$. This is monogamy in action!
-
 Why is this relevant? Well, if Alice has a qubit that is maximally
 entangled with Bob's qubit, then measures in the Bell basis, she now
 has maximally entangled her two qubits:
@@ -81,7 +80,6 @@ $$
 $$
 The question is whether any information about the state $|\psi\rangle$
 could live in the coefficients $\alpha_{ab}$.
-
 There's a cute way to
 deduce that *no information* is contained in them. You may recall that
 the maximally entangled state is basis independent, i.e.
