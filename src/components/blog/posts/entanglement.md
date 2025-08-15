@@ -6,7 +6,7 @@ tags: ["Quantum Computing", "Explainer"]
 excerpt: "How to invent quantum computing, CDL Bootcamp, and other announcements."
 ---
 
-Teleportation is cool. You can transfer a copy of *War and Peace*
+**Introduction.** Teleportation is cool. You can transfer a copy of *War and Peace*
 between galaxies, instantaneously, without breaking any laws—at least,
 of physics. The catch is teleported data is
 encoded, and to decode it, you need to send information which travels
@@ -24,7 +24,7 @@ the RHS says "Alice measures $a$ and $b$ in the Bell basis, which
 teleports the state masked by $X^aZ^b$ to Bob".
 You can check the algebra, but even so, the protocol seems like a miracle.
 
-I want to argue that this is not a miracle, but the
+**Monogamy of entanglement.** I want to argue that this is not a miracle, but the
 inevitable result of a few simple principles.
 The first is *monogamy of entanglement*. Loosely speaking,
 this states that maximal entanglement cannot be shared.
@@ -57,7 +57,8 @@ By monogamy of entanglement,
 they cannot be entangled, *at all*, with Bob's qubit. So, we have the
 first half of the teleportation protocol!
 But if it isn't entangled with Alice, then what state *does* Bob have?
-This is where our next principle comes in:
+
+**Conservation of information.** This is where our next principle comes in:
 information is neither created nor destroyed.  At first sight, this
 seems false, since every time we observe the system, we seem to
 destroy information and replace it with something else:
@@ -72,4 +73,17 @@ $$
 U |\psi\rangle \otimes |0\rangle = \sum_\lambda \alpha_\lambda
 |\phi_\lambda\rangle \otimes |\lambda\rangle.
 $$
-In our case, Alice makes a Bell measurement. 
+In our case, Alice makes a Bell measurement. On the combined system
+of Alice's qubits and measuring apparatus, the post-measurement state is
+$$
+\sum_{a, b=0}^1 \alpha_{ab}(Z^b X^a \otimes I) |\Phi\rangle \otimes |ab\rangle.
+$$
+The question is whether any information about the state $|\psi\rangle$
+could live in the coefficients $\alpha_{ab}$. There's a cute way to
+deduce that *no information* is contained in them. You may recall that
+the maximally entangled state is basis independent, i.e.
+$$
+|\Phi\rangle  = \frac{1}{\sqrt{2}} (|\phi\rangle \otimes |\phi\rangle + |\phi^\perp\rangle \otimes |\phi^\perp\rangle),
+$$
+for any pure state of a qubit $|\phi\rangle$ and an orthogonal
+$|\phi^\perp\rangle$.
