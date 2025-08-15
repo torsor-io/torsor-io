@@ -99,7 +99,7 @@ $|\psi\rangle$ when she measures! This also suggests that
 the amplitudes don't depend on $|\psi\rangle$, and must therefore be
 uniform, $|\alpha_{ab}|^2 = 1/4$. This is also true!
 
-**Ricochet.** Since information about $|\psi\rangle$ cannot
+**Mirroring.** Since information about $|\psi\rangle$ cannot
 truly be erased, it must be moved onto Bob's system. Bob's state
 is no longer entangled with Alice (due to monogamy), so the most general
 form it can take is $U |\psi\rangle$ for some unitary $U$. But which
@@ -108,7 +108,7 @@ probabilities on the initially shared pair are computed by the overlap
 $$
 (\langle \Phi| (I\otimes X^a Z^b) \otimes I) |\psi\rangle \otimes |\Phi\rangle.
 $$
-But there is the so-called "ricochet" identity that makes operations
+But there is the so-called "mirror" identity that makes operations
 from one end of a Bell pair to the other. This is in some sense a more
 basic form of *operator teleportation*:
 $$
@@ -126,7 +126,7 @@ treatment a little more self-contained and (hopefully) clear, but the argument r
 - By monogamy, Alice’s Bell measurement disentangles Bob from Alice.
 - Alice's system has no information about $|\psi\rangle$.
 - By conservation, Bob must carry $|\psi\rangle$ up to a unitary.
-- By ricochet, the unitary is $U_{ab} = Z^bX^a$, and Bob's system acts
+- By mirroring, the unitary is $U_{ab} = Z^bX^a$, and Bob's system acts
   as the reference for Alice.
 
 So, it's not a coincidence or some sort of algebraic
