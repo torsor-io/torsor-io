@@ -18,11 +18,11 @@ this magical result is
 $$
 |\psi\rangle |\Phi\rangle = \sum_{a,b=0}^1 (Z^b X^a \otimes I) |\Phi\rangle \otimes X^a Z^b |\psi\rangle,
 $$
-where $|\Phi\rangle = (|00\rangle+|11\rangle)/\sqrt{2}$, where we the
+where $|\Phi\rangle = (|00\rangle+|11\rangle)/\sqrt{2}$. In words, the
 LHS says "Alice and Bob are entangled, and Alice has a state" while
 the RHS says "Alice measures $a$ and $b$ in the Bell basis, which
 teleports the state masked by $X^aZ^b$ to Bob".
-But the protocol seems like a miracle.
+You can check the algebra, but even so, the protocol seems like a miracle.
 
 I want to argue that this is not a miracle, but the
 inevitable result of a few simple principles.
@@ -38,21 +38,25 @@ $$
 where $B = B_1\cdots B_n$ and $\rho_{C}$ is the reduced density
 matrix on subsystem $C$.
 If all the entanglement is
-concentrated on one subsystem $B_k$,
+concentrated on one subsystem $B_k$, so
 $$
 1 - \mbox{Tr}[\rho^2_{AB_k}] = 1 - \mbox{Tr}[\rho^2_{AB}],
 $$
-the the CKW inequality shows that you the state is pure on all other
+the CKW inequality implies you the state is pure on all other
 subsystems, i.e. $\mbox{Tr}[\rho_{AB_\ell}^2] = 1$ for all $\ell\neq
-k$.
+k$. This is monogamy in action!
 
 Why is this relevant? Well, if Alice has a qubit that is maximally
 entangled with Bob's qubit, then measures in the Bell basis, she now
-has maximally entangled her two qubits. By monogamy of entanglement,
+has maximally entangled her two qubits:
+$$
+A_1, A_2 \leftrightarrow B \quad \Longrightarrow \quad A_1
+\leftrightarrow A_2, B.
+$$
+By monogamy of entanglement,
 they cannot be entangled, *at all*, with Bob's qubit. So, we have the
 first half of the teleportation protocol!
 But if it isn't entangled with Alice, then what state *does* Bob have?
-
 This is where our next principle comes in:
 information is neither created nor destroyed.  At first sigh, this
 seems false, since every time we observe the system, we seem to
@@ -68,3 +72,4 @@ $$
 U |\psi\rangle \otimes |0\rangle = \sum_\lambda \alpha_\lambda
 |\phi_\lambda\rangle \otimes |\lambda\rangle.
 $$
+In our case, Alice makes a Bell measurement;
