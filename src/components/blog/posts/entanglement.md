@@ -12,17 +12,18 @@ of physics. The catch is teleported data is
 encoded, and to decode it, you need to send information which travels
 at the comparative snail's pace of $c$.
 But why does it work?
-The usual textbook treatment grinds through a bunch of algebraic steps
+The usual textbook treatment grinds through a bunch of algebra
 and produces the result almost magically. A simple way to summarize
 this magical result is
 $$
 |\psi\rangle \otimes |\Phi\rangle = \sum_{a,b=0}^1 (I\otimes Z^b X^a) |\Phi\rangle \otimes X^a Z^b |\psi\rangle,
 $$
-where $|\Phi\rangle = (|00\rangle+|11\rangle)/\sqrt{2}$. In words, the
-LHS says "Alice and Bob are entangled, and Alice has a state" while
-the RHS says "Alice measures $a$ and $b$ in the Bell basis, which
-teleports the state masked by $X^aZ^b$ to Bob".
-You can check the algebra, but even once you confirm that it works,
+where $|\Phi\rangle = (|00\rangle+|11\rangle)/\sqrt{2}$ is the
+maximally entangled Bell pair. In words, the
+LHS says "Alice has a special state, and is also entangled with Bob" while
+the RHS says "Alice measures $a$ and $b$ in the Bell basis,
+teleporting the state masked by $X^aZ^b$ to Bob".
+You can check the math, but even once you confirm it,
 the protocol still seems like a miracle.
 
 **Monogamy of entanglement.** I want to argue that this is not a miracle, but the
