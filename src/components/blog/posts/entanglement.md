@@ -109,7 +109,8 @@ $$
 (\langle \Phi| (I\otimes X^a Z^b) \otimes I) |\psi\rangle \otimes |\Phi\rangle.
 $$
 But there is the so-called "ricochet" identity that makes operations
-from one end of a Bell pair to the other:
+from one end of a Bell pair to the other. This is in some sense a more
+basic form of *operator teleportation*:
 $$
 (M \otimes I) |\Phi\rangle = (I \otimes M^\top) |\Phi\rangle.
 $$
@@ -127,3 +128,8 @@ treatment a little more self-contained and (hopefully) clear, but the argument r
 - By conservation, Bob must carry $|\psi\rangle$ up to a unitary.
 - By ricochet, the unitary is $U_{ab} = Z^bX^a$, and Bob's system acts
   as the reference for Alice.
+
+So, it's not a coincidence or some sort of algebraic
+miracle. Teleportation is a "just" a consequence of the fact that
+entanglement cannot be shared, information is conserved, and
+operations can be "teleported" from one end of a Bell pair to the other.
