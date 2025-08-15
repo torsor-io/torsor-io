@@ -88,8 +88,11 @@ $$
 for any pure state of a qubit $|\phi\rangle = U_\phi |0\rangle$ and an orthogonal state
 $|\phi^\perp\rangle=U_\phi |1\rangle$. On Alice's system, we can move
 the $U_\phi$ over from the shared Bell state to Alice's special state
-$|\psi\rangle$, and argue that, since any $U_\phi$ works and gives the
+$|\psi\rangle$ when the Bell measurement is made. Thus, we can argue that, since any $U_\phi$ works and gives the
 same answer, Alice may as well *erase* the information in
-$|\psi\rangle$ when she makes the measurement. This also suggests that
+$|\psi\rangle$ when she measures! This also suggests that
 the amplitudes don't depend on $|\psi\rangle$, and must therefore be
-uniform, $|\alpha_{ab}|^2 = 1/4$, which is true!
+uniform, $|\alpha_{ab}|^2 = 1/4$. This also turns out to be true.
+
+**Putting it together.** Since information about $|\psi\rangle$ cannot
+truly be erased, it must be moved onto Bob's system.
