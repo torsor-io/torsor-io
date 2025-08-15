@@ -16,13 +16,14 @@ The usual textbook treatment grinds through a bunch of algebraic steps
 and produces the result almost magically. A simple way to summarize
 this magical result is
 $$
-|\psi\rangle |\Phi\rangle = \sum_{a,b=0}^1 (Z^b X^a \otimes I) |\Phi\rangle \otimes X^a Z^b |\psi\rangle,
+|\psi\rangle \otimes |\Phi\rangle = \sum_{a,b=0}^1 (I\otimes Z^b X^a) |\Phi\rangle \otimes X^a Z^b |\psi\rangle,
 $$
 where $|\Phi\rangle = (|00\rangle+|11\rangle)/\sqrt{2}$. In words, the
 LHS says "Alice and Bob are entangled, and Alice has a state" while
 the RHS says "Alice measures $a$ and $b$ in the Bell basis, which
 teleports the state masked by $X^aZ^b$ to Bob".
-You can check the algebra, but even so, the protocol seems like a miracle.
+You can check the algebra, but even once you confirm that it works,
+the protocol still seems like a miracle.
 
 **Monogamy of entanglement.** I want to argue that this is not a miracle, but the
 inevitable result of a few simple principles.
@@ -68,18 +69,20 @@ $$
 where the $|\phi_i\rangle$ are measurement outcomes.
 But the reality is more interesting. The combined system and measuring
 apparatus start in state $|\psi\rangle \otimes |0\rangle$, and evolve
-unitarily into a linear combination which entangles the system and apparatus:
+unitarily into a linear combination which entangles them:
 $$
-U |\psi\rangle \otimes |0\rangle = \sum_\lambda \alpha_\lambda
-|\phi_\lambda\rangle \otimes |\lambda\rangle.
+U |\psi\rangle \otimes |0\rangle_\text{app} = \sum_\lambda \alpha_\lambda
+|\phi_\lambda\rangle \otimes |\lambda\rangle_\text{app}.
 $$
 In our case, Alice makes a Bell measurement. On the combined system
 of Alice's qubits and measuring apparatus, the post-measurement state is
 $$
-\sum_{a, b=0}^1 \alpha_{ab}(Z^b X^a \otimes I) |\Phi\rangle \otimes |ab\rangle.
+\sum_{a, b=0}^1 \alpha_{ab}(I\otimes Z^b X^a) |\Phi\rangle \otimes |ab\rangle_\text{app}.
 $$
 The question is whether any information about the state $|\psi\rangle$
-could live in the coefficients $\alpha_{ab}$. There's a cute way to
+could live in the coefficients $\alpha_{ab}$.
+
+**Putting it together.** There's a cute way to
 deduce that *no information* is contained in them. You may recall that
 the maximally entangled state is basis independent, i.e.
 $$
@@ -94,5 +97,12 @@ $|\psi\rangle$ when she measures! This also suggests that
 the amplitudes don't depend on $|\psi\rangle$, and must therefore be
 uniform, $|\alpha_{ab}|^2 = 1/4$. This also turns out to be true.
 
-**Putting it together.** Since information about $|\psi\rangle$ cannot
-truly be erased, it must be moved onto Bob's system.
+Since information about $|\psi\rangle$ cannot
+truly be erased, it must be moved onto Bob's system. Since Bob's state
+is no longer entangled with Alice (due to monogamy of entanglement),
+the most general form it can take is
+$$
+U |\psi\rangle
+$$
+for some unitary $U$. The question
+	
