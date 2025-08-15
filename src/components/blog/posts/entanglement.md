@@ -44,7 +44,7 @@ concentrated on one subsystem $B_k$, so
 $$
 1 - \mbox{Tr}[\rho^2_{AB_k}] = 1 - \mbox{Tr}[\rho^2_{AB}],
 $$
-the CKW inequality implies you the state is pure on all other
+the CKW inequality implies that the state is pure on all other
 subsystems, i.e. $\mbox{Tr}[\rho_{AB_\ell}^2] = 1$ for all $\ell\neq
 k$. This is monogamy in action!
 Why is this relevant? Well, if Alice has a qubit that is maximally
