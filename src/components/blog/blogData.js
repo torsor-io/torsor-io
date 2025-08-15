@@ -5,7 +5,7 @@
 
 export const blogPosts = [
   {
-    "id": "entanglement",
+    "id": "teleportation",
     "title": "Why does teleportation work?",
     "date": "2025-08-15",
     "author": "DW",
