@@ -31,8 +31,8 @@ inevitable result of a few simple principles.
 The first is *monogamy of entanglement*. Loosely speaking,
 this states that maximal entanglement cannot be shared.
 Less loosely, we measure entanglement as $1$ minus the *purity*
-$\mbox{Tr}[\rho^2]$, and note that entanglement satisfies the
-*Coffman-Kundu-Wootters (CKW)* inequality (proved by Osborne and Verstraete):
+$\mbox{Tr}[\rho^2]$, and note that it satisfies the
+*Coffman-Kundu-Wootters (CKW)* inequality (proved in full generality by Osborne and Verstraete):
 $$
 \sum_{k=1}^n 1 - \mbox{Tr}[\rho^2_{AB_k}] \leq 1 -
 \mbox{Tr}[\rho^2_{AB}]
