@@ -118,7 +118,7 @@ $|ab\rangle_\text{app} = U_{ab}|\psi\rangle$.
 
 **Summary.** I've belaboured the underlying principles to make the
 treatment a little more self-contained and (hopefully) clear, but the argument really boils down to the following:
-- Alice and Bob have a maximally entangled pair.
+- Alice and Bob share a maximally entangled pair.
 - By monogamy, Alice’s Bell measurement disentangles Bob from Alice.
 - Alice's system has no information about $|\psi\rangle$.
 - By conservation, Bob must carry $|\psi\rangle$ up to a unitary.
