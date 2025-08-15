@@ -29,8 +29,8 @@ the protocol still seems like a miracle.
 inevitable result of a few simple principles.
 The first is *monogamy of entanglement*. Loosely speaking,
 this states that maximal entanglement cannot be shared.
-Less loosely, we can measure entanglement as $1$ minus the *purity*
-$\mbox{Tr}[\rho^2]$, and not that entanglement satisfies the
+Less loosely, we measure entanglement as $1$ minus the *purity*
+$\mbox{Tr}[\rho^2]$, and note that entanglement satisfies the
 *Coffman-Kundu-Wootters (CKW)* inequality:
 $$
 \sum_{k=1}^n 1 - \mbox{Tr}[\rho^2_{AB_k}] \leq 1 -
@@ -82,7 +82,7 @@ $$
 The question is whether any information about the state $|\psi\rangle$
 could live in the coefficients $\alpha_{ab}$.
 
-**Putting it together.** There's a cute way to
+There's a cute way to
 deduce that *no information* is contained in them. You may recall that
 the maximally entangled state is basis independent, i.e.
 $$
@@ -97,12 +97,11 @@ $|\psi\rangle$ when she measures! This also suggests that
 the amplitudes don't depend on $|\psi\rangle$, and must therefore be
 uniform, $|\alpha_{ab}|^2 = 1/4$. This also turns out to be true.
 
-Since information about $|\psi\rangle$ cannot
+**Time travel.** Since information about $|\psi\rangle$ cannot
 truly be erased, it must be moved onto Bob's system. Since Bob's state
 is no longer entangled with Alice (due to monogamy of entanglement),
 the most general form it can take is
 $$
 U |\psi\rangle
 $$
-for some unitary $U$. The question
-	
+for some unitary $U$. To figure this out, we use our last principle:
