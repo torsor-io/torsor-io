@@ -132,4 +132,4 @@ treatment a little more self-contained and (hopefully) clear, but the argument r
 So, it's not a coincidence or some sort of algebraic
 miracle. Teleportation is a "just" a consequence of the fact that
 entanglement cannot be shared, information is conserved, and
-operations can be "teleported" from one end of a Bell pair to the other.
+operations can be "mirrored" from one end of a Bell pair to the other.
