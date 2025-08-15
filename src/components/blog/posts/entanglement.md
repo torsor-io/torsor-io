@@ -56,10 +56,10 @@ $$
 By monogamy of entanglement,
 they cannot be entangled, *at all*, with Bob's qubit. So, we have the
 first half of the teleportation protocol!
-But if it isn't entangled with Alice, then what state *does* Bob have?
+But if it isn't entangled with Alice, then what state *does* Bob have? This is where our next principle comes in.
 
-**Conservation of information.** This is where our next principle comes in:
-information is neither created nor destroyed.  At first sight, this
+**Conservation of information.** A basic principle of quantum
+mechanics is that information is neither created nor destroyed. At first sight, this
 seems false, since every time we observe the system, we seem to
 destroy information and replace it with something else:
 $$
@@ -85,5 +85,6 @@ the maximally entangled state is basis independent, i.e.
 $$
 |\Phi\rangle  = \frac{1}{\sqrt{2}} (|\phi\rangle \otimes |\phi\rangle + |\phi^\perp\rangle \otimes |\phi^\perp\rangle),
 $$
-for any pure state of a qubit $|\phi\rangle$ and an orthogonal
-$|\phi^\perp\rangle$.
+for any pure state of a qubit $|\phi\rangle = U_\phi |0\rangle$ and an orthogonal state
+$|\phi^\perp\rangle=U_\phi |1\rangle$. 
+
