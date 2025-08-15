@@ -2,7 +2,21 @@
 
 
 
+
 export const blogPosts = [
+  {
+    "id": "entanglement",
+    "title": "Why does teleportation work?",
+    "date": "2025-08-15",
+    "author": "DW",
+    "tags": [
+      "Quantum Computing",
+      "Explainer"
+    ],
+    "excerpt": "How to invent quantum computing, CDL Bootcamp, and other announcements.",
+    "content": `<p>Teleportation is cool. You can transfer a copy of <em>War and Peace</em>\nbetween galaxies, instantaneously, without breaking any laws (of\nphysics at least). Of course, the catch is teleported data is\nencoded, and to decode it, you need to send information which travels\nat the comparative snail’s pace of $c$.\nBut why does it work?\nThe usual textbook treatment grinds through a bunch of algebraic steps\nand produces the result almost magically. A simple way to summarize\nthis magical result is\n[\n|\\psi\\rangle |\\Phi\\rangle = \\sum_{a,b=0}^1 (Z^b X^a \\otimes I) |\\Phi\\rangle \\otimes X^a Z^b |\\psi\\rangle,\n]\nwhere $|\\Phi\\rangle = (|00\\rangle+|11\\rangle)/\\sqrt{2}$, where we the\nLHS says “Alice and Bob are entangled, and Alice has a state” while\nthe RHS says “Alice measures $a$ and $b$ in the Bell basis, which\nteleports the state masked by $X^aZ^b$ to Bob”.\nBut the protocol seems like a miracle.</p>\n<p>I want to argue that this is not a miracle, but the\ninevitable result of a few simple principles.\nThe first is <em>monogamy of entanglement</em>. Loosely speaking,\nmaximal entanglement cannot be shared.\nLess loosely, bipartite entanglement satisfies the\n<em>Coffman-Kundu-Wootters (CKW)</em> inequality,\n[\n\\sum_{k=1}^n 1 - \\mbox{Tr}[\\rho^2_{AB_k}] \\leq 1 -\n\\mbox{Tr}[\\rho^2_{AB}]\n]\nwhere $B = B_1\\cdots B_n$ and\n$\\rho_{C}=\\mbox{Tr}<em>\\text{\\overline{C}}\\rho$ is the reduced density\nmatrix on subsystem $C$.\nIf all the entanglement is\nconcentrated with highly entangled with one subsystem $B_k$,\n[\n1 - \\mbox{Tr}[\\rho^2</em>{AB_k}] = 1 - \\mbox{Tr}[\\rho^2_{AB}],\n]\nthe the CKW inequality shows that you the state is pure on all other\nsubsystems, i.e. $\\mbox{Tr}[\\rho_{AB_\\ell}^2] = 1$ for all $\\ell\\neq\nk$.</p>\n<p>Why is this relevant? Well, if Alice has a qubit that is maximally\nentangled with Bob’s qubit, then measures in the Bell basis, she now\nhas maximally entangled her two qubits. By monogamy of entanglement,\nthey cannot be entangled, <em>at all</em>, with Bob’s qubit. So, we have the\nfirst half of the teleportation protocol!\nBut if it isn’t entangled with Alice, then what state <em>does</em> Bob have?</p>\n<p>This is where our next principle comes in. In quantum mechanics,\ninformation can neither be created nor destroyed.  This seems\nobviously false, since every time we observe the system, we seem to\ndestroy information and replace it with something else:\n[\n|\\psi\\rangle \\longmapsto |\\phi_i\\rangle,\n]\nwhere the $|\\phi_i\\rangle$ are measurement outcomes.\nBut once\nwe take <em>correlation with the measurement apparatus</em> into account, we\nsee that the information actually gets stored elsewhere.</p>`,
+    "imageImports": ""
+  },
   {
     "id": "history-rocks",
     "title": "A Short History of Rocks, etc.",
