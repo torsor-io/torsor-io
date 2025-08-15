@@ -98,11 +98,11 @@ uniform, $|\alpha_{ab}|^2 = 1/4$. This is also true!
 
 **Richochet.** Since information about $|\psi\rangle$ cannot
 truly be erased, it must be moved onto Bob's system. Since Bob's state
-is no longer entangled with Alice (due to monogamy of entanglement),
-the most general form it can take is $U |\psi\rangle$
-for some unitary $U$. To figure what the unitary is, we use our last
-principle: acting on one end of an entangled pair with $M$ is the same
-as acting on the other end with $M^\top$:
+is no longer entangled with Alice (due to monogamy), the most general
+form it can take is $U |\psi\rangle$ for some unitary $U$. To figure
+what the unitary is, we use our last principle: acting on one end of
+an entangled pair with $M$ is the same as acting on the other end with
+$M^\top$:
 $$
 (M \otimes I)|\Phi\rangle = (I \otimes M^\top)|\Phi\rangle.
 $$
