@@ -106,7 +106,7 @@ form it can take is $U |\psi\rangle$ for some unitary $U$. But which
 $U$? To see what $U_{ab}$ should be, we note that the Bell measurement
 probabilities on the initially shared pair are computed by the overlap
 $$
-(\langle \Phi| (I\otimes X^a Z^b) \otimes I) |\psi\rangle |\Phi\rangle.
+(\langle \Phi| (I\otimes X^a Z^b) \otimes I) |\psi\rangle \otimes |\Phi\rangle.
 $$
 But there is the so-called "ricochet" identity that makes operations
 from one end of a Bell pair to the other:
