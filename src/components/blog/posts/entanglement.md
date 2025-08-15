@@ -86,5 +86,7 @@ $$
 |\Phi\rangle  = \frac{1}{\sqrt{2}} (|\phi\rangle \otimes |\phi\rangle + |\phi^\perp\rangle \otimes |\phi^\perp\rangle),
 $$
 for any pure state of a qubit $|\phi\rangle = U_\phi |0\rangle$ and an orthogonal state
-$|\phi^\perp\rangle=U_\phi |1\rangle$. 
+$|\phi^\perp\rangle=U_\phi |1\rangle$. On Alice's system, we can move
+the $U_\phi$ over from the shared Bell state to Alice's special state
+$|\psi\rangle$.
 
