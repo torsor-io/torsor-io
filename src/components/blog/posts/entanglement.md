@@ -3,7 +3,10 @@ title: "Why does teleportation work?"
 date: "2025-08-15"
 author: "DW"
 tags: ["Quantum Computing", "Explainer"]
-excerpt: "How to invent quantum computing, CDL Bootcamp, and other announcements."
+excerpt: "We give a brief explanation of why teleportation is not only
+simpler than the usual textbook treatment suggests, but results
+inevitably from three basic principles governing quantum mechanics and
+entanglement."
 ---
 
 **Introduction.** Teleportation is cool. You can transfer a copy of *War and Peace*
