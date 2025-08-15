@@ -95,13 +95,10 @@ $|\psi\rangle$ when the Bell measurement is made. Thus, we can argue that, since
 same answer, Alice may as well *erase* the information in
 $|\psi\rangle$ when she measures! This also suggests that
 the amplitudes don't depend on $|\psi\rangle$, and must therefore be
-uniform, $|\alpha_{ab}|^2 = 1/4$. This also turns out to be true.
+uniform, $|\alpha_{ab}|^2 = 1/4$. This is also true!
 
 **Time travel.** Since information about $|\psi\rangle$ cannot
 truly be erased, it must be moved onto Bob's system. Since Bob's state
 is no longer entangled with Alice (due to monogamy of entanglement),
-the most general form it can take is
-$$
-U |\psi\rangle
-$$
-for some unitary $U$. To figure this out, we use our last principle:
+the most general form it can take is $U |\psi\rangle$
+for some unitary $U$. To figure what the unitary is, we use our last principle:
