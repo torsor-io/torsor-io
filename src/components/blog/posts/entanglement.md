@@ -50,7 +50,7 @@ Why is this relevant? Well, if Alice has a qubit that is maximally
 entangled with Bob's qubit, then measures in the Bell basis, she now
 has maximally entangled her two qubits:
 $$
-A_1, A_2 \leftrightarrow B \quad \Longrightarrow \quad A_1
+A_1, A_2 \leftrightarrow B \quad \overset{\text{Bell measurement}}{\Longrightarrow} \quad A_1
 \leftrightarrow A_2, B.
 $$
 By monogamy of entanglement,
