@@ -31,7 +31,7 @@ The first is *monogamy of entanglement*. Loosely speaking,
 this states that maximal entanglement cannot be shared.
 Less loosely, we measure entanglement as $1$ minus the *purity*
 $\mbox{Tr}[\rho^2]$, and note that entanglement satisfies the
-*Coffman-Kundu-Wootters (CKW)* inequality:
+*Coffman-Kundu-Wootters (CKW)* inequality (proved by Osborne and Verstraete):
 $$
 \sum_{k=1}^n 1 - \mbox{Tr}[\rho^2_{AB_k}] \leq 1 -
 \mbox{Tr}[\rho^2_{AB}]
@@ -101,4 +101,16 @@ uniform, $|\alpha_{ab}|^2 = 1/4$. This is also true!
 truly be erased, it must be moved onto Bob's system. Since Bob's state
 is no longer entangled with Alice (due to monogamy of entanglement),
 the most general form it can take is $U |\psi\rangle$
-for some unitary $U$. To figure what the unitary is, we use our last principle:
+for some unitary $U$. To figure what the unitary is, we use our last
+principle: acting on one end of an entangled pair is the same as
+acting on the other,
+$$
+(M \otimes I) |\Phi\rangle = (I \otimes M^\top) |\Phi\rangle.
+$$
+
+**Summary.** So, let's recap how it all works:
+- Alice and Bob share a maximally entangled state.
+- Alice has a special state $|\psi\rangle$.
+- Alice does a Bell measurement on her state.
+- By monogamy of entanglement, this separates Bob's state.
+- By conservation of information, Bob's state is a "masked" version of $|\psi\rangle$.
