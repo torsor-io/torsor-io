@@ -96,23 +96,31 @@ $|\psi\rangle$ when she measures! This also suggests that
 the amplitudes don't depend on $|\psi\rangle$, and must therefore be
 uniform, $|\alpha_{ab}|^2 = 1/4$. This is also true!
 
-**Richochet.** Since information about $|\psi\rangle$ cannot
-truly be erased, it must be moved onto Bob's system. Since Bob's state
-is no longer entangled with Alice (due to monogamy), the most general
-form it can take is $U |\psi\rangle$ for some unitary $U$. To figure
-what the unitary is, we use our last principle: acting on one end of
-an entangled pair with $M$ is the same as acting on the other end with
-$M^\top$:
+**Ricochet.** Since information about $|\psi\rangle$ cannot
+truly be erased, it must be moved onto Bob's system. Bob's state
+is no longer entangled with Alice (due to monogamy), so the most general
+form it can take is $U |\psi\rangle$ for some unitary $U$. But which
+$U$? To see what $U_{ab}$ should be, we note that the Bell measurement
+probabilities on the initially shared pair are computed by the overlap
 $$
-(M \otimes I)|\Phi\rangle = (I \otimes M^\top)|\Phi\rangle.
+(\langle \Phi| (I\otimes X^a Z^b) \otimes I) |\psi\rangle |\Phi\rangle.
 $$
+But there is the so-called "ricochet" identity that makes operations
+from one end of a Bell pair to the other:
+$$
+(M \otimes I) |\Phi\rangle = (I \otimes M^\top) |\Phi\rangle.
+$$
+This suggests that projective measurement on Alice's system applies
+$(X^a Z^b)^\top = Z^b X^a$ to Bob's system!
+Then $U_{ab} = Z^b X^a$ masks $|\psi\rangle$, and moreover, Bob's
+systems acts as the reference system that purifies Alice, with
+$|ab\rangle_\text{app} = U_{ab}|\psi\rangle$.
 
-
-**Summary.** So, let's recap how it all works:
-- Alice and Bob share a maximally entangled state.
-- Alice has a special state $|\psi\rangle$.
-- Alice does a Bell measurement on her state and obtains $(a, b)$.
-- By monogamy of entanglement, this separates Bob's state.
-- By conservation of information, Bob's state is a "masked" version of
-  $|\psi\rangle$.
-- By ricochet, the mask is $X^a Z^b$
+**Summary.** I've belaboured the underlying principles to make the
+treatment a little more self-contained and (hopefully) clear, but the argument really boils down to the following:
+- Alice and Bob have a maximally entangled pair.
+- By monogamy, Alice’s Bell measurement disentangles Bob from Alice.
+- Alice's system has no information about $|\psi\rangle$.
+- By conservation, Bob must carry $|\psi\rangle$ up to a unitary.
+- By ricochet, the unitary is $U_{ab} = Z^bX^a$, and Bob's system acts
+  as the reference for Alice.
