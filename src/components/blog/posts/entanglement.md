@@ -35,8 +35,7 @@ $$
 \sum_{k=1}^n 1 - \mbox{Tr}[\rho^2_{AB_k}] \leq 1 -
 \mbox{Tr}[\rho^2_{AB}]
 $$
-where $B = B_1\cdots B_n$ and
-$\rho_{C}=\mbox{Tr}_\text{\overline{C}}\rho$ is the reduced density
+where $B = B_1\cdots B_n$ and $\rho_{C}$ is the reduced density
 matrix on subsystem $C$.
 If all the entanglement is
 concentrated on one subsystem $B_k$,
@@ -59,7 +58,13 @@ information is neither created nor destroyed.  At first sigh, this
 seems false, since every time we observe the system, we seem to
 destroy information and replace it with something else:
 $$
-|\psi\rangle \longmapsto |\phi_i\rangle,
+|\psi\rangle \longmapsto |\phi_\lambda\rangle,
 $$
 where the $|\phi_i\rangle$ are measurement outcomes.
-But secretly, this is just more entanglement: we can write
+But secretly, if we take the measuring apparatus into account, the
+joint system starts in state $|\psi\rangle \otimes |0\rangle$, and
+evolves into some entangled linear combination, but in a *unitary* way:
+$$
+U |\psi\rangle \otimes |0\rangle = \sum_\lambda \alpha_\lambda
+|\phi_\lambda\rangle \otimes |\lambda\rangle.
+$$
