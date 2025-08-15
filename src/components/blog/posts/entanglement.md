@@ -7,8 +7,8 @@ excerpt: "How to invent quantum computing, CDL Bootcamp, and other announcements
 ---
 
 Teleportation is cool. You can transfer a copy of *War and Peace*
-between galaxies, instantaneously, without breaking any laws (of
-physics at least). Of course, the catch is teleported data is
+between galaxies, instantaneously, without breaking any laws—at least,
+of physics. The catch is teleported data is
 encoded, and to decode it, you need to send information which travels
 at the comparative snail's pace of $c$.
 But why does it work?
