@@ -58,7 +58,7 @@ they cannot be entangled, *at all*, with Bob's qubit. So, we have the
 first half of the teleportation protocol!
 But if it isn't entangled with Alice, then what state *does* Bob have?
 This is where our next principle comes in:
-information is neither created nor destroyed.  At first sigh, this
+information is neither created nor destroyed.  At first sight, this
 seems false, since every time we observe the system, we seem to
 destroy information and replace it with something else:
 $$
@@ -66,8 +66,9 @@ $$
 $$
 where the $|\phi_i\rangle$ are measurement outcomes.
 But secretly, if we take the measuring apparatus into account, the
-joint system starts in state $|\psi\rangle \otimes |0\rangle$, and
-evolves into some entangled linear combination, but in a *unitary* way:
+joint system starts in state $|\psi\rangle \otimes |0\rangle$, where
+$|0\rangle$ is the initial state of the apparatus. It evolves into
+some entangled linear combination, but in a *unitary* way:
 $$
 U |\psi\rangle \otimes |0\rangle = \sum_\lambda \alpha_\lambda
 |\phi_\lambda\rangle \otimes |\lambda\rangle.
