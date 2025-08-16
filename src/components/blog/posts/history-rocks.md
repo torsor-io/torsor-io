@@ -1,7 +1,7 @@
 ---
 title: "A Short History of Rocks, etc."
 date: "2025-06-15"
-author: "DW"
+author: "David Wakeham"
 tags: ["Announcements", "Quantum Computing", "Venture"]
 excerpt: "How to invent quantum computing, CDL Bootcamp, and other announcements."
 ---

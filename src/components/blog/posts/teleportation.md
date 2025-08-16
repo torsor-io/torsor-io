@@ -1,8 +1,8 @@
 ---
 title: "Why does teleportation work?"
 date: "2025-08-15"
-author: "DW"
-tags: ["Quantum Computing", "Explainer"]
+author: "David Wakeham"
+tags: ["Quantum Computing", "Explainer", "Technical"]
 excerpt: "We give a brief explanation of why teleportation is not only
 simpler than the usual textbook treatment suggests, but results
 inevitably from three basic principles governing quantum mechanics and
@@ -10,8 +10,8 @@ entanglement."
 ---
 
 **Introduction.** Teleportation is cool. You can transfer a copy of *War and Peace*
-between galaxies, instantaneously, without breaking any laws—at least,
-of physics. The catch is teleported data is
+between galaxies, instantaneously, without breaking any laws (of
+physics, at least). The catch is that teleported data is
 encoded, and to decode it, you need to send information which travels
 at the comparative snail's pace of $c$.
 But why does it work?
@@ -129,7 +129,7 @@ treatment a little more self-contained and (hopefully) clear, but the argument r
 - By mirroring, the unitary is $U_{ab} = Z^bX^a$, and Bob's system acts
   as the reference for Alice.
 
-So, it's not a coincidence or some sort of algebraic
+It's not a coincidence or some sort of algebraic
 miracle. Teleportation is a "just" a consequence of the fact that
 entanglement cannot be shared, information is conserved, and
 operations can be "mirrored" from one end of a Bell pair to the other.

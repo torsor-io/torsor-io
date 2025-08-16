@@ -1,7 +1,7 @@
 ---
 title: "Welcome"
 date: "2025-02-17"
-author: "David Wakeham (DW)"
+author: "David Wakeham"
 tags: ["Announcements", "Philosophy"]
 excerpt: "A brief introduction to Torsor Labs."
 ---
