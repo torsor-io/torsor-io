@@ -71,7 +71,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Learning <a href="https://yaw.dev" className={`font-comfortaa ${textColor}`}>yaw</a>
       </h2>
                   <p className={`${subtleText}`}>
-	  <a href="https://yaw.dev" className={`font-comfortaa ${textColor} mb-3`}>yaw</a> is an domain-specific functional language in development for programming quantum computers. If you want to learn to code using high-school algebra, you've come to the right place!
+	  <a href="https://yaw.dev" className={`font-comfortaa ${textColor} mb-3`}>yaw</a> is a domain-specific functional language for programming quantum computers (currently under development 🚧). If you want to learn to code using high-school algebra, you've come to the right place!
 	  </p>
 	  <div className={`border-t ${borderColor} mb-4 mt-10`}></div>
 <ul className="space-y-3">
@@ -83,15 +83,6 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           • “A Short History of Rocks: or, How to Invent Quantum Computing,”
       </a> (Feb 2025). arXiv: 2503.00005.
 	  </li>
-<li className={`${subtleText}`}>
-      <a 
-        href="/assets/qdays-poster.pdf" 
-        className={`hover:underline`}
-      >
-          • “A New Foundation for Quantum Programming,”
-      </a> (Feb 2025). Poster, <a href="https://2025.quantumdays.ca/"><i>Quantum Days 2025</i></a>.
-	  </li>
-    {/* Add more papers as needed */}
   </ul>
                 </div>
               </div>
