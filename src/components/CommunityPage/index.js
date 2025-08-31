@@ -80,7 +80,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         href="https://arxiv.org/abs/2503.00005" 
         className={`hover:underline`}
       >
-          • “A Short History of Rocks: or, How to Invent Quantum Computing,”
+          • <i className={`font-comfortaa ${textColor} mb-3`}>yaw</i> 101
       </a> (Feb 2025). arXiv: 2503.00005.
 	  </li>
   </ul>
