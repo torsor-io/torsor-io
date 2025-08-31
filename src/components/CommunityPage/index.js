@@ -77,11 +77,10 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <ul className="space-y-3">
     <li className={`${subtleText}`}>
       <a 
-        href="https://arxiv.org/abs/2503.00005" 
-        className={`hover:underline`}
+        href="/assets/yaw-docs/yaw101.html" 
+        className={}
       >
-          • <i className={`font-comfortaa ${textColor} mb-3`}>yaw</i> 101
-      </a> (Feb 2025). arXiv: 2503.00005.
+          • <b className={`font-comfortaa ${textColor} mb-3`}>yaw</b> 101</a>
 	  </li>
   </ul>
                 </div>
