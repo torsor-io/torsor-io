@@ -59,7 +59,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 {/* Paper Image */}
           <div className="aspect-3/2 w-md overflow-hidden">
                   <img
-                    src="/assets/rocks/rocks.png"
+                    src="/assets/img/yaw-logo.png"
                     alt="Paper visualization"
                     className="w-full h-full object-cover"
                   />
