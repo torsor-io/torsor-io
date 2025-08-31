@@ -1,0 +1,34 @@
+#+ATTR_HTML: :alt wizard image :align center :width 200px :style display:inline;margin:-20px;
+[[https://torsor.io/#community][file:./img/wizard2.png]]
+
+~Yaw~ is a domain-specific functional language for programming quantum
+computers. This tutorial introduces 
+
+* Tutorials
+-----
+** [[file:///Users/hapax/Documents/GitHub/yaw/yaw.dev/superdense.html][Superdense coding]] 
+
+Learn basic constructs of the language—operators, states, and conjugation—and apply them to single qubit gates and controlled operations. This culminates in one of the basic protocols of quantum communication, /superdense coding/. 
+** [[file:///Users/hapax/Documents/GitHub/yaw/yaw.dev/teleportation.html][Bell-o world]] 🚧
+Develop more advanced constructs, including channels and measurement, from the monadic point of view. Use this to teleport states and encrypt messages with a unbreakable quantum one-time pad.
+
+*Difficulty*: ✪✪ @@html:<br>@@
+*Prerequisites*: Tutorial 1 and some familiarity with quantum information theory.
+** Bla 🚧
+* Other resources 🚧
+-----
+
+* COMMENT html export
+#+TITLE:
+#+HTML_CONTAINER: div
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="enhanced_tufte.css">
+#+HTML_HEAD: <script type="text/javascript" src="sidebar_darkmode.js"></script>
+#+HTML_HEAD: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+HTML_HEAD: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+#+HTML_LINK_UP:
+#+HTML_MATHJAX: 
+#+INFOJS_OPT:
+#+LATEX_HEADER:
+#+OPTIONS: html-postamble:nil toc:nil 
+#+HTML_HEAD_EXTRA: <style>pre { padding-top: 25px !important; }</style>
