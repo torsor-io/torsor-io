@@ -78,9 +78,9 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
     <li className={`${subtleText}`}>
       <a 
         href="https://arxiv.org/abs/2503.00005" 
-        className={}
+        className={`hover:underline`}
       >
-          • <i className={`font-comfortaa ${textColor} mb-3`}>yaw</i> 101</a>
+          • <b className={`font-comfortaa ${textColor} mb-3`}>yaw</b> 101</a>
 	  </li>
   </ul>
                 </div>
