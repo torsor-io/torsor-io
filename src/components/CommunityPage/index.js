@@ -68,7 +68,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                 {/* Paper Details */}
                 <div className="space-y-4">
                   <h2 className={`text-2xl font-bold ${textColor}`}>
-          Yaw learning resources
+          Learning <a href="https://yaw.dev" className={`font-comfortaa ${textColor}`}>yaw</a>
       </h2>
                   <p className={`${subtleText}`}>
 <a href="https://yaw.dev" className={`font-comfortaa ${textColor} mb-3`}>yaw</a> is a domain-specific functional language for programming quantum computers.
