@@ -71,8 +71,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Learning <a href="https://yaw.dev" className={`font-comfortaa ${textColor}`}>yaw</a>
       </h2>
                   <p className={`${subtleText}`}>
-<a href="https://yaw.dev" className={`font-comfortaa ${textColor} mb-3`}>yaw</a> is a domain-specific functional language for programming quantum computers.
-If you want to learn how to code using quantum algebra, you've come to the right place! Please bear in mind that <a href="https://yaw.dev" className={`font-comfortaa ${textColor} mb-3`}>yaw</a> is only a proof-of-concept for now.
+	  <a href="https://yaw.dev" className={`font-comfortaa ${textColor} mb-3`}>yaw</a> is an domain-specific functional language in development for programming quantum computers. If you want to learn to code using high-school algebra, you've come to the right place!
 	  </p>
 	  <div className={`border-t ${borderColor} mb-4 mt-10`}></div>
 <ul className="space-y-3">
