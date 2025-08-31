@@ -79,7 +79,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           • <a 
         href="/assets/yaw-docs/yaw101.html" 
         className={`hover:underline`}
-      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw</b> 101</a>. <b>Prerequisites</b>: Quantum computing at the level of Nielsen and Chuang (chapters 1–2).
+      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw</b> 101</a>. <b>Prerequisites</b>: A first course in quantum computing.
 	  </li>
   </ul>
                 </div>
