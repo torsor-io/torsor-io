@@ -79,8 +79,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           • <a 
         href="/assets/yaw-docs/yaw101.html" 
         className={`hover:underline`}
-      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw</b> 101</a> <br> <b>Difficulty</b>: ✪<br>
-<b>Prerequisites</b>: Nielsen and Chuang (chapters 1–2)
+      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw</b> 101</a> <br> <b>Difficulty</b>: ✪. <b>Prerequisites</b>: Nielsen and Chuang (chapters 1–2).
 	  </li>
   </ul>
                 </div>
