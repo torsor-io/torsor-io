@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title></title>
-<!-- 2025-08-31 Sun 20:11 -->
+<!-- 2025-08-31 Sun 20:12 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -464,8 +464,17 @@ Similarly, we can define a general controlled operator on <code>alg</code>:
 </div>
 
 <p>
-so <code>cnot</code> equals <code>c x</code>, as we expect.
+so <code>cnot</code> equals <code>c x</code>, as we expect. A more interesting example is
+the Toffoli gate:
 </p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli, pauli, pauli]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> c cnot
+</pre>
+</pre>
+</div>
 </div>
 </div>
 </div>
