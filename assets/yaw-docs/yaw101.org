@@ -237,9 +237,36 @@ so ~cnot~ equals ~c x~, as we expect. A more interesting example is
 the Toffoli gate:
 
 #+BEGIN_SRC haskell
-toffoli :: (><) [pauli, pauli, pauli]
+toffoli :: (><) [pauli]*3
 toffoli = c cnot
 #+END_SRC
+
+where ~[pauli]*3 = [pauli, pauli, pauli]~ is three Pauli algebras.
+
+** Entanglement
+Let's use what we have so far to place two qubits in the maximally entangled
+/Bell state/ (after John Bell), also called the /EPR state/ (after Einstein,
+Podolsky and Rosen):
+\[
+\pi_\text{EPR} = \text{CNOT}
+\triangleleft (H\otimes I) \triangleleft (\pi_0\otimes \pi_0) =
+\mathcal{O}_\text{EPR} \triangleleft \pi_0^{\otimes 2},
+\]
+where $\mathcal{O}_\text{EPR} = \text{CNOT}(H\otimes I)$ is the usual circuit we use to prepare the EPR state. In ~Yaw~, this becomes
+
+#+BEGIN_SRC haskell
+stateEPR :: State ((><) [Pauli, Pauli])
+stateEPR = (<|) EPR (state0 >< state0)
+    where EPR = cnot * (h >< id)
+#+END_SRC
+
+Note that multiplication takes precedence over tensor
+products. Analogously, we can define
+an EPR projection operator by applying the circuit to 
+\[
+\Pi^{(\text{EPR})} = \mathcal{O}_\text{EPR}\triangleright \Pi_0^{\otimes 2}.
+\]
+
 * COMMENT html export
 #+TITLE:
 #+HTML_CONTAINER: div

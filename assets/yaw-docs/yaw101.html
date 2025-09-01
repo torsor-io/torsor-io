@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title></title>
-<!-- 2025-08-31 Sun 20:12 -->
+<!-- 2025-08-31 Sun 20:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -470,11 +470,50 @@ the Toffoli gate:
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli, pauli, pauli]
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>3
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> c cnot
 </pre>
 </pre>
 </div>
+
+<p>
+where <code>[pauli]*3 = [pauli, pauli, pauli]</code> is three Pauli algebras.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Entanglement</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Let's use what we have so far to place two qubits in the maximally entangled
+<i>Bell state</i> (after John Bell), also called the <i>EPR state</i> (after Einstein,
+Podolsky and Rosen):
+\[
+\pi_\text{EPR} = \text{CNOT}
+\triangleleft (H\otimes I) \triangleleft (\pi_0\otimes \pi_0) =
+\mathcal{O}_\text{EPR} \triangleleft \pi_0^{\otimes 2},
+\]
+where \(\mathcal{O}_\text{EPR} = \text{CNOT}(H\otimes I)\) is the usual circuit we use to prepare the EPR state. In <code>Yaw</code>, this becomes
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ((<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>])
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) <span style="color: #34cae2; font-size: 9.959999999999999pt;">EPR</span> (state0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> state0)
+    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">EPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> cnot <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> (h <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id)
+</pre>
+</pre>
+</div>
+
+<p>
+Note that multiplication takes precedence over tensor
+products. Analogously, we can define
+an EPR projection operator by applying the circuit to 
+\[
+\Pi^{(\text{EPR})} = \mathcal{O}_\text{EPR}\triangleright \Pi_0^{\otimes 2}.
+\]
+</p>
 </div>
 </div>
 </div>
