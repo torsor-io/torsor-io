@@ -322,6 +322,9 @@ Yaw> bobsProbs (stateBell 0 1)
 [0.0, 1.0, 0.0, 0.0]
 #+END_SRC
 
+* References
+-----
+
 * COMMENT html export
 #+TITLE:
 #+HTML_CONTAINER: div
