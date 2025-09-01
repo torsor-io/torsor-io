@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title></title>
-<!-- 2025-08-31 Sun 20:30 -->
+<!-- 2025-08-31 Sun 21:39 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -260,8 +260,8 @@ result of this new notation, we can immediately define the algebra of
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliQudit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Integer</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliQudit</span> d <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Presentation</span> gen [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Hermitian</span> gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pow</span> d gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Braid</span> &#969; gen]
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliDit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Integer</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliDit</span> d <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Presentation</span> gen [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Hermitian</span> gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pow</span> d gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Braid</span> &#969; gen]
     <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> gen <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [x, z]
             &#969; <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> cis (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">-</span>2 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> pi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">/</span> d)
 </pre>
@@ -269,7 +269,7 @@ result of this new notation, we can immediately define the algebra of
 </div>
 
 <p>
-Note that the type of <code>pauliQudit</code> is not an algebra, but rather a
+Note that the type of <code>pauliDit</code> is not an algebra, but rather a
 <i>function</i> from integers (the dimension) to an algebra (the
 generalized Pauli algebra).
 We symbolically denote this generalized
@@ -310,7 +310,7 @@ As a familiar example, we can recast the familiar single-qubit state
 \psi_0(Z \mathcal{O}) = \psi_0(\mathcal{O})\psi_0(Z) = \psi_0(\mathcal{O}
 Z), \quad \psi_0(Z) = 1.
 \]
-In <code>Yaw</code>, this takes the form
+In <code>yaw</code>, this takes the form
 </p>
 
 <div class="org-src-container">
@@ -350,8 +350,8 @@ A \triangleright \mathcal{O} = A^\dagger \mathcal{O} A, \quad A
 \]
 We call \(\triangleright\) the <i>operator conjugator</i> and \(\triangleleft\)
 the <i>state conjugator</i>. These are respectively accomplished by <code>&lt;|</code> and
-<code>|&gt;</code>  in <code>Yaw</code>. The argument above shows that \(\psi_1 = X
-\triangleleft \psi_0\), so in <code>Yaw</code>, using infix notation <code>(&lt;|)</code> so
+<code>|&gt;</code>  in <code>yaw</code>. The argument above shows that \(\psi_1 = X
+\triangleleft \psi_0\), so in <code>yaw</code>, using infix notation <code>(&lt;|)</code> so
 conjugation can be prepended as a binary operator:
 </p>
 
@@ -394,7 +394,7 @@ using the identities \(HZ = XH\), \(H^2 = I\) and \(\langle 0|X|0\rangle = 0\). 
 
 <div class="org-src-container">
 
-<pre class="src src-elisp">Yaw&gt; statePlus z
+<pre class="src src-elisp">yaw&gt; statePlus z
 0
 </pre>
 </pre>
@@ -422,7 +422,10 @@ We can add and multiply tensor products. Both operations come into play when we 
 \Pi^{(Z)}_{b} = \frac{1}{2}\big[I - (-1)^bZ\big], \quad Z = \Pi^{(Z)}_0 - \Pi^{(Z)}_1,
 \quad I =\Pi^{(Z)}_0 + \Pi^{(Z)}_1.
 \]
-These are dual to the eigenfunctionals \(\pi_a\) in the sense that \(\pi_a(\Pi^{(Z)}_b) = \delta_{ab}\), for binary variables \(a, b\in \{0, 1\}\). In <code>Yaw</code>, we define the projectors as follows:
+The last two equations show that \(Z\) is the sum of projectors weighted
+by eigenvalue, and decompose the identity when we replace that weight
+with \(1\).
+In <code>yaw</code>, we define the projectors as follows:
 </p>
 
 <div class="org-src-container">
@@ -434,51 +437,66 @@ These are dual to the eigenfunctionals \(\pi_a\) in the sense that \(\pi_a(\Pi^{
 </div>
 
 <p>
-where <code>id</code> is the identity and <code>BinDigit</code> is the type of a binary digit.
+where <code>id</code> is the identity and <code>BinDigit</code> is the type of a binary
+digit.
+Projectors are dual to eigenfunctionals \(\pi_a\) in the sense that \(\pi_a(\Pi^{(Z)}_b) = \delta_{ab}\), for binary variables \(a, b\in \{0, 1\}\).
 A controlled operation like \(\text{CNOT}\) applies
-\(X^a\) when the first state is \(\pi_a\), or
+\(X^a\) when the first state is \(\pi_a\), so \(\text{CNOT}\) takes the
+elegant form
 \[
 \text{CNOT} = \Pi^{(Z)}_0 \otimes I + \Pi^{(Z)}_1 \otimes X = \Pi^{(Z)}_a \otimes X^a,
 \]
-where we sum over \(a = 0, 1\). To implement this, we introduce a tensor product operator <code>&gt;&lt;</code> we use both for individual tensor products and tensor products of types:
+where we sum over the repeated index \(a\) (Einstein summation). To
+implement this in <code>yaw</code>, we introduce a tensor product operator <code>&gt;&lt;</code> we use both for individual tensor products and tensor products of types:
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli, pauli]
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> projZ 0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span> projZ 1 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> x
 </pre>
 </pre>
 </div>
 
 <p>
+where <code>[pauli]*2 = [pauli, pauli]</code>. Equivalently, we can sum over <code>a</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot'</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot'</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> ein <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> projZ a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a
+    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> ein f <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> sum (map f (domain <span style="color: #dbdb95; font-size: 9.959999999999999pt;">@</span>a))
+</pre>
+</pre>
+</div>
+
+<p>
+where <code>ein</code> (Einstein summation) sums a function over its domain.
+We've included the definition above, but it is pre-defined and
+available for use.
 Similarly, we can define a general controlled operator on <code>alg</code>:
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli, alg]
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> op <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> projZ 0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span> projZ 1 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> op
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Alg</span> a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, a]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> op <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> ein <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> projZ a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> op<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a
 </pre>
 </pre>
 </div>
 
 <p>
-so <code>cnot</code> equals <code>c x</code>, as we expect. A more interesting example is
-the Toffoli gate:
+An interesting example is the Toffoli gate:
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>3
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>3
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> c cnot
 </pre>
 </pre>
 </div>
-
-<p>
-where <code>[pauli]*3 = [pauli, pauli, pauli]</code> is three Pauli algebras.
-</p>
 </div>
 </div>
 
@@ -486,20 +504,21 @@ where <code>[pauli]*3 = [pauli, pauli, pauli]</code> is three Pauli algebras.
 <h3 id="sec-1-4"><span class="section-number-3">1.4</span> Entanglement</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-Let's use what we have so far to place two qubits in the maximally entangled
+We'll end this tutorial by producing a crucial resource:
+entanglement. In particular, we'll build the maximally entangled
 <i>Bell state</i> (after John Bell), also called the <i>EPR state</i> (after Einstein,
-Podolsky and Rosen):
+Podolsky and Rosen). This takes the form
 \[
-\pi_\text{EPR} = \text{CNOT}
-\triangleleft (H\otimes I) \triangleleft (\pi_0\otimes \pi_0) =
-\mathcal{O}_\text{EPR} \triangleleft \pi_0^{\otimes 2},
+\psi_\text{EPR} = [\text{CNOT}
+\cdot (H\otimes I)] \triangleleft (\psi_0\otimes \psi_0) =
+\mathcal{O}_\text{EPR} \triangleleft \psi_{00},
 \]
-where \(\mathcal{O}_\text{EPR} = \text{CNOT}(H\otimes I)\) is the usual circuit we use to prepare the EPR state. In <code>Yaw</code>, this becomes
+where \(\mathcal{O}_\text{EPR} = \text{CNOT}\cdot(H\otimes I)\) is the circuit used to prepare the EPR state. In <code>yaw</code>, this becomes
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ((<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>])
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) <span style="color: #34cae2; font-size: 9.959999999999999pt;">EPR</span> (state0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> state0)
     <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">EPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> cnot <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> (h <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id)
 </pre>
@@ -507,13 +526,70 @@ where \(\mathcal{O}_\text{EPR} = \text{CNOT}(H\otimes I)\) is the usual circuit 
 </div>
 
 <p>
-Note that multiplication takes precedence over tensor
-products. Analogously, we can define
-an EPR projection operator by applying the circuit to 
+Suppose Alice holds one copy of \(\mathcal{A}_\text{Pauli}\) and Bob
+a second, with an EPR state \(\pi_\text{EPR}\) shared between them. Then Alice
+can send Bob two bits \(a, b\), by acting (or not) with \(X\) and \(Z\) on
+her share of the state. The different choices produce four orthogonal states, called the <i>Bell basis</i>:
 \[
-\Pi^{(\text{EPR})} = \mathcal{O}_\text{EPR}\triangleright \Pi_0^{\otimes 2}.
+\pi_{\text{Bell}(a, b)} = X^a Z^b \otimes I \triangleleft \pi_\text{EPR},
 \]
+where \(a, b \in \{0, 1\}\) as usual.
+We can express the Bell basis states as a simple conjugation in <code>Yaw</code>:
 </p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateBell</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ((<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>])
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateBell</span> a b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) (x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> z<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id) stateEPR
+</pre>
+</pre>
+</div>
+
+<p>
+After applying local operators, Alice sends her half of the system to Bob, who now
+controls the full state \(\pi_{\text{Bell}(a, b)}\). To determine \(a\)
+and \(b\), Bob can simply "measure in the Bell basis".
+Measurement in general is a complex operation, but luckily, here we perform <i>projective measurement</i> where we can simply define probability distributions over outcomes directly from the state. To see how, first define the Bell measurement operators by
+\[
+\Pi^{(\text{Bell})}_{a,b} =X^a Z^b \otimes I\triangleright \Pi^{(\text{EPR})},
+\]
+or in <code>Yaw</code>, using the solution to Exercise 3:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projBell</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projBell</span> a b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">|&gt;</span>) (x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> z<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id) projEPR
+</pre>
+</pre>
+</div>
+
+<p>
+Note that operator conjugation is evaluated <i>last</i>.
+The simplest way to see the results of measurement in the Bell basis
+is to compute the expectation of <code>projBell a b</code>, for bits <code>a</code> and <code>b</code>,
+in the joint state after Alice gives her share to Bob:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bobsProbs</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ((<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Float</span>]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bobsProbs</span> state <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [state (projBell a b) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">|</span> a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> [0,1], b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> [0,1]]
+</pre>
+</pre>
+</div>
+
+<p>
+In general, this gives some messy probabilities that add to one, but here, all but one will vanish, e.g.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-elisp">Yaw&gt; bobsProbs (stateBell 0 1)
+[0.0, 1.0, 0.0, 0.0]
+</pre>
+</pre>
+</div>
 </div>
 </div>
 </div>

@@ -50,13 +50,13 @@ result of this new notation, we can immediately define the algebra of
 /qudits/, the $d$-dimensional analogue of qubits:
 
 #+BEGIN_SRC haskell
-pauliQudit :: Integer -> Algebra
-pauliQudit d = Presentation gen [Hermitian gen, Pow d gen, Braid ω gen]
+pauliDit :: Integer -> Algebra
+pauliDit d = Presentation gen [Hermitian gen, Pow d gen, Braid ω gen]
     where gen = [x, z]
             ω = cis (-2 * pi / d)
 #+END_SRC
 
-Note that the type of ~pauliQudit~ is not an algebra, but rather a
+Note that the type of ~pauliDit~ is not an algebra, but rather a
 /function/ from integers (the dimension) to an algebra (the
 generalized Pauli algebra).
 We symbolically denote this generalized
@@ -128,7 +128,7 @@ $\psi_0(\mathcal{O}) = \langle 0|\mathcal{O}|0\rangle$ satisfying
 \psi_0(Z \mathcal{O}) = \psi_0(\mathcal{O})\psi_0(Z) = \psi_0(\mathcal{O}
 Z), \quad \psi_0(Z) = 1.
 \]
-In ~Yaw~, this takes the form
+In ~yaw~, this takes the form
 
 #+BEGIN_SRC haskell
 state0 :: State pauli
@@ -155,8 +155,8 @@ A \triangleright \mathcal{O} = A^\dagger \mathcal{O} A, \quad A
 \]
 We call $\triangleright$ the /operator conjugator/ and $\triangleleft$
 the /state conjugator/. These are respectively accomplished by ~<|~ and
-~|>~  in ~Yaw~. The argument above shows that $\psi_1 = X
-\triangleleft \psi_0$, so in ~Yaw~, using infix notation ~(<|)~ so
+~|>~  in ~yaw~. The argument above shows that $\psi_1 = X
+\triangleleft \psi_0$, so in ~yaw~, using infix notation ~(<|)~ so
 conjugation can be prepended as a binary operator:
 
 #+BEGIN_SRC haskell
@@ -187,7 +187,7 @@ in the $\psi_+$ state is
 using the identities $HZ = XH$, $H^2 = I$ and $\langle 0|X|0\rangle = 0$. Working in the interpreter:
 
 #+BEGIN_SRC elisp
-Yaw> statePlus z
+yaw> statePlus z
 0
 #+END_SRC
 
@@ -206,66 +206,121 @@ We can add and multiply tensor products. Both operations come into play when we 
 \Pi^{(Z)}_{b} = \frac{1}{2}\big[I - (-1)^bZ\big], \quad Z = \Pi^{(Z)}_0 - \Pi^{(Z)}_1,
 \quad I =\Pi^{(Z)}_0 + \Pi^{(Z)}_1.
 \]
-These are dual to the eigenfunctionals $\pi_a$ in the sense that $\pi_a(\Pi^{(Z)}_b) = \delta_{ab}$, for binary variables $a, b\in \{0, 1\}$. In ~Yaw~, we define the projectors as follows:
+The last two equations show that $Z$ is the sum of projectors weighted
+by eigenvalue, and decompose the identity when we replace that weight
+with $1$.
+In ~yaw~, we define the projectors as follows:
 
 #+BEGIN_SRC haskell
 projZ BinDigit :: Pauli
 projZ b = (1/2)*(id + (-1)^b z)
 #+END_SRC
 
-where ~id~ is the identity and ~BinDigit~ is the type of a binary digit.
+where ~id~ is the identity and ~BinDigit~ is the type of a binary
+digit.
+Projectors are dual to eigenfunctionals $\pi_a$ in the sense that $\pi_a(\Pi^{(Z)}_b) = \delta_{ab}$, for binary variables $a, b\in \{0, 1\}$.
 A controlled operation like $\text{CNOT}$ applies
-$X^a$ when the first state is $\pi_a$, or
+$X^a$ when the first state is $\pi_a$, so $\text{CNOT}$ takes the
+elegant form
 \[
 \text{CNOT} = \Pi^{(Z)}_0 \otimes I + \Pi^{(Z)}_1 \otimes X = \Pi^{(Z)}_a \otimes X^a,
 \]
-where we sum over $a = 0, 1$. To implement this, we introduce a tensor product operator ~><~ we use both for individual tensor products and tensor products of types:
+where we sum over the repeated index $a$ (Einstein summation). To
+implement this in ~yaw~, we introduce a tensor product operator ~><~ we use both for individual tensor products and tensor products of types:
 
 #+BEGIN_SRC haskell
-cnot :: (><) [pauli, pauli]
+cnot :: (><) [pauli]*2
 cnot = projZ 0 >< id + projZ 1 >< x
 #+END_SRC
 
+where ~[pauli]*2 = [pauli, pauli]~. Equivalently, we can sum over ~a~:
+
+#+BEGIN_SRC haskell
+cnot' :: (><) [Pauli]*2
+cnot' = ein \a -> projZ a >< x^a
+    where ein f = sum (map f (domain @a))
+#+END_SRC
+
+where ~ein~ (Einstein summation) sums a function over its domain.
+We've included the definition above, but it is pre-defined and
+available for use.
 Similarly, we can define a general controlled operator on ~alg~:
 
 #+BEGIN_SRC haskell
-c :: (><) [pauli, alg]
-c op = projZ 0 >< id + projZ 1 >< op
+c :: Alg a => (><) [Pauli, a]
+c op = ein \a -> projZ a >< op^a
 #+END_SRC
 
-so ~cnot~ equals ~c x~, as we expect. A more interesting example is
-the Toffoli gate:
+An interesting example is the Toffoli gate:
 
 #+BEGIN_SRC haskell
-toffoli :: (><) [pauli]*3
+toffoli :: (><) [Pauli]*3
 toffoli = c cnot
 #+END_SRC
 
-where ~[pauli]*3 = [pauli, pauli, pauli]~ is three Pauli algebras.
-
 ** Entanglement
-Let's use what we have so far to place two qubits in the maximally entangled
+We'll end this tutorial by producing a crucial resource:
+entanglement. In particular, we'll build the maximally entangled
 /Bell state/ (after John Bell), also called the /EPR state/ (after Einstein,
-Podolsky and Rosen):
+Podolsky and Rosen). This takes the form
 \[
-\pi_\text{EPR} = \text{CNOT}
-\triangleleft (H\otimes I) \triangleleft (\pi_0\otimes \pi_0) =
-\mathcal{O}_\text{EPR} \triangleleft \pi_0^{\otimes 2},
+\psi_\text{EPR} = [\text{CNOT}
+\cdot (H\otimes I)] \triangleleft (\psi_0\otimes \psi_0) =
+\mathcal{O}_\text{EPR} \triangleleft \psi_{00},
 \]
-where $\mathcal{O}_\text{EPR} = \text{CNOT}(H\otimes I)$ is the usual circuit we use to prepare the EPR state. In ~Yaw~, this becomes
+where $\mathcal{O}_\text{EPR} = \text{CNOT}\cdot(H\otimes I)$ is the circuit used to prepare the EPR state. In ~yaw~, this becomes
 
 #+BEGIN_SRC haskell
-stateEPR :: State ((><) [Pauli, Pauli])
+stateEPR :: State (><) [Pauli]*2
 stateEPR = (<|) EPR (state0 >< state0)
     where EPR = cnot * (h >< id)
 #+END_SRC
 
-Note that multiplication takes precedence over tensor
-products. Analogously, we can define
-an EPR projection operator by applying the circuit to 
+Suppose Alice holds one copy of $\mathcal{A}_\text{Pauli}$ and Bob
+a second, with an EPR state $\pi_\text{EPR}$ shared between them. Then Alice
+can send Bob two bits $a, b$, by acting (or not) with $X$ and $Z$ on
+her share of the state. The different choices produce four orthogonal states, called the /Bell basis/:
 \[
-\Pi^{(\text{EPR})} = \mathcal{O}_\text{EPR}\triangleright \Pi_0^{\otimes 2}.
+\pi_{\text{Bell}(a, b)} = X^a Z^b \otimes I \triangleleft \pi_\text{EPR},
 \]
+where $a, b \in \{0, 1\}$ as usual.
+We can express the Bell basis states as a simple conjugation in ~Yaw~:
+
+#+BEGIN_SRC haskell
+stateBell :: BinDigit -> BinDigit -> State ((><) [Pauli, Pauli])
+stateBell a b = (<|) (x^a * z^b >< id) stateEPR
+#+END_SRC
+
+After applying local operators, Alice sends her half of the system to Bob, who now
+controls the full state $\pi_{\text{Bell}(a, b)}$. To determine $a$
+and $b$, Bob can simply "measure in the Bell basis".
+Measurement in general is a complex operation, but luckily, here we perform /projective measurement/ where we can simply define probability distributions over outcomes directly from the state. To see how, first define the Bell measurement operators by
+\[
+\Pi^{(\text{Bell})}_{a,b} =X^a Z^b \otimes I\triangleright \Pi^{(\text{EPR})},
+\]
+or in ~Yaw~, using the solution to Exercise 3:
+
+#+BEGIN_SRC haskell
+projBell :: BinDigit -> BinDigit -> (><) [Pauli, Pauli]
+projBell a b = (|>) (x^a * z^b >< id) projEPR
+#+END_SRC
+
+Note that operator conjugation is evaluated /last/.
+The simplest way to see the results of measurement in the Bell basis
+is to compute the expectation of ~projBell a b~, for bits ~a~ and ~b~,
+in the joint state after Alice gives her share to Bob:
+
+#+BEGIN_SRC haskell
+bobsProbs :: State ((><) [Pauli, Pauli]) -> [Float]
+bobsProbs state = [state (projBell a b) | a <- [0,1], b <- [0,1]]
+#+END_SRC
+
+In general, this gives some messy probabilities that add to one, but here, all but one will vanish, e.g.
+
+#+BEGIN_SRC elisp
+Yaw> bobsProbs (stateBell 0 1)
+[0.0, 1.0, 0.0, 0.0]
+#+END_SRC
 
 * COMMENT html export
 #+TITLE:
