@@ -83,7 +83,7 @@ ladder = Presentation gen [BraidF φ gen
     where gen = [f, g]
            f :: Complex -> Gen
            g :: Complex -> Gen
-       φ α β = exp (- α * β) 
+       φ α β = exp (α * β) 
 #+END_SRC
 
 where ~ParamMonoid (+)~ indicates that $f(\alpha) = e^{\alpha a}$ and
