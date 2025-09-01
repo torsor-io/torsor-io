@@ -190,7 +190,7 @@ Yaw> statePlus z
 0
 #+END_SRC
 
-which is evaluated using the same algebra internally.
+which is evaluated using the same logic internally.
 
 ** Tensor products
 ** Channels
