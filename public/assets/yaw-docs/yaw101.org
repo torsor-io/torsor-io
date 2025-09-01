@@ -63,6 +63,7 @@ We symbolically denote this generalized
 algebra $\mathcal{A}_d$, so for instance
 $\mathcal{A}_2=\mathcal{A}_\text{Pauli}$.
 
+** COMMENT Harmonic oscillator
 As a final example, we can encode the commutation relations $[a,
 a^\dagger] = I$ for a harmonic oscillator in braiding
 form. Applying the /Baker-Campbell-Hausdorff (BCH)/ formula gives
@@ -193,7 +194,46 @@ Yaw> statePlus z
 which is evaluated using the same logic internally.
 
 ** Tensor products
-** Channels
+A state on multiple qubits lives in a /tensor product/ of algebras,
+built from tensor products of operators:
+\[
+\mathcal{A}_\text{Pauli} \otimes \mathcal{A}_\text{Pauli} = \{\mathcal{O}
+\otimes \mathcal{O}': \mathcal{O}, \mathcal{O}' \in \mathcal{A}_\text{Pauli}\}.
+\]
+(There are some technicalities regarding metric completion here that we happily ignore.)
+We can add and multiply tensor products. Both operations come into play when we want to use /controlled/ operations. To see how, consider the projectors onto eigenvalues of $Z$:
+\[
+\Pi^{(Z)}_{b} = \frac{1}{2}\big[I - (-1)^bZ\big], \quad Z = \Pi^{(Z)}_0 - \Pi^{(Z)}_1,
+\quad I =\Pi^{(Z)}_0 + \Pi^{(Z)}_1.
+\]
+These are dual to the eigenfunctionals $\pi_a$ in the sense that $\pi_a(\Pi^{(Z)}_b) = \delta_{ab}$, for binary variables $a, b\in \{0, 1\}$. In ~Yaw~, we define the projectors as follows:
+
+#+BEGIN_SRC haskell
+projZ BinDigit :: Pauli
+projZ b = (1/2)*(id + (-1)^b z)
+#+END_SRC
+
+where ~id~ is the identity and ~BinDigit~ is the type of a binary digit.
+A controlled operation like $\text{CNOT}$ applies
+$X^a$ when the first state is $\pi_a$, or
+\[
+\text{CNOT} = \Pi^{(Z)}_0 \otimes I + \Pi^{(Z)}_1 \otimes X = \Pi^{(Z)}_a \otimes X^a,
+\]
+where we sum over $a = 0, 1$. To implement this, we introduce a tensor product operator ~><~ we use both for individual tensor products and tensor products of types:
+
+#+BEGIN_SRC haskell
+cnot :: (><) [pauli, pauli]
+cnot = projZ 0 >< id + projZ 1 >< x
+#+END_SRC
+
+Similarly, we can define a general controlled operator on ~alg~:
+
+#+BEGIN_SRC haskell
+c :: (><) [pauli, alg]
+c op = projZ 0 >< id + projZ 1 >< op
+#+END_SRC
+
+so ~cnot~ equals ~c x~, as we expect.
 * COMMENT html export
 #+TITLE:
 #+HTML_CONTAINER: div
