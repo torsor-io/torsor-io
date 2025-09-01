@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title></title>
-<!-- 2025-09-01 Mon 06:50 -->
+<!-- 2025-09-01 Mon 07:29 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -218,8 +218,8 @@ the <i>type</i> of <code>Algebra</code> as follows:
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span><br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span>
+</pre>
 </pre>
 </div>
 
@@ -241,9 +241,9 @@ generators \(G, G'\)):
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Presentation</span> gen [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Hermitian</span> gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Unitary</span> gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">AntiComm</span> gen]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> gen <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [x, z]<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Presentation</span> gen [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Hermitian</span> gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Unitary</span> gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">AntiComm</span> gen]
+    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> gen <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [x, z]
+</pre>
 </pre>
 </div>
 
@@ -262,11 +262,11 @@ result of this new notation, we can immediately define the algebra of
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliDit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Integer</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span><br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliDit</span> d <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Presentation</span> gen [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Hermitian</span> gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pow</span> d gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Braid</span> &#969; gen]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> gen <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [x, z]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#969; <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> cis (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">-</span>2 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> pi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">/</span> d)<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliDit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Integer</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliDit</span> d <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Presentation</span> gen [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Hermitian</span> gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pow</span> d gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Braid</span> &#969; gen]
+    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> gen <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [x, z]
+            &#969; <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> cis (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">-</span>2 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> pi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">/</span> d)
+</pre>
 </pre>
 </div>
 
@@ -317,9 +317,9 @@ In <code>yaw</code>, this takes the form
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state0</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> pauli<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state0</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> eigen z (spec z 0)<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state0</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> pauli
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state0</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> eigen z (spec z 0)
+</pre>
 </pre>
 </div>
 
@@ -359,9 +359,9 @@ conjugation can be prepended as a binary operator:
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state1</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> pauli<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state1</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) x state0<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state1</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> pauli
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state1</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) x state0
+</pre>
 </pre>
 </div>
 
@@ -377,9 +377,9 @@ totally different thing! To recover the vector addition, we note that \(H \trian
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">statePlus</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> pauli<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">statePlus</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) h state0<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">statePlus</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> pauli
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">statePlus</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) h state0
+</pre>
 </pre>
 </div>
 
@@ -396,9 +396,9 @@ using the identities \(HZ = XH\), \(H^2 = I\) and \(\langle 0|X|0\rangle = 0\). 
 
 <div class="org-src-container">
 
-<pre class="src src-elisp">yaw&gt; statePlus z<br>
-0<br>
-</p>
+<pre class="src src-elisp">yaw&gt; statePlus z
+0
+</pre>
 </pre>
 </div>
 
@@ -432,9 +432,9 @@ In <code>yaw</code>, we define the projectors as follows:
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projZ</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span><br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projZ</span> b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (1<span style="color: #dbdb95; font-size: 9.959999999999999pt;">/</span>2)<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>(id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">-</span>1)<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b z)<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projZ</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projZ</span> b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (1<span style="color: #dbdb95; font-size: 9.959999999999999pt;">/</span>2)<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>(id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">-</span>1)<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b z)
+</pre>
 </pre>
 </div>
 
@@ -454,9 +454,9 @@ implement this in <code>yaw</code>, we introduce a tensor product operator <code
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> projZ 0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span> projZ 1 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> x<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> projZ 0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span> projZ 1 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> x
+</pre>
 </pre>
 </div>
 
@@ -466,10 +466,10 @@ where <code>[pauli]*2 = [pauli, pauli]</code>. Equivalently, we can sum over <co
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot'</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot'</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> ein <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> projZ a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> ein f <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> sum (map f (domain <span style="color: #dbdb95; font-size: 9.959999999999999pt;">@</span>a))<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot'</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot'</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> ein <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> projZ a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a
+    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> ein f <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> sum (map f (domain <span style="color: #dbdb95; font-size: 9.959999999999999pt;">@</span>a))
+</pre>
 </pre>
 </div>
 
@@ -482,9 +482,9 @@ Similarly, we can define a general controlled operator on an algebra <code>a</co
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Alg</span> a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, a]<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> op <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> ein <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> projZ a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> op<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Alg</span> a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, a]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> op <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> ein <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> projZ a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> op<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a
+</pre>
 </pre>
 </div>
 
@@ -496,9 +496,9 @@ A familiar example of general controlled gates is the Toffoli:
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2]<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> c cnot<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> c cnot
+</pre>
 </pre>
 </div>
 </div>
@@ -523,10 +523,10 @@ circuit used to prepare the EPR state and \(\psi_{00} = \psi_0\otimes \psi_0\). 
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) <span style="color: #34cae2; font-size: 9.959999999999999pt;">EPR</span> (state0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> state0)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">EPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> cnot <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> (h <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id)<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) <span style="color: #34cae2; font-size: 9.959999999999999pt;">EPR</span> (state0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> state0)
+    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">EPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> cnot <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> (h <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id)
+</pre>
 </pre>
 </div>
 
@@ -544,9 +544,9 @@ We can express the Bell basis states as a simple conjugation in <code>Yaw</code>
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateBell</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ((<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>])<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateBell</span> a b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) (x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> z<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id) stateEPR<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateBell</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ((<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>])
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateBell</span> a b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) (x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> z<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id) stateEPR
+</pre>
 </pre>
 </div>
 
@@ -568,9 +568,9 @@ In <code>yaw</code>, this is
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projBell</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projBell</span> a b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">|&gt;</span>) (x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> z<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id) projEPR<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projBell</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projBell</span> a b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">|&gt;</span>) (x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> z<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id) projEPR
+</pre>
 </pre>
 </div>
 
@@ -583,9 +583,9 @@ in the joint state after Alice gives her share to Bob:
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bobsProbs</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ((<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Float</span>]<br>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bobsProbs</span> state <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [state (projBell a b) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">|</span> a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> [0,1], b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> [0,1]]<br>
-</p>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bobsProbs</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ((<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Float</span>]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bobsProbs</span> state <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [state (projBell a b) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">|</span> a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> [0,1], b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> [0,1]]
+</pre>
 </pre>
 </div>
 
@@ -596,9 +596,9 @@ In general, these are arbitrary probabilities, but here, all but one will vanish
 
 <div class="org-src-container">
 
-<pre class="src src-elisp">Yaw&gt; bobsProbs (stateBell 0 1)<br>
-[0.0, 1.0, 0.0, 0.0]<br>
-</p>
+<pre class="src src-elisp">Yaw&gt; bobsProbs (stateBell 0 1)
+[0.0, 1.0, 0.0, 0.0]
+</pre>
 </pre>
 </div>
 
