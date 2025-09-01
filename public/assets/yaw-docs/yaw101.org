@@ -3,7 +3,9 @@
 
 ~yaw~ is a domain-specific functional language for programming quantum
 computers. This tutorial introduces some basic concepts, assuming
-a first course in quantum computing but no further mathematical background.
+a first course in quantum computing (at the level of Nielsen and
+Chuang, chapters 1–2) but no further mathematical background. Note
+that pictures are forthcoming.
 
 * Basic concepts
 -----
@@ -200,7 +202,7 @@ built from tensor products of operators:
 \mathcal{A}_\text{Pauli} \otimes \mathcal{A}_\text{Pauli} = \{\mathcal{O}
 \otimes \mathcal{O}': \mathcal{O}, \mathcal{O}' \in \mathcal{A}_\text{Pauli}\}.
 \]
-(There are some technicalities regarding metric completion here that we happily ignore.)
+(There are some technicalities regarding metric completion that we happily ignore.)
 We can add and multiply tensor products. Both operations come into play when we want to use /controlled/ operations. To see how, consider the projectors onto eigenvalues of $Z$:
 \[
 \Pi^{(Z)}_{b} = \frac{1}{2}\big[I - (-1)^bZ\big], \quad Z = \Pi^{(Z)}_0 - \Pi^{(Z)}_1,
@@ -218,9 +220,9 @@ projZ b = (1/2)*(id + (-1)^b z)
 
 where ~id~ is the identity and ~BinDigit~ is the type of a binary
 digit.
-Projectors are dual to eigenfunctionals $\pi_a$ in the sense that $\pi_a(\Pi^{(Z)}_b) = \delta_{ab}$, for binary variables $a, b\in \{0, 1\}$.
+Projectors are dual to eigenfunctionals $\psi_a$ in the sense that $\psi_a(\Pi^{(Z)}_b) = \delta_{ab}$, for binary variables $a, b\in \{0, 1\}$.
 A controlled operation like $\text{CNOT}$ applies
-$X^a$ when the first state is $\pi_a$, so $\text{CNOT}$ takes the
+$X^a$ when the first state is $\psi_a$, so $\text{CNOT}$ takes the
 elegant form
 \[
 \text{CNOT} = \Pi^{(Z)}_0 \otimes I + \Pi^{(Z)}_1 \otimes X = \Pi^{(Z)}_a \otimes X^a,
@@ -244,31 +246,34 @@ cnot' = ein \a -> projZ a >< x^a
 where ~ein~ (Einstein summation) sums a function over its domain.
 We've included the definition above, but it is pre-defined and
 available for use.
-Similarly, we can define a general controlled operator on ~alg~:
+Similarly, we can define a general controlled operator on an algebra ~a~:
 
 #+BEGIN_SRC haskell
 c :: Alg a => (><) [Pauli, a]
 c op = ein \a -> projZ a >< op^a
 #+END_SRC
 
-An interesting example is the Toffoli gate:
+Here, ~Alg~ is a /typeclass/, indicating that ~a~ has various
+operations (addition, multiplication, adjoints, etc) defined on it.
+A familiar example of general controlled gates is the Toffoli:
 
 #+BEGIN_SRC haskell
-toffoli :: (><) [Pauli]*3
+toffoli :: (><) [Pauli, [Pauli]*2]
 toffoli = c cnot
 #+END_SRC
 
-** Entanglement
-We'll end this tutorial by producing a crucial resource:
-entanglement. In particular, we'll build the maximally entangled
+** Superdense coding
+We'll end this tutorial by creating an entangled pair and using it to
+perform the /superdense coding/ protocol. The first step is to build the maximally entangled
 /Bell state/ (after John Bell), also called the /EPR state/ (after Einstein,
 Podolsky and Rosen). This takes the form
 \[
 \psi_\text{EPR} = [\text{CNOT}
-\cdot (H\otimes I)] \triangleleft (\psi_0\otimes \psi_0) =
+\cdot (H\otimes I)] \triangleleft (\psi_0\otimes \psi_0) =:
 \mathcal{O}_\text{EPR} \triangleleft \psi_{00},
 \]
-where $\mathcal{O}_\text{EPR} = \text{CNOT}\cdot(H\otimes I)$ is the circuit used to prepare the EPR state. In ~yaw~, this becomes
+where $\mathcal{O}_\text{EPR} = \text{CNOT}\cdot(H\otimes I)$ is the
+circuit used to prepare the EPR state and $\psi_{00} = \psi_0\otimes \psi_0$. In ~yaw~, this becomes
 
 #+BEGIN_SRC haskell
 stateEPR :: State (><) [Pauli]*2
@@ -277,11 +282,11 @@ stateEPR = (<|) EPR (state0 >< state0)
 #+END_SRC
 
 Suppose Alice holds one copy of $\mathcal{A}_\text{Pauli}$ and Bob
-a second, with an EPR state $\pi_\text{EPR}$ shared between them. Then Alice
+a second, with an EPR state $\psi_\text{EPR}$ shared between them. Then Alice
 can send Bob two bits $a, b$, by acting (or not) with $X$ and $Z$ on
 her share of the state. The different choices produce four orthogonal states, called the /Bell basis/:
 \[
-\pi_{\text{Bell}(a, b)} = X^a Z^b \otimes I \triangleleft \pi_\text{EPR},
+\psi_{\text{Bell}(a, b)} = X^a Z^b \otimes I \triangleleft \psi_\text{EPR},
 \]
 where $a, b \in \{0, 1\}$ as usual.
 We can express the Bell basis states as a simple conjugation in ~Yaw~:
@@ -292,22 +297,27 @@ stateBell a b = (<|) (x^a * z^b >< id) stateEPR
 #+END_SRC
 
 After applying local operators, Alice sends her half of the system to Bob, who now
-controls the full state $\pi_{\text{Bell}(a, b)}$. To determine $a$
+controls the full state $\psi_{\text{Bell}(a, b)}$. To determine $a$
 and $b$, Bob can simply "measure in the Bell basis".
-Measurement in general is a complex operation, but luckily, here we perform /projective measurement/ where we can simply define probability distributions over outcomes directly from the state. To see how, first define the Bell measurement operators by
+Measurement in general is a complex operation we treat in future
+tutorials, but for /projective measurement/, we can simply define
+a probability distribution over measurement outcomes induced by the
+state. To see how, first define the Bell measurement operators by
 \[
 \Pi^{(\text{Bell})}_{a,b} =X^a Z^b \otimes I\triangleright \Pi^{(\text{EPR})},
 \]
-or in ~Yaw~, using the solution to Exercise 3:
+where $\Pi^{(\text{EPR})} = (\mathcal{O}_\text{EPR}\otimes I) \triangleright
+(\Pi_0 \otimes \Pi_0)$.
+In ~yaw~, this is
 
 #+BEGIN_SRC haskell
 projBell :: BinDigit -> BinDigit -> (><) [Pauli, Pauli]
 projBell a b = (|>) (x^a * z^b >< id) projEPR
 #+END_SRC
 
-Note that operator conjugation is evaluated /last/.
+Note that tensor products are evaluated /last/.
 The simplest way to see the results of measurement in the Bell basis
-is to compute the expectation of ~projBell a b~, for bits ~a~ and ~b~,
+is to compute the expectation ~projBell a b~, for bits ~a~ and ~b~,
 in the joint state after Alice gives her share to Bob:
 
 #+BEGIN_SRC haskell
@@ -315,15 +325,28 @@ bobsProbs :: State ((><) [Pauli, Pauli]) -> [Float]
 bobsProbs state = [state (projBell a b) | a <- [0,1], b <- [0,1]]
 #+END_SRC
 
-In general, this gives some messy probabilities that add to one, but here, all but one will vanish, e.g.
+using list comprehension.
+In general, these are arbitrary probabilities, but here, all but one will vanish, e.g.
 
 #+BEGIN_SRC elisp
 Yaw> bobsProbs (stateBell 0 1)
 [0.0, 1.0, 0.0, 0.0]
 #+END_SRC
 
+This concludes our first tutorial on ~yaw~! Stay tuned for our next
+tutorial, covering measurement, teleportation and cryptography.
+
 * References
 -----
+
+- [[https://learnyouahaskell.github.io/chapters.html][/Learn You a Haskell for Great Good/]] (2011), Miran Lipovaca. A fun
+  and friendly introduction to ~Haskell~, the functional language
+  underlying ~yaw~.
+- [[https://www.amazon.ca/Quantum-Computation-Information-10th-Anniversary/dp/1107002176][/Quantum Computation and Quantum Information/]] (2000), Michael
+  Nielsen and Isaac Chuang. The classic introduction to the
+  quantum.
+- [[https://torsor.io/assets/siqpDRAFT.pdf][“SIQP I: Foundations”]] (2025), David Wakeham. The (much longer)
+  mathematical companion to these tutorials.
 
 * COMMENT html export
 #+TITLE:
