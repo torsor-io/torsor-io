@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title></title>
-<!-- 2025-08-31 Sun 19:52 -->
+<!-- 2025-08-31 Sun 20:11 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -276,54 +276,9 @@ We symbolically denote this generalized
 algebra \(\mathcal{A}_d\), so for instance
 \(\mathcal{A}_2=\mathcal{A}_\text{Pauli}\).
 </p>
-
-<p>
-As a final example, we can encode the commutation relations \([a,
-a^\dagger] = I\) for a harmonic oscillator in braiding
-form. Applying the <i>Baker-Campbell-Hausdorff (BCH)</i> formula gives
-\[
-e^{\alpha a^\dagger} e^{\beta a} = e^{-\alpha\beta}e^{\beta a}e^{\alpha a^\dagger} 
-\]
-We now need to introduce generators with <i>parameters</i> and relations
-which can depend on those parameters. This will involve promoting
-<code>gen</code> to a type <code>Gen</code>, and <code>Braid</code> to a parameterized form <code>BraidF</code>:
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">ladder</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span>
-<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">ladder</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Presentation</span> gen [<span style="color: #34cae2; font-size: 9.959999999999999pt;">BraidF</span> &#966; gen
-                         , <span style="color: #34cae2; font-size: 9.959999999999999pt;">ParamMonoid</span> f (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span>) 0
-                         , <span style="color: #34cae2; font-size: 9.959999999999999pt;">ParamMonoid</span> g (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span>) 0
-                         , <span style="color: #34cae2; font-size: 9.959999999999999pt;">StarSwap</span> gen
-                         ]
-    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> gen <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [f, g]
-           f <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Complex</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Gen</span>
-           g <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Complex</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Gen</span>
-       &#966; &#945; &#946; <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> exp (&#945; <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> &#946;)
-</pre>
-</pre>
-</div>
-
-<p>
-where <code>ParamMonoid (+)</code> indicates that \(f(\alpha) = e^{\alpha a}\) and
-\(f(\beta) = e^{\beta a^\dagger}\) are "monoids" with respect to
-addition, e.g.
-\[
-f(\alpha + \alpha') = f(\alpha)f(\alpha'),
-\]
-while <code>StarSwap</code> indicates that generators are interchanged under the
-Hermitian conjugate, e.g.
-\[
-f(\alpha)^\dagger = (e^{\alpha a})^\dagger =
-e^{\overline{\alpha}a^\dagger} = g(\overline{\alpha}).
-\]
-Although this space is infinite-dimensional, we can still
-effectively deal with it using <i>lazy evaluation</i>, a strategy we
-discuss elsewhere.
-</p>
 </div>
 </div>
+
 <div id="outline-container-sec-1-2" class="outline-3">
 <h3 id="sec-1-2"><span class="section-number-3">1.2</span> States</h3>
 <div class="outline-text-3" id="text-1-2">
@@ -453,9 +408,65 @@ which is evaluated using the same logic internally.
 
 <div id="outline-container-sec-1-3" class="outline-3">
 <h3 id="sec-1-3"><span class="section-number-3">1.3</span> Tensor products</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+A state on multiple qubits lives in a <i>tensor product</i> of algebras,
+built from tensor products of operators:
+\[
+\mathcal{A}_\text{Pauli} \otimes \mathcal{A}_\text{Pauli} = \{\mathcal{O}
+\otimes \mathcal{O}': \mathcal{O}, \mathcal{O}' \in \mathcal{A}_\text{Pauli}\}.
+\]
+(There are some technicalities regarding metric completion here that we happily ignore.)
+We can add and multiply tensor products. Both operations come into play when we want to use <i>controlled</i> operations. To see how, consider the projectors onto eigenvalues of \(Z\):
+\[
+\Pi^{(Z)}_{b} = \frac{1}{2}\big[I - (-1)^bZ\big], \quad Z = \Pi^{(Z)}_0 - \Pi^{(Z)}_1,
+\quad I =\Pi^{(Z)}_0 + \Pi^{(Z)}_1.
+\]
+These are dual to the eigenfunctionals \(\pi_a\) in the sense that \(\pi_a(\Pi^{(Z)}_b) = \delta_{ab}\), for binary variables \(a, b\in \{0, 1\}\). In <code>Yaw</code>, we define the projectors as follows:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projZ</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projZ</span> b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (1<span style="color: #dbdb95; font-size: 9.959999999999999pt;">/</span>2)<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>(id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">-</span>1)<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b z)
+</pre>
+</pre>
 </div>
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Channels</h3>
+
+<p>
+where <code>id</code> is the identity and <code>BinDigit</code> is the type of a binary digit.
+A controlled operation like \(\text{CNOT}\) applies
+\(X^a\) when the first state is \(\pi_a\), or
+\[
+\text{CNOT} = \Pi^{(Z)}_0 \otimes I + \Pi^{(Z)}_1 \otimes X = \Pi^{(Z)}_a \otimes X^a,
+\]
+where we sum over \(a = 0, 1\). To implement this, we introduce a tensor product operator <code>&gt;&lt;</code> we use both for individual tensor products and tensor products of types:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli, pauli]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> projZ 0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span> projZ 1 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> x
+</pre>
+</pre>
+</div>
+
+<p>
+Similarly, we can define a general controlled operator on <code>alg</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli, alg]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> op <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> projZ 0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span> projZ 1 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> op
+</pre>
+</pre>
+</div>
+
+<p>
+so <code>cnot</code> equals <code>c x</code>, as we expect.
+</p>
+</div>
 </div>
 </div>
 </div>
