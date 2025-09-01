@@ -76,10 +76,10 @@ which can depend on those parameters. This will involve promoting
 #+BEGIN_SRC haskell
 ladder :: Algebra
 ladder = Presentation gen [BraidF φ gen
-                           , ParamMonoid f (+) 0
-                           , ParamMonoid g (+) 0
-                           , StarSwap gen
-                          ]
+                         , ParamMonoid f (+) 0
+                         , ParamMonoid g (+) 0
+                         , StarSwap gen
+                         ]
     where gen = [f, g]
            f :: Complex -> Gen
            g :: Complex -> Gen
@@ -102,6 +102,97 @@ Although this space is infinite-dimensional, we can still
 effectively deal with it using /lazy evaluation/, a strategy we
 discuss elsewhere.
 ** States
+In the usual approach, a state $|\psi\rangle$ is a vector on which
+operators can act, $|\psi\rangle \mapsto \mathcal{O}|\psi\rangle$. In the
+algebraic approach, a state is instead an /expectation/:
+\[
+\mathcal{O} \mapsto \langle \psi|\mathcal{O}|\psi\rangle := \psi(\mathcal{O}).
+\]
+Thus, we view $\psi$ as a /linear functional/ (scalar-valued linear
+function) rather than a vector.
+When $|\psi\rangle$ is an eigenvector of a Hermitian operator $\Lambda$, we have
+\[
+\Lambda |\psi\rangle = \lambda |\psi\rangle \quad \Longrightarrow
+\psi(\mathcal{O}\Lambda) = \lambda\psi(\mathcal{O}) = \psi(\mathcal{O})\psi(\Lambda)
+,\]
+and similarly
+$\psi(\Lambda\mathcal{O})=\psi(\Lambda)\psi(\mathcal{O})$.
+This /factorization/ property, along with the value $\lambda$, is a helpful way of
+specifying which functional we are talking about.
+
+As a familiar example, we can recast the familiar single-qubit state
+$|0\rangle$ as a functional
+$\psi_0(\mathcal{O}) = \langle 0|\mathcal{O}|0\rangle$ satisfying
+\[
+\psi_0(Z \mathcal{O}) = \psi_0(\mathcal{O})\psi_0(Z) = \psi_0(\mathcal{O}
+Z), \quad \psi_0(Z) = 1.
+\]
+In ~Yaw~, this takes the form
+
+#+BEGIN_SRC haskell
+state0 :: State pauli
+state0 = eigen z (spec z 0)
+#+END_SRC
+
+where
+- ~State pauli~ is the type of states on the algebra ~pauli~;
+- ~eigen z~ identifies this has the factorization property wrt ~z~;
+- ~spec z~ lists eigenvalues of ~z~ from largest (at
+  $0$) to smallest; thus
+- ~spec z 0~ picks out the largest eigenvalue, $\lambda = +1$.
+
+We could define $\psi_1(\mathcal{O}) = \langle 1|A|1\rangle$ analogously, but
+it's more revealing to note that
+\[
+\psi_1(\mathcal{O}) = \langle 1|\mathcal{O}|1\rangle = \langle 0|X \mathcal{O} X|0\rangle = \psi_0(X \mathcal{O} X).
+\]
+This pattern is common enough to justify two new pieces of notation:
+\[
+A \triangleright \mathcal{O} = A^\dagger \mathcal{O} A, \quad A
+\triangleleft \psi(\mathcal{O}) = \psi(A \triangleright \mathcal{O}) =
+\psi(A^\dagger \mathcal{O} A).
+\]
+We call $\triangleright$ the /operator conjugator/ and $\triangleleft$
+the /state conjugator/. These are respectively accomplished by ~<|~ and
+~|>~  in ~Yaw~. The argument above shows that $\psi_1 = X
+\triangleleft \psi_0$, so in ~Yaw~, using infix notation ~(<|)~ so
+conjugation can be prepended as a binary operator:
+
+#+BEGIN_SRC haskell
+state1 :: State pauli
+state1 = (<|) x state0
+#+END_SRC
+
+When states are thought of as functionals, we cannot add them in the usual way. For instance, although adding $|0\rangle$ and $|1\rangle$ results in
+\[
+\frac{1}{\sqrt{2}}(|0\rangle + |1\rangle) = |+\rangle,
+\]
+adding the corresponding functionals $\psi_0$ and $\psi_1$ is proportional to the trace (the
+maximally mixed state) rather than the pure state $\psi_+$. We have a
+totally different thing! To recover the vector addition, we note that $H \triangleleft \psi_0 =\psi_+$, and hence
+
+#+BEGIN_SRC haskell
+statePlus :: State pauli
+statePlus = (<|) h state0
+#+END_SRC
+
+The moral: think like a functional, not like a vector!
+A benefit of thinking this way is that /expectation values/
+become simple to compute. For instance, the expected value of $Z$
+in the $\psi_+$ state is
+\[
+\psi_+(Z) = \psi_0(HZH) = \psi_0(XH^2) = \psi_0(X) = 0,
+\]
+using the identities $HZ = XH$, $H^2 = I$ and $\langle 0|X|0\rangle = 0$. Working in the interpreter:
+
+#+BEGIN_SRC elisp
+Yaw> statePlus z
+0
+#+END_SRC
+
+which is evaluated using the same algebra internally.
+
+** Tensor products
 ** Channels
 * COMMENT html export
 #+TITLE:
