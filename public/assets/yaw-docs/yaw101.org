@@ -233,7 +233,13 @@ c :: (><) [pauli, alg]
 c op = projZ 0 >< id + projZ 1 >< op
 #+END_SRC
 
-so ~cnot~ equals ~c x~, as we expect.
+so ~cnot~ equals ~c x~, as we expect. A more interesting example is
+the Toffoli gate:
+
+#+BEGIN_SRC haskell
+toffoli :: (><) [pauli, pauli, pauli]
+toffoli = c cnot
+#+END_SRC
 * COMMENT html export
 #+TITLE:
 #+HTML_CONTAINER: div
