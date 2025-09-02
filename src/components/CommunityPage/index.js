@@ -79,7 +79,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           • <a 
         href="/assets/yaw101.html" 
         className={`hover:underline`}
-      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw 101</b></a>. The tutorial previews basic syntax, culminating in superdense coding.
+      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw 101</b></a>. This tutorial previews basic syntax, culminating in superdense coding.
 	  </li>
   </ul>
                 </div>
