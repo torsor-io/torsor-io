@@ -181,7 +181,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             <div className={`text-med text-center ${subtleText}`}>
               <br/>
               <a 
-                href="https://join.slack.com/t/torsorlabs/shared_invite/zt-32rdqmuv7-TDtDznLIzXoiVfd24Kxhxw"
+                href="https://join.slack.com/t/torsorlabs/shared_invite/zt-3d0j63xua-~4~9OS~R_M1PntnVRlH8uA"
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
                 <UserPlusIcon className={`h-6 w-6 ${textColor}`} />
