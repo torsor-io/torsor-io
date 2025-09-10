@@ -4,8 +4,8 @@
 ~yaw~ is a domain-specific functional language for programming quantum
 computers. This tutorial introduces some basic concepts, assuming
 a first course in quantum computing (at the level of Nielsen and
-Chuang, chapters 1–2) but no further mathematical background. Note
-that pictures are forthcoming.
+Chuang, chapters 1–2) and some programming experience, but no further
+mathematical background.
 
 * Basic concepts
 -----
@@ -113,6 +113,8 @@ algebraic approach, a state is instead an /expectation/:
 \]
 Thus, we view $\psi$ as a /linear functional/ (scalar-valued linear
 function) rather than a vector.
+We let $\mathsf{S}(\mathcal{A})$ denote the set of states, viewed as
+linear functionals, on an algebra $\mathcal{A}$.
 When $|\psi\rangle$ is an eigenvector of a Hermitian operator $\Lambda$, we have
 \[
 \Lambda |\psi\rangle = \lambda |\psi\rangle \quad \Longrightarrow
@@ -231,11 +233,11 @@ where we sum over the repeated index $a$ (Einstein summation). To
 implement this in ~yaw~, we introduce a tensor product operator ~><~ we use both for individual tensor products and tensor products of types:
 
 #+BEGIN_SRC haskell
-cnot :: (><) [pauli]*2
+cnot :: (><) [Pauli]*2
 cnot = projZ 0 >< id + projZ 1 >< x
 #+END_SRC
 
-where ~[pauli]*2 = [pauli, pauli]~. Equivalently, we can sum over ~a~:
+where ~[Pauli]*2 = [Pauli, Pauli]~. Equivalently, we can sum over ~a~:
 
 #+BEGIN_SRC haskell
 cnot' :: (><) [Pauli]*2
@@ -326,15 +328,40 @@ bobsProbs state = [state (projBell a b) | a <- [0,1], b <- [0,1]]
 #+END_SRC
 
 using list comprehension.
-In general, these are arbitrary probabilities, but here, all but one will vanish, e.g.
+Evaluating, we see that all but one will vanish, e.g.
 
 #+BEGIN_SRC elisp
-Yaw> bobsProbs (stateBell 0 1)
+yaw> bobsProbs (stateBell 0 1)
 [0.0, 1.0, 0.0, 0.0]
 #+END_SRC
 
+This process happens to be deterministic, in the sense there is a
+single guaranteed outcome. But more generally, the probabilities are
+arbitrary, and we need to introduce the full formalism of
+/measurement/ to handle things.
+
+** COMMENT Extra
 This concludes our first tutorial on ~yaw~! Stay tuned for our next
 tutorial, covering measurement, teleportation and cryptography.
+
+* Measurement
+** Channels
+
+In our first step towards defining measurement, we will first
+introduce /channels/. This is a linear map between algebras $\Phi:
+\mathcal{A} \to \mathcal{B}$, or between states on those algebras $\hat{\Phi}:\mathsf{S}(\mathcal{A}) \to
+\mathsf{S}(\mathcal{B})$, which take the form of a sum over conjugators:
+\[
+\Phi = \sum_{j\in J} K_j \,\, \triangleright, \quad \hat{\Phi} = \sum_{j\in
+J} K_j \, \,\triangleleft \,.
+\]
+The operators $K_j$, $j\in J$, are called /Kraus operators/, and we
+usually require them to be chosen so that $\Phi(I) = I$, hence
+\[
+\sum_{j\in J} K_j \triangleright I = \sum_{j\in J} K_j^\dagger K_j = I.
+\]
+(/Quantum operations/ have a looser condition on the Kraus operators $K_j$, but we
+won't consider them here.)
 
 * References
 -----
