@@ -48,43 +48,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           className="space-y-12"
           >
 
-            {/* Paper Showcase */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
-            >
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Paper Image */}
-          <div className="aspect-3/2 w-md overflow-hidden">
-                  <img
-                    src="/assets/img/yaw-logo.png"
-                    alt="Paper visualization"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Paper Details */}
-                <div className="space-y-4">
-                  <h2 className={`text-2xl font-bold ${textColor}`}>
-          Learning <b className={`font-comfortaa ${textColor}`}>yaw</b>
-      </h2>
-                  <p className={`${subtleText}`}>
-	  <b className={`font-comfortaa ${textColor} mb-3`}>yaw</b> will be a functional language for programming quantum computers (currently under development). If you want to see how to code quantumly with high-school algebra, you're in the right place!
-	  </p>
-	  <div className={`border-t ${borderColor} mb-4 mt-10`}></div>
-<ul className="space-y-3">
-    <li className={`${subtleText}`}>
-          • <a 
-        href="/assets/yaw101.html" 
-        className={`hover:underline`}
-      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw 101</b></a>. This tutorial previews basic syntax, culminating in superdense coding.
-	  </li>
-  </ul>
-                </div>
-              </div>
-            </motion.div>
+
 
             {/* Subscribe Section */}
           <div className={`text-med text-center ${subtleText}`}>
