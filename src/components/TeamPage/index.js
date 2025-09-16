@@ -102,7 +102,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Jon Male • Founder
                   </p>
                   <p className={`${subtleText} !mb-24`}>
-	  Jon is a seasoned technologist and entrepreneur with deep expertise in building innovative software platforms. As CTO of Axium for sixteen years, he architected Ajera, a comprehensive ERP system for architecture and engineering firms that was later acquired by Deltek. The founder of <a href="https://mindfulos.org/" className={`hover:underline`}>mindfulOS</a>, he's pioneering ethical alternatives to conventional media platforms for young children.
+	  Jon is a seasoned technologist and entrepreneur with deep expertise in building innovative software platforms. As CTO of Axium for sixteen years, he architected <a href="https://www.deltek.com/en/erp/ajera" className={`hover:underline`}>Ajera</a>, a comprehensive ERP system for architecture and engineering firms that was later acquired by Deltek. The founder of <a href="https://mindfulos.org/" className={`hover:underline`}>mindfulOS</a>, he's pioneering ethical alternatives to conventional media platforms for young children.
                   </p>
                   <div className="flex space-x-4">
 
