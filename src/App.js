@@ -81,7 +81,7 @@ const App = () => {
           />
         } />
         <Route path="software" element={
-          <ConsultingPage 
+          <SoftwarePage 
             isDark={isDark} 
             setIsDark={setIsDark}
             waveState={waveState}
