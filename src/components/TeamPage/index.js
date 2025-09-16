@@ -64,7 +64,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   </div>
   <div className="aspect-auto rounded-lg overflow-hidden">
     <img
-      src="/assets/team/jon-bw.jpg"
+      src="/assets/team/jon-bw.jpeg"
       alt="Jon Male"
       className="w-full h-full object-cover"
     />
@@ -75,7 +75,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                   <h2 className={`text-2xl font-bold ${textColor}`}>
           Meet the Founders
       </h2>
-                  <p className={`${subtleText} text-sm !mt-20`}>
+                  <p className={`${subtleText} text-sm`}>
           David Wakeham • Founder & CEO
                   </p>
                   <p className={`${subtleText}`}>
