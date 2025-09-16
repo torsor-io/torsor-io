@@ -1,4 +1,4 @@
-import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid';
+import { CommandLineIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../shared/Navbar';
@@ -110,7 +110,7 @@ const cases = [
                 href="mailto:consulting@torsor.io" 
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
-                <ChatBubbleLeftRightIcon className={`h-6 w-6 ${textColor}`} />
+                <CommandLineIcon className={`h-6 w-6 ${textColor}`} />
           </a>
           </div>
           </motion.div>
