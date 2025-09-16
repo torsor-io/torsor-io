@@ -60,11 +60,17 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                     alt="David Wakeham"
                     className="w-full h-full object-cover"
                   />
-                </div>
+          </div>
+	    <div className="aspect-auto rounded-lg overflow-hidden">
+    <img
+      src="/assets/team/jon-bw.jpg"
+      alt="Jon Male"
+      className="w-full h-full object-cover"
+    />
                 
                 <div className="space-y-4">
                   <h2 className={`text-2xl font-bold ${textColor}`}>
-          Meet the Founder
+          Meet the Founders
       </h2>
                   <p className={`${subtleText} text-sm`}>
           David Wakeham • Founder & CEO
@@ -85,7 +91,13 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                     >
                       Google Scholar
       </a>
-                  </div>
+          </div>
+	                    <p className={`${subtleText} text-sm`}>
+          Jon Male • Founder
+                  </p>
+                  <p className={`${subtleText} !mb-20`}>
+          Jon is a seasoned technologist and entrepreneur with deep expertise in building innovative software platforms. As CTO of Axium for sixteen years, he architected Ajera, a comprehensive ERP system for architecture and engineering firms that was later acquired by Deltek. The founder of mindfulOS, he's pioneering ethical alternatives to conventional media platforms for young children. Jon brings his strong ethical foundation and decades of product development experience to the mission of shaping a Bell Labs for the quantum age.
+                  </p>
                 </div>
               </div>
             </motion.div>
