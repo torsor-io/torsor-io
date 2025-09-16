@@ -54,31 +54,34 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="aspect-auto rounded-lg overflow-hidden">
-                  <img
-                    src="/assets/team/david.png"
-                    alt="David Wakeham"
-                    className="w-full h-full object-cover"
-                  />
-          </div>
-	    <div className="aspect-auto rounded-lg overflow-hidden">
+<div className="space-y-4">
+  <div className="aspect-auto rounded-lg overflow-hidden">
     <img
-      src="/assets/team/jon-bw.jpg"
-      alt="Jon Male"
+      src="/assets/team/jude.jpeg"
+      alt="Jude McDonald"
       className="w-full h-full object-cover"
     />
+  </div>
+  <div className="aspect-auto rounded-lg overflow-hidden">
+    <img
+      src="/assets/team/mike-bw.jpg"
+      alt="Michael Kinach"
+      className="w-full h-full object-cover"
+    />
+	  </div>
+</div>
                 
                 <div className="space-y-4">
                   <h2 className={`text-2xl font-bold ${textColor}`}>
           Meet the Founders
       </h2>
-                  <p className={`${subtleText} text-sm`}>
+                  <p className={`${subtleText} text-sm !mt-20`}>
           David Wakeham • Founder & CEO
                   </p>
                   <p className={`${subtleText}`}>
           David has a <a href="https://hapax.github.io/assets/ubc_2022_november_wakeham_david.pdf" className={`hover:underline`}>PhD</a> in string theory and black holes (UBC 2022), a masters degree in particle physics, and undergraduate degrees in philosophy and math. Before going rogue, he worked at <a href="https://www.xanadu.ai/" className={`hover:underline`}>Xanadu</a> (2022–25). He now gets to fulfil a lifelong dream of interdimensional wizardry.
                   </p>
-                  <div className="flex space-x-4">
+                 <div className="flex space-x-4">
                     
                       <a href="https://hapax.github.io/"
                       className={`${buttonBg} ${textColor} px-4 py-2 rounded-lg transition-colors text-sm`}
@@ -92,16 +95,23 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                       Google Scholar
       </a>
           </div>
-	                    <p className={`${subtleText} text-sm`}>
+	                    <div className="flex space-x-4">
+
+                  </div>
+                  <p className={`${subtleText} text-sm !mt-24`}>
           Jon Male • Founder
                   </p>
-                  <p className={`${subtleText} !mb-20`}>
-          Jon is a seasoned technologist and entrepreneur with deep expertise in building innovative software platforms. As CTO of Axium for sixteen years, he architected Ajera, a comprehensive ERP system for architecture and engineering firms that was later acquired by Deltek. The founder of mindfulOS, he's pioneering ethical alternatives to conventional media platforms for young children. Jon brings his strong ethical foundation and decades of product development experience to the mission of shaping a Bell Labs for the quantum age.
+                  <p className={`${subtleText} !mb-24`}>
+	  Jon is a seasoned technologist and entrepreneur with deep expertise in building innovative software platforms. As CTO of Axium for sixteen years, he architected Ajera, a comprehensive ERP system for architecture and engineering firms that was later acquired by Deltek. The founder of mindfulOS, he's pioneering ethical alternatives to conventional media platforms for young children. Jon brings his strong ethical foundation and decades of product development experience to the mission of shaping a Bell Labs for the quantum age.
                   </p>
+                  <div className="flex space-x-4">
+
+                  </div>
+
                 </div>
               </div>
             </motion.div>
-
+      
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -150,7 +160,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Michael Kinach • Scientific consultant
                   </p>
                   <p className={`${subtleText}`}>
-          Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael works on education and language design.
+          Michael holds a PhD in physics from the University of British Columbia. With a research background in high-performance computing and numerical analysis, he specializes in the design of algorithms and simulation tools for classical and quantum systems. At Torsor Labs, Michael focuses on making rad educational resources.
                   </p>
                   <div className="flex space-x-4 !mb-24">
                     
@@ -167,7 +177,7 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           Mieke Westenbroek • Product/strategy consultant
                   </p>
                   <p className={`${subtleText} !mb-24`}>
-	  Mieke holds an MSc in Management, specializing in Strategy & Entrepreneurship, from Catolica Lisbon School of Business and Economics. Her background is in product management and strategy, with a passion for helping companies develop, align and deliver strategies and products that deliver human value. At Torsor, Mieke works on product consulting and business strategy. 
+	  Mieke holds an MSc in Management, specializing in Strategy & Entrepreneurship, from Catolica Lisbon School of Business and Economics. Her background is in product management and strategy, with a passion for helping companies develop, align and deliver strategies and products that deliver human value. At Torsor, Mieke works on business strategy. 
                   </p>
                   <div className="flex space-x-4">
 
