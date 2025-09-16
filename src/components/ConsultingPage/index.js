@@ -66,61 +66,43 @@ const cases = [
             transition={{ duration: 0.6 }}
             className="space-y-12"
           >
-            {/* Research Consulting Section */}
+            {/* Paper Showcase */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
-              <h2 className={`text-2xl font-bold ${textColor} mb-4`}>Research consulting</h2>
-              <div className={`${subtleText}`}>
-                <p className="mb-4"><i>Coming soon</i>: Case studies.
-                </p> <br/>
-
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {cases.map((study) => (
-        <motion.div
-          key={study.id}
-          className={`cursor-pointer rounded-lg border ${borderColor} overflow-hidden
-                     ${isDark ? 'bg-slate-800/30' : 'bg-orange-50/30'}`}
-          onClick={() => setExpandedCase(expandedCase === study.id ? null : study.id)}
-          whileHover={{ scale: 1.02 }}
-          transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        >
-          <div className="p-4">
-            <img 
-              src={study.logo}
-              alt={study.title}
-              className="w-full h-24 object-contain"
-            />
-          </div>
-        </motion.div>
-      ))}
-    </div>
-    
-<AnimatePresence>
-  {expandedCase && (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      className={`rounded-lg border ${borderColor} overflow-hidden
-                 ${isDark ? 'bg-slate-800/30' : 'bg-orange-50/30'} mt-4`}
-    >
-      <div className="p-4 space-y-2">
-        <h3 className={`font-bold ${textColor}`}>
-          {cases.find(study => study.id === expandedCase)?.title}
-        </h3>
-        <p className={`text-sm ${subtleText}`}>
-          {cases.find(study => study.id === expandedCase)?.brief}
-        </p>
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
-  </div>
-</motion.div>
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Paper Image */}
+          <div className="aspect-3/2 w-md overflow-hidden">
+                  <img
+                    src="/assets/img/yaw-logo.png"
+                    alt="Paper visualization"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Paper Details */}
+                <div className="space-y-4">
+                  <h2 className={`text-2xl font-bold ${textColor}`}>
+          Learning <b className={`font-comfortaa ${textColor}`}>yaw</b>
+      </h2>
+                  <p className={`${subtleText}`}>
+	  <b className={`font-comfortaa ${textColor} mb-3`}>yaw</b> will be a functional language for programming quantum computers (currently under development). If you want to see how to code quantumly with high-school algebra, you're in the right place!
+	  </p>
+	  <div className={`border-t ${borderColor} mb-4 mt-10`}></div>
+<ul className="space-y-3">
+    <li className={`${subtleText}`}>
+          • <a 
+        href="/assets/yaw101.html" 
+        className={`hover:underline`}
+      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw 101</b></a>. This tutorial previews basic syntax, culminating in superdense coding.
+	  </li>
+  </ul>
+                </div>
+              </div>
+            </motion.div>
 
             {/* Contact Section */}
             <div className={`text-med text-center ${subtleText}`}>
