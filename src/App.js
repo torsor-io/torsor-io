@@ -5,7 +5,7 @@ import AboutPage from './components/AboutPage';
 import BlogPage from './components/blog';
 import BlogPost from './components/blog/BlogPost'; 
 import ResearchPage from './components/ResearchPage';
-import ConsultingPage from './components/ConsultingPage';
+import SoftwarePage from './components/ConsultingPage';
 import TeamPage from './components/TeamPage';
 import CommunityPage from './components/CommunityPage';
 import YawTemp from './components/YawTemp';
@@ -80,7 +80,7 @@ const App = () => {
             setWaveState={setWaveState}
           />
         } />
-        <Route path="consulting" element={
+        <Route path="software" element={
           <ConsultingPage 
             isDark={isDark} 
             setIsDark={setIsDark}
