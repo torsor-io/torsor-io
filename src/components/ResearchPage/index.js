@@ -76,6 +76,14 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <ul className="space-y-3">
     <li className={`${subtleText}`}>
       <a 
+        href="https://arxiv.org/abs/2509.04527" 
+        className={`hover:underline`}
+      >
+          • “The Structure and Interpretation of Quantum Programs I: Foundations”
+      </a> (Sep 2025). arXiv: 2509.04527.
+	  </li>
+	  <li className={`${subtleText}`}>
+      <a 
         href="https://arxiv.org/abs/2503.00005" 
         className={`hover:underline`}
       >
