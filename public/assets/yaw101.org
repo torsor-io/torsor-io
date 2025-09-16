@@ -1,5 +1,5 @@
 #+ATTR_HTML: :alt wizard image :align center :width 200px :style display:inline;margin:-20px;
-[[https://torsor.io/#community][file:./img/wizard2.png]]
+[[https://torsor.io/#software][file:./img/wizard.png]]
 
 ~yaw~ is a domain-specific functional language for programming quantum
 computers. This tutorial introduces some basic concepts, assuming
@@ -113,8 +113,7 @@ algebraic approach, a state is instead an /expectation/:
 \]
 Thus, we view $\psi$ as a /linear functional/ (scalar-valued linear
 function) rather than a vector.
-We let $\mathsf{S}(\mathcal{A})$ denote the set of states, viewed as
-linear functionals, on an algebra $\mathcal{A}$.
+We let $\mathcal{A}^*$ denote the set of linear functionals, and $\mathsf{S}(\mathcal{A})$ denote the subset of states, on an algebra $\mathcal{A}$.
 When $|\psi\rangle$ is an eigenvector of a Hermitian operator $\Lambda$, we have
 \[
 \Lambda |\psi\rangle = \lambda |\psi\rangle \quad \Longrightarrow
@@ -265,7 +264,7 @@ toffoli = c cnot
 #+END_SRC
 
 ** Superdense coding
-We'll end this tutorial by creating an entangled pair and using it to
+We'll end this section by creating an entangled pair and using it to
 perform the /superdense coding/ protocol. The first step is to build the maximally entangled
 /Bell state/ (after John Bell), also called the /EPR state/ (after Einstein,
 Podolsky and Rosen). This takes the form
@@ -345,24 +344,148 @@ This concludes our first tutorial on ~yaw~! Stay tuned for our next
 tutorial, covering measurement, teleportation and cryptography.
 
 * Measurement
-** Channels
+** Channels with Kraus
 
 In our first step towards defining measurement, we will first
 introduce /channels/. This is a linear map between algebras $\Phi:
-\mathcal{A} \to \mathcal{B}$, or between states on those algebras $\hat{\Phi}:\mathsf{S}(\mathcal{A}) \to
-\mathsf{S}(\mathcal{B})$, which take the form of a sum over conjugators:
+\mathcal{A} \to \mathcal{B}$ which takes the form of a sum over conjugators:
 \[
-\Phi = \sum_{j\in J} K_j \,\, \triangleright, \quad \hat{\Phi} = \sum_{j\in
-J} K_j \, \,\triangleleft \,.
+\Phi = \sum_{j\in J} K_j \,\, \triangleright.
 \]
-The operators $K_j$, $j\in J$, are called /Kraus operators/, and we
-usually require them to be chosen so that $\Phi(I) = I$, hence
+Here, the operators $K_j: \mathcal{B} \to \mathcal{A}$ are linear maps
+called /Kraus operators/.
+For simplicity, we'll stick to channels from $\mathcal{A}$ to itself,
+and choose our linear maps to be elements of $\mathcal{A}$.
+We use the synonym ~Hom Alg~ for the type ~Alg -> Alg~, and abstract
+the pattern of summing conjugators as follows:
+
+#+BEGIN_SRC haskell
+makeChannel :: [Alg] -> Hom Alg
+makeChannel ks = sum [(|>) k | k <- ks]
+#+END_SRC
+
+If we want to be fancy, we can write this without any arguments
+exposed, also called /point-free style (PFS)/:
+
+#+BEGIN_SRC haskell
+makeChannel = sum . map (|>)
+#+END_SRC
+
+which maps $K \mapsto K \,\,\triangleright$ and then sums the results.
+So far this is purely mathematical. Physics will require channels to
+obey an additional /completeness/ or /unitality/ relation that the
+channel preserves the identity, $\Phi(I) = I$, or
 \[
 \sum_{j\in J} K_j \triangleright I = \sum_{j\in J} K_j^\dagger K_j = I.
 \]
-(/Quantum operations/ have a looser condition on the Kraus operators $K_j$, but we
-won't consider them here.)
+Rather than enforce this at the channel level, we implement it as a
+Boolean check:
 
+#+BEGIN_SRC haskell
+isUnital :: Hom Alg -> Bool
+isUnital channel = channel id == id
+#+END_SRC
+
+or in PFS
+
+#+BEGIN_SRC haskell
+isUnital :: Hom Alg -> Bool
+isUnital = (== id) . ($ id)
+#+END_SRC
+
+where ~$~ is function application in prefix form, so ~$ f x~ equals ~f
+x~. Channels on operators may be a bit unfamiliar; it is much more common
+to encounter the dual notion of /channels on states/. This is a bit
+trickier; see the optional section below.
+
+** Duals with Gelfand*
+
+We can use the same Kraus operators $K_j: \mathcal{B} \to \mathcal{A}$
+to define
+\[
+\hat{\Phi} = \sum_{j\in J} K_j \, \triangleleft, \quad \hat{\Phi}: \mathcal{B}^*\to \mathcal{A}^*.
+\]
+Note that this is not automatically a map between states, just linear
+functionals.
+Setting $\mathcal{A} = \mathcal{B}$ for simplicity as using PFS, this is
+
+#+BEGIN_SRC haskell
+makeChannel* :: [Alg] -> Hom Alg*
+makeChannel* = sum . map (<|)
+#+END_SRC
+
+where ~*~ indicates we are working with the set of linear functionals, and
+~Alg*~ a synonym for ~Alg -> Complex~.
+We can define a dual map $\Phi$ either from the $K_j$ and operator
+conjugation, or equivalently, using the identity
+\[
+\psi_{\mathcal{B}} \circ \Phi (A) = \hat{\Phi}[\psi_{\mathcal{B}}]
+[A].
+\]
+This trick is called the /Gelfand transform/ and, despite its
+simplicity, it is a rather deep, providing a common generalization of
+the Fourier transform, the Laplace transform, the Mellin transform,
+and others.
+Let's see how to put it to work. First, we define ~gelfand~ as the
+transform which adds a hat:
+
+#+BEGIN_SRC haskell
+gelfand :: Hom Alg -> Hom Alg*
+gelfand = flip (.)
+#+END_SRC
+
+where ~flip (.) phi psi = psi . phi~, and ~.~ is composition. This
+simply expresses Gelfand's equation $\psi_{\mathcal{B}} \circ \Phi =
+\hat{\Phi}[\psi_{\mathcal{B}}]$.
+Applying the same Gelfand transform to ~Hom Alg*~ gives a channel on ~Hom
+Alg**~:
+
+#+BEGIN_SRC haskell
+gelfand :: Hom Alg* -> Hom Alg**
+gelfand = flip (.)
+#+END_SRC
+
+Finally, we note that the double dual $\mathcal{A}^{**}$ can be
+canonically identified with $\mathcal{A}$ in finite-dimensions, with
+\[
+\overline{A}(\psi) = \psi(A).
+\]
+This is called /Pontryagin duality/. We need (but won't specify for now) the inverse map
+
+#+BEGIN_SRC haskell
+pontryagin** :: Hom Alg** -> Hom Alg
+#+END_SRC
+
+and finally can define the inverse Gelfand transform by
+
+#+BEGIN_SRC haskell
+gelfand* :: Hom Alg* -> Hom Alg
+gelfand* = dual** . gelfand . gelfand
+#+END_SRC
+
+If $\psi_{\mathcal{B}}$ is positive, then the Kraus operator
+form guarantees that $\hat{\Phi}[\psi_{\mathcal{B}}]$ is
+positive. Moreover, if the dual map $\Phi$ is unital, and
+$\psi_{\mathcal{B}}$ is a state, then
+\[
+\hat{\Phi}[\psi_{\mathcal{B}}](I) = \psi_{\mathcal{B}} \circ \Phi(I) =
+\psi_{\mathcal{B}}(I) = 1,
+\]
+and hence $\hat{\Phi}[\psi_{\mathcal{B}}]$ is a positive, normalized
+linear functional, i.e. a state. So a unital channel $\Phi:
+\mathcal{A}\to \mathcal{B}$ gives rise to a dual $\hat{\Phi}:
+\mathsf{S}(\mathcal{B}) \to \mathsf{S}(\mathcal{A})$ map between
+states. To verify a channel on functionals maps states to states, also
+called /trace-preservation/, we define a check ~isTP~ given by
+
+#+BEGIN_SRC haskell
+isTP :: Hom Alg* -> Bool
+isTP = isUnital $ gelfand*
+#+END_SRC
+
+** Outcomes with Lüders
+** Probabilities with Born
+** The BKL monad
 * References
 -----
 
