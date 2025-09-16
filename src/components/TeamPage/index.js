@@ -57,15 +57,15 @@ const TeamPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className="space-y-4">
   <div className="aspect-auto rounded-lg overflow-hidden">
     <img
-      src="/assets/team/jude.jpeg"
-      alt="Jude McDonald"
+                    src="/assets/team/david.png"
+                    alt="David Wakeham"
       className="w-full h-full object-cover"
     />
   </div>
   <div className="aspect-auto rounded-lg overflow-hidden">
     <img
-      src="/assets/team/mike-bw.jpg"
-      alt="Michael Kinach"
+      src="/assets/team/jon-bw.jpg"
+      alt="Jon Male"
       className="w-full h-full object-cover"
     />
 	  </div>
