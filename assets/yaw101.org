@@ -394,9 +394,13 @@ isUnital = (== id) . ($ id)
 #+END_SRC
 
 where ~$~ is function application in prefix form, so ~$ f x~ equals ~f
-x~. Channels on operators may be a bit unfamiliar; it is much more common
-to encounter the dual notion of /channels on states/. This is a bit
-trickier; see the optional section below.
+x~.
+This idea of channels on operators may be a bit unfamiliar; the next
+section discusses channels on /states/ in much more detail. The key
+point, however, is that we can sum state conjugators $\hat{\Phi} =
+\sum_j K_j\, \triangleleft$ and provided the
+dual operator channel (defined with the same Kraus operators) is
+unital, then $\hat{\Phi}$ will map states to states.
 
 ** Duals with Gelfand*
 
@@ -420,18 +424,18 @@ We can define a dual map $\Phi$ either from the $K_j$ and operator
 conjugation, or equivalently, using the identity
 \[
 \psi_{\mathcal{B}} \circ \Phi (A) = \hat{\Phi}[\psi_{\mathcal{B}}]
-[A].
+(A).
 \]
 This trick is called the /Gelfand transform/ and, despite its
 simplicity, it is a rather deep, providing a common generalization of
 the Fourier transform, the Laplace transform, the Mellin transform,
 and others.
-Let's see how to put it to work. First, we define ~gelfand~ as the
+Let's see how to put it to work. First, we define ~dual*~ as the
 transform which adds a hat:
 
 #+BEGIN_SRC haskell
-gelfand :: Hom Alg -> Hom Alg*
-gelfand = flip (.)
+dual* :: Hom Alg -> Hom Alg*
+dual* = flip (.)
 #+END_SRC
 
 where ~flip (.) phi psi = psi . phi~, and ~.~ is composition. This
@@ -441,8 +445,8 @@ Applying the same Gelfand transform to ~Hom Alg*~ gives a channel on ~Hom
 Alg**~:
 
 #+BEGIN_SRC haskell
-gelfand :: Hom Alg* -> Hom Alg**
-gelfand = flip (.)
+dual* :: Hom Alg* -> Hom Alg**
+dual* = flip (.)
 #+END_SRC
 
 Finally, we note that the double dual $\mathcal{A}^{**}$ can be
@@ -453,10 +457,12 @@ canonically identified with $\mathcal{A}$ in finite-dimensions, with
 This is called /Pontryagin duality/. We need (but won't specify for now) the inverse map
 
 #+BEGIN_SRC haskell
-pontryagin** :: Hom Alg** -> Hom Alg
+ddual :: Hom Alg** -> Hom Alg
 #+END_SRC
 
-and finally can define the inverse Gelfand transform by
+so ~ddual . dual** = id~ and ~dual** . ddual = id**~, where ~id~ and
+~id**~ are the identity maps on ~Alg~ and ~Alg**~ respectively.
+Finally, we can define the inverse Gelfand transform by
 
 #+BEGIN_SRC haskell
 gelfand* :: Hom Alg* -> Hom Alg
@@ -484,6 +490,15 @@ isTP = isUnital $ gelfand*
 #+END_SRC
 
 ** Outcomes with Lüders
+Suppose we have a state channel $\hat{\Phi}: \mathsf{S}(\mathcal{B})\to
+\mathsf{S}(\mathcal{A})$ formed from Kraus operators $K_j, j \in J$.
+We can view the set $J$ as labelling /outcomes/, and observe the
+outcome $j$. In this case, a state $\psi$ is modified to
+\[
+\psi \mapsto \frac{1}{\psi(K_j^\dagger K_j)} K_j \psi K_j^\dagger.
+\]
+This is called /Lüders rule/. We write $\hat{\Phi} \leftarrow j$ to
+indicate we have "set" the channel to outcome $j$.
 ** Probabilities with Born
 ** The BKL monad
 * References
