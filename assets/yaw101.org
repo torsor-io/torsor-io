@@ -52,7 +52,7 @@ result of this new notation, we can immediately define the algebra of
 /qudits/, the $d$-dimensional analogue of qubits:
 
 #+BEGIN_SRC haskell
-pauliDit :: Integer -> Algebra
+pauliDit :: Int -> Algebra
 pauliDit d = Presentation gen [Hermitian gen, Pow d gen, Braid ω gen]
     where gen = [x, z]
             ω = cis (-2 * pi / d)
@@ -158,7 +158,23 @@ A \triangleright \mathcal{O} = A^\dagger \mathcal{O} A, \quad A
 \]
 We call $\triangleright$ the /operator conjugator/ and $\triangleleft$
 the /state conjugator/. These are respectively accomplished by ~<|~ and
-~|>~  in ~yaw~. The argument above shows that $\psi_1 = X
+~|>~  in ~yaw~:
+
+#+BEGIN_SRC haskell
+(|>) :: Algebra alg => alg -> alg -> alg
+a |> o = a^* * o * a
+
+(<|) :: alg -> State alg -> alg*
+(<|) a psi = \o -> psi (a |> o)
+#+END_SRC
+
+Here, ~alg*~ means the set linear functionals ~alg -> Complex~; it is
+not the set of states, since $A \triangleleft \psi$
+is not normalized unless $A$ is unitary. The notation ~a^*~ indicates
+adjoint of ~a~, and finally ~Algebra alg~ in the type signature means
+we are restricting ~alg~ to be an algebra.
+
+Back to our main story, he argument above shows that $\psi_1 = X
 \triangleleft \psi_0$, so in ~yaw~, using infix notation ~(<|)~ so
 conjugation can be prepended as a binary operator:
 
@@ -250,12 +266,10 @@ available for use.
 Similarly, we can define a general controlled operator on an algebra ~a~:
 
 #+BEGIN_SRC haskell
-c :: Alg a => (><) [Pauli, a]
+c :: Algebra alg => (><) [Pauli, alg]
 c op = ein \a -> projZ a >< op^a
 #+END_SRC
 
-Here, ~Alg~ is a /typeclass/, indicating that ~a~ has various
-operations (addition, multiplication, adjoints, etc) defined on it.
 A familiar example of general controlled gates is the Toffoli:
 
 #+BEGIN_SRC haskell
@@ -356,11 +370,11 @@ Here, the operators $K_j: \mathcal{B} \to \mathcal{A}$ are linear maps
 called /Kraus operators/.
 For simplicity, we'll stick to channels from $\mathcal{A}$ to itself,
 and choose our linear maps to be elements of $\mathcal{A}$.
-We use the synonym ~Hom Alg~ for the type ~Alg -> Alg~, and abstract
+We use the synonym ~Hom alg~ for the type ~alg -> alg~, and abstract
 the pattern of summing conjugators as follows:
 
 #+BEGIN_SRC haskell
-makeChannel :: [Alg] -> Hom Alg
+makeChannel :: Algebra alg => [alg] -> Hom alg
 makeChannel ks = sum [(|>) k | k <- ks]
 #+END_SRC
 
@@ -382,14 +396,14 @@ Rather than enforce this at the channel level, we implement it as a
 Boolean check:
 
 #+BEGIN_SRC haskell
-isUnital :: Hom Alg -> Bool
+isUnital :: Algebra alg => Hom alg -> Bool
 isUnital channel = channel id == id
 #+END_SRC
 
 or in PFS
 
 #+BEGIN_SRC haskell
-isUnital :: Hom Alg -> Bool
+isUnital :: Algebra alg => Hom alg -> Bool
 isUnital = (== id) . ($ id)
 #+END_SRC
 
@@ -398,8 +412,8 @@ x~.
 This idea of channels on operators may be a bit unfamiliar; the next
 section discusses channels on /states/ in much more detail. The key
 point, however, is that we can sum state conjugators $\hat{\Phi} =
-\sum_j K_j\, \triangleleft$ and provided the
-dual operator channel (defined with the same Kraus operators) is
+\sum_j K_j\, \triangleleft$, implemented by the ~makeChannel*~
+function, and provided the dual operator channel (defined with the same Kraus operators) is
 unital, then $\hat{\Phi}$ will map states to states.
 
 ** Duals with Gelfand*
@@ -414,12 +428,10 @@ functionals.
 Setting $\mathcal{A} = \mathcal{B}$ for simplicity as using PFS, this is
 
 #+BEGIN_SRC haskell
-makeChannel* :: [Alg] -> Hom Alg*
+makeChannel* :: Algebra alg => [alg] -> Hom alg*
 makeChannel* = sum . map (<|)
 #+END_SRC
 
-where ~*~ indicates we are working with the set of linear functionals, and
-~Alg*~ a synonym for ~Alg -> Complex~.
 We can define a dual map $\Phi$ either from the $K_j$ and operator
 conjugation, or equivalently, using the identity
 \[
@@ -434,18 +446,18 @@ Let's see how to put it to work. First, we define ~dual*~ as the
 transform which adds a hat:
 
 #+BEGIN_SRC haskell
-dual* :: Hom Alg -> Hom Alg*
+dual* :: Algebra alg => Hom alg -> Hom alg*
 dual* = flip (.)
 #+END_SRC
 
 where ~flip (.) phi psi = psi . phi~, and ~.~ is composition. This
 simply expresses Gelfand's equation $\psi_{\mathcal{B}} \circ \Phi =
 \hat{\Phi}[\psi_{\mathcal{B}}]$.
-Applying the same Gelfand transform to ~Hom Alg*~ gives a channel on ~Hom
-Alg**~:
+Applying the same Gelfand transform to ~Hom alg*~ gives a channel on ~Hom
+alg**~:
 
 #+BEGIN_SRC haskell
-dual* :: Hom Alg* -> Hom Alg**
+dual* :: Algebra alg => Hom alg* -> Hom alg**
 dual* = flip (.)
 #+END_SRC
 
@@ -457,15 +469,15 @@ canonically identified with $\mathcal{A}$ in finite-dimensions, with
 This is called /Pontryagin duality/. We need (but won't specify for now) the inverse map
 
 #+BEGIN_SRC haskell
-ddual :: Hom Alg** -> Hom Alg
+ddual :: Algebra alg => Hom alg** -> Hom alg
 #+END_SRC
 
 so ~ddual . dual** = id~ and ~dual** . ddual = id**~, where ~id~ and
-~id**~ are the identity maps on ~Alg~ and ~Alg**~ respectively.
+~id**~ are the identity maps on ~alg~ and ~alg**~ respectively.
 Finally, we can define the inverse Gelfand transform by
 
 #+BEGIN_SRC haskell
-gelfand* :: Hom Alg* -> Hom Alg
+gelfand* :: Algebra alg => Hom alg* -> Hom alg
 gelfand* = dual** . gelfand . gelfand
 #+END_SRC
 
@@ -485,22 +497,118 @@ states. To verify a channel on functionals maps states to states, also
 called /trace-preservation/, we define a check ~isTP~ given by
 
 #+BEGIN_SRC haskell
-isTP :: Hom Alg* -> Bool
+isTP :: Algebra alg => Hom alg* -> Bool
 isTP = isUnital $ gelfand*
 #+END_SRC
 
-** Outcomes with Lüders
+** Updates with Born-Lüders
 Suppose we have a state channel $\hat{\Phi}: \mathsf{S}(\mathcal{B})\to
 \mathsf{S}(\mathcal{A})$ formed from Kraus operators $K_j, j \in J$.
 We can view the set $J$ as labelling /outcomes/, and observe the
 outcome $j$. In this case, a state $\psi$ is modified to
 \[
-\psi \mapsto \frac{1}{\psi(K_j^\dagger K_j)} K_j \psi K_j^\dagger.
+\psi \mapsto \frac{1}{\psi(K_j^\dagger K_j)} K_j \triangleleft \psi.
 \]
 This is called /Lüders rule/. We write $\hat{\Phi} \leftarrow j$ to
-indicate we have "set" the channel to outcome $j$.
-** Probabilities with Born
-** The BKL monad
+indicate we have "set" the channel to outcome $j$. (In standard
+projective measurement, we often think of measuring an associated
+/eigenvalue/ $\lambda_j$, but here there isn't necessarily a number.)
+We can think of this as a basic type of /postselection/, so we
+implement Lüders rule as follows:
+
+#+BEGIN_SRC haskell
+postSelect :: Algebra alg => [alg] -> Int -> State alg -> State alg
+postSelect j ks psi = (1/p) * (<|) k psi
+    where k = ks !! j
+          p = psi (k^* * k)
+#+END_SRC
+
+Of course, measurement is not postselection; it is a random selection
+with probability $p = \psi(K_j^* K_j)$, called /Born's rule/. We can
+list the probabilities as
+
+#+BEGIN_SRC haskell
+measureProbs :: Algebra alg => [alg] -> State alg -> [Float]
+measureProbs ks psi = [psi (k^* * k) | k <- ks]
+#+END_SRC
+
+Measurement is then random postselection. We can simulate this using
+the ~sample~ method of the [[https://hackage.haskell.org/package/prob-0.1.1/docs/Probability-Distribution.html][~Probability.Distribution~]] module.
+
+#+BEGIN_SRC haskell
+measure :: Algebra alg => [alg] -> State alg -> [Float]
+measure ks psi = postSelect j ks psi
+    where J = [1..length ks] 
+          probs = measureProbs ks psi
+          j = sample $ Distribution probs J
+#+END_SRC
+
+This will compute the probabilities with Born's rule, sample
+according, and return the update given by Lüders rule.
+** The branch monad
+This is where most languages end the story. But there is a beautiful
+structure hidden inside this randomness. Instead of sampling and
+throwing the rest away, we can think about the branching process given
+by measurement as a form of computation.
+Suppose that the classical measurement outcomes are of type ~g~.
+We can define ~Branch g~ as a new type, induced by the current state:
+
+#+BEGIN_SRC haskell
+newtype Branch g = Branch { 
+  runBranch :: State alg -> [(Float, State alg, g)] 
+}
+#+END_SRC
+
+This associates to a state a list of states, with associated
+probabilities and classical measurement outcomes.
+The next step is to apply functions
+"inside" measurement outcomes. Technically, we need to make ~Branch~ a /functor/:
+
+#+BEGIN_SRC haskell
+instance Functor Branch where
+  fmap f (Branch g) = Branch $ \psi -> 
+    [(p, psi', f a) | (p, psi', a) <- g psi]
+#+END_SRC
+
+In words, ~fmap~ applies a function to the outcomes ~a~ inside the
+list obtained by applying ~b~ to a state. This sounds complex, but all
+it does is keep track of measurement outcomes and use
+this to apply functions.
+Finally, we want to chain together measurements:
+
+#+BEGIN_SRC haskell
+instance Monad Branch where
+  return a = Branch $ \psi -> [(1.0, psi, a)]
+  
+  Branch m >>= f = Branch $ \psi -> do
+    (p1, psi1, a) <- m psi
+    (p2, psi2, b) <- runBranch (f a) psi1
+    return (p1 * p2, psi2, b)
+#+END_SRC
+
+Here, ~return a~ tells us how to turn a single outcome into the
+(trivial) probability distribution which returns it. The /bind/
+operator ~>>=~ is more complex, but essentially tells us how to input
+a measurement of type ~m~ into one of type ~f~. We read
+imperative-style notation as follows:
+- given a second measurement process ~f~ we want to apply
+- we first measure the input state ~psi~ with ~m~
+- iterate over the branches ~(p1, psi1, a)~
+- apply the new measurement ~f a~ conditionally in each branch
+- iterate over the branches ~(p2, psi2, b)~ of this second process
+- finally, collect all branches ~(p1 * p2, psi2, b)~ into the final
+  result.
+
+Put simply, it builds a probabilistic tree of branches.
+** BKL branching
+The ~Branch~ monad encompasses the most general class of quantum
+updates (called /instruments/). To find a more concrete illustration,
+let's first return to Kraus operators and Born-Lüders updates.
+In this case, the outcome are indices of the Kraus operators:
+\[
+\psi \mapsto (p_j, \psi_j, j), \quad \psi_j =
+\frac{1}{p_j}K_j^*\triangleleft \psi, \quad p_j = \psi(K_j^*K_j).
+\]
 * References
 -----
 
