@@ -545,7 +545,7 @@ measure ks psi = postSelect j ks psi
 
 This will compute the probabilities with Born's rule, sample
 according, and return the update given by Lüders rule.
-** The branch monad
+** The Branch monad
 This is where most languages end the story. But there is a beautiful
 structure hidden inside this randomness. Instead of sampling and
 throwing the rest away, we can think about the branching process given
@@ -586,11 +586,11 @@ instance Monad Branch where
     return (p1 * p2, psi2, b)
 #+END_SRC
 
-Here, ~return a~ tells us how to turn a single outcome into the
+Here, ~return a~ is a kind of base case, telling us how to turn a single outcome into the
 (trivial) probability distribution which returns it. The /bind/
-operator ~>>=~ is more complex, but essentially tells us how to input
-a measurement of type ~m~ into one of type ~f~. We read
-imperative-style notation as follows:
+operator ~>>=~ is a little more complex, but essentially just pipes
+a measurement of type ~m~ into one of type ~f~. We read the
+imperative-style ~do~ notation as follows:
 - given a second measurement process ~f~ we want to apply
 - we first measure the input state ~psi~ with ~m~
 - iterate over the branches ~(p1, psi1, a)~
@@ -600,15 +600,26 @@ imperative-style notation as follows:
   result.
 
 Put simply, it builds a probabilistic tree of branches.
-** BKL branching
+** Branching with BKL
 The ~Branch~ monad encompasses the most general class of quantum
-updates (called /instruments/). To find a more concrete illustration,
-let's first return to Kraus operators and Born-Lüders updates.
-In this case, the outcome are indices of the Kraus operators:
+updates (called /instruments/). But a more concrete and familiar
+application is Kraus operators and Born-Lüders updates, which we call /BKL/.
+In this case, the outcome are indices of the Kraus operators, and
+states update with probabilities given by Born and states by Lüders:
 \[
 \psi \mapsto (p_j, \psi_j, j), \quad \psi_j =
-\frac{1}{p_j}K_j^*\triangleleft \psi, \quad p_j = \psi(K_j^*K_j).
+\frac{1}{p_j}K_j^\dagger\triangleleft \psi, \quad p_j =
+\psi(K_j^\dagger K_j).
 \]
+So
+
+#+BEGIN_SRC haskell
+measureBKL :: Algebra alg => [alg] -> State alg -> [Float]
+measure ks psi = postSelect j ks psi
+    where J = [1..length ks] 
+          probs = measureProbs ks psi
+          j = sample $ Distribution probs J
+#+END_SRC
 * References
 -----
 
