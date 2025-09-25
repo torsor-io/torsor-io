@@ -573,8 +573,7 @@ instance Functor Branch where
 In words, ~fmap~ applies a function to the outcomes ~a~ inside the
 list obtained by applying ~b~ to a state. This sounds complex, but all
 it does is keep track of measurement outcomes and use
-this to apply functions.
-Finally, we want to chain together measurements:
+this to apply functions. Next, we want to chain together measurements:
 
 #+BEGIN_SRC haskell
 instance Monad Branch where
@@ -599,7 +598,17 @@ imperative-style ~do~ notation as follows:
 - finally, collect all branches ~(p1 * p2, psi2, b)~ into the final
   result.
 
-Put simply, it builds a probabilistic tree of branches.
+Put simply, it builds a probabilistic tree of branches. Finally, we
+need a way to conditionally transform measurements:
+
+#+BEGIN_SRC haskell
+instance Applicative Branch where
+  pure = return
+  (<*>) = ap
+#+END_SRC
+
+Here, ~return~ is as above, while ~ap~ simply applies measurement
+outcomes inside functions.
 ** Branching with BKL
 The ~Branch~ monad encompasses the most general class of quantum
 updates (called /instruments/). But a more concrete and familiar
@@ -616,7 +625,7 @@ produce a map from states to a zipped list of tuples:
 
 #+BEGIN_SRC haskell
 bkl :: Algebra alg => [alg] -> State alg -> [(Float, State alg, Int)]
-bkl ks psi = zip probs states J
+bkl ks psi = zip3 probs states J
     where probs = makeProbs ks psi
           states = map (postSelect ks psi) J
           J = [1..length ks]
@@ -627,8 +636,12 @@ can define a ~BklMode~ type constructor, which turns a channel (viewed
 as a list of Kraus operators) into an instance of the ~Branch~ monad:
 
 #+BEGIN_SRC haskell
-BklMode = Branch bkl ... unfinished
+measureBKL :: Algebra alg => [alg] -> Branch Int
+measureBKL ks = Branch (bkl ks)
 #+END_SRC
+
+To see this all in action, let's consider a classic combination of
+measurement and quantum operation: /teleportation/.
 * References
 -----
 
