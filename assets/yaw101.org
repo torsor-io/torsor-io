@@ -609,7 +609,7 @@ instance Applicative Branch where
 
 Here, ~return~ is as above, while ~ap~ simply applies measurement
 outcomes inside functions.
-** Branching with BKL
+
 The ~Branch~ monad encompasses the most general class of quantum
 updates (called /instruments/). But a more concrete and familiar
 application is Kraus operators and Born-Lüders updates, which we call /BKL/.
@@ -620,7 +620,7 @@ states update with probabilities given by Born and states by Lüders:
 \frac{1}{p_j}K_j^\dagger\triangleleft \psi, \quad p_j =
 \psi(K_j^\dagger K_j).
 \]
-To implement this, we first define a ~BKL~ map which, from a channel,
+To implement this, we first define a ~bkl~ map which, from a channel,
 produce a map from states to a zipped list of tuples:
 
 #+BEGIN_SRC haskell
@@ -632,16 +632,78 @@ bkl ks psi = zip3 probs states J
 #+END_SRC
 
 Note that ~bkl ks~ has precisely the type needed for ~branch~, so we
-can define a ~BklMode~ type constructor, which turns a channel (viewed
-as a list of Kraus operators) into an instance of the ~Branch~ monad:
+can turn a channel (viewed as a list of Kraus operators) into an
+instance of the ~Branch~ monad:
 
 #+BEGIN_SRC haskell
 measureBKL :: Algebra alg => [alg] -> Branch Int
 measureBKL ks = Branch (bkl ks)
 #+END_SRC
 
-To see this all in action, let's consider a classic combination of
-measurement and quantum operation: /teleportation/.
+Now we can see the relationship between the Branch monad and our
+earlier sampling approach. Where ~measure~ picked one branch randomly:
+
+#+BEGIN_SRC haskell
+measure :: Algebra alg => [alg] -> State alg -> State alg
+measure ks psi = postSelect ks psi j
+    where j = sample $ Distribution (measureProbs ks psi) [1..length ks]
+#+END_SRC
+
+The ~Branch~ monad keeps all branches alive, e.g. in the standard
+computational basis measurement:
+
+#+BEGIN_SRC haskell
+measureZ :: Branch Int
+measureZ = measureBKL [projZ 0, projZ 1]
+#+END_SRC
+
+#+BEGIN_SRC elisp
+yaw> runBranch measureZ statePlus
+[(0.5, state0, 0), (0.5, state1, 1)]
+#+END_SRC
+
+This lets us analyze quantum protocols symbolically without
+sampling. We can see all possible measurement paths and their
+probabilities at once, making the ~Branch~ monad a powerful tool for
+understanding quantum algorithms before committing to a particular
+measurement outcome.
+** Teleportation
+We finish this section with a less trivial illustration of the
+~Branch~ monad: teleportation. In the teleportation protocol, Alice
+wants to send an unknown quantum state to Bob using only classical
+communication and a pre-shared entangled pair.
+
+The protocol works as follows:
+1. Alice and Bob share an EPR pair
+2. Alice performs a Bell measurement on her two qubits (the unknown state and her half of EPR)
+3. Alice sends the measurement outcome (2 classical bits) to Bob
+4. Bob applies a correction based on these bits.
+
+Using the ~Branch~ monad, we can track all four possible measurement outcomes simultaneously:
+
+#+BEGIN_SRC haskell
+bellMeasure :: Branch (BinDigit, BinDigit)
+bellMeasure = measureBKL [(projBell a b, (a,b)) | a <- [0,1], b <- [0,1]]
+
+bobCorrect :: (BinDigit, BinDigit) -> Pauli -> Pauli
+bobCorrect (a, b) = (|>) (z^b * x^a)
+#+END_SRC
+
+The beauty of the ~Branch~ monad is that we can compose these operations:
+
+#+BEGIN_SRC haskell
+teleportProtocol :: State ((><) [Pauli]*3) -> Branch (State pauli)
+teleportProtocol psiTotal = do
+  (a, b) <- bellMeasure
+  let psiCorrected = bobCorrect (a, b) <$> traceBob psiTotal
+  return psiCorrected
+#+END_SRC
+
+where ~traceBob~ give the marginal state on Bob's system.
+Running this produces all four branches, each with probability 1/4,
+and in each branch Bob's corrected state equals Alice's original
+unknown state. The ~Branch~ monad lets us verify the protocol works
+for all measurement outcomes simultaneously, without sampling.
 * References
 -----
 
