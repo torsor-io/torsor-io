@@ -517,8 +517,8 @@ We can think of this as a basic type of /postselection/, so we
 implement Lüders rule as follows:
 
 #+BEGIN_SRC haskell
-postSelect :: Algebra alg => [alg] -> Int -> State alg -> State alg
-postSelect j ks psi = (1/p) * (<|) k psi
+postSelect :: Algebra alg => [alg] -> State alg -> Int -> State alg
+postSelect ks psi j = (1/p) * (<|) k psi
     where k = ks !! j
           p = psi (k^* * k)
 #+END_SRC
@@ -537,7 +537,7 @@ the ~sample~ method of the [[https://hackage.haskell.org/package/prob-0.1.1/docs
 
 #+BEGIN_SRC haskell
 measure :: Algebra alg => [alg] -> State alg -> [Float]
-measure ks psi = postSelect j ks psi
+measure ks psi = postSelect ks psi j
     where J = [1..length ks] 
           probs = measureProbs ks psi
           j = sample $ Distribution probs J
@@ -611,14 +611,23 @@ states update with probabilities given by Born and states by Lüders:
 \frac{1}{p_j}K_j^\dagger\triangleleft \psi, \quad p_j =
 \psi(K_j^\dagger K_j).
 \]
-So
+To implement this, we first define a ~BKL~ map which, from a channel,
+produce a map from states to a zipped list of tuples:
 
 #+BEGIN_SRC haskell
-measureBKL :: Algebra alg => [alg] -> State alg -> [Float]
-measure ks psi = postSelect j ks psi
-    where J = [1..length ks] 
-          probs = measureProbs ks psi
-          j = sample $ Distribution probs J
+bkl :: Algebra alg => [alg] -> State alg -> [(Float, State alg, Int)]
+bkl ks psi = zip probs states J
+    where probs = makeProbs ks psi
+          states = map (postSelect ks psi) J
+          J = [1..length ks]
+#+END_SRC
+
+Note that ~bkl ks~ has precisely the type needed for ~branch~, so we
+can define a ~BklMode~ type constructor, which turns a channel (viewed
+as a list of Kraus operators) into an instance of the ~Branch~ monad:
+
+#+BEGIN_SRC haskell
+BklMode = Branch bkl ... unfinished
 #+END_SRC
 * References
 -----
