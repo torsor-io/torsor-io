@@ -248,14 +248,15 @@ where we sum over the repeated index $a$ (Einstein summation). To
 implement this in ~yaw~, we introduce a tensor product operator ~><~ we use both for individual tensor products and tensor products of types:
 
 #+BEGIN_SRC haskell
-cnot :: (><) [Pauli]*2
+cnot :: [Pauli]*2
 cnot = projZ 0 >< id + projZ 1 >< x
 #+END_SRC
 
-where ~[Pauli]*2 = [Pauli, Pauli]~. Equivalently, we can sum over ~a~:
+where ~[Pauli]*2 = [Pauli, Pauli]~ automatically indicates tensor
+products in type signatures. Equivalently, we can sum over ~a~:
 
 #+BEGIN_SRC haskell
-cnot' :: (><) [Pauli]*2
+cnot' :: [Pauli]*2
 cnot' = ein \a -> projZ a >< x^a
     where ein f = sum (map f (domain @a))
 #+END_SRC
@@ -266,16 +267,19 @@ available for use.
 Similarly, we can define a general controlled operator on an algebra ~a~:
 
 #+BEGIN_SRC haskell
-c :: Algebra alg => (><) [Pauli, alg]
+c :: Algebra alg => [Pauli, alg]
 c op = ein \a -> projZ a >< op^a
 #+END_SRC
 
 A familiar example of general controlled gates is the Toffoli:
 
 #+BEGIN_SRC haskell
-toffoli :: (><) [Pauli, [Pauli]*2]
+toffoli :: [Pauli, [Pauli]*2]
 toffoli = c cnot
 #+END_SRC
+
+The compiler will know that ~[Pauli, [Pauli]*2]~ is equivalent to
+~[Pauli]*3~, which makes life a little easier.
 
 ** Superdense coding
 We'll end this section by creating an entangled pair and using it to
@@ -291,7 +295,7 @@ where $\mathcal{O}_\text{EPR} = \text{CNOT}\cdot(H\otimes I)$ is the
 circuit used to prepare the EPR state and $\psi_{00} = \psi_0\otimes \psi_0$. In ~yaw~, this becomes
 
 #+BEGIN_SRC haskell
-stateEPR :: State [Pauli]*2
+stateEPR :: State ([Pauli]*2)
 stateEPR = (<|) EPR (state0 >< state0)
     where EPR = cnot * (h >< id)
 #+END_SRC
@@ -307,7 +311,7 @@ where $a, b \in \{0, 1\}$ as usual.
 We can express the Bell basis states as a simple conjugation in ~Yaw~:
 
 #+BEGIN_SRC haskell
-stateBell :: BinDigit -> BinDigit -> State [Pauli]*2
+stateBell :: BinDigit -> BinDigit -> State ([Pauli]*2)
 stateBell a b = (<|) (x^a * z^b >< id) stateEPR
 #+END_SRC
 
@@ -326,7 +330,7 @@ where $\Pi^{(\text{EPR})} = (\mathcal{O}_\text{EPR}\otimes I) \triangleright
 In ~yaw~, this is
 
 #+BEGIN_SRC haskell
-projBell :: BinDigit -> BinDigit -> [Pauli]*2
+projBell :: BinDigit -> BinDigit -> ([Pauli]*2)
 projBell a b = (|>) (x^a * z^b >< id) projEPR
 #+END_SRC
 
@@ -336,7 +340,7 @@ is to compute the expectation ~projBell a b~, for bits ~a~ and ~b~,
 in the joint state after Alice gives her share to Bob:
 
 #+BEGIN_SRC haskell
-bobsProbs :: State [Pauli]*2 -> [Float]
+bobsProbs :: State ([Pauli]*2) -> [Float]
 bobsProbs state = [state (projBell a b) | a <- [0,1], b <- [0,1]]
 #+END_SRC
 
@@ -562,11 +566,14 @@ We will define a type synonym or ~newtype~ for this, which we call the
 
 #+BEGIN_SRC haskell
 newtype Branch alg g = Branch { 
-  runBranch :: Algebra alg => State alg -> [(Float, State alg, g)] 
+  runBranch :: State alg -> [(Float, State alg, g)] 
 }
 #+END_SRC
 
-Note that ~runBranch~ unwraps the function so we can use it.
+Here, ~Branch~ is a /type constructor/ that builds a new type from an
+algebra ~alg~ and a measurement process which turns states in
+distributions with outcomes in ~g~; the method ~runBranch~ unwraps the
+function hidden inside ~Branch~ so we can use it.
 If we want to compute with the outcomes, we need to be able to apply
 functions "inside" the result of a measurement. Technically, we need
 to make ~Branch~ a /functor/.
@@ -585,7 +592,7 @@ measurements one after the other. The relevant structure is called a
 /monad/:
 
 #+BEGIN_SRC haskell
-instance Monad Branch alg where
+instance Monad (Branch alg) where
   return a = Branch $ \psi -> [(1.0, psi, a)]
   
   Branch m >>= f = Branch $ \psi -> do
@@ -606,6 +613,12 @@ through it step by step:
 3. we apply ~f~ to the outcomes ~a~ in each branch, and iterate over conditional branches ~(p2, psi2, b)~;
 4. finally, we multiply by the condition probability and collapse into a single branch ~(p1 * p2, psi2, b)~ of the overall process.
 
+Technically, the implementation of ~Branch~ also require us to
+instance it as an ~Applicative~, which applies functions that are
+measurement outcomes to values that are measurements; since this
+implementation is boilerplate, and we can do this already with the
+~Monad~ instance, we won't include the code here.
+
 The ~Branch~ monad encompasses the most general class of quantum
 updates (called /instruments/). But a more concrete and familiar
 application is Kraus operators and Born-Lüders updates, which we call /BKL/.
@@ -623,7 +636,7 @@ tuples ~(pj, psij, j)~:
 #+BEGIN_SRC haskell
 bkl :: Algebra alg => [alg] -> State alg -> [(Float, State alg, Int)]
 bkl ks psi = zip3 probs states J
-    where probs = makeProbs ks psi
+    where probs = measureProbs ks psi
           states = map (postSelect ks psi) J
           J = [1..length ks]
 #+END_SRC
@@ -679,17 +692,18 @@ state $\psi_A$.
 Let's implement this step by step. First, ~teleportHold~ for $\Psi_0$:
 
 #+BEGIN_SRC haskell
-aliceHold: State Pauli -> State [Pauli]*3
+aliceHold: State Pauli -> State ([Pauli]*3)
 aliceHold psi = psi >< stateEPR
 #+END_SRC
 
+where ~[Pauli]*3 = [Pauli, Pauli, Pauli]~ as above.
 The next step is for Alice to measure; at this stage, we could either
 stochastically measure $\Psi_{a,b}$ using ~measure~, but instead we'll
 keep track of branches using ~Branch~, indexed from $0$-$3$ for
 simplicity:
 
 #+BEGIN_SRC haskell
-aliceProj: State [Pauli]*3 -> Branch [Pauli]*3 Int
+aliceProj: State [Pauli]*3 -> Branch ([Pauli]*3) Int
 aliceProj = measureBKL [projBell a b >< id | a <- [0, 1], b <- [0,1]]
 #+END_SRC
 
@@ -700,30 +714,35 @@ apply the correction. To focus on Bob's state, we also use the
 built-in function ~partTrace~ to ignore Alice's qubits:
 
 #+BEGIN_SRC haskell
-bobFix: Int -> State [Pauli]*3 -> State Pauli
-bobFix c = partTrace [0, 1] $ (<|) (z^b * x^a>< id)
+bobFix: Int -> State ([Pauli]*3) -> State Pauli
+bobFix c = partTrace [0, 1] $ (<|) (id >< id >< z^b * x^a)
     where (a, b) = c `divMod` 2
 #+END_SRC
 
-Now we can compose the entire protocol using the ~Branch~ monad:
+Note that ~id~ on the first two qubits means that Bob is not
+affecting's Alice's system!
+We can compose the entire protocol very cleanly using the ~Branch~ monad:
 
 #+BEGIN_SRC haskell
-teleport :: State Pauli -> Branch Pauli (State Pauli)
+teleport :: State Pauli -> Branch Pauli (BinDigit, BinDigit)
 teleport psi = do
   c <- aliceProj (aliceHold psi)
-  return $ bobFix c
+  return $ c `divMod` 2
 #+END_SRC
 
 Running this on any input state produces four branches, each with probability $1/4$:
 
 #+BEGIN_SRC elisp
 yaw> runBranch (teleport statePlus)
-[(0.25, statePlus, 0), (0.25, statePlus, 1), 
- (0.25, statePlus, 2), (0.25, statePlus, 3)]
+[(0.25, statePlus, (0,0)), (0.25, statePlus, (0,1)), 
+ (0.25, statePlus, (1,0)), (0.25, statePlus, (1,1))]
 #+END_SRC
 
-In every branch, Bob recovers Alice's original state! The ~Branch~ monad lets us verify that teleportation works for all measurement outcomes simultaneously, demonstrating the protocol's deterministic quantum-to-quantum transfer despite the randomness of measurement.
-
+In every branch, Bob recovers Alice's original state! The nice feature
+of ~Branch~ is that we get to explore every branch of the wavefunction
+simultaneously. Of course, this doesn't scale to large
+computations—this is the whole point of quantum computation!—but it's
+a great way to prototype with small instances.
 ** COMMENT Extra
 *** Applicative
 Finally, we need a way to conditionally transform measurements:
@@ -737,6 +756,8 @@ instance Applicative Branch where
 Here, ~return~ is as above, while ~ap~ simply applies measurement
 outcomes inside functions.
 *** Teleportation (old)
+ The ~Branch~ monad lets us verify that teleportation works for all measurement outcomes simultaneously, demonstrating the protocol's deterministic quantum-to-quantum transfer despite the randomness of measurement.
+
 We finish this section with a less trivial illustration of the
 ~Branch~ monad: teleportation. In the teleportation protocol, Alice
 wants to send an unknown quantum state to Bob using only classical
