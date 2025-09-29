@@ -422,6 +422,7 @@ unital, then $\hat{\Phi}$ will map states to states.
 
 ** Duals with Gelfand*
 
+(This subsection can be safely skipped on first reading.)
 We can use the same Kraus operators $K_j: \mathcal{B} \to \mathcal{A}$
 to define
 \[
