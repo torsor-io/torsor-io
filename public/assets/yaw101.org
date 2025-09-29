@@ -134,12 +134,12 @@ Z), \quad \psi_0(Z) = 1.
 In ~yaw~, this takes the form
 
 #+BEGIN_SRC haskell
-state0 :: State pauli
+state0 :: State Pauli
 state0 = eigen z (spec z 0)
 #+END_SRC
 
 where
-- ~State pauli~ is the type of states on the algebra ~pauli~;
+- ~State Pauli~ is the type of states on the algebra ~pauli~;
 - ~eigen z~ identifies this has the factorization property wrt ~z~;
 - ~spec z~ lists eigenvalues of ~z~ from largest (at
   $0$) to smallest; thus
@@ -179,7 +179,7 @@ Back to our main story, he argument above shows that $\psi_1 = X
 conjugation can be prepended as a binary operator:
 
 #+BEGIN_SRC haskell
-state1 :: State pauli
+state1 :: State Pauli
 state1 = (<|) x state0
 #+END_SRC
 
@@ -192,7 +192,7 @@ maximally mixed state) rather than the pure state $\psi_+$. We have a
 totally different thing! To recover the vector addition, we note that $H \triangleleft \psi_0 =\psi_+$, and hence
 
 #+BEGIN_SRC haskell
-statePlus :: State pauli
+statePlus :: State Pauli
 statePlus = (<|) h state0
 #+END_SRC
 
@@ -291,7 +291,7 @@ where $\mathcal{O}_\text{EPR} = \text{CNOT}\cdot(H\otimes I)$ is the
 circuit used to prepare the EPR state and $\psi_{00} = \psi_0\otimes \psi_0$. In ~yaw~, this becomes
 
 #+BEGIN_SRC haskell
-stateEPR :: State (><) [Pauli]*2
+stateEPR :: State [Pauli]*2
 stateEPR = (<|) EPR (state0 >< state0)
     where EPR = cnot * (h >< id)
 #+END_SRC
@@ -307,7 +307,7 @@ where $a, b \in \{0, 1\}$ as usual.
 We can express the Bell basis states as a simple conjugation in ~Yaw~:
 
 #+BEGIN_SRC haskell
-stateBell :: BinDigit -> BinDigit -> State ((><) [Pauli, Pauli])
+stateBell :: BinDigit -> BinDigit -> State [Pauli]*2
 stateBell a b = (<|) (x^a * z^b >< id) stateEPR
 #+END_SRC
 
@@ -326,7 +326,7 @@ where $\Pi^{(\text{EPR})} = (\mathcal{O}_\text{EPR}\otimes I) \triangleright
 In ~yaw~, this is
 
 #+BEGIN_SRC haskell
-projBell :: BinDigit -> BinDigit -> (><) [Pauli, Pauli]
+projBell :: BinDigit -> BinDigit -> [Pauli]*2
 projBell a b = (|>) (x^a * z^b >< id) projEPR
 #+END_SRC
 
@@ -336,7 +336,7 @@ is to compute the expectation ~projBell a b~, for bits ~a~ and ~b~,
 in the joint state after Alice gives her share to Bob:
 
 #+BEGIN_SRC haskell
-bobsProbs :: State ((><) [Pauli, Pauli]) -> [Float]
+bobsProbs :: State [Pauli]*2 -> [Float]
 bobsProbs state = [state (projBell a b) | a <- [0,1], b <- [0,1]]
 #+END_SRC
 
@@ -501,6 +501,7 @@ isTP :: Algebra alg => Hom alg* -> Bool
 isTP = isUnital $ gelfand*
 #+END_SRC
 
+Long story short, unitality is dual to trace-preservation!
 ** Updates with Born-Lüders
 Suppose we have a state channel $\hat{\Phi}: \mathsf{S}(\mathcal{B})\to
 \mathsf{S}(\mathcal{A})$ formed from Kraus operators $K_j, j \in J$.
@@ -538,9 +539,7 @@ the ~sample~ method of the [[https://hackage.haskell.org/package/prob-0.1.1/docs
 #+BEGIN_SRC haskell
 measure :: Algebra alg => [alg] -> State alg -> [Float]
 measure ks psi = postSelect ks psi j
-    where J = [1..length ks] 
-          probs = measureProbs ks psi
-          j = sample $ Distribution probs J
+    where j = sample $ Distribution (measureProbs ks psi) [1..length ks]
 #+END_SRC
 
 This will compute the probabilities with Born's rule, sample
@@ -549,34 +548,44 @@ according, and return the update given by Lüders rule.
 This is where most languages end the story. But there is a beautiful
 structure hidden inside this randomness. Instead of sampling and
 throwing the rest away, we can think about the branching process given
-by measurement as a form of computation.
-Suppose that the classical measurement outcomes are of type ~g~.
-We can define ~Branch g~ as a new type, induced by the current state:
+by measurement as a style of computation, akin to probabilistic programming.
+So, suppose we have some measurement process which measures states and
+outputs data of type ~g~, which could be eigenvalues, labels, etc. The
+signature of the process is
 
 #+BEGIN_SRC haskell
-newtype Branch g = Branch { 
-  runBranch :: State alg -> [(Float, State alg, g)] 
+Algebra alg => State alg -> [(Float, State alg, g)] 
+#+END_SRC
+
+We will define a type synonym or ~newtype~ for this, which we call the
+~Branch~ monad:
+
+#+BEGIN_SRC haskell
+newtype Branch alg g = Branch { 
+  runBranch :: Algebra alg => State alg -> [(Float, State alg, g)] 
 }
 #+END_SRC
 
-This associates to a state a list of states, with associated
-probabilities and classical measurement outcomes.
-The next step is to apply functions
-"inside" measurement outcomes. Technically, we need to make ~Branch~ a /functor/:
+Note that ~runBranch~ unwraps the function so we can use it.
+If we want to compute with the outcomes, we need to be able to apply
+functions "inside" the result of a measurement. Technically, we need
+to make ~Branch~ a /functor/.
+Consider a function ~f :: g -> h~. We simply [[https://en.wikibooks.org/wiki/Haskell/Pattern_matching][pattern match]] onto the
+arguments:
 
 #+BEGIN_SRC haskell
-instance Functor Branch where
+instance Functor (Branch alg) where
   fmap f (Branch g) = Branch $ \psi -> 
     [(p, psi', f a) | (p, psi', a) <- g psi]
 #+END_SRC
 
-In words, ~fmap~ applies a function to the outcomes ~a~ inside the
-list obtained by applying ~b~ to a state. This sounds complex, but all
-it does is keep track of measurement outcomes and use
-this to apply functions. Next, we want to chain together measurements:
+In words, ~fmap~ applies ~f~ to the outcomes ~a :: g~ inside the
+list. Next, we want to keep track of what happens when we do
+measurements one after the other. The relevant structure is called a
+/monad/:
 
 #+BEGIN_SRC haskell
-instance Monad Branch where
+instance Monad Branch alg where
   return a = Branch $ \psi -> [(1.0, psi, a)]
   
   Branch m >>= f = Branch $ \psi -> do
@@ -585,43 +594,31 @@ instance Monad Branch where
     return (p1 * p2, psi2, b)
 #+END_SRC
 
-Here, ~return a~ is a kind of base case, telling us how to turn a single outcome into the
-(trivial) probability distribution which returns it. The /bind/
-operator ~>>=~ is a little more complex, but essentially just pipes
-a measurement of type ~m~ into one of type ~f~. We read the
-imperative-style ~do~ notation as follows:
-- given a second measurement process ~f~ we want to apply
-- we first measure the input state ~psi~ with ~m~
-- iterate over the branches ~(p1, psi1, a)~
-- apply the new measurement ~f a~ conditionally in each branch
-- iterate over the branches ~(p2, psi2, b)~ of this second process
-- finally, collect all branches ~(p1 * p2, psi2, b)~ into the final
-  result.
-
-Put simply, it builds a probabilistic tree of branches. Finally, we
-need a way to conditionally transform measurements:
-
-#+BEGIN_SRC haskell
-instance Applicative Branch where
-  pure = return
-  (<*>) = ap
-#+END_SRC
-
-Here, ~return~ is as above, while ~ap~ simply applies measurement
-outcomes inside functions.
+The method ~return~ just wraps an outcome ~a~ into a boring
+distribution which deterministically gives back ~a~ for any state.
+The operator ~>>=~ is called /bind/, and flattens a list of
+a conditional probability distributions into a
+single distribution.
+The imperative-style ~do~ notation can be a bit confusing, so we walk
+through it step by step:
+1. we are "binding" a map ~f :: m -> Branch n~ which takes measurement outcomes to new, conditional probability distributions;
+2. we measure ~psi~ with outcomes in ~m~, then iterate over branches ~(p1, psi1, a)~;
+3. we apply ~f~ to the outcomes ~a~ in each branch, and iterate over conditional branches ~(p2, psi2, b)~;
+4. finally, we multiply by the condition probability and collapse into a single branch ~(p1 * p2, psi2, b)~ of the overall process.
 
 The ~Branch~ monad encompasses the most general class of quantum
 updates (called /instruments/). But a more concrete and familiar
 application is Kraus operators and Born-Lüders updates, which we call /BKL/.
-In this case, the outcome are indices of the Kraus operators, and
-states update with probabilities given by Born and states by Lüders:
+In this case, the outcomes are indices of Kraus operators,
+probabilities are given by Born and states by Lüders:
 \[
 \psi \mapsto (p_j, \psi_j, j), \quad \psi_j =
 \frac{1}{p_j}K_j^\dagger\triangleleft \psi, \quad p_j =
 \psi(K_j^\dagger K_j).
 \]
-To implement this, we first define a ~bkl~ map which, from a channel,
-produce a map from states to a zipped list of tuples:
+To implement this, we first define a map called ~bkl~ which, from a
+list ~ks~ of Kraus operators and state ~psi~, produces the output
+tuples ~(pj, psij, j)~:
 
 #+BEGIN_SRC haskell
 bkl :: Algebra alg => [alg] -> State alg -> [(Float, State alg, Int)]
@@ -631,29 +628,22 @@ bkl ks psi = zip3 probs states J
           J = [1..length ks]
 #+END_SRC
 
-Note that ~bkl ks~ has precisely the type needed for ~branch~, so we
-can turn a channel (viewed as a list of Kraus operators) into an
-instance of the ~Branch~ monad:
+Note that ~bkl ks~ has the right type signature to be wrapped by the
+~Branch~ monad. Since the outcomes are integers indexing Kraus
+operators, we can define
 
 #+BEGIN_SRC haskell
-measureBKL :: Algebra alg => [alg] -> Branch Int
+measureBKL :: Algebra alg => [alg] -> Branch alg Int
 measureBKL ks = Branch (bkl ks)
 #+END_SRC
 
 Now we can see the relationship between the Branch monad and our
-earlier sampling approach. Where ~measure~ picked one branch randomly:
-
-#+BEGIN_SRC haskell
-measure :: Algebra alg => [alg] -> State alg -> State alg
-measure ks psi = postSelect ks psi j
-    where j = sample $ Distribution (measureProbs ks psi) [1..length ks]
-#+END_SRC
-
-The ~Branch~ monad keeps all branches alive, e.g. in the standard
+earlier sampling approach. Where ~measure~ picked one branch randomly,
+the ~Branch~ monad keeps all branches alive. For instance, in the standard
 computational basis measurement:
 
 #+BEGIN_SRC haskell
-measureZ :: Branch Int
+measureZ :: Branch Pauli Int
 measureZ = measureBKL [projZ 0, projZ 1]
 #+END_SRC
 
@@ -662,12 +652,91 @@ yaw> runBranch measureZ statePlus
 [(0.5, state0, 0), (0.5, state1, 1)]
 #+END_SRC
 
-This lets us analyze quantum protocols symbolically without
-sampling. We can see all possible measurement paths and their
+We can see all possible measurement paths and their
 probabilities at once, making the ~Branch~ monad a powerful tool for
-understanding quantum algorithms before committing to a particular
+understanding (small) quantum algorithms before committing to a particular
 measurement outcome.
 ** Teleportation
+Let's use ~Branch~ to do something more fun, like transport
+information across time and space.
+We'll quickly recap the theory: Alice has a state $\psi_A$ she wants to
+send, and shares an EPR state with Bob. Their joint system is
+\[
+\Psi_0 = \psi_A \otimes \psi_\text{EPR}.
+\]
+Some algebra shows this can also be written
+\[
+\Psi_0 = \sum_{a,b=0}^1\psi_{\text{Bell}(a,b)} \otimes (X^a Z^b \triangleleft \psi_A).
+\]
+If Alice measures in the Bell basis and obtains $(a, b)$, the
+resulting post-selected state is
+\[
+\Psi_{a,b} = \psi_{\text{Bell}(a,b)} \otimes (X^a Z^b \triangleleft
+\psi_A).
+\]
+Bob can then apply a local correction $Z^b X^a$ and obtain Alice's
+state $\psi_A$.
+Let's implement this step by step. First, ~teleportHold~ for $\Psi_0$:
+
+#+BEGIN_SRC haskell
+aliceHold: State Pauli -> State [Pauli]*3
+aliceHold psi = psi >< stateEPR
+#+END_SRC
+
+The next step is for Alice to measure; at this stage, we could either
+stochastically measure $\Psi_{a,b}$ using ~measure~, but instead we'll
+keep track of branches using ~Branch~, indexed from $0$-$3$ for
+simplicity:
+
+#+BEGIN_SRC haskell
+aliceProj: State [Pauli]*3 -> Branch [Pauli]*3 Int
+aliceProj = measureBKL [projBell a b >< id | a <- [0, 1], b <- [0,1]]
+#+END_SRC
+
+Finally, Alice sends her bits to Bob, or rather, a single
+integer $c$ between $0$ and $3$. Bob can convert to two bits (for instance
+letting $a$ be the quotient $c/2$ and $b$ the modulus wrt $2$) and
+apply the correction. To focus on Bob's state, we also use the
+built-in function ~partTrace~ to ignore Alice's qubits:
+
+#+BEGIN_SRC haskell
+bobFix: Int -> State [Pauli]*3 -> State Pauli
+bobFix c = partTrace [0, 1] $ (<|) (z^b * x^a>< id)
+    where (a, b) = c `divMod` 2
+#+END_SRC
+
+Now we can compose the entire protocol using the ~Branch~ monad:
+
+#+BEGIN_SRC haskell
+teleport :: State Pauli -> Branch Pauli (State Pauli)
+teleport psi = do
+  c <- aliceProj (aliceHold psi)
+  return $ bobFix c
+#+END_SRC
+
+Running this on any input state produces four branches, each with probability $1/4$:
+
+#+BEGIN_SRC elisp
+yaw> runBranch (teleport statePlus)
+[(0.25, statePlus, 0), (0.25, statePlus, 1), 
+ (0.25, statePlus, 2), (0.25, statePlus, 3)]
+#+END_SRC
+
+In every branch, Bob recovers Alice's original state! The ~Branch~ monad lets us verify that teleportation works for all measurement outcomes simultaneously, demonstrating the protocol's deterministic quantum-to-quantum transfer despite the randomness of measurement.
+
+** COMMENT Extra
+*** Applicative
+Finally, we need a way to conditionally transform measurements:
+
+#+BEGIN_SRC haskell
+instance Applicative Branch where
+  pure = return
+  (<*>) = ap
+#+END_SRC
+
+Here, ~return~ is as above, while ~ap~ simply applies measurement
+outcomes inside functions.
+*** Teleportation (old)
 We finish this section with a less trivial illustration of the
 ~Branch~ monad: teleportation. In the teleportation protocol, Alice
 wants to send an unknown quantum state to Bob using only classical
