@@ -727,10 +727,15 @@ We can compose the entire protocol very cleanly using the ~Branch~ monad:
 teleport :: State Pauli -> Branch Pauli (BinDigit, BinDigit)
 teleport psi = do
   c <- aliceProj (aliceHold psi)
-  return $ c `divMod` 2
+  let (a, b) = c `divMod` 2
+  _ <- return $ bobFix c
+  return (a, b)
 #+END_SRC
 
-Running this on any input state produces four branches, each with probability $1/4$:
+Note that the line ~_ <- return $ bobFix c~ applies Bob's correction
+but does not return it; this avoids repetition of the state.
+Running this on any input state produces four branches, each with
+probability $1/4$:
 
 #+BEGIN_SRC elisp
 yaw> runBranch (teleport statePlus)
