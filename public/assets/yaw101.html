@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title></title>
-<!-- 2025-09-01 Mon 07:29 -->
+<!-- 2025-09-29 Mon 11:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -187,7 +187,7 @@ for the JavaScript code in this tag.
 <h1 class="title"></h1>
 
 <div class="figure">
-<p><a href="https://torsor.io/#community" alt="wizard image" align="center" width="200px" style="display:inline;margin:-20px;"><img src="./img/wizard2.png" alt="wizard image" align="center" width="200px" style="display:inline;margin:-20px;" /></a>
+<p><a href="https://torsor.io/#software" alt="wizard image" align="center" width="200px" style="display:inline;margin:-20px;"><img src="./img/wizard.png" alt="wizard image" align="center" width="200px" style="display:inline;margin:-20px;" /></a>
 </p>
 </div>
 
@@ -195,8 +195,8 @@ for the JavaScript code in this tag.
 <code>yaw</code> is a domain-specific functional language for programming quantum
 computers. This tutorial introduces some basic concepts, assuming
 a first course in quantum computing (at the level of Nielsen and
-Chuang, chapters 1–2) but no further mathematical background. Note
-that pictures are forthcoming.
+Chuang, chapters 1–2) and some programming experience, but no further
+mathematical background.
 </p>
 
 <div id="outline-container-sec-1" class="outline-2">
@@ -262,7 +262,7 @@ result of this new notation, we can immediately define the algebra of
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliDit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Integer</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span>
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliDit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Int</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span>
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">pauliDit</span> d <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Presentation</span> gen [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Hermitian</span> gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pow</span> d gen, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Braid</span> &#969; gen]
     <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> gen <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [x, z]
             &#969; <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> cis (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">-</span>2 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> pi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">/</span> d)
@@ -293,6 +293,7 @@ algebraic approach, a state is instead an <i>expectation</i>:
 \]
 Thus, we view \(\psi\) as a <i>linear functional</i> (scalar-valued linear
 function) rather than a vector.
+We let \(\mathcal{A}^*\) denote the set of linear functionals, and \(\mathsf{S}(\mathcal{A})\) denote the subset of states, on an algebra \(\mathcal{A}\).
 When \(|\psi\rangle\) is an eigenvector of a Hermitian operator \(\Lambda\), we have
 \[
 \Lambda |\psi\rangle = \lambda |\psi\rangle \quad \Longrightarrow
@@ -317,7 +318,7 @@ In <code>yaw</code>, this takes the form
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state0</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> pauli
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state0</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state0</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> eigen z (spec z 0)
 </pre>
 </pre>
@@ -327,7 +328,7 @@ In <code>yaw</code>, this takes the form
 where
 </p>
 <ul class="org-ul">
-<li><code>State pauli</code> is the type of states on the algebra <code>pauli</code>;
+<li><code>State Pauli</code> is the type of states on the algebra <code>pauli</code>;
 </li>
 <li><code>eigen z</code> identifies this has the factorization property wrt <code>z</code>;
 </li>
@@ -352,14 +353,37 @@ A \triangleright \mathcal{O} = A^\dagger \mathcal{O} A, \quad A
 \]
 We call \(\triangleright\) the <i>operator conjugator</i> and \(\triangleleft\)
 the <i>state conjugator</i>. These are respectively accomplished by <code>&lt;|</code> and
-<code>|&gt;</code>  in <code>yaw</code>. The argument above shows that \(\psi_1 = X
+<code>|&gt;</code>  in <code>yaw</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell">(<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">|&gt;</span>) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> alg
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">a</span> <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">|&gt;</span> o <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> a<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> o <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> a
+
+(<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">&lt;|</span>) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> alg<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>
+(<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">&lt;|</span>) a psi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>o <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> psi (a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">|&gt;</span> o)
+</pre>
+</pre>
+</div>
+
+<p>
+Here, <code>alg*</code> means the set linear functionals <code>alg -&gt; Complex</code>; it is
+not the set of states, since \(A \triangleleft \psi\)
+is not normalized unless \(A\) is unitary. The notation <code>a^*</code> indicates
+adjoint of <code>a</code>, and finally <code>Algebra alg</code> in the type signature means
+we are restricting <code>alg</code> to be an algebra.
+</p>
+
+<p>
+Back to our main story, he argument above shows that \(\psi_1 = X
 \triangleleft \psi_0\), so in <code>yaw</code>, using infix notation <code>(&lt;|)</code> so
 conjugation can be prepended as a binary operator:
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state1</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> pauli
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state1</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">state1</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) x state0
 </pre>
 </pre>
@@ -377,7 +401,7 @@ totally different thing! To recover the vector addition, we note that \(H \trian
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">statePlus</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> pauli
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">statePlus</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">statePlus</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) h state0
 </pre>
 </pre>
@@ -454,19 +478,20 @@ implement this in <code>yaw</code>, we introduce a tensor product operator <code
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [pauli]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> projZ 0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">+</span> projZ 1 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> x
 </pre>
 </pre>
 </div>
 
 <p>
-where <code>[pauli]*2 = [pauli, pauli]</code>. Equivalently, we can sum over <code>a</code>:
+where <code>[Pauli]*2 = [Pauli, Pauli]</code> automatically indicates tensor
+products in type signatures. Equivalently, we can sum over <code>a</code>:
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot'</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot'</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">cnot'</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> ein <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> projZ a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a
     <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> ein f <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> sum (map f (domain <span style="color: #dbdb95; font-size: 9.959999999999999pt;">@</span>a))
 </pre>
@@ -482,25 +507,28 @@ Similarly, we can define a general controlled operator on an algebra <code>a</co
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Alg</span> a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, a]
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, alg]
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">c</span> op <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> ein <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> projZ a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> op<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a
 </pre>
 </pre>
 </div>
 
 <p>
-Here, <code>Alg</code> is a <i>typeclass</i>, indicating that <code>a</code> has various
-operations (addition, multiplication, adjoints, etc) defined on it.
 A familiar example of general controlled gates is the Toffoli:
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2]
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2]
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">toffoli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> c cnot
 </pre>
 </pre>
 </div>
+
+<p>
+The compiler will know that <code>[Pauli, [Pauli]*2]</code> is equivalent to
+<code>[Pauli]*3</code>, which makes life a little easier.
+</p>
 </div>
 </div>
 
@@ -508,7 +536,7 @@ A familiar example of general controlled gates is the Toffoli:
 <h3 id="sec-1-4"><span class="section-number-3">1.4</span> Superdense coding</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-We'll end this tutorial by creating an entangled pair and using it to
+We'll end this section by creating an entangled pair and using it to
 perform the <i>superdense coding</i> protocol. The first step is to build the maximally entangled
 <i>Bell state</i> (after John Bell), also called the <i>EPR state</i> (after Einstein,
 Podolsky and Rosen). This takes the form
@@ -523,7 +551,7 @@ circuit used to prepare the EPR state and \(\psi_{00} = \psi_0\otimes \psi_0\). 
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ([<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2)
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateEPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) <span style="color: #34cae2; font-size: 9.959999999999999pt;">EPR</span> (state0 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> state0)
     <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">EPR</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> cnot <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> (h <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id)
 </pre>
@@ -544,7 +572,7 @@ We can express the Bell basis states as a simple conjugation in <code>Yaw</code>
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateBell</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ((<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>])
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateBell</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ([<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2)
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">stateBell</span> a b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) (x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> z<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id) stateEPR
 </pre>
 </pre>
@@ -568,7 +596,7 @@ In <code>yaw</code>, this is
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projBell</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projBell</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> ([<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2)
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">projBell</span> a b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">|&gt;</span>) (x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> z<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id) projEPR
 </pre>
 </pre>
@@ -583,7 +611,7 @@ in the joint state after Alice gives her share to Bob:
 
 <div class="org-src-container">
 
-<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bobsProbs</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ((<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span>) [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Float</span>]
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bobsProbs</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ([<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>2) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Float</span>]
 <span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bobsProbs</span> state <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [state (projBell a b) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">|</span> a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> [0,1], b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> [0,1]]
 </pre>
 </pre>
@@ -591,28 +619,586 @@ in the joint state after Alice gives her share to Bob:
 
 <p>
 using list comprehension.
-In general, these are arbitrary probabilities, but here, all but one will vanish, e.g.
+Evaluating, we see that all but one will vanish, e.g.
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-elisp">Yaw&gt; bobsProbs (stateBell 0 1)
+<pre class="src src-elisp">yaw&gt; bobsProbs (stateBell 0 1)
 [0.0, 1.0, 0.0, 0.0]
 </pre>
 </pre>
 </div>
 
 <p>
-This concludes our first tutorial on <code>yaw</code>! Stay tuned for our next
-tutorial, covering measurement, teleportation and cryptography.
+This process happens to be deterministic, in the sense there is a
+single guaranteed outcome. But more generally, the probabilities are
+arbitrary, and we need to introduce the full formalism of
+<i>measurement</i> to handle things.
 </p>
 </div>
 </div>
 </div>
 
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> References</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> Measurement</h2>
 <div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Channels with Kraus</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+In our first step towards defining measurement, we will first
+introduce <i>channels</i>. This is a linear map between algebras \(\Phi:
+\mathcal{A} \to \mathcal{B}\) which takes the form of a sum over conjugators:
+\[
+\Phi = \sum_{j\in J} K_j \,\, \triangleright.
+\]
+Here, the operators \(K_j: \mathcal{B} \to \mathcal{A}\) are linear maps
+called <i>Kraus operators</i>.
+For simplicity, we'll stick to channels from \(\mathcal{A}\) to itself,
+and choose our linear maps to be elements of \(\mathcal{A}\).
+We use the synonym <code>Hom alg</code> for the type <code>alg -&gt; alg</code>, and abstract
+the pattern of summing conjugators as follows:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">makeChannel</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> [alg] <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">makeChannel</span> ks <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> sum [(<span style="color: #dbdb95; font-size: 9.959999999999999pt;">|&gt;</span>) k <span style="color: #dbdb95; font-size: 9.959999999999999pt;">|</span> k <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> ks]
+</pre>
+</pre>
+</div>
+
+<p>
+If we want to be fancy, we can write this without any arguments
+exposed, also called <i>point-free style (PFS)</i>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">makeChannel</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> sum <span style="color: #dbdb95; font-size: 9.959999999999999pt;">.</span> map (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">|&gt;</span>)
+</pre>
+</pre>
+</div>
+
+<p>
+which maps \(K \mapsto K \,\,\triangleright\) and then sums the results.
+So far this is purely mathematical. Physics will require channels to
+obey an additional <i>completeness</i> or <i>unitality</i> relation that the
+channel preserves the identity, \(\Phi(I) = I\), or
+\[
+\sum_{j\in J} K_j \triangleright I = \sum_{j\in J} K_j^\dagger K_j = I.
+\]
+Rather than enforce this at the channel level, we implement it as a
+Boolean check:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">isUnital</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Bool</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">isUnital</span> channel <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> channel id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">==</span> id
+</pre>
+</pre>
+</div>
+
+<p>
+or in PFS
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">isUnital</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Bool</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">isUnital</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">==</span> id) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">.</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">$</span> id)
+</pre>
+</pre>
+</div>
+
+<p>
+where <code>$</code> is function application in prefix form, so <code>$ f x</code> equals <code>f
+x</code>.
+This idea of channels on operators may be a bit unfamiliar; the next
+section discusses channels on <i>states</i> in much more detail. The key
+point, however, is that we can sum state conjugators \(\hat{\Phi} =
+\sum_j K_j\, \triangleleft\), implemented by the <code>makeChannel*</code>
+function, and provided the dual operator channel (defined with the same Kraus operators) is
+unital, then \(\hat{\Phi}\) will map states to states.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Duals with Gelfand*</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+We can use the same Kraus operators \(K_j: \mathcal{B} \to \mathcal{A}\)
+to define
+\[
+\hat{\Phi} = \sum_{j\in J} K_j \, \triangleleft, \quad \hat{\Phi}: \mathcal{B}^*\to \mathcal{A}^*.
+\]
+Note that this is not automatically a map between states, just linear
+functionals.
+Setting \(\mathcal{A} = \mathcal{B}\) for simplicity as using PFS, this is
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell">makeChannel<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> [alg] <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>
+makeChannel<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> sum <span style="color: #dbdb95; font-size: 9.959999999999999pt;">.</span> map (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>)
+</pre>
+</pre>
+</div>
+
+<p>
+We can define a dual map \(\Phi\) either from the \(K_j\) and operator
+conjugation, or equivalently, using the identity
+\[
+\psi_{\mathcal{B}} \circ \Phi (A) = \hat{\Phi}[\psi_{\mathcal{B}}]
+(A).
+\]
+This trick is called the <i>Gelfand transform</i> and, despite its
+simplicity, it is a rather deep, providing a common generalization of
+the Fourier transform, the Laplace transform, the Mellin transform,
+and others.
+Let's see how to put it to work. First, we define <code>dual*</code> as the
+transform which adds a hat:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell">dual<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>
+dual<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> flip (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">.</span>)
+</pre>
+</pre>
+</div>
+
+<p>
+where <code>flip (.) phi psi = psi . phi</code>, and <code>.</code> is composition. This
+simply expresses Gelfand's equation \(\psi_{\mathcal{B}} \circ \Phi =
+\hat{\Phi}[\psi_{\mathcal{B}}]\).
+Applying the same Gelfand transform to <code>Hom alg*</code> gives a channel on <code>Hom
+alg**</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell">dual<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg<span style="color: #dbdb95; font-size: 9.959999999999999pt;">**</span>
+dual<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> flip (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">.</span>)
+</pre>
+</pre>
+</div>
+
+<p>
+Finally, we note that the double dual \(\mathcal{A}^{**}\) can be
+canonically identified with \(\mathcal{A}\) in finite-dimensions, with
+\[
+\overline{A}(\psi) = \psi(A).
+\]
+This is called <i>Pontryagin duality</i>. We need (but won't specify for now) the inverse map
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">ddual</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg<span style="color: #dbdb95; font-size: 9.959999999999999pt;">**</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg
+</pre>
+</pre>
+</div>
+
+<p>
+so <code>ddual . dual** = id</code> and <code>dual** . ddual = id**</code>, where <code>id</code> and
+<code>id**</code> are the identity maps on <code>alg</code> and <code>alg**</code> respectively.
+Finally, we can define the inverse Gelfand transform by
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell">gelfand<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg
+gelfand<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> dual<span style="color: #dbdb95; font-size: 9.959999999999999pt;">**</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">.</span> gelfand <span style="color: #dbdb95; font-size: 9.959999999999999pt;">.</span> gelfand
+</pre>
+</pre>
+</div>
+
+<p>
+If \(\psi_{\mathcal{B}}\) is positive, then the Kraus operator
+form guarantees that \(\hat{\Phi}[\psi_{\mathcal{B}}]\) is
+positive. Moreover, if the dual map \(\Phi\) is unital, and
+\(\psi_{\mathcal{B}}\) is a state, then
+\[
+\hat{\Phi}[\psi_{\mathcal{B}}](I) = \psi_{\mathcal{B}} \circ \Phi(I) =
+\psi_{\mathcal{B}}(I) = 1,
+\]
+and hence \(\hat{\Phi}[\psi_{\mathcal{B}}]\) is a positive, normalized
+linear functional, i.e. a state. So a unital channel \(\Phi:
+\mathcal{A}\to \mathcal{B}\) gives rise to a dual \(\hat{\Phi}:
+\mathsf{S}(\mathcal{B}) \to \mathsf{S}(\mathcal{A})\) map between
+states. To verify a channel on functionals maps states to states, also
+called <i>trace-preservation</i>, we define a check <code>isTP</code> given by
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">isTP</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Hom</span> alg<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Bool</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">isTP</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> isUnital <span style="color: #dbdb95; font-size: 9.959999999999999pt;">$</span> gelfand<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>
+</pre>
+</pre>
+</div>
+
+<p>
+Long story short, unitality is dual to trace-preservation!
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Updates with Born-Lüders</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Suppose we have a state channel \(\hat{\Phi}: \mathsf{S}(\mathcal{B})\to
+\mathsf{S}(\mathcal{A})\) formed from Kraus operators \(K_j, j \in J\).
+We can view the set \(J\) as labelling <i>outcomes</i>, and observe the
+outcome \(j\). In this case, a state \(\psi\) is modified to
+\[
+\psi \mapsto \frac{1}{\psi(K_j^\dagger K_j)} K_j \triangleleft \psi.
+\]
+This is called <i>Lüders rule</i>. We write \(\hat{\Phi} \leftarrow j\) to
+indicate we have "set" the channel to outcome \(j\). (In standard
+projective measurement, we often think of measuring an associated
+<i>eigenvalue</i> \(\lambda_j\), but here there isn't necessarily a number.)
+We can think of this as a basic type of <i>postselection</i>, so we
+implement Lüders rule as follows:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">postSelect</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> [alg] <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Int</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">postSelect</span> ks psi j <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> (1<span style="color: #dbdb95; font-size: 9.959999999999999pt;">/</span>p) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) k psi
+    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> k <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> ks <span style="color: #dbdb95; font-size: 9.959999999999999pt;">!!</span> j
+          p <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> psi (k<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> k)
+</pre>
+</pre>
+</div>
+
+<p>
+Of course, measurement is not postselection; it is a random selection
+with probability \(p = \psi(K_j^* K_j)\), called <i>Born's rule</i>. We can
+list the probabilities as
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">measureProbs</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> [alg] <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Float</span>]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">measureProbs</span> ks psi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [psi (k<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^*</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> k) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">|</span> k <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> ks]
+</pre>
+</pre>
+</div>
+
+<p>
+Measurement is then random postselection. We can simulate this using
+the <code>sample</code> method of the <a href="https://hackage.haskell.org/package/prob-0.1.1/docs/Probability-Distribution.html"><code>Probability.Distribution</code></a> module.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">measure</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> [alg] <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Float</span>]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">measure</span> ks psi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> postSelect ks psi j
+    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> j <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> sample <span style="color: #dbdb95; font-size: 9.959999999999999pt;">$</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Distribution</span> (measureProbs ks psi) [1<span style="color: #dbdb95; font-size: 9.959999999999999pt;">..</span>length ks]
+</pre>
+</pre>
+</div>
+
+<p>
+This will compute the probabilities with Born's rule, sample
+according, and return the update given by Lüders rule.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> The Branch monad</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+This is where most languages end the story. But there is a beautiful
+structure hidden inside this randomness. Instead of sampling and
+throwing the rest away, we can think about the branching process given
+by measurement as a style of computation, akin to probabilistic programming.
+So, suppose we have some measurement process which measures states and
+outputs data of type <code>g</code>, which could be eigenvalues, labels, etc. The
+signature of the process is
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [(<span style="color: #34cae2; font-size: 9.959999999999999pt;">Float</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg, g)]
+</pre>
+</pre>
+</div>
+
+<p>
+We will define a type synonym or <code>newtype</code> for this, which we call the
+<code>Branch</code> monad:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">newtype</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> alg g <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> { 
+  runBranch <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [(<span style="color: #34cae2; font-size: 9.959999999999999pt;">Float</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg, g)] 
+}
+</pre>
+</pre>
+</div>
+
+<p>
+Here, <code>Branch</code> is a <i>type constructor</i> that builds a new type from an
+algebra <code>alg</code> and a measurement process which turns states in
+distributions with outcomes in <code>g</code>; the method <code>runBranch</code> unwraps the
+function hidden inside <code>Branch</code> so we can use it.
+If we want to compute with the outcomes, we need to be able to apply
+functions "inside" the result of a measurement. Technically, we need
+to make <code>Branch</code> a <i>functor</i>.
+Consider a function <code>f :: g -&gt; h</code>. We simply <a href="https://en.wikibooks.org/wiki/Haskell/Pattern_matching">pattern match</a> onto the
+arguments:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">instance</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Functor</span> (<span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> alg) <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span>
+  fmap f (<span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> g) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">$</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>psi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> 
+    [(p, psi', f a) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">|</span> (p, psi', a) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> g psi]
+</pre>
+</pre>
+</div>
+
+<p>
+In words, <code>fmap</code> applies <code>f</code> to the outcomes <code>a :: g</code> inside the
+list. Next, we want to keep track of what happens when we do
+measurements one after the other. The relevant structure is called a
+<i>monad</i>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">instance</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Monad</span> (<span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> alg) <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span>
+  return a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">$</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>psi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [(1<span style="color: #dbdb95; font-size: 9.959999999999999pt;">.</span>0, psi, a)]
+
+  <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> m <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&gt;=</span> f <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">$</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">\</span>psi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">do</span>
+    (p1, psi1, a) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> m psi
+    (p2, psi2, b) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> runBranch (f a) psi1
+    return (p1 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> p2, psi2, b)
+</pre>
+</pre>
+</div>
+
+<p>
+The method <code>return</code> just wraps an outcome <code>a</code> into a boring
+distribution which deterministically gives back <code>a</code> for any state.
+The operator <code>&gt;&gt;=</code> is called <i>bind</i>, and flattens a list of
+a conditional probability distributions into a
+single distribution.
+The imperative-style <code>do</code> notation can be a bit confusing, so we walk
+through it step by step:
+</p>
+<ol class="org-ol">
+<li>we are "binding" a map <code>f :: m -&gt; Branch n</code> which takes measurement outcomes to new, conditional probability distributions;
+</li>
+<li>we measure <code>psi</code> with outcomes in <code>m</code>, then iterate over branches <code>(p1, psi1, a)</code>;
+</li>
+<li>we apply <code>f</code> to the outcomes <code>a</code> in each branch, and iterate over conditional branches <code>(p2, psi2, b)</code>;
+</li>
+<li>finally, we multiply by the condition probability and collapse into a single branch <code>(p1 * p2, psi2, b)</code> of the overall process.
+</li>
+</ol>
+
+<p>
+Technically, the implementation of <code>Branch</code> also require us to
+instance it as an <code>Applicative</code>, which applies functions that are
+measurement outcomes to values that are measurements; since this
+implementation is boilerplate, and we can do this already with the
+<code>Monad</code> instance, we won't include the code here.
+</p>
+
+<p>
+The <code>Branch</code> monad encompasses the most general class of quantum
+updates (called <i>instruments</i>). But a more concrete and familiar
+application is Kraus operators and Born-Lüders updates, which we call <i>BKL</i>.
+In this case, the outcomes are indices of Kraus operators,
+probabilities are given by Born and states by Lüders:
+\[
+\psi \mapsto (p_j, \psi_j, j), \quad \psi_j =
+\frac{1}{p_j}K_j^\dagger\triangleleft \psi, \quad p_j =
+\psi(K_j^\dagger K_j).
+\]
+To implement this, we first define a map called <code>bkl</code> which, from a
+list <code>ks</code> of Kraus operators and state <code>psi</code>, produces the output
+tuples <code>(pj, psij, j)</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bkl</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> [alg] <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> [(<span style="color: #34cae2; font-size: 9.959999999999999pt;">Float</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> alg, <span style="color: #34cae2; font-size: 9.959999999999999pt;">Int</span>)]
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bkl</span> ks psi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> zip3 probs states <span style="color: #34cae2; font-size: 9.959999999999999pt;">J</span>
+    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> probs <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> measureProbs ks psi
+          states <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> map (postSelect ks psi) <span style="color: #34cae2; font-size: 9.959999999999999pt;">J</span>
+          <span style="color: #34cae2; font-size: 9.959999999999999pt;">J</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> [1<span style="color: #dbdb95; font-size: 9.959999999999999pt;">..</span>length ks]
+</pre>
+</pre>
+</div>
+
+<p>
+Note that <code>bkl ks</code> has the right type signature to be wrapped by the
+<code>Branch</code> monad. Since the outcomes are integers indexing Kraus
+operators, we can define
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">measureBKL</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Algebra</span> alg <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=&gt;</span> [alg] <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> alg <span style="color: #34cae2; font-size: 9.959999999999999pt;">Int</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">measureBKL</span> ks <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> (bkl ks)
+</pre>
+</pre>
+</div>
+
+<p>
+Now we can see the relationship between the Branch monad and our
+earlier sampling approach. Where <code>measure</code> picked one branch randomly,
+the <code>Branch</code> monad keeps all branches alive. For instance, in the standard
+computational basis measurement:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">measureZ</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Int</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">measureZ</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> measureBKL [projZ 0, projZ 1]
+</pre>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-elisp">yaw&gt; runBranch measureZ statePlus
+[(0.5, state0, 0), (0.5, state1, 1)]
+</pre>
+</pre>
+</div>
+
+<p>
+We can see all possible measurement paths and their
+probabilities at once, making the <code>Branch</code> monad a powerful tool for
+understanding (small) quantum algorithms before committing to a particular
+measurement outcome.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> Teleportation</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Let's use <code>Branch</code> to do something more fun, like transport
+information across time and space.
+We'll quickly recap the theory: Alice has a state \(\psi_A\) she wants to
+send, and shares an EPR state with Bob. Their joint system is
+\[
+\Psi_0 = \psi_A \otimes \psi_\text{EPR}.
+\]
+Some algebra shows this can also be written
+\[
+\Psi_0 = \sum_{a,b=0}^1\psi_{\text{Bell}(a,b)} \otimes (X^a Z^b \triangleleft \psi_A).
+\]
+If Alice measures in the Bell basis and obtains \((a, b)\), the
+resulting post-selected state is
+\[
+\Psi_{a,b} = \psi_{\text{Bell}(a,b)} \otimes (X^a Z^b \triangleleft
+\psi_A).
+\]
+Bob can then apply a local correction \(Z^b X^a\) and obtain Alice's
+state \(\psi_A\).
+Let's implement this step by step. First, <code>teleportHold</code> for \(\Psi_0\):
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell">aliceHold<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">:</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ([<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>3)
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">aliceHold</span> psi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> psi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> stateEPR
+</pre>
+</pre>
+</div>
+
+<p>
+where <code>[Pauli]*3 = [Pauli, Pauli, Pauli]</code> as above.
+The next step is for Alice to measure; at this stage, we could either
+stochastically measure \(\Psi_{a,b}\) using <code>measure</code>, but instead we'll
+keep track of branches using <code>Branch</code>, indexed from \(0\)-\(3\) for
+simplicity:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell">aliceProj<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">:</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> [<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>3 <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> ([<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>3) <span style="color: #34cae2; font-size: 9.959999999999999pt;">Int</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">aliceProj</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> measureBKL [projBell a b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">|</span> a <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> [0, 1], b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> [0,1]]
+</pre>
+</pre>
+</div>
+
+<p>
+Finally, Alice sends her bits to Bob, or rather, a single
+integer \(c\) between \(0\) and \(3\). Bob can convert to two bits (for instance
+letting \(a\) be the quotient \(c/2\) and \(b\) the modulus wrt \(2\)) and
+apply the correction. To focus on Bob's state, we also use the
+built-in function <code>partTrace</code> to ignore Alice's qubits:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell">bobFix<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">:</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Int</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> ([<span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>]<span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span>3) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span>
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">bobFix</span> c <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> partTrace [0, 1] <span style="color: #dbdb95; font-size: 9.959999999999999pt;">$</span> (<span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;|</span>) (id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> id <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&gt;&lt;</span> z<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>b <span style="color: #dbdb95; font-size: 9.959999999999999pt;">*</span> x<span style="color: #dbdb95; font-size: 9.959999999999999pt;">^</span>a)
+    <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">where</span> (a, b) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> c <span style="color: #dbdb95; font-size: 9.959999999999999pt;">`divMod`</span> 2
+</pre>
+</pre>
+</div>
+
+<p>
+Note that <code>id</code> on the first two qubits means that Bob is not
+affecting's Alice's system!
+We can compose the entire protocol very cleanly using the <code>Branch</code> monad:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">teleport</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">::</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">State</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">-&gt;</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Branch</span> <span style="color: #34cae2; font-size: 9.959999999999999pt;">Pauli</span> (<span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span>, <span style="color: #34cae2; font-size: 9.959999999999999pt;">BinDigit</span>)
+<span style="color: #00ede1; font-size: 9.959999999999999pt; font-weight: bold;">teleport</span> psi <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">do</span>
+  c <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> aliceProj (aliceHold psi)
+  <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">let</span> (a, b) <span style="color: #dbdb95; font-size: 9.959999999999999pt;">=</span> c <span style="color: #dbdb95; font-size: 9.959999999999999pt;">`divMod`</span> 2
+  <span style="color: #ffad29; font-size: 9.959999999999999pt; font-weight: bold;">_</span> <span style="color: #dbdb95; font-size: 9.959999999999999pt;">&lt;-</span> return <span style="color: #dbdb95; font-size: 9.959999999999999pt;">$</span> bobFix c
+  return (a, b)
+</pre>
+</pre>
+</div>
+
+<p>
+Note that the line <code>_ &lt;- return $ bobFix c</code> applies Bob's correction
+but does not return it; this avoids repetition of the state.
+Running this on any input state produces four branches, each with
+probability \(1/4\):
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-elisp">yaw&gt; runBranch (teleport statePlus)
+[(0.25, statePlus, (0,0)), (0.25, statePlus, (0,1)), 
+ (0.25, statePlus, (1,0)), (0.25, statePlus, (1,1))]
+</pre>
+</pre>
+</div>
+
+<p>
+In every branch, Bob recovers Alice's original state! The nice feature
+of <code>Branch</code> is that we get to explore every branch of the wavefunction
+simultaneously. Of course, this doesn't scale to large
+computations—this is the whole point of quantum computation!—but it's
+a great way to prototype with small instances.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> References</h2>
+<div class="outline-text-2" id="text-3">
 <hr  />
 
 <ul class="org-ul">
