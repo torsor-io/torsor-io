@@ -77,7 +77,7 @@ const cases = [
                 {/* Paper Image */}
           <div className="aspect-3/2 w-md overflow-hidden">
                   <img
-                    src="/assets/img/yaw-logo.png"
+                    src="/assets/img/wizard.png"
                     alt="Paper visualization"
                     className="w-full h-full object-cover"
                   />
