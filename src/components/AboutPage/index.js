@@ -98,8 +98,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       class="mx-auto max-w-md w-full"
     />
 </div>
-            <b>Torsor Labs</b> performs fundamental research on quantum computing, AI, and distributed systems.
-	    We ensure our research is accessible and useful by building it into software, applications and educational materials.
+            <b>Torsor Labs</b> explores deep questions across quantum computing, physics, and AI. We build gorgeous open source tools and give them away. We consult, teach, write, and tackle problems that require thinking across multiple dimensions. And we have fun while doing it.
           </p>
         </motion.div>
 
