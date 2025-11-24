@@ -98,7 +98,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       class="mx-auto max-w-md w-full"
     />
 </div>
-           /* Used to be things here */
+            {/* Used to be things here */}
           </p>
         </motion.div>
 
@@ -152,7 +152,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <h2 className={`text-3xl font-comfortaa font-bold ${textColor} mb-6`}><a href="/#manifesto">Interdimensional wizardry.</a></h2>
 	    <p className={`${subtleText} text-lg mb-8`}>
 	     <b>Torsor Labs</b> explores deep questions across quantum computing, physics, and AI. We build gorgeous open source tools and give them away. We consult, teach, write, and tackle problems that require thinking across multiple dimensions. And we have fun while doing it.
-	    /* Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems. We live this philosophy in our research, outreach activities, and software development. */
+	    {/* Inspired by places like Bell Labs, we believe discovery is not only the result of hard work, but a creative alchemy of play, wonder, and the sense of mission attached to urgent problems. We live this philosophy in our research, outreach activities, and software development. */}
 </p>
           <a 
   href="/#puzzle"
