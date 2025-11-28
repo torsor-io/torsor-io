@@ -198,8 +198,8 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           </a>
           </div>
           </motion.div>
-        </main>
-      </div>
+	  </div>
+	          </main>
 	  </div>
 	  </div>
   );
