@@ -26,7 +26,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       type: 'Research',
       brief: 'Developed quantum machine.',
       outcome: 'Published research .',
-      link: null, // Can add arxiv link if desired
+      link: 'https://arxiv.org/abs/2409.00172', // Can add arxiv link if desired
       tags: ['Quantum Computing', 'Machine Learning', 'Research']
     },
     {
