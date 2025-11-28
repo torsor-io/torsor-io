@@ -188,20 +188,18 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             ))}
           </div>
 
-            {/* Contact Section */}
+        {/* Collaboration CTA */}
             <div className={`text-med text-center ${subtleText}`}>
               <a 
                 href="mailto:consulting@torsor.io" 
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
-                <CommandLineIcon className={`h-6 w-6 ${textColor}`} />
+                <BeakerIcon className={`h-6 w-6 ${textColor}`} />
           </a>
           </div>
-          </motion.div>
-	  </div>
-	          </main>
-	  </div>
-	  </div>
+        </main>
+      </div>
+    </div>
   );
 };
 
