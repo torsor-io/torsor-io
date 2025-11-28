@@ -192,7 +192,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         {/* Collaboration CTA */}
             <div className={`text-med text-center ${subtleText} mt-12`}>
               <a 
-                href="mailto:consulting@torsor.io" 
+                href="mailto:collaborate@torsor.io" 
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
                 <BeakerIcon className={`h-6 w-6 ${textColor}`} />
