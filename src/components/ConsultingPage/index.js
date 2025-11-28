@@ -35,7 +35,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       organization: 'Xanadu Quantum Technologies',
       type: 'Curriculum',
       brief: 'Co-developed interactive, code-first textbook on quantum computing.',
-      outcome: 'Used at 100+ universities worldwide. Accessible pedagogical resource for quantum computing.',
+      outcome: 'I helped plan the overall structure of the book, and wrote the chapters on basic quantum algorithms, Grover search, and Hamiltonian simulation. (This remains one of the few textbook treatment of advanced simulation techniques.) The codebook is now used at 100+ universities worldwide.',
       link: 'https://pennylane.ai/codebook',
       tags: ['Education', 'Quantum Computing', 'Curriculum']
     },
@@ -45,7 +45,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       organization: 'University of Melbourne',
       type: 'Software',
       brief: 'Built prototype for student-facing course planner at the University of Melbourne.',
-      outcome: 'To actually build a realistic course plan, you need to take degree requirements into account, such as total credit and major structure, as well individual course prerequisites, scheduling, and availability. Students may also want to explore where courses lead ("post-requisites"), and need an intuitive interface that lets them iteratively plan. The course planner provides all this and more, with some fun data structures I developed under the hood.',
+      outcome: 'To actually build a realistic course plan, you need to take degree requirements into account, such as total credit and major structure, as well individual course prerequisites, scheduling, and availability. Students may also want to explore where courses lead ("post-requisites"), and need an intuitive interface that lets them iteratively plan. The course planner provides all this and more, with some fun data structures I developed under the hood. Now serves thousands of incoming students annually.',
       link: 'https://students.unimelb.edu.au/your-course/manage-your-course/planning-your-course-and-subjects/faculty-course-planning-resources/my-course-planner',
       tags: ['Software', 'Education', 'UX Design']
     },
