@@ -151,6 +151,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                       className="mt-4 pt-4 border-t border-opacity-30"
                       style={{ borderColor: isDark ? 'rgb(148 163 184)' : 'rgb(120 113 108)' }}
                     >
+			  {/*                      <p className={`${textColor} font-medium mb-2`}>Outcome:</p>*/}
                       <p className={`${subtleText} mb-4`}>{work.outcome}</p>
                       
                       <div className="flex flex-wrap gap-2 mb-4">
