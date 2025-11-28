@@ -21,7 +21,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const selectedWork = [
     {
       id: 'qml-research',
-      title: 'QML research',
+      title: 'QML Research',
       organization: 'Xanadu Quantum Technologies',
       type: 'Research',
       brief: 'Devised a new approach to quantum machine learning based on the Hidden Subgroup Problem.',
