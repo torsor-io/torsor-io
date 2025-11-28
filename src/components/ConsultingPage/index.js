@@ -54,7 +54,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'Physics Education & Outreach',
       organization: 'UBC Physics Circle, VISST, Teen Nerd Nite',
       type: 'Outreach',
-      brief: 'Created and delivered physics programs for young scientists.',
+      brief: 'Created and delivered cutting-edge physics outreach programs for young scientists.',
       outcome: 'The goal: to make frontier physics accessible using elegant shortcuts, simple calculations, and visual intuition. The outlets: the UBC Physics Circle (which I ran from 2019-20), a summer camp on black holes at the Vancouver Independent School of Science and Technology, and talks at Teen Nerd Nite. Reached hundreds of students across the lower mainland.',
       link: 'https://hapax.github.io/outreach/',
       tags: ['Education', 'Outreach', 'Physics']
@@ -64,8 +64,8 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'Cross-Domain Creative Work',
       organization: 'Independent',
       type: 'Creative',
-      brief: 'Blogging across dimensions, from self-reflexive games to the philosophy of time to the physics of the everday.',
-      outcome: 'This represents my full range of technical interests: from black holes to Black-Scholes, the philosophy of time to the inner life of bats, evolution, economics, emergence and enything by Euler, pedagogical flourish and cross-domain insight are on full display. Read at the risk of gourd explosion.',
+      brief: 'Blogging across dimensions, from self-reflexive games to alien math.',
+      outcome: 'This represents my full range of technical interests: from black holes to Black-Scholes, the philosophy of time to the inner life of bats, evolution, economics, emergence and enything by Euler, pedagogical flourish and cross-domain insight are on full display. Read at the risk of blowing your gourd.',
       link: 'https://hapax.github.io/',
       tags: ['Research', 'Philosophy', 'Writing', 'Education']
     }
