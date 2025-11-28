@@ -1,123 +1,55 @@
-import { CommandLineIcon } from '@heroicons/react/24/solid';
-import WaveBackground from '../shared/WaveBackground';
-import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from '../shared/Navbar';
-import { useState } from 'react';
-
-const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
-  const [expandedCase, setExpandedCase] = useState(null);
-
-  // Theme variables
-  const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
-  const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
-  const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
-  const headerBg = isDark ? 'bg-slate-900/80' : 'bg-amber-50/70';
-  const borderColor = isDark ? 'border-slate-800' : 'border-stone-300';
-  const buttonBg = isDark ? 'bg-slate-800/50 hover:bg-slate-700/50' : 'bg-orange-100/50 hover:bg-orange-200';
-  const gradientBg = isDark 
-    ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
-    : 'bg-gradient-to-b from-amber-50 to-amber-100';
-
-const cases = [
-    {
-      id: 'sample1',
-      logo: '/logos/sample1.png',
-      title: 'Sample 1',
-      brief: 'This will involve pure research.'
-    },
-    {
-      id: 'sample2',
-      logo: '/logos/sample2.png',
-      title: 'Sample 2',
-      brief: 'This will involve applied research.'
-    },
-    {
-      id: 'sample3',
-      logo: '/logos/sample3.png',
-      title: 'Sample 3',
-      brief: 'This will involve software.'
-    },
-  ];
-    
-  return (
-    <div className={`min-h-screen transition-colors`}>
-      <div className="fixed top-0 left-0 w-full h-full z-[-5] opacity-50">
-        <WaveBackground isDark={isDark} waveState={waveState} />
-      </div>
-
-      <div className={`fixed top-0 left-0 w-full h-full z-[-10] ${gradientBg} opacity-100 transition-colors`} />
-
-      <div className="relative min-h-screen z-0">
-        <Navbar 
-          isDark={isDark}
-          setIsDark={setIsDark}
-          waveState={waveState}
-          setWaveState={setWaveState}
-          headerBg={headerBg}
-          borderColor={borderColor}
-          navText={navText}
-          buttonBg={buttonBg}
-        />
-
-        <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-12"
-          >
-            {/* Paper Showcase */}
+            {/* Research Consulting Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
             >
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Paper Image */}
-          <div className="aspect-3/2 w-md overflow-hidden">
-                  <img
-                    src="/assets/img/wizard.png"
-                    alt="Paper visualization"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Paper Details */}
-                <div className="space-y-4">
-                  <h2 className={`text-2xl font-bold ${textColor}`}>
-          Learning <b className={`font-comfortaa ${textColor}`}>yaw</b>
-      </h2>
-                  <p className={`${subtleText}`}>
-	  <b className={`font-comfortaa ${textColor} mb-3`}>yaw</b> will be a functional language for programming quantum computers (currently under development). If you want to see how to code quantumly with high-school algebra, you're in the right place!
-	  </p>
-	  <div className={`border-t ${borderColor} mb-4 mt-10`}></div>
-<ul className="space-y-3">
-    <li className={`${subtleText}`}>
-          • <a 
-        href="/assets/yaw101.html" 
-        className={`hover:underline`}
-      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw 101</b></a>. This tutorial previews basic syntax, culminating in superdense coding.
-	  </li>
-  </ul>
-                </div>
-              </div>
-            </motion.div>
+              <h2 className={`text-2xl font-bold ${textColor} mb-4`}>Research consulting</h2>
+              <div className={`${subtleText}`}>
+                <p className="mb-4"><i>Coming soon</i>: Case studies.
+                </p> <br/>
 
-            {/* Contact Section */}
-            <div className={`text-med text-center ${subtleText}`}>
-              <a 
-                href="mailto:consulting@torsor.io" 
-                className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
-              >
-                <CommandLineIcon className={`h-6 w-6 ${textColor}`} />
-          </a>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {cases.map((study) => (
+        <motion.div
+          key={study.id}
+          className={`cursor-pointer rounded-lg border ${borderColor} overflow-hidden
+                     ${isDark ? 'bg-slate-800/30' : 'bg-orange-50/30'}`}
+          onClick={() => setExpandedCase(expandedCase === study.id ? null : study.id)}
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        >
+          <div className="p-4">
+            <img 
+              src={study.logo}
+              alt={study.title}
+              className="w-full h-24 object-contain"
+            />
           </div>
-          </motion.div>
-        </main>
-      </div>
+        </motion.div>
+      ))}
     </div>
-  );
-};
-
-export default ConsultingPage;
+    
+<AnimatePresence>
+  {expandedCase && (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className={`rounded-lg border ${borderColor} overflow-hidden
+                 ${isDark ? 'bg-slate-800/30' : 'bg-orange-50/30'} mt-4`}
+    >
+      <div className="p-4 space-y-2">
+        <h3 className={`font-bold ${textColor}`}>
+          {cases.find(study => study.id === expandedCase)?.title}
+        </h3>
+        <p className={`text-sm ${subtleText}`}>
+          {cases.find(study => study.id === expandedCase)?.brief}
+        </p>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+  </div>
+</motion.div>
