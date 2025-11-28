@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../shared/Navbar';
 import { useState } from 'react';
 
-const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
+const SoftwarePage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const [expandedCase, setExpandedCase] = useState(null);
 
   // Theme variables
@@ -17,27 +17,6 @@ const ConsultingPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const gradientBg = isDark 
     ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
     : 'bg-gradient-to-b from-amber-50 to-amber-100';
-
-const cases = [
-    {
-      id: 'sample1',
-      logo: '/logos/sample1.png',
-      title: 'Sample 1',
-      brief: 'This will involve pure research.'
-    },
-    {
-      id: 'sample2',
-      logo: '/logos/sample2.png',
-      title: 'Sample 2',
-      brief: 'This will involve applied research.'
-    },
-    {
-      id: 'sample3',
-      logo: '/logos/sample3.png',
-      title: 'Sample 3',
-      brief: 'This will involve software.'
-    },
-  ];
     
   return (
     <div className={`min-h-screen transition-colors`}>
