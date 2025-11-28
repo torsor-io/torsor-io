@@ -64,7 +64,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'Cross-Domain Technical Work',
       organization: 'Blog',
       type: 'Creative',
-      brief: 'Blogging across dimensions, from self-reflexive games to alien math.',
+      brief: 'Blogging across dimensions, from self-reflexive word games to alien math.',
       outcome: 'This represents my full range of technical interests: from black holes to Black-Scholes, the philosophy of time to the inner life of bats, evolution, economics, emergence and enything by Euler, here pedagogical flourish and cross-domain insight are on full display. Read at the risk of blowing your gourd.',
       link: 'https://hapax.github.io/',
       tags: ['Research', 'Philosophy', 'Writing', 'Education']
