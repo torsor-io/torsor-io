@@ -64,10 +64,10 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'Cross-Domain Creative Work',
       organization: 'Independent',
       type: 'Creative',
-      brief: 'An interdimensional melting pot of ideas, from self-reflexive games to philosophy to hardcore math.',
-      outcome: 'Demonstrates capacity for interdisciplinary synthesis and pattern recognition across multiple modalities.',
+      brief: 'Blogging across dimensions, from self-reflexive games to the philosophy of time to the physics of the everday.',
+      outcome: 'This represents my full range of technical interests: from black holes to Black-Scholes, the philosophy of time to the inner life of bats, evolution, economics, emergence and enything by Euler, pedagogical flourish and cross-domain insight are on full display. Read at the risk of gourd explosion.',
       link: 'https://hapax.github.io/',
-      tags: ['Research', 'Art', 'Philosophy', 'Writing']
+      tags: ['Research', 'Philosophy', 'Writing', 'Education']
     }
   ];
 
@@ -188,15 +188,27 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             ))}
           </div>
 
-            {/* Contact Section */}
-            <div className={`text-med text-center ${subtleText}`}>
-              <a 
-                href="mailto:consulting@torsor.io" 
-                className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
-              >
-                <BeakerIcon className={`h-6 w-6 ${textColor}`} />
-          </a>
-          </div>
+          {/* Collaboration CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className={`mt-12 rounded-xl p-8 border ${borderColor} ${headerBg} backdrop-blur-sm text-center`}
+          >
+            <BeakerIcon className={`h-12 w-12 ${textColor} mx-auto mb-4`} />
+            <h3 className={`text-2xl font-bold ${textColor} mb-3`}>Interested in collaborating?</h3>
+            <p className={`${subtleText} mb-6 max-w-xl mx-auto`}>
+              I work on paradigm-shift research at the intersection of quantum computing, 
+              operator algebras, and fundamental physics. Open to exploring collaborations 
+              that value depth over speed.
+            </p>
+            <a 
+              href="mailto:david@torsor.io" 
+              className={`inline-block ${buttonBg} ${textColor} px-8 py-3 rounded-lg 
+                         transition-colors border ${borderColor} hover:scale-105 transform`}
+            >
+              Get in touch
+            </a>
           </motion.div>
         </main>
       </div>
