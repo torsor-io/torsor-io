@@ -99,4 +99,4 @@ const SoftwarePage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   );
 };
 
-export default ConsultingPage;
+export default SoftwarePage;
