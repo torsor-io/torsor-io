@@ -99,10 +99,9 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <h1 className={`text-4xl font-bold ${textColor} mb-4`}>Selected Work</h1>
+            <h2 className={`text-4xl font-bold ${textColor} mb-4`}>Selected Work</h2>
             <p className={`text-lg ${subtleText} max-w-2xl`}>
-              Research, software, and creative projects demonstrating capability range across 
-              quantum computing, education, and interdisciplinary synthesis.
+	  Sort of like a CV, but less boring!
             </p>
           </motion.div>
 
