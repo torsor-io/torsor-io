@@ -21,10 +21,10 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const selectedWork = [
     {
       id: 'qml-research',
-      title: 'Novel QML Architectures',
+      title: 'Novel QML Framework',
       organization: 'Xanadu Quantum Technologies',
       type: 'Research',
-      brief: 'Developed quantum machine.',
+      brief: 'Devised a new approach to quantum machine learning based on the Hidden Subgroup Problem.',
       outcome: 'Published research .',
       link: 'https://arxiv.org/abs/2409.00172', // Can add arxiv link if desired
       tags: ['Quantum Computing', 'Machine Learning', 'Research']
@@ -34,7 +34,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'Xanadu Quantum Codebook',
       organization: 'Xanadu Quantum Technologies',
       type: 'Curriculum',
-      brief: 'Co-developed interactive quantum computing curriculum combining tutorials, exercises, and hands-on coding.',
+      brief: 'Co-developed interactive, code-first textbook on quantum computing.',
       outcome: 'Used at 100+ universities worldwide. Accessible pedagogical resource for quantum computing.',
       link: 'https://pennylane.ai/codebook',
       tags: ['Education', 'Quantum Computing', 'Curriculum']
@@ -44,7 +44,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'University Course Planner',
       organization: 'University of Melbourne',
       type: 'Software',
-      brief: 'Developed prototype for student-facing course planner at the University of Melbourne.',
+      brief: 'Built prototype for student-facing course planner at the University of Melbourne.',
       outcome: 'Serves thousands of incoming students annually. User-centered design meeting complex institutional requirements.',
       link: 'https://students.unimelb.edu.au/your-course/manage-your-course/planning-your-course-and-subjects/faculty-course-planning-resources/my-course-planner',
       tags: ['Software', 'Education', 'UX Design']
@@ -152,7 +152,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                       className="mt-4 pt-4 border-t border-opacity-30"
                       style={{ borderColor: isDark ? 'rgb(148 163 184)' : 'rgb(120 113 108)' }}
                     >
-                      <p className={`${textColor} font-medium mb-2`}>Outcome:</p>
+//                      <p className={`${textColor} font-medium mb-2`}>Outcome:</p>
                       <p className={`${subtleText} mb-4`}>{work.outcome}</p>
                       
                       <div className="flex flex-wrap gap-2 mb-4">
