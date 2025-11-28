@@ -54,8 +54,8 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'Physics Education & Outreach',
       organization: 'UBC Physics Circle, VISST, Teen Nerd Nite',
       type: 'Outreach',
-      brief: 'Created and delivered physics programs for young scientists, including the UBC Physics Circle, a summer camp at VISST, and talks at Teen Nerd Nite.',
-      outcome: 'The goal is to make frontier physics accessible—from black holes and quantum gravity to estimating the number of loonies stuck in couches across Canada—using  elegant shortcuts, simple calculations, and visual intuition. Reached hundreds of students across the lower mainland.',
+      brief: 'Created and delivered physics programs for young scientists.',
+      outcome: 'The goal: to make frontier physics accessible—from black holes and quantum gravity to estimating the number of loonies stuck in couches across Canada—using  elegant shortcuts, simple calculations, and visual intuition. The outlets: the UBC Physics Circle (which I ran from 2019-20), a summer camp on black holes at the Vancouver Independent School of Science and Technology, and talks at Teen Nerd Nite. Reached hundreds of students across the lower mainland.',
       link: 'https://hapax.github.io/outreach/',
       tags: ['Education', 'Outreach', 'Physics']
     },
