@@ -24,8 +24,8 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'Novel QML Architectures',
       organization: 'Xanadu Quantum Technologies',
       type: 'Research',
-      brief: 'Developed quantum machine learning approaches for financial outlier detection, exploring four distinct architectures anchored in the Hidden Subgroup Problem and Fourier analysis.',
-      outcome: 'Published research demonstrating quantum advantage for specific pattern recognition tasks, completed in 3 months.',
+      brief: 'Developed quantum machine.',
+      outcome: 'Published research .',
       link: null, // Can add arxiv link if desired
       tags: ['Quantum Computing', 'Machine Learning', 'Research']
     },
