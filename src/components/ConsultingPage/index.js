@@ -25,7 +25,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       organization: 'Xanadu Quantum Technologies',
       type: 'Research',
       brief: 'Devised a new approach to quantum machine learning based on the Hidden Subgroup Problem.',
-      outcome: 'The Hidden Subgroup Problem is the simplest and most beautiful example of exponential quantum advantage, and generalizes Shor\'s famous algorithm. In this project, we found a way to ground concrete quantum machine learning algorithms in hidden subgroup inference, for tasks like learning the structure of variation in a dataset or representations of symmetry.',
+      outcome: 'The Hidden Subgroup Problem is the simplest and most beautiful example of exponential quantum advantage, and generalizes Shor\'s famous algorithm. In this project, we built concrete quantum machine learning algorithms using hidden subgroup inference, with applications to tasks like learning the structure of variation in a dataset or representations of symmetry.',
       link: 'https://arxiv.org/abs/2409.00172', // Can add arxiv link if desired
       tags: ['Quantum Computing', 'Machine Learning', 'Research']
     },
