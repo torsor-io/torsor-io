@@ -188,31 +188,20 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             ))}
           </div>
 
-          {/* Collaboration CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className={`mt-12 rounded-xl p-8 border ${borderColor} ${headerBg} backdrop-blur-sm text-center`}
-          >
-            <BeakerIcon className={`h-12 w-12 ${textColor} mx-auto mb-4`} />
-            <h3 className={`text-2xl font-bold ${textColor} mb-3`}>Interested in collaborating?</h3>
-            <p className={`${subtleText} mb-6 max-w-xl mx-auto`}>
-              I work on paradigm-shift research at the intersection of quantum computing, 
-              operator algebras, and fundamental physics. Open to exploring collaborations 
-              that value depth over speed.
-            </p>
-            <a 
-              href="mailto:david@torsor.io" 
-              className={`inline-block ${buttonBg} ${textColor} px-8 py-3 rounded-lg 
-                         transition-colors border ${borderColor} hover:scale-105 transform`}
-            >
-              Get in touch
-            </a>
+            {/* Contact Section */}
+            <div className={`text-med text-center ${subtleText}`}>
+              <a 
+                href="mailto:consulting@torsor.io" 
+                className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+              >
+                <CommandLineIcon className={`h-6 w-6 ${textColor}`} />
+          </a>
+          </div>
           </motion.div>
         </main>
       </div>
-    </div>
+	  </div>
+	  </div>
   );
 };
 
