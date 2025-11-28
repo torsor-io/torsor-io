@@ -101,7 +101,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           >
             <h2 className={`text-4xl font-bold ${textColor} mb-4`}>Selected Work</h2>
             <p className={`text-lg ${subtleText} max-w-2xl`}>
-	  Sort of like a CV, but less boring!
+	  Here are a few projects I\'ve worked on in recent years. Open to collaborations!
             </p>
           </motion.div>
 
