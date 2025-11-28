@@ -189,7 +189,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           </div>
 
         {/* Collaboration CTA */}
-            <div className={`text-med text-center ${subtleText}`}>
+            <div className={`text-med text-center ${subtleText} mt-12`}>
               <a 
                 href="mailto:consulting@torsor.io" 
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
