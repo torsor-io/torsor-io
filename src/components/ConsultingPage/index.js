@@ -33,7 +33,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       id: 'quantum-codebook',
       title: 'Xanadu Quantum Codebook',
       organization: 'Xanadu Quantum Technologies',
-      type: 'Education',
+      type: 'Curriculum',
       brief: 'Co-developed interactive quantum computing curriculum combining tutorials, exercises, and hands-on coding.',
       outcome: 'Used at 100+ universities worldwide. Accessible pedagogical resource for quantum computing.',
       link: 'https://pennylane.ai/codebook',
@@ -44,7 +44,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'University Course Planner',
       organization: 'University of Melbourne',
       type: 'Software',
-      brief: 'Developed student-facing application for course planning and subject selection.',
+      brief: 'Developed prototype for student-facing course planner at the University of Melbourne.',
       outcome: 'Serves thousands of incoming students annually. User-centered design meeting complex institutional requirements.',
       link: 'https://students.unimelb.edu.au/your-course/manage-your-course/planning-your-course-and-subjects/faculty-course-planning-resources/my-course-planner',
       tags: ['Software', 'Education', 'UX Design']
