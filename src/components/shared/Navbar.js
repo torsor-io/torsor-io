@@ -52,7 +52,7 @@ const Navbar = ({
             <a href="#blog" className={`${navText} hover:opacity-50`}>Blog</a>
             <a href="#research" className={`${navText} hover:opacity-50`}>Research</a>
           <a href="#software" className={`${navText} hover:opacity-50`}>Software</a>
-          <a href="#works" className={`${navText} hover:opacity-50`}>Selected Work</a>
+          <a href="#works" className={`${navText} hover:opacity-50`}>Works</a>
             <a href="#community" className={`${navText} hover:opacity-50`}>Community</a>
             <a href="#team" className={`${navText} hover:opacity-50`}>Team</a>
           </div>
