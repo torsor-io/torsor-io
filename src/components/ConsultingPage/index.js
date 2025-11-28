@@ -100,7 +100,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             className="mb-12"
           >
             <h2 className={`text-4xl font-bold ${textColor} mb-4`}>Selected Work</h2>
-            <p className={`text-lg ${subtleText} max-w-2xl`}>
+            <p className={`text-lg ${subtleText}`}>
 	  Here are a few projects I've worked on in recent years. I now work at the intersection of quantum software, 
       operator algebras, and fundamental physics. Open to exploring collaborations the value doing something genuinely different, whether in research, software development or education.
             </p>
