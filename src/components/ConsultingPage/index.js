@@ -45,7 +45,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       organization: 'University of Melbourne',
       type: 'Software',
       brief: 'Built prototype for student-facing course planner at the University of Melbourne.',
-      outcome: 'Serves thousands of incoming students annually. User-centered design meeting complex institutional requirements.',
+      outcome: 'To actually build a realistic course plan, you need to take degree requirements into account, such as total credit and major structure, as well individual course prerequisites, scheduling, and availability. Students may also want to explore where courses lead ("post-requisites"), and need an intuitive interface that lets them iteratively plan. The course planner provides all this and more, with some fun data structures I developed under the hood.',
       link: 'https://students.unimelb.edu.au/your-course/manage-your-course/planning-your-course-and-subjects/faculty-course-planning-resources/my-course-planner',
       tags: ['Software', 'Education', 'UX Design']
     },
