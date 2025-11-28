@@ -21,7 +21,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const selectedWork = [
     {
       id: 'qml-research',
-      title: 'Novel QML Framework',
+      title: 'QML research',
       organization: 'Xanadu Quantum Technologies',
       type: 'Research',
       brief: 'Devised a new approach to quantum machine learning based on the Hidden Subgroup Problem.',
@@ -54,8 +54,8 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'Physics Education & Outreach',
       organization: 'UBC Physics Circle, VISST, Teen Nerd Nite',
       type: 'Outreach',
-      brief: 'Created and delivered physics programs for young scientists, from weekly problem-solving sessions to summer camps on black holes.',
-      outcome: 'Reached hundreds of students. Made frontier physics accessible through elegant shortcuts and visual intuition.',
+      brief: 'Created and delivered physics programs for young scientists, including the UBC Physics Circle, a summer camp at VISST, and talks at Teen Nerd Nite.',
+      outcome: 'The goal is to make frontier physics accessible—from black holes and quantum gravity to estimating the number of loonies stuck in couches across Canada—using  elegant shortcuts, simple calculations, and visual intuition. Reached hundreds of students across the lower mainland.',
       link: 'https://hapax.github.io/outreach/',
       tags: ['Education', 'Outreach', 'Physics']
     },
