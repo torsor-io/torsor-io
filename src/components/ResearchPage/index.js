@@ -67,9 +67,9 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-12"
+            className="mb-2"
           >
-            <p className={`text-lg ${subtleText}`}>
+            <p className={`${subtleText}`}>
 	  Recent research projects:
             </p>
           </motion.div>
