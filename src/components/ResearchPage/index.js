@@ -1,11 +1,13 @@
-// src/components/ResearchPage/index.js
+import { CommandLineIcon } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../shared/Navbar';
+import { useState } from 'react';
 
-const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
+const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
+  const [expandedCase, setExpandedCase] = useState(null);
 
-      // Theme variables (matching your AboutPage)
+  // Theme variables
   const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
   const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
   const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
@@ -13,142 +15,163 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const borderColor = isDark ? 'border-slate-800' : 'border-stone-300';
   const buttonBg = isDark ? 'bg-slate-800/50 hover:bg-slate-700/50' : 'bg-orange-100/50 hover:bg-orange-200';
   const gradientBg = isDark 
-  ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
-	: 'bg-gradient-to-b from-amber-50 to-amber-100';
-    
+    ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
+    : 'bg-gradient-to-b from-amber-50 to-amber-100';
+
+  const selectedWork = [
+    {
+      id: 'SIQP1',
+      title: 'The Structure and Interpretation of Quantum Programms I: Foundations',
+      organization: 'David Wakeham',
+      type: 'Quantum',
+      brief: 'We propose a new mathematical foundation for quantum programming, based on algebra rather than Hilbert space.',
+      outcome: 'Qubits are a great way to build a quantum computer, but a limited way to program one. We replace the usual "states and gates" formalism with a "props and ops" (propositions and operators) model in which (a) the C*-algebra of observables supplies the syntax; (b) states, viewed as linear functionals, give the semantics; and (c) a novel diagrammatic calculus unifies the two. The first part develops the basic objects of the framework, encoding consistent patterns of operator correlation, recovering Hilbert space via the GNS construction, and re-deriving the Bloch sphere as the set of all consistent correlations of operators in the Pauli algebra.
+We then turn to intervention, showing how measurement modifies state, proving an operator-algebraic version of the Knill-Laflamme conditions, and expressing stabilizer codes with the same diagrammatic machinery. This provides a concise, representation-agnostic account of quantum error correction. The result is a self-contained foundation in which C*-algebras, and their dual Hilbert spaces, offer a rich and universal substrate for quantum programming; forthcoming papers will build a high-level language and quantum software applications on top of this substrate.',
+      link: 'https://arxiv.org/abs/2509.04527'
+	tags: ['Quantum Computing', 'Programming', 'Algebra', 'Pedagogy']
+    },
+    {
+      id: 'rocks',
+      title: 'A Short History of Rocks: or, How to Invent Quantum Computing',
+      organization: 'David Wakeham',
+      type: 'Quantum',
+      brief: 'An instructive fable consisting of (1) an account of digital logic from the Pleistocene to WWII, (2) an alternate timeline in which von Neumann invents quantum computing — in 1946.',
+      outcome: "This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, the introduction of reversible circuits, and Richard Feynman's allied proposal for quantum computing. We argue that Feynman's state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing — in 1946. Feynman suggested we 'quantize' state, and turn classically reversible circuits into quantum reversible, unitary ones. In contrast, we speculate that von Neumann, with his background in functional analysis and quantum logic, would seek to 'quantize' the operators of Boolean algebra, and with tools made available in 1946 could successfully do so. This leads to a simpler, more flexible circuit calculus and beautiful parallels to classical logic, as we detail in a forthcoming companion paper.",
+      link: 'https://arxiv.org/abs/2503.00005',
+	tags: ['Quantum Computing', 'Programming', 'Logic', 'Creative']
+    }
+  ];
+
   return (
     <div className={`min-h-screen transition-colors`}>
-      	{/* Keep wave fixed */}
-	    <div className="fixed top-0 left-0 w-full h-full z-[-5] opacity-50">
-	    <WaveBackground isDark={isDark} waveState={waveState} />
-	  </div>
+      <div className="fixed top-0 left-0 w-full h-full z-[-5] opacity-50">
+        <WaveBackground isDark={isDark} waveState={waveState} />
+      </div>
 
       <div className={`fixed top-0 left-0 w-full h-full z-[-10] ${gradientBg} opacity-100 transition-colors`} />
 
-	  <div className="relative min-h-screen z-0">
-      {/* Navbar */}
-      <Navbar 
-        isDark={isDark}
-        setIsDark={setIsDark}
-        waveState={waveState}
-        setWaveState={setWaveState}
-        headerBg={headerBg}
-        borderColor={borderColor}
-        navText={navText}
-        buttonBg={buttonBg}
-      />
+      <div className="relative min-h-screen z-0">
+        <Navbar 
+          isDark={isDark}
+          setIsDark={setIsDark}
+          waveState={waveState}
+          setWaveState={setWaveState}
+          headerBg={headerBg}
+          borderColor={borderColor}
+          navText={navText}
+          buttonBg={buttonBg}
+        />
 
-        {/* Main Content */}
         <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-12"
+            transition={{ duration: 0.8 }}
+            className="mb-12"
           >
-            {/* Paper Showcase */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
-            >
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Paper Image */}
-          <div className="aspect-3/2 w-md overflow-hidden">
-                  <img
-                    src="/assets/rocks/rocks.png"
-                    alt="Paper visualization"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Paper Details */}
-                <div className="space-y-4">
-                  <h2 className={`text-2xl font-bold ${textColor}`}>
-          Quantum programming
-      </h2>
-                  <p className={`${subtleText}`}>
-          {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
-      Quantum hardware is getting bigger, less error-prone and more performant every month. But in the 30 years since Shor published his method for factoring numbers we've seen only a handful of new algorithmic primitives; relatedly, coding on quantum computers is stalled at the machine-code level of circuit design. At Torsor, we're building a fundamentally different, high-level way to do quantum programming. See <a href="https://torsor.io/#community" className={`font-comfortaa ${textColor} mb-3`}>yaw</a> for more.
-	  </p>
-	  <div className={`border-t ${borderColor} mb-4 mt-10`}></div>
-<ul className="space-y-3">
-    <li className={`${subtleText}`}>
-      <a 
-        href="https://arxiv.org/abs/2509.04527" 
-        className={`hover:underline`}
-      >
-          • “The Structure and Interpretation of Quantum Programs I: Foundations”
-      </a> (Sep 2025). arXiv: 2509.04527.
-	  </li>
-	  <li className={`${subtleText}`}>
-      <a 
-        href="https://arxiv.org/abs/2503.00005" 
-        className={`hover:underline`}
-      >
-          • “A Short History of Rocks: or, How to Invent Quantum Computing,”
-      </a> (Feb 2025). arXiv: 2503.00005.
-	  </li>
-<li className={`${subtleText}`}>
-      <a 
-        href="/assets/qdays-poster.pdf" 
-        className={`hover:underline`}
-      >
-          • “A New Foundation for Quantum Programming,”
-      </a> (Feb 2025). Poster, <a href="https://2025.quantumdays.ca/"><i>Quantum Days 2025</i></a>.
-	  </li>
-    {/* Add more papers as needed */}
-  </ul>
-                </div>
-              </div>
-            </motion.div>
-	  
-            {/* Paper Showcase */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
-            >
-              <div className="grid md:grid-cols-2 gap-6">
-                
-                {/* Paper Details */}
-                <div className="space-y-4">
-                  <h2 className={`text-2xl font-bold ${textColor}`}>
-          Logic and foundations
-      </h2>
-                  <p className={`${subtleText} mb-4`}>
-	  We believe that theory and practice go hand in hand. Our applied work on quantum programming is complemented by an interest in foundational issues and approaches, such as logic, type theory, and algebraic methods. Currently, our foundational work focuses on dualities and type theory for distributed processes.
-	  </p>
-	  <div className={`border-t ${borderColor} mb-4 mt-10`}></div>
-<ul className="space-y-3">
-    <li className={`${subtleText}`}>
-      <a 
-        href="/assets/PI-talk" 
-        className={`hover:underline`}
-      >
-          • “An algebraic foundation for quantum programming,”</a> (Feb 2025). Seminar, <i>Perimeter Institute</i>.
-	  </li>
-    {/* Add more papers as needed */}
-  </ul>
-          </div>
-	                  {/* Paper Image */}
-          <div className="aspect-3/2 w-xs overflow-hidden">
-                  <img
-                    src="/assets/rocks/isbell.png"
-                    alt="Isbell duality"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </motion.div>
-      
+            <h1 className={`font-bold ${textColor} mb-4`}>Past Works</h1>
+            <p className={`text-lg ${subtleText}`}>
+	  Here are a few projects from recent years (not under the Torsor moniker). We're open to exploring collaborations that aim to do something genuinely different, whether in research, software development or education.
+            </p>
           </motion.div>
+
+          {/* Work Items */}
+          <div className="space-y-4">
+            {selectedWork.map((work, index) => (
+              <motion.div
+                key={work.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm
+                           cursor-pointer transition-all hover:shadow-lg`}
+                onClick={() => setExpandedCase(expandedCase === work.id ? null : work.id)}
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className={`text-xl font-bold ${textColor}`}>{work.title}</h3>
+                      <span className={`px-2 py-1 text-xs rounded ${
+                        isDark ? 'bg-slate-700 text-slate-300' : 'bg-orange-100 text-stone-700'
+                      }`}>
+                        {work.type}
+                      </span>
+                    </div>
+                    <p className={`text-sm ${subtleText} mb-2`}>{work.organization}</p>
+                    <p className={`${subtleText}`}>{work.brief}</p>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: expandedCase === work.id ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={`ml-4 ${textColor}`}
+                  >
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </motion.div>
+                </div>
+
+                <AnimatePresence>
+                  {expandedCase === work.id && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="mt-4 pt-4 border-t border-opacity-30"
+                      style={{ borderColor: isDark ? 'rgb(148 163 184)' : 'rgb(120 113 108)' }}
+                    >
+			  {/*                      <p className={`${textColor} font-medium mb-2`}>Outcome:</p>*/}
+                      <p className={`${subtleText} mb-4`}>{work.outcome}</p>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {work.tags.map(tag => (
+                          <span
+                            key={tag}
+                            className={`px-3 py-1 text-sm rounded-full ${
+                              isDark ? 'bg-slate-800 text-slate-300' : 'bg-orange-50 text-stone-700'
+                            }`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {work.link && (
+                        <a
+                          href={work.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-2 ${textColor} hover:underline`}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <span>View project</span>
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+
+        {/* Collaboration CTA */}
+            <div className={`text-med text-center ${subtleText} mt-12`}>
+              <a 
+                href="https://github.com/torsor-io" 
+                className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
+              >
+                <CommandLineIcon className={`h-6 w-6 ${textColor}`} />
+          </a>
+          </div>
         </main>
       </div>
     </div>
   );
 };
 
-export default ResearchPage;
+export default SelectedWorkPage;

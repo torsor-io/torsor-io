@@ -1,0 +1,154 @@
+// src/components/ResearchPage/index.js
+import WaveBackground from '../shared/WaveBackground';
+import { motion } from 'framer-motion';
+import Navbar from '../shared/Navbar';
+
+const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
+
+      // Theme variables (matching your AboutPage)
+  const textColor = isDark ? 'text-slate-100' : 'text-stone-600';
+  const subtleText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
+  const navText = isDark ? 'text-slate-300 font-comm' : 'text-stone-700 font-comm';
+  const headerBg = isDark ? 'bg-slate-900/80' : 'bg-amber-50/70';
+  const borderColor = isDark ? 'border-slate-800' : 'border-stone-300';
+  const buttonBg = isDark ? 'bg-slate-800/50 hover:bg-slate-700/50' : 'bg-orange-100/50 hover:bg-orange-200';
+  const gradientBg = isDark 
+  ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
+	: 'bg-gradient-to-b from-amber-50 to-amber-100';
+    
+  return (
+    <div className={`min-h-screen transition-colors`}>
+      	{/* Keep wave fixed */}
+	    <div className="fixed top-0 left-0 w-full h-full z-[-5] opacity-50">
+	    <WaveBackground isDark={isDark} waveState={waveState} />
+	  </div>
+
+      <div className={`fixed top-0 left-0 w-full h-full z-[-10] ${gradientBg} opacity-100 transition-colors`} />
+
+	  <div className="relative min-h-screen z-0">
+      {/* Navbar */}
+      <Navbar 
+        isDark={isDark}
+        setIsDark={setIsDark}
+        waveState={waveState}
+        setWaveState={setWaveState}
+        headerBg={headerBg}
+        borderColor={borderColor}
+        navText={navText}
+        buttonBg={buttonBg}
+      />
+
+        {/* Main Content */}
+        <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-12"
+          >
+            {/* Paper Showcase */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Paper Image */}
+          <div className="aspect-3/2 w-md overflow-hidden">
+                  <img
+                    src="/assets/rocks/rocks.png"
+                    alt="Paper visualization"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Paper Details */}
+                <div className="space-y-4">
+                  <h2 className={`text-2xl font-bold ${textColor}`}>
+          Quantum programming
+      </h2>
+                  <p className={`${subtleText}`}>
+          {/*This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, reversible circuits, and Richard Feynman’s allied proposal for quantum computing. We argue that Feynman’s state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing in 1946. */}
+      Quantum hardware is getting bigger, less error-prone and more performant every month. But in the 30 years since Shor published his method for factoring numbers we've seen only a handful of new algorithmic primitives; relatedly, coding on quantum computers is stalled at the machine-code level of circuit design. At Torsor, we're building a fundamentally different, high-level way to do quantum programming. See <a href="https://torsor.io/#community" className={`font-comfortaa ${textColor} mb-3`}>yaw</a> for more.
+	  </p>
+	  <div className={`border-t ${borderColor} mb-4 mt-10`}></div>
+<ul className="space-y-3">
+    <li className={`${subtleText}`}>
+      <a 
+        href="https://arxiv.org/abs/2509.04527" 
+        className={`hover:underline`}
+      >
+          • “The Structure and Interpretation of Quantum Programs I: Foundations”
+      </a> (Sep 2025). arXiv: 2509.04527.
+	  </li>
+	  <li className={`${subtleText}`}>
+      <a 
+        href="https://arxiv.org/abs/2503.00005" 
+        className={`hover:underline`}
+      >
+          • “A Short History of Rocks: or, How to Invent Quantum Computing,”
+      </a> (Feb 2025). arXiv: 2503.00005.
+	  </li>
+<li className={`${subtleText}`}>
+      <a 
+        href="/assets/qdays-poster.pdf" 
+        className={`hover:underline`}
+      >
+          • “A New Foundation for Quantum Programming,”
+      </a> (Feb 2025). Poster, <a href="https://2025.quantumdays.ca/"><i>Quantum Days 2025</i></a>.
+	  </li>
+    {/* Add more papers as needed */}
+  </ul>
+                </div>
+              </div>
+            </motion.div>
+	  
+            {/* Paper Showcase */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className={`rounded-xl p-6 border ${borderColor} ${headerBg} backdrop-blur-sm`}
+            >
+              <div className="grid md:grid-cols-2 gap-6">
+                
+                {/* Paper Details */}
+                <div className="space-y-4">
+                  <h2 className={`text-2xl font-bold ${textColor}`}>
+          Logic and foundations
+      </h2>
+                  <p className={`${subtleText} mb-4`}>
+	  We believe that theory and practice go hand in hand. Our applied work on quantum programming is complemented by an interest in foundational issues and approaches, such as logic, type theory, and algebraic methods. Currently, our foundational work focuses on dualities and type theory for distributed processes.
+	  </p>
+	  <div className={`border-t ${borderColor} mb-4 mt-10`}></div>
+<ul className="space-y-3">
+    <li className={`${subtleText}`}>
+      <a 
+        href="/assets/PI-talk" 
+        className={`hover:underline`}
+      >
+          • “An algebraic foundation for quantum programming,”</a> (Feb 2025). Seminar, <i>Perimeter Institute</i>.
+	  </li>
+    {/* Add more papers as needed */}
+  </ul>
+          </div>
+	                  {/* Paper Image */}
+          <div className="aspect-3/2 w-xs overflow-hidden">
+                  <img
+                    src="/assets/rocks/isbell.png"
+                    alt="Isbell duality"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+      
+          </motion.div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default ResearchPage;
