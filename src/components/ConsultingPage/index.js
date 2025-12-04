@@ -99,6 +99,11 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             transition={{ duration: 0.8 }}
             className="mb-6"
           >
+	     <img 
+      src="/assets/rocks/rocks.png" 
+      alt="Research header"
+      className="w-full h-64 object-cover rounded-xl"
+	  />
             <p className={`${subtleText}`}>
 	  Selected recent works (not under the Torsor moniker):
             </p>
