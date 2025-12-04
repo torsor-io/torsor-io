@@ -74,9 +74,6 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       alt="Research header"
       className="h-90 object-cover rounded-xl mx-auto"
 	  />
-            <p className={`${subtleText}`}>
-	  Recent research projects:
-            </p>
           </motion.div>
 
           {/* Work Items */}

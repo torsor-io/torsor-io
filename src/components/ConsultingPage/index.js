@@ -104,9 +104,6 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       alt="Research header"
       className="w-96 mb-4 h-99 object-cover rounded-xl mx-auto"
 	  />
-            <p className={`${subtleText}`}>
-	  Selected ambient works (not under the Torsor moniker). Open to new collaborations!
-            </p>
           </motion.div>
 
           {/* Work Items */}
