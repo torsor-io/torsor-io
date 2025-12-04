@@ -25,7 +25,22 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       organization: 'Torsor Labs',
       type: 'Quantum',
       brief: 'Tutorials and other documentation for yaw, an algebraic quantum language written in Python.',
-      outcome: 'Qubits are a great way to build a quantum computer, but a limited way to program one. We replace the usual "states and gates" formalism with a "props and ops" (propositions and operators) model in which (a) the C*-algebra of observables supplies the syntax; (b) states, viewed as linear functionals, give the semantics; and (c) a novel diagrammatic calculus unifies the two.',
+      outcome: (
+      <ul className="list-disc list-inside space-y-2">
+        <li>
+          <a href="https://github.com/..." className="underline hover:opacity-70">Getting Started</a>
+          {' — '} A beginner's guide to installing and running yaw.
+        </li>
+        <li>
+          <a href="https://..." className="underline hover:opacity-70">Teleportation Tutorial</a>
+          {' — '} Implementing quantum teleportation in yaw.
+        </li>
+        <li>
+          <a href="https://..." className="underline hover:opacity-70">API Reference</a>
+          {' — '} Complete documentation of yaw's core functions.
+        </li>
+      </ul>
+    ),
 	link: 'https://arxiv.org/abs/2509.04527',
 	tags: ['Quantum Computing', 'Programming', 'Algebra', 'Pedagogy']
     },
@@ -35,7 +50,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       organization: 'Torsor Labs',
       type: 'Various',
       brief: 'A library of friendly, unpolished notes on various topics.',
-      outcome: "This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, the introduction of reversible circuits, and Richard Feynman's allied proposal for quantum computing. We argue that Feynman's state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing — in 1946.",
+      outcome: "<LIST OF RESOURCES HERE>",
       link: 'https://github.com/caedrix/yaw',
 	tags: ['Quantum Computing', 'Programming', 'Logic', 'Creative']
     }
