@@ -105,7 +105,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       className="w-96 mb-4 h-99 object-cover rounded-xl mx-auto"
 	  />
             <p className={`${subtleText}`}>
-	  Selected recent works (not under the Torsor moniker):
+	  Selected ambient works (not under the Torsor moniker). Open to new collaborations!
             </p>
           </motion.div>
 
