@@ -20,9 +20,9 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 
   const community = [
     {
-      id: 'SIQP1',
+      id: 'yaw: documentation for an algebraic quantum language',
       title: 'The Structure and Interpretation of Quantum Programs I',
-      organization: 'David Wakeham',
+      organization: 'Torsor Labs',
       type: 'Quantum',
       brief: 'We propose a new foundation for quantum programming, based on algebra rather than Hilbert space.',
       outcome: 'Qubits are a great way to build a quantum computer, but a limited way to program one. We replace the usual "states and gates" formalism with a "props and ops" (propositions and operators) model in which (a) the C*-algebra of observables supplies the syntax; (b) states, viewed as linear functionals, give the semantics; and (c) a novel diagrammatic calculus unifies the two.',
@@ -30,10 +30,10 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	tags: ['Quantum Computing', 'Programming', 'Algebra', 'Pedagogy']
     },
     {
-      id: 'rocks',
-      title: 'A Short History of Rocks: or, How to Invent Quantum Computing',
-      organization: 'David Wakeham',
-      type: 'Quantum',
+      id: 'P^4',
+      title: 'P⁴: Pedagogical Pre-PrePrints',
+      organization: 'Torsor Labs',
+      type: 'Various',
       brief: 'An instructive fable consisting of (1) an account of digital logic from the Pleistocene to WWII, (2) an alternate timeline in which von Neumann invents quantum computing.',
       outcome: "This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, the introduction of reversible circuits, and Richard Feynman's allied proposal for quantum computing. We argue that Feynman's state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing — in 1946.",
       link: 'https://arxiv.org/abs/2503.00005',
