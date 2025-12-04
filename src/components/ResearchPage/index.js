@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../shared/Navbar';
 import { useState } from 'react';
 
-const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
+const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const [expandedCase, setExpandedCase] = useState(null);
 
   // Theme variables
@@ -18,7 +18,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
     ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
     : 'bg-gradient-to-b from-amber-50 to-amber-100';
 
-  const selectedWork = [
+  const research = [
     {
       id: 'SIQP1',
       title: 'The Structure and Interpretation of Quantum Programms I: Foundations',
@@ -78,7 +78,7 @@ We then turn to intervention, showing how measurement modifies state, proving an
 
           {/* Work Items */}
           <div className="space-y-4">
-            {selectedWork.map((work, index) => (
+            {research.map((work, index) => (
               <motion.div
                 key={work.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -174,4 +174,4 @@ We then turn to intervention, showing how measurement modifies state, proving an
   );
 };
 
-export default SelectedWorkPage;
+export default ResearchPage;
