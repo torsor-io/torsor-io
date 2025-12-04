@@ -100,7 +100,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             className="mb-2"
           >
             <p className={`${subtleText}`}>
-	  Here are a few projects from recent years (not under the Torsor moniker). We're open to exploring collaborations that aim to do something genuinely different, whether in research, software development or education.
+	  Here are a few projects from recent years (not under the Torsor moniker). We're open to exploring collaborations in research, software development or education.
             </p>
           </motion.div>
 
