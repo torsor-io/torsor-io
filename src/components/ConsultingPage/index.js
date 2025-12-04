@@ -101,7 +101,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           >
 	     <img 
       src="/assets/lumu.png" 
-      alt="Research header"
+      alt="Collab header"
       className="w-96 mb-4 h-99 object-cover rounded-xl mx-auto"
 	  />
           </motion.div>
