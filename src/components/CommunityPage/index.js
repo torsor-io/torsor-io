@@ -50,7 +50,18 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       organization: 'Torsor Labs',
       type: 'Various',
       brief: 'A library of friendly, unpolished notes on various topics.',
-      outcome: "<LIST OF RESOURCES HERE>",
+      outcome: (
+      <ul className="list-disc list-inside space-y-2">
+        <li>
+          <a href="https://..." className="underline hover:opacity-70">Duality from Stone to Isbell</a>
+          {' — '} A tour through duality theorems in mathematics.
+        </li>
+        <li>
+          <a href="https://..." className="underline hover:opacity-70">A Rosetta Stone for C*-algebras</a>
+          {' — '} Connecting different perspectives on operator algebras.
+        </li>
+      </ul>
+    ),
       link: 'https://github.com/caedrix/yaw',
 	tags: ['Quantum Computing', 'Programming', 'Logic', 'Creative']
     }
