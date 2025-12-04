@@ -69,7 +69,6 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <h1 className={`font-bold ${textColor} mb-4`}>Research</h1>
             <p className={`text-lg ${subtleText}`}>
 	  Recent research projects:
             </p>
