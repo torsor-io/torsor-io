@@ -72,7 +72,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	     <img 
       src="/assets/community/hack.png" 
       alt="Community header"
-      className="h-96 object-cover rounded-xl mx-auto"
+      className="h-80 object-cover rounded-xl mx-auto"
 	  />
           </motion.div>
 
