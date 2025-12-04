@@ -72,7 +72,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	     <img 
       src="/assets/rocks/rocks.png" 
       alt="Research header"
-      className="h-90 object-cover rounded-xl mx-auto"
+      className="h-96 object-cover rounded-xl mx-auto"
 	  />
           </motion.div>
 
