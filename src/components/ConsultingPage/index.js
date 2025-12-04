@@ -100,7 +100,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             className="mb-6"
           >
 	     <img 
-      src="/assets/rocks/rocks.png" 
+      src="/assets/lumu.png" 
       alt="Research header"
       className="w-full h-64 object-cover rounded-xl"
 	  />
