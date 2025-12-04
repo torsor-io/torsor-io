@@ -25,7 +25,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       organization: 'David Wakeham',
       type: 'Quantum',
       brief: 'We propose a new foundation for quantum programming, based on algebra rather than Hilbert space.',
-      outcome: 'Qubits are a great way to build a quantum computer, but a limited way to program one. We replace the usual "states and gates" formalism with a "props and ops" (propositions and operators) model in which (a) the C*-algebra of observables supplies the syntax; (b) states, viewed as linear functionals, give the semantics; and (c) a novel diagrammatic calculus unifies the two. The first part develops the basic objects of the framework, encoding consistent patterns of operator correlation, recovering Hilbert space via the GNS construction, and re-deriving the Bloch sphere as the set of all consistent correlations of operators in the Pauli algebra. We then turn to intervention, showing how measurement modifies state, proving an operator-algebraic version of the Knill-Laflamme conditions, and expressing stabilizer codes with the same diagrammatic machinery.',
+      outcome: 'Qubits are a great way to build a quantum computer, but a limited way to program one. We replace the usual "states and gates" formalism with a "props and ops" (propositions and operators) model in which (a) the C*-algebra of observables supplies the syntax; (b) states, viewed as linear functionals, give the semantics; and (c) a novel diagrammatic calculus unifies the two.',
 	link: 'https://arxiv.org/abs/2509.04527',
 	tags: ['Quantum Computing', 'Programming', 'Algebra', 'Pedagogy']
     },
