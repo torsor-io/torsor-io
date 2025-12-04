@@ -69,9 +69,9 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <h1 className={`font-bold ${textColor} mb-4`}>Past Works</h1>
+            <h1 className={`font-bold ${textColor} mb-4`}>Research</h1>
             <p className={`text-lg ${subtleText}`}>
-	  Here are a few projects from recent years (not under the Torsor moniker). We're open to exploring collaborations that aim to do something genuinely different, whether in research, software development or education.
+	  Recent research projects:
             </p>
           </motion.div>
 
