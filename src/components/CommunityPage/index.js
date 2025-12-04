@@ -21,7 +21,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const community = [
     {
       id: 'yaw',
-      title: 'yaw: documentation for an algebraic quantum language',
+      title: 'yaw: an algebraic quantum language',
       organization: 'Torsor Labs',
       type: 'Quantum',
       brief: 'We propose a new foundation for quantum programming, based on algebra rather than Hilbert space.',
