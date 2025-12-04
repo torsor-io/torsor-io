@@ -21,7 +21,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   const research = [
     {
       id: 'SIQP1',
-      title: 'The Structure and Interpretation of Quantum Programm I',
+      title: 'The Structure and Interpretation of Quantum Program I',
       organization: 'David Wakeham',
       type: 'Quantum',
       brief: 'We propose a new foundation for quantum programming, based on algebra rather than Hilbert space.',
