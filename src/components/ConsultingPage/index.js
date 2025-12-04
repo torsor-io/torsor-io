@@ -102,7 +102,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	     <img 
       src="/assets/lumu.png" 
       alt="Research header"
-      className="w-full mb-4 h-64 object-cover rounded-xl"
+      className="w-64 mb-4 h-66 object-cover rounded-xl"
 	  />
             <p className={`${subtleText}`}>
 	  Selected recent works (not under the Torsor moniker):
