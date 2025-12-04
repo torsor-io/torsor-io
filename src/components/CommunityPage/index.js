@@ -31,14 +31,6 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           <a href="https://github.com/..." className="underline hover:opacity-70">Getting Started</a>
           {' — '} A beginner's guide to installing and running yaw.
         </li>
-        <li>
-          <a href="https://..." className="underline hover:opacity-70">Teleportation Tutorial</a>
-          {' — '} Implementing quantum teleportation in yaw.
-        </li>
-        <li>
-          <a href="https://..." className="underline hover:opacity-70">API Reference</a>
-          {' — '} Complete documentation of yaw's core functions.
-        </li>
       </ul>
     ),
 	link: 'https://arxiv.org/abs/2509.04527',
