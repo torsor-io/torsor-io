@@ -72,7 +72,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 	     <img 
       src="/assets/rocks/rocks.png" 
       alt="Research header"
-      className="w-full h-64 object-cover rounded-xl"
+      className="w-64 h-full mb-4 object-cover rounded-xl"
 	  />
             <p className={`${subtleText}`}>
 	  Recent research projects:
