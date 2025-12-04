@@ -33,7 +33,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         </li>
       </ul>
     ),
-	link: 'https://arxiv.org/abs/2509.04527',
+	link: 'https://github.com/caedrix/yaw',
 	tags: ['Quantum Computing', 'Programming', 'Algebra', 'Pedagogy']
     },
     {
@@ -50,7 +50,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         </li>
       </ul>
     ),
-      link: 'https://github.com/caedrix/yaw',
+      link: '',
 	tags: ['Quantum Computing', 'Programming', 'Logic', 'Creative']
     }
   ];
