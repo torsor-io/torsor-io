@@ -34,7 +34,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'P⁴: Pedagogical Pre-PrePrints',
       organization: 'Torsor Labs',
       type: 'Various',
-      brief: 'An instructive fable consisting of (1) an account of digital logic from the Pleistocene to WWII, (2) an alternate timeline in which von Neumann invents quantum computing.',
+      brief: 'A library of friendly, unpolished notes on various topics.',
       outcome: "This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, the introduction of reversible circuits, and Richard Feynman's allied proposal for quantum computing. We argue that Feynman's state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing — in 1946.",
       link: 'https://github.com/caedrix/yaw',
 	tags: ['Quantum Computing', 'Programming', 'Logic', 'Creative']
