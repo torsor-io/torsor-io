@@ -24,7 +24,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       title: 'yaw: an algebraic quantum language',
       organization: 'Torsor Labs',
       type: 'Quantum',
-      brief: 'We propose a new foundation for quantum programming, based on algebra rather than Hilbert space.',
+      brief: 'Tutorials and other documentation for yaw, an algebraic quantum language written in Python.',
       outcome: 'Qubits are a great way to build a quantum computer, but a limited way to program one. We replace the usual "states and gates" formalism with a "props and ops" (propositions and operators) model in which (a) the C*-algebra of observables supplies the syntax; (b) states, viewed as linear functionals, give the semantics; and (c) a novel diagrammatic calculus unifies the two.',
 	link: 'https://arxiv.org/abs/2509.04527',
 	tags: ['Quantum Computing', 'Programming', 'Algebra', 'Pedagogy']
@@ -36,7 +36,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       type: 'Various',
       brief: 'An instructive fable consisting of (1) an account of digital logic from the Pleistocene to WWII, (2) an alternate timeline in which von Neumann invents quantum computing.',
       outcome: "This essay gives a short, informal account of the development of digital logic from the Pleistocene to the Manhattan Project, the introduction of reversible circuits, and Richard Feynman's allied proposal for quantum computing. We argue that Feynman's state-based analogy is not the only way to arrive at quantum computing, nor indeed the simplest. To illustrate, we imagine an alternate timeline in which John von Neumann skipped Operation Crossroads to debug a military computer, got tickled by the problem, and discovered a completely different picture of quantum computing — in 1946.",
-      link: 'https://arxiv.org/abs/2503.00005',
+      link: 'https://github.com/caedrix/yaw',
 	tags: ['Quantum Computing', 'Programming', 'Logic', 'Creative']
     }
   ];
@@ -146,7 +146,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
                           className={`inline-flex items-center gap-2 ${textColor} hover:underline`}
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <span>View preprint</span>
+                          <span>View project</span>
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
