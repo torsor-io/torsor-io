@@ -97,7 +97,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-2"
+            className="mb-6"
           >
             <p className={`${subtleText}`}>
 	  Here are a few projects from recent years (not under the Torsor moniker). We're open to exploring collaborations in research, software development or education.
