@@ -97,9 +97,9 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-12"
+            className="mb-2"
           >
-            <p className={`text-lg ${subtleText}`}>
+            <p className={`${subtleText}`}>
 	  Here are a few projects from recent years (not under the Torsor moniker). We're open to exploring collaborations that aim to do something genuinely different, whether in research, software development or education.
             </p>
           </motion.div>
