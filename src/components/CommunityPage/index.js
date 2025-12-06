@@ -51,6 +51,10 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         <li>
               <a href="/assets/community/stable-diffusion/stable-diffusion.html" className="underline hover:opacity-70">Diffusion models (2024)</a>
           {': '} How can you train a model to hallucinate data from noise?
+              </li>
+        <li>
+              <a href="/assets/community/svm/svm.html" className="underline hover:opacity-70">Transformers as SVMs (2024)</a>
+          {': '} A single-layer transformer is a support vector machine!
         </li>
       </ul>
     ),
