@@ -28,7 +28,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       outcome: (
       <ul className="list-disc list-inside space-y-2">
         <li>
-          <a href="https://github.com/..." className="underline hover:opacity-70">Getting Started</a>
+          <a href="https://github.com/torsor-io/yaw#yaw-algebraic-quantum-programming" className="underline hover:opacity-70">Getting Started</a>
           {' — '} A beginner's guide to installing and running yaw.
         </li>
       </ul>
