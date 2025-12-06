@@ -45,8 +45,12 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       outcome: (
       <ul className="list-disc list-inside space-y-2">
         <li>
-              <a href="/assets/community/PI-talk.html" className="underline hover:opacity-70">Duality from Stone to Isbell (2025)</a>
-          {': '} A tour through duality theorems in mathematics.
+              <a href="/assets/community/duality-PI/PI-talk.html" className="underline hover:opacity-70">Duality from Stone to Isbell (2025)</a>
+              {': '} A tour through duality theorems in logic, algebra, and category theory.
+              </li>
+        <li>
+              <a href="/assets/community/stable-diffusion/stable-diffusion.html" className="underline hover:opacity-70">Diffusion models (2024)</a>
+          {': '} How can you train a model to hallucinate data from noise?
         </li>
       </ul>
     ),
