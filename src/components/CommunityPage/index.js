@@ -54,7 +54,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               </li>
         <li>
               <a href="/assets/community/svm/svm.html" className="underline hover:opacity-70">Transformers as SVMs (2024)</a>
-          {': '} A single-layer transformer is a support vector machine!
+          {': '} Linear attention is a support vector machine!
         </li>
       </ul>
     ),
