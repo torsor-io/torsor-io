@@ -57,7 +57,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           {': '} Linear attention is a support vector machine!
           </li>
         <li>
-              <a href="/assets/community/optimism.pdf" className="underline hover:opacity-70">Reasons for optimism(2024)</a>
+              <a href="/assets/community/optimism.pdf" className="underline hover:opacity-70">Reasons for optimism (2024)</a>
           {': '} An introduction to the statistical notion of <i>optimism</i>.
         </li>
       </ul>
