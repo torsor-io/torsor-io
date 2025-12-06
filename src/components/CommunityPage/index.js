@@ -55,11 +55,15 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         <li>
               <a href="/assets/community/svm/svm.html" className="underline hover:opacity-70">Transformers as SVMs (2024)</a>
           {': '} Linear attention is a support vector machine!
+          </li>
+        <li>
+              <a href="/assets/community/optimism.pdf" className="underline hover:opacity-70">Reasons for optimism(2024)</a>
+          {': '} An introduction to the statistical notion of <i>optimism</i>.
         </li>
       </ul>
     ),
       link: '',
-	tags: ['Quantum Computing', 'Machine Learning', 'Logic', 'Mathematics']
+	tags: ['Quantum Computing', 'Machine Learning', 'Logic', 'Mathematics', 'Statistics']
     }
   ];
 
