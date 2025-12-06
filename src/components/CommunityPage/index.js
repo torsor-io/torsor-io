@@ -45,7 +45,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       outcome: (
       <ul className="list-disc list-inside space-y-2">
         <li>
-          <a href="/assets/community/PI-talk.html" className="underline hover:opacity-70">Duality from Stone to Isbell</a>
+              <a href="/assets/community/PI-talk.html" className="underline hover:opacity-70">Duality from Stone to Isbell (2025)</a>
           {': '} A tour through duality theorems in mathematics.
         </li>
       </ul>
