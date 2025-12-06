@@ -59,7 +59,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       </ul>
     ),
       link: '',
-	tags: ['Quantum Computing', 'Programming', 'Logic', 'Creative']
+	tags: ['Quantum Computing', 'Machine Learning', 'Logic', 'Mathematics']
     }
   ];
 
