@@ -105,7 +105,7 @@ const App = () => {
             setWaveState={setWaveState}
           />
         } />
-        <Route path="community" element={
+        <Route path="library" element={
           <CommunityPage 
             isDark={isDark} 
             setIsDark={setIsDark}
