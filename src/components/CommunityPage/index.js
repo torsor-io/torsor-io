@@ -29,7 +29,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       <ul className="list-disc list-inside space-y-2">
         <li>
           <a href="https://github.com/torsor-io/yaw#yaw-algebraic-quantum-programming" className="underline hover:opacity-70">Getting Started</a>
-          {' — '} A beginner's guide to installing and running yaw.
+          {': '} A beginner's guide to installing and running yaw.
         </li>
       </ul>
     ),
@@ -46,7 +46,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       <ul className="list-disc list-inside space-y-2">
         <li>
           <a href="/assets/community/PI-talk.html" className="underline hover:opacity-70">Duality from Stone to Isbell</a>
-          {' — '} A tour through duality theorems in mathematics.
+          {': '} A tour through duality theorems in mathematics.
         </li>
       </ul>
     ),
