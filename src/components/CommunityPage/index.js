@@ -45,19 +45,19 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       outcome: (
       <ul className="list-disc list-inside space-y-2">
         <li>
-              <a href="/assets/community/duality-PI/PI-talk.html" className="underline hover:opacity-70">Duality from Stone to Isbell (2025)</a>
+              <a href="/assets/library/duality-PI/PI-talk.html" className="underline hover:opacity-70">Duality from Stone to Isbell (2025)</a>
               {': '} A tour through duality theorems in logic, algebra, and category theory.
               </li>
         <li>
-              <a href="/assets/community/stable-diffusion/stable-diffusion.html" className="underline hover:opacity-70">Diffusion models (2024)</a>
+              <a href="/assets/library/stable-diffusion/stable-diffusion.html" className="underline hover:opacity-70">Diffusion models (2024)</a>
           {': '} How can you train a model to hallucinate data from noise?
               </li>
         <li>
-              <a href="/assets/community/svm/svm.html" className="underline hover:opacity-70">Transformers as SVMs (2024)</a>
+              <a href="/assets/library/svm/svm.html" className="underline hover:opacity-70">Transformers as SVMs (2024)</a>
           {': '} Linear attention is a support vector machine!
           </li>
         <li>
-              <a href="/assets/community/optimism.pdf" className="underline hover:opacity-70">Reasons for optimism (2024)</a>
+              <a href="/assets/library/optimism.pdf" className="underline hover:opacity-70">Reasons for optimism (2024)</a>
           {': '} An introduction to the statistical notion of optimism.
         </li>
       </ul>
