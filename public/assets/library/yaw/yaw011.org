@@ -384,7 +384,7 @@ char(Z, 0)
 yaw> proj0 | psi0
 1
 #+END_EXAMPLE
-*Optional.* Under the hood, we actually construct projectors from the minimal
+/Optional./ Under the hood, we actually construct projectors from the minimal
 polynomial; if you find the details boring, feel free to skip to the next
 section. When $N$ is diagonalizable, the minimal polynomial takes the form
 \[
