@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title><i>Introduction to</i> yaw (v0.1.1)</title>
-<!-- 2025-12-13 Sat 22:04 -->
+<!-- 2025-12-14 Sun 09:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -254,8 +254,8 @@ Created algebra: &lt;X, Z | herm, unit, anti&gt;
 </pre>
 
 <p>
-Here, we've defined a qubit, <code>$alg = qubit()</code>, and the output is
-<code>Created algebra: &lt;X, Z | herm, unit, anti&gt;</code>. We'll explain what's going on below.
+Here, we've defined the algebra of a qubit, <code>$alg = qubit()</code>. We'll
+explain the output below.
 </p>
 </div>
 </div>
@@ -295,13 +295,12 @@ from yaw import *
 pauli = Algebra(gens=['X', 'Z'], rels=['herm', 'unit', 'anti'])
 </pre>
 <p>
-We'll explain what's going on in this expression shortly, but note
-that we will largely focus on native <code>yaw</code> syntax.
+In this tutorial, we will largely focus on native <code>yaw</code> syntax;
+this is the way the language is intended to be used.
 </p>
 </div>
 </div>
 </div>
-
 <div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> Statics</h2>
 <div class="outline-text-2" id="text-2">
@@ -453,12 +452,12 @@ yaw&gt; spec(Y)
 [1, -1]
 </pre>
 <p>
-A shortcut to finding eigenvalues is to produce the <b>minimal polynomial</b>
+A shortcut to finding eigenvalues is the <b>minimal polynomial</b>
 that \(A\) is a root of:
 \[
 p_\min^{(A)}(A) = \sum_{k=0}^n c_k A^k = 0,
 \]
-often using relations, e.g. \(X^2 - I = 0\) for the Pauli \(X\).
+which can produce using relations, e.g. \(X^2 - I = 0\) for the Pauli \(X\).
 The eigenvalues are the roots of \(p_\min^{(A)}(x)\).
 The polynomial and its solutions are produced as follows:
 </p>
@@ -703,8 +702,8 @@ yaw&gt; proj0 | psi0
 1
 </pre>
 <p>
-We actually explicitly construct projectors from the minimal
-polynomial, under the hood; if you find the details boring, feel free to skip to the next
+<b>Optional.</b> Under the hood, we actually construct projectors from the minimal
+polynomial; if you find the details boring, feel free to skip to the next
 section. When \(N\) is diagonalizable, the minimal polynomial takes the form
 \[
 p_\min^{(N)}(x) = \prod_i (x - \lambda_i)
