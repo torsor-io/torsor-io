@@ -43,7 +43,7 @@ Created algebra: <X, Z | herm, unit, anti>
 #+END_EXAMPLE
 
 Here, we've defined the algebra of a qubit, ~$alg = qubit()~. We'll
-explain what the output means below.
+explain the output below.
 ** Compiler
 Alternatively, we can save a ~.yaw~ file containing the single line:
 #+BEGIN_EXAMPLE python
@@ -65,9 +65,8 @@ clunkier but it can interface directly with other ~Python~ packages.
 from yaw import *
 pauli = Algebra(gens=['X', 'Z'], rels=['herm', 'unit', 'anti'])
 #+END_EXAMPLE
-We'll explain what's going on in this expression shortly, but note
-that we will largely focus on native ~yaw~ syntax.
-
+In this tutorial, we will largely focus on native ~yaw~ syntax;
+this is the way the language is intended to be used.
 * Statics
 -----
 In this section, we'll define the basic objects of algebraic quantum
