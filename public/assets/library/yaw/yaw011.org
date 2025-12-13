@@ -42,8 +42,8 @@ yaw> $alg = qubit()
 Created algebra: <X, Z | herm, unit, anti>
 #+END_EXAMPLE
 
-Here, we've defined a qubit, ~$alg = qubit()~, and the output is
-~Created algebra: <X, Z | herm, unit, anti>~. We'll explain what's going on below.
+Here, we've defined the algebra of a qubit, ~$alg = qubit()~. We'll
+explain what the output means below.
 ** Compiler
 Alternatively, we can save a ~.yaw~ file containing the single line:
 #+BEGIN_EXAMPLE python
