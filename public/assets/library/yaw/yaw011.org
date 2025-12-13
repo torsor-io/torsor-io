@@ -485,10 +485,10 @@ yaw> Z @ Z | Phi(0,0)
 To emphasize the power of ~yaw~'s basic combinators, let's write
 the full (compiler) code to generate the canonical Bell state $\Phi$:
 #+BEGIN_EXAMPLE python
-$alg = < X, Z | herm, unit, anti >
-H    = (X+Z)/sqrt(2)
-psi0 = char(Z,0)
-CNOT = ctrl(Z,[I,X])
+$alg = <X, Z | herm, unit, anti>
+H    = (X + Z)/sqrt(2)
+psi0 = char(Z, 0)
+CNOT = ctrl(Z, [I, X])
 Phi  = CNOT*(H @ I) << psi0 @ psi0
 #+END_EXAMPLE
 That's it; five lines, and we've defined everything from scratch.

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title><i>Introduction to</i> yaw (v0.1.1)</title>
-<!-- 2025-12-14 Sun 09:41 -->
+<!-- 2025-12-14 Sun 09:43 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -819,17 +819,17 @@ yaw&gt; Z @ Z | Phi(0,0)
 </pre>
 <p>
 To emphasize the power of <code>yaw</code>'s basic combinators, let's write
-the full (compiler) code to generate the canonical Bell state:
+the full (compiler) code to generate the canonical Bell state \(\Phi\):
 </p>
 <pre class="example">
-$alg = &lt; X, Z | herm, unit, anti &gt;
-H    = (X+Z)/sqrt(2)
-psi0 = char(Z,0)
-CNOT = ctrl(Z,[I,X])
+$alg = &lt;X, Z | herm, unit, anti&gt;
+H    = (X + Z)/sqrt(2)
+psi0 = char(Z, 0)
+CNOT = ctrl(Z, [I, X])
 Phi  = CNOT*(H @ I) &lt;&lt; psi0 @ psi0
 </pre>
 <p>
-That's it; five lines, and everything defined from scratch.
+That's it; five lines, and we've defined everything from scratch.
 Next time, we'll use these states to perform a magic trick called <b>teleportation</b>!
 </p>
 </div>
