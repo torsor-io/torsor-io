@@ -182,12 +182,12 @@ This spectrum is obtained numerically via
 yaw> spec(Y)
 [1, -1]
 #+END_EXAMPLE
-A shortcut to finding eigenvalues is to produce the *minimal polynomial*
+A shortcut to finding eigenvalues is the *minimal polynomial*
 that $A$ is a root of:
 \[
 p_\min^{(A)}(A) = \sum_{k=0}^n c_k A^k = 0,
 \]
-often using relations, e.g. $X^2 - I = 0$ for the Pauli $X$.
+which can produce using relations, e.g. $X^2 - I = 0$ for the Pauli $X$.
 The eigenvalues are the roots of $p_\min^{(A)}(x)$.
 The polynomial and its solutions are produced as follows:
 #+BEGIN_EXAMPLE python
