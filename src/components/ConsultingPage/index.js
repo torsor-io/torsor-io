@@ -100,7 +100,7 @@ const SelectedWorkPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             className="mb-6"
           >
 	     <img 
-      src="/assets/lumu.png" 
+      src="/assets/img/lumu.png" 
       alt="Collab header"
       className="w-96 mb-4 h-99 object-cover rounded-xl mx-auto"
 	  />
