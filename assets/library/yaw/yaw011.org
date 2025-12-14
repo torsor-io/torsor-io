@@ -458,38 +458,38 @@ We will explore further applications of this idea in future tutorials.
 ** Example: Bell states
 We finish with a simple example that combines all of the above ideas:
 generating entanglement. The famous entangled state
-\[ |\Phi\rangle
+\[ |\phi\rangle
 = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
 \]
 is actually one of a family of quadruplets, individually entangled
 but mutually orthogonal, called the *Bell states*:
-\[|\Phi_{ab}\rangle
+\[|\phi_{ab}\rangle
 = \frac{1}{\sqrt{2}}(|0b\rangle + (-1)^a |1\overline{b}\rangle),
 \]
 where $\overline{b} = 1 - b$.
 The way to prepare these states is to apply the usual Bell
 state-preparing circuit, but to $|ab\rangle$:
 \[|
-\Phi_{ab}\rangle = \text{CNOT} (H \otimes I) |ab\rangle,
+\phi_{ab}\rangle = \text{CNOT} (H \otimes I) |ab\rangle,
 \]
 which I leave as an exercise. In the algebraic setting, the circuit
 $U$ acting on $|0\rangle$ becomes conjugation of $\pi_0(\cdot) =
 \langle 0|\cdot|0 \rangle$ by $U$, so
 #+BEGIN_EXAMPLE python
-yaw> def Phi(a, b):
+yaw> def phi(a, b):
 ...      init = X**a @ X**b << pi0 @ pi0
 ...      return CNOT*(H @ I) << init
-yaw> Z @ Z | Phi(0,0)
+yaw> Z @ Z | phi(0,0)
 0.0
 #+END_EXAMPLE
 To emphasize the power of ~yaw~'s basic combinators, let's write
-the full (compiler) code to generate the canonical Bell state $\Phi$:
+the full (compiler) code to generate the canonical Bell state $\phi$:
 #+BEGIN_EXAMPLE python
 $alg = <X, Z | herm, unit, anti>
 H    = (X + Z)/sqrt(2)
 pi0 = char(Z, 0)
 CNOT = ctrl(Z, [I, X])
-Phi  = CNOT*(H @ I) << pi0 @ pi0
+phi  = CNOT*(H @ I) << pi0 @ pi0
 #+END_EXAMPLE
 That's it; five lines, and we've defined everything from scratch.
 Next time, we'll use these states to perform a magic trick called *teleportation*!

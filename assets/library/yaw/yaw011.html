@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title><i>Introduction to</i> yaw (v0.1.1)</title>
-<!-- 2025-12-14 Sun 18:48 -->
+<!-- 2025-12-14 Sun 19:14 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -792,41 +792,41 @@ We will explore further applications of this idea in future tutorials.
 <p>
 We finish with a simple example that combines all of the above ideas:
 generating entanglement. The famous entangled state
-\[ |\Phi\rangle
+\[ |\phi\rangle
 = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
 \]
 is actually one of a family of quadruplets, individually entangled
 but mutually orthogonal, called the <b>Bell states</b>:
-\[|\Phi_{ab}\rangle
+\[|\phi_{ab}\rangle
 = \frac{1}{\sqrt{2}}(|0b\rangle + (-1)^a |1\overline{b}\rangle),
 \]
 where \(\overline{b} = 1 - b\).
 The way to prepare these states is to apply the usual Bell
 state-preparing circuit, but to \(|ab\rangle\):
 \[|
-\Phi_{ab}\rangle = \text{CNOT} (H \otimes I) |ab\rangle,
+\phi_{ab}\rangle = \text{CNOT} (H \otimes I) |ab\rangle,
 \]
 which I leave as an exercise. In the algebraic setting, the circuit
 \(U\) acting on \(|0\rangle\) becomes conjugation of \(\pi_0(\cdot) =
 \langle 0|\cdot|0 \rangle\) by \(U\), so
 </p>
 <pre class="example">
-yaw&gt; def Phi(a, b):
+yaw&gt; def phi(a, b):
 ...      init = X**a @ X**b &lt;&lt; pi0 @ pi0
 ...      return CNOT*(H @ I) &lt;&lt; init
-yaw&gt; Z @ Z | Phi(0,0)
+yaw&gt; Z @ Z | phi(0,0)
 0.0
 </pre>
 <p>
 To emphasize the power of <code>yaw</code>'s basic combinators, let's write
-the full (compiler) code to generate the canonical Bell state \(\Phi\):
+the full (compiler) code to generate the canonical Bell state \(\phi\):
 </p>
 <pre class="example">
 $alg = &lt;X, Z | herm, unit, anti&gt;
 H    = (X + Z)/sqrt(2)
 pi0 = char(Z, 0)
 CNOT = ctrl(Z, [I, X])
-Phi  = CNOT*(H @ I) &lt;&lt; pi0 @ pi0
+phi  = CNOT*(H @ I) &lt;&lt; pi0 @ pi0
 </pre>
 <p>
 That's it; five lines, and we've defined everything from scratch.

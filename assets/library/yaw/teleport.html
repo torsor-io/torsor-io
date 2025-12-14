@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title><i>Teleportation in</i> yaw</title>
-<!-- 2025-12-14 Sun 18:48 -->
+<!-- 2025-12-14 Sun 19:14 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -210,7 +210,7 @@ protocol. It has a few moving parts:
 <ul class="org-ul">
 <li>Alice has a state \(\psi\);
 </li>
-<li>And Alice share a Bell state \(\Phi_{00}\);
+<li>And Alice share a Bell state \(\phi_{00}\);
 </li>
 <li>Alice measures in the Bell basis \(\Pi_{ab}\);
 </li>
@@ -252,21 +252,21 @@ simply \(H \triangleleft \pi_0\) (the analogue of \(H|0\rangle = |+\rangle\)).
 <h3 id="sec-1-2"><span class="section-number-3">1.2</span> The shared Bell pair</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-The next stage is to prepare a Bell pair \(\Phi\). We covered this at
+The next stage is to prepare a Bell pair \(\phi\). We covered this at
 the end of the the <a href="https://torsor.io/assets/library/yaw/yaw011.html">introductory tutorial</a>, but we'll review it briefly.:
 </p>
 <pre class="example">
 yaw&gt; H = (X + Z)/sqrt(2)
 yaw&gt; CNOT = ctrl(Z, [I, X])
-yaw&gt; Phi_circ = CNOT*(H @ I)
-yaw&gt; Phi  = Phi_circ &lt;&lt; pi0 @ pi0
+yaw&gt; phi_circ = CNOT*(H @ I)
+yaw&gt; phi  = phi_circ &lt;&lt; pi0 @ pi0
 </pre>
 <p>
-The combined initial state is just <code>aliceSends(U)</code> tensored with <code>Phi</code>:
+The combined initial state is just <code>aliceSends(U)</code> tensored with <code>phi</code>:
 </p>
 <pre class="example">
 yaw&gt; def totalSends(U):
-...    return aliceSends(U) @ Phi
+...    return aliceSends(U) @ phi
 </pre>
 <p>
 To summarize, Alice has the state she wants to send, and shares a Bell
@@ -278,10 +278,20 @@ pair with Bob.
 <h3 id="sec-1-3"><span class="section-number-3">1.3</span> The Bell basis</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-Recall from the <a href="https://torsor.io/assets/library/yaw/yaw011.html">previous tutorial</a> that for two qubits, there is a
-set of entangled states
+Recall from the <a href="https://torsor.io/assets/library/yaw/yaw011.html">previous tutorial</a> that for two qubits, we have a set
+of entangled <b>Bell states</b>
 \[
-\Phi_{ab} = \text{CNOT}(H\otimes I) \triangleft (\pi_0 \otimes \pi_0)
+\phi_{ab} = \text{CNOT}(H\otimes I) \triangleleft (\pi_a \otimes \pi_b).
+\]
+The projectors \(\Pi_a = |a\rangle\langle a|\) are dual to the states
+\(\pi_a(\cdot) = \langle a |\cdot|a\rangle\), in the sense that
+\[
+\pi_a(\Pi_b) = \delta_{ab}.
+\]
+Similarly, the dual projectors to the Bell states \(\phi_{ab}\) are the
+<b>Bell projectors</b>
+\[
+\Phi_{ab} = \text{CNOT}(H\otimes I) \triangleright (\Pi_a \otimes \Pi_b)
 \]
 </p>
 </div>

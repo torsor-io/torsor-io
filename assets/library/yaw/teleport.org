@@ -12,7 +12,7 @@ tutorial]].
 We'll assume that you're familiar with the basic teleportation
 protocol. It has a few moving parts:
 - Alice has a state $\psi$;
-- And Alice share a Bell state $\Phi_{00}$;
+- And Alice share a Bell state $\phi_{00}$;
 - Alice measures in the Bell basis $\Pi_{ab}$;
 - Bob now has a "masked" state $Z^b X^a \triangleleft \psi$;
 - Alice sends $a, b$ to Bob and he unmasks the state.
@@ -35,27 +35,49 @@ yaw> def aliceSends(U):
 For instance, the $\pi_+(\cdot) = \langle +|\cdot|+\rangle$ state is
 simply $H \triangleleft \pi_0$ (the analogue of $H|0\rangle = |+\rangle$).
 ** The shared Bell pair
-The next stage is to prepare a Bell pair $\Phi$. We covered this at
+The next stage is to prepare a Bell pair $\phi$. We covered this at
 the end of the the [[https://torsor.io/assets/library/yaw/yaw011.html][introductory tutorial]], but we'll review it briefly.:
 #+BEGIN_EXAMPLE python
 yaw> H = (X + Z)/sqrt(2)
 yaw> CNOT = ctrl(Z, [I, X])
-yaw> Phi_circ = CNOT*(H @ I)
-yaw> Phi  = Phi_circ << pi0 @ pi0
+yaw> phi_circ = CNOT*(H @ I)
+yaw> phi  = phi_circ << pi0 @ pi0
 #+END_EXAMPLE
-The combined initial state is just ~aliceSends(U)~ tensored with ~Phi~:
+The combined initial state is just ~aliceSends(U)~ tensored with ~phi~:
 #+BEGIN_EXAMPLE python
 yaw> def totalSends(U):
-...    return aliceSends(U) @ Phi
+...    return aliceSends(U) @ phi
 #+END_EXAMPLE
 To summarize, Alice has the state she wants to send, and shares a Bell
 pair with Bob.
 ** The Bell basis
-Recall from the [[https://torsor.io/assets/library/yaw/yaw011.html][previous tutorial]] that for two qubits, there is a
-set of entangled states
+Recall from the [[https://torsor.io/assets/library/yaw/yaw011.html][previous tutorial]] that for two qubits, we have a set
+of entangled *Bell states*
 \[
-\Phi_{ab} = \text{CNOT}(H\otimes I) \triangleft (\pi_0 \otimes \pi_0)
+\phi_{ab} = \text{CNOT}(H\otimes I) \triangleleft (\pi_a \otimes \pi_b).
 \]
+In ~yaw~:
+#+BEGIN_EXAMPLE python
+yaw> def phi(a, b):
+...      init = char(Z, a) @ char(Z, b)
+...      return phi_circ << init
+#+END_EXAMPLE
+The projectors $\Pi_a = |a\rangle\langle a|$ are dual to the states
+$\pi_a(\cdot) = \langle a |\cdot|a\rangle$, in the sense that
+\[
+\pi_a(\Pi_b) = \delta_{ab}.
+\]
+Similarly, the dual projectors to the Bell states $\phi_{ab}$ are the
+*Bell projectors*
+\[
+\Phi_{ab} = \text{CNOT}(H\otimes I) \triangleright (\Pi_a \otimes \Pi_b)
+\]
+We can define them by
+#+BEGIN_EXAMPLE python
+yaw> def Phi(a, b):
+...      init = proj(Z, a) @ proj(Z, b)
+...      return phi_circ >> init
+#+END_EXAMPLE
 * Measurement
 * COMMENT Exercises
 \[
