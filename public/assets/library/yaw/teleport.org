@@ -1,0 +1,92 @@
+#+ATTR_HTML: :alt wizard image :align center :width 200px :style display:inline;margin:-20px;
+[[https://torsor.io/#software][file:../../img/wizard.png]]
+
+~yaw~ is a ~Python~-based language for doing algebraic quantum
+programming. This tutorial explains how to perform
+teleportation, and along the way, how to do projective
+measurements. We assume familiarity with the [[https://torsor.io/assets/library/yaw/yaw011.html][introductory
+tutorial]].
+
+* Setup
+-----
+We'll assume that you're familiar with the basic teleportation
+protocol. It has a few moving parts:
+- Alice has a state $\psi$;
+- And Alice share a Bell state $\Phi_{00}$;
+- Alice measures in the Bell basis $\Pi_{ab}$;
+- Bob now has a "masked" state $Z^b X^a \triangleleft \psi$;
+- Alice sends $a, b$ to Bob and he unmasks the state.
+
+We'll set up everything but the measurement, explain how to do
+measurements in general, then tie it all together.
+** Alice's state
+Suppose Alice possesses a pure state $\psi = U \triangleleft \pi_0$ of
+a qubit (equivalently, $|\psi\rangle = U|\psi_0\rangle$) where
+$\pi_0(\cdot) = \langle 0| \cdot |0\rangle$, and $U$ is a unitary operator. (We'll discuss
+the specific form unitaries take, and generalizations to qudits, in
+the exercises below.) In ~yaw~, we can define a function which applies
+an operator to $\pi_0$:
+#+BEGIN_EXAMPLE python
+yaw> $alg = qubit()
+yaw> pi0 = char(Z, 0)
+yaw> def aliceSends(U):
+...    return U << pi0
+#+END_EXAMPLE
+For instance, the $\pi_+(\cdot) = \langle +|\cdot|+\rangle$ state is
+simply $H \triangleleft \pi_0$ (the analogue of $H|0\rangle = |+\rangle$).
+** The shared Bell pair
+The next stage is to prepare a Bell pair $\Phi$. We covered this at
+the end of the the [[https://torsor.io/assets/library/yaw/yaw011.html][introductory tutorial]], but we'll review it briefly.:
+#+BEGIN_EXAMPLE python
+yaw> H = (X + Z)/sqrt(2)
+yaw> CNOT = ctrl(Z, [I, X])
+yaw> Phi_circ = CNOT*(H @ I)
+yaw> Phi  = Phi_circ << pi0 @ pi0
+#+END_EXAMPLE
+The combined initial state is just ~aliceSends(U)~ tensored with ~Phi~:
+#+BEGIN_EXAMPLE python
+yaw> def totalSends(U):
+...    return aliceSends(U) @ Phi
+#+END_EXAMPLE
+To summarize, Alice has the state she wants to send, and shares a Bell
+pair with Bob.
+** The Bell basis
+Recall from the [[https://torsor.io/assets/library/yaw/yaw011.html][previous tutorial]] that for two qubits, there is a
+set of entangled states
+\[
+\Phi_{ab} = \text{CNOT}(H\otimes I) \triangleft (\pi_0 \otimes \pi_0)
+\]
+* Measurement
+* COMMENT Exercises
+\[
+U(\omega, \alpha, \beta, \gamma) = e^{i\omega} e^{i\alpha X}e^{i\beta Y}e^{i\gamma Z}
+\]
+for some real angles $\alpha, \beta, \gamma, \phi \in [0, 2\pi)$.
+Though this is well-known, less well-known is the analogous universality
+relation for qudits of dimension $d$:
+\[
+U(\alpha_{0,0}, \ldots, \alpha_{d-1,d-1}) = \prod_{a,b=0}^{d-1} e^{i \alpha_{,ab}X^aZ^b}.
+\]
+* References
+-----
+
+- [[https://www.amazon.ca/Quantum-Computation-Information-10th-Anniversary/dp/1107002176][/Quantum Computation and Quantum Information/]] (2000), Michael
+  Nielsen and Isaac Chuang. The classic introduction to the
+  quantum.
+- [[https://torsor.io/assets/siqpDRAFT.pdf][“SIQP I: Foundations”]] (2025), David Wakeham. The (much longer)
+  mathematical companion to these tutorials.
+
+* COMMENT html export
+#+TITLE: /Teleportation in/ yaw
+#+HTML_CONTAINER: div
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="enhanced_tufte.css">
+#+HTML_HEAD: <script type="text/javascript" src="sidebar_darkmode.js"></script>
+#+HTML_HEAD: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+HTML_HEAD: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+#+HTML_LINK_UP:
+#+HTML_MATHJAX: 
+#+INFOJS_OPT:
+#+LATEX_HEADER:
+#+OPTIONS: html-postamble:nil toc:nil 
+#+HTML_HEAD_EXTRA: <style>pre { padding-top: 25px !important; }</style>

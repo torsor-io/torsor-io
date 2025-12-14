@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title><i>Introduction to</i> yaw (v0.1.1)</title>
-<!-- 2025-12-14 Sun 09:43 -->
+<!-- 2025-12-14 Sun 18:48 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -696,9 +696,9 @@ ordering of eigenvalues, in the same way we label eigenstates:
 <pre class="example">
 yaw&gt; proj0 = proj(Z,0)
 proj(Z, 0)
-yaw&gt; psi0 = char(Z,0)
+yaw&gt; pi0 = char(Z,0)
 char(Z, 0)
-yaw&gt; proj0 | psi0
+yaw&gt; proj0 | pi0
 1
 </pre>
 <p>
@@ -812,7 +812,7 @@ which I leave as an exercise. In the algebraic setting, the circuit
 </p>
 <pre class="example">
 yaw&gt; def Phi(a, b):
-...      init = X**a @ X**b &lt;&lt; psi0 @ psi0
+...      init = X**a @ X**b &lt;&lt; pi0 @ pi0
 ...      return CNOT*(H @ I) &lt;&lt; init
 yaw&gt; Z @ Z | Phi(0,0)
 0.0
@@ -824,9 +824,9 @@ the full (compiler) code to generate the canonical Bell state \(\Phi\):
 <pre class="example">
 $alg = &lt;X, Z | herm, unit, anti&gt;
 H    = (X + Z)/sqrt(2)
-psi0 = char(Z, 0)
+pi0 = char(Z, 0)
 CNOT = ctrl(Z, [I, X])
-Phi  = CNOT*(H @ I) &lt;&lt; psi0 @ psi0
+Phi  = CNOT*(H @ I) &lt;&lt; pi0 @ pi0
 </pre>
 <p>
 That's it; five lines, and we've defined everything from scratch.

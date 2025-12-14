@@ -379,9 +379,9 @@ ordering of eigenvalues, in the same way we label eigenstates:
 #+BEGIN_EXAMPLE python
 yaw> proj0 = proj(Z,0)
 proj(Z, 0)
-yaw> psi0 = char(Z,0)
+yaw> pi0 = char(Z,0)
 char(Z, 0)
-yaw> proj0 | psi0
+yaw> proj0 | pi0
 1
 #+END_EXAMPLE
 /Optional./ Under the hood, we actually construct projectors from the minimal
@@ -477,7 +477,7 @@ $U$ acting on $|0\rangle$ becomes conjugation of $\pi_0(\cdot) =
 \langle 0|\cdot|0 \rangle$ by $U$, so
 #+BEGIN_EXAMPLE python
 yaw> def Phi(a, b):
-...      init = X**a @ X**b << psi0 @ psi0
+...      init = X**a @ X**b << pi0 @ pi0
 ...      return CNOT*(H @ I) << init
 yaw> Z @ Z | Phi(0,0)
 0.0
@@ -487,9 +487,9 @@ the full (compiler) code to generate the canonical Bell state $\Phi$:
 #+BEGIN_EXAMPLE python
 $alg = <X, Z | herm, unit, anti>
 H    = (X + Z)/sqrt(2)
-psi0 = char(Z, 0)
+pi0 = char(Z, 0)
 CNOT = ctrl(Z, [I, X])
-Phi  = CNOT*(H @ I) << psi0 @ psi0
+Phi  = CNOT*(H @ I) << pi0 @ pi0
 #+END_EXAMPLE
 That's it; five lines, and we've defined everything from scratch.
 Next time, we'll use these states to perform a magic trick called *teleportation*!
