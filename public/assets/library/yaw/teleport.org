@@ -12,10 +12,11 @@ tutorial]].
 We'll assume that you're familiar with the basic teleportation
 protocol. It has a few moving parts:
 - Alice has a state $\psi$;
-- And Alice share a Bell state $\phi_{00}$;
+- Bob and Alice share a Bell state $\phi_{00}$;
 - Alice measures in the Bell basis $\Pi_{ab}$;
 - Bob now has a "masked" state $Z^b X^a \triangleleft \psi$;
-- Alice sends $a, b$ to Bob and he unmasks the state.
+- Alice sends $a, b$ to Bob;
+- Bob applies $X^a Z^b$ to unmask the teleported state.
 
 We'll set up everything but the measurement, explain how to do
 measurements in general, then tie it all together.
@@ -29,7 +30,7 @@ an operator to $\pi_0$:
 #+BEGIN_EXAMPLE python
 yaw> $alg = qubit()
 yaw> pi0 = char(Z, 0)
-yaw> def aliceSends(U):
+yaw> def alice(U):
 ...    return U << pi0
 #+END_EXAMPLE
 For instance, the $\pi_+(\cdot) = \langle +|\cdot|+\rangle$ state is
@@ -45,11 +46,18 @@ yaw> phi  = phi_circ << pi0 @ pi0
 #+END_EXAMPLE
 The combined initial state is just ~aliceSends(U)~ tensored with ~phi~:
 #+BEGIN_EXAMPLE python
-yaw> def totalSends(U):
-...    return aliceSends(U) @ phi
+yaw> def initial_state(U):
+...    return alice(U) @ phi
 #+END_EXAMPLE
-To summarize, Alice has the state she wants to send, and shares a Bell
-pair with Bob.
+Unfortunately, this has a nested tensor structure which ~yaw~
+currently has trouble with. This needs to be manually "flattened" by
+defining 
+#+BEGIN_EXAMPLE python
+yaw> def initial_state(U):
+...      return (U @ phi_circ) << pi0 @ pi0 @ pi0
+#+END_EXAMPLE
+This is exactly the same thing, but without parantheses separating the
+tensor products!
 ** The Bell basis
 Recall from the [[https://torsor.io/assets/library/yaw/yaw011.html][previous tutorial]] that for two qubits, we have a set
 of entangled *Bell states*
@@ -70,15 +78,170 @@ $\pi_a(\cdot) = \langle a |\cdot|a\rangle$, in the sense that
 Similarly, the dual projectors to the Bell states $\phi_{ab}$ are the
 *Bell projectors*
 \[
-\Phi_{ab} = \text{CNOT}(H\otimes I) \triangleright (\Pi_a \otimes \Pi_b)
+\Phi_{ab} = [\text{CNOT}(H\otimes I)]^\dagger \triangleright (\Pi_a \otimes \Pi_b).
 \]
-We can define them by
+We can define them by @@html:<label for="mn-demo" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-demo" class="margin-toggle"/>
+<span class="marginnote">
+The <code>.e</code> after the projector forces it to expand
+algebraically; this is currently needed to prevent errors downstream,
+but will be fixed in future versions.
+</span>@@
 #+BEGIN_EXAMPLE python
 yaw> def Phi(a, b):
-...      init = proj(Z, a) @ proj(Z, b)
-...      return phi_circ >> init
+...      init = proj(Z, a).e @ proj(Z, b).e
+...      return phi_circ.d >> init
 #+END_EXAMPLE
+We can check these are dual, e.g.
+#+BEGIN_EXAMPLE python
+yaw> Phi(1, 0) | phi(1, 0)
+1
+yaw> Phi(1, 0) | phi(0, 0)
+0.0
+yaw> Phi(1, 0) | phi(0, 1)
+0.0
+yaw> Phi(1, 0) | phi(1, 1)
+0.0
+#+END_EXAMPLE
+Now that we've defined the projectors, we should measure
+with respect to them. But that requires us to introduce measurement!
 * Measurement
+We'll first explain how to do projective measurement in general, and
+then apply it to Alice's Bell measurement in particular. We'll then
+apply Bob's correction and check he gets the right state! For a way to
+keep track of the "many worlds" involved in quantum measurement, check
+out the final exercise.
+** Projective measurement
+A *projector-valued measurement (PVM)* or *projective measurement* is
+a set of projectors $\Pi_i$ that are orthogonal and "resolve the
+identity":
+\[
+\Pi_i \Pi_j = \delta_{ij}\Pi_i, \quad \sum_i \Pi_i = I.
+\]
+If we measure in state $\pi$, then (according to Born's rule) with
+probability
+\[
+p_i = \pi(\Pi_i),
+\]
+we observe $i$, and (according to the Lüders rule) the post-measurement state is
+\[
+\pi'_i = \frac{1}{p_i} (\Pi_i \triangleleft \pi).
+\]
+This is stochastic. We can implement it in ~yaw~ using the ~stMeasure~
+method, which returns the post-measurement state $\pi'_i$ and index $i$:
+#+BEGIN_EXAMPLE python
+yaw> PVM = [Pi1, Pi2, ...]
+yaw> measure = stMeasure(PVM, state)
+yaw> measure()
+(measured_state, index)
+#+END_EXAMPLE
+The method ~opMeasure~ does something similar, but instead of
+returning the state $\pi'_i$, returns the operator $\Pi_i$. It works
+for channels more generally, but we leave a full discussion to another tutorial!
+** Alice's measurement
+For Alice's Bell measurement, we already have ~initial_state(U)~, so
+we just need to define the Bell PVM. Since it does nothing to Bob's
+qubit, we can write
+#+BEGIN_EXAMPLE python
+yaw> bell_PVM = [Phi(0,0)@I, Phi(0,1)@I, Phi(1,0)@I, Phi(1,1)@I]
+#+END_EXAMPLE
+We order them this way so that, from index $i$ observed, we can easily
+read off the bits by simply converted into binary.
+The measurement is then
+#+BEGIN_EXAMPLE python
+yaw> bell_measure = stMeasure(bell_PVM, initial_state(U))
+yaw> measured, i = bell_measure()
+#+END_EXAMPLE
+Now, according to the usual lore, Bob has a masked version of Alice's
+state. Once she tells him ~index~, he can unmask it!
+** Bob's correction
+In general, Bob will apply a correction operator based on the index
+$ab$ in binary:
+#+BEGIN_EXAMPLE python
+yaw> def correction(a, b):
+...      return X**a * Z**b
+#+END_EXAMPLE
+Running this experiment with $U = H$, I get
+#+BEGIN_EXAMPLE python
+yaw> i
+1
+#+END_EXAMPLE
+This correponds to $ab = 01$ in binary. This means Bob applies $Z$ to
+recover the state, i.e. the total state is
+#+BEGIN_EXAMPLE python
+yaw> corrected = (I @ I @ correction(0, 1)) << measured
+#+END_EXAMPLE
+We can test that this has the correct properties. For instance, for $U
+= H$, the transported state $\pi_+$ is characterized by its
+expectations:
+\[
+\pi_+(X)= \langle +|X|+\rangle = 1, \quad \pi_+(Y) = \pi_+(Z) = 0.
+\]
+We can check:
+#+BEGIN_EXAMPLE python
+yaw> X | corrected
+1
+yaw> Z | corrected
+0.0
+yaw> X*Z | corrected
+0.0
+#+END_EXAMPLE
+So we have successfully teleported! Feel free to repeat the experiment
+with your own unitary $U$ and see what happens. If you need some
+inspiration in picking a unitary, check out the first exercise below!
+** Summary
+Let's briefly summarize the code, in compiled form:
+#+BEGIN_EXAMPLE python
+$alg = <X, Z | herm, unit, anti>
+
+# Basic definitions
+pi0      = char(Z, 0)
+H        = (X + Z)/sqrt(2)
+CNOT     = ctrl(Z, [I, X])
+phi_circ = CNOT*(H @ I)
+
+# Initial global state
+def initial_state(U):
+    return (U @ phi_circ) << pi0 @ pi0 @ pi0
+
+# Bell states and dual projectors
+def phi(a, b):
+    init = char(Z, a) @ char(Z, b)
+    return phi_circ << init
+
+def Phi(a, b):
+    init = proj(Z, a).e @ proj(Z, b).e
+    return phi_circ.d >> init
+
+# Measurement and correction
+bell_PVM     = [Phi(a,b) @ I for a in [0, 1]]
+bell_measure = stMeasure(bell_PVM, initial_state(U))
+measured, i  = bell_measure()
+a, b         = int(f"{i:02b}"[0]), int(f"{i:02b}"[1]) # trick for extracting bits
+corrected    = (I @ I @ (X**a * Z**b)) << measured
+#+END_EXAMPLE
+We can compact this further if we want to play code golf:
+#+BEGIN_EXAMPLE python
+$alg = <X, Z | herm, unit, anti>
+
+# Bell states and dual projectors
+def phi(a, b):
+    return ctrl(Z,[I,X])*((X+Z)/sqrt(2) @ I) << char(Z,a) @ char(Z,b)
+
+def Phi(a, b):
+    return ctrl(Z,[I,X])*((X+Z)/sqrt(2) @ I).d >> proj(Z,a).e @ proj(Z, b).e
+
+# Measurement and correction
+bell_PVM     = [Phi(0,0)@I, Phi(0,1)@I, Phi(1,0)@I, Phi(1,1)@I]
+bell_measure = stMeasure(bell_PVM, (U @ ctrl(Z, [I, X])*((X + Z)/sqrt(2) @ I)) << char(Z,0)@char(Z, 0)@char(Z, 0))
+measured, i  = bell_measure()
+a, b         = int(f"{i:02b}"[0]), int(f"{i:02b}"[1])
+corrected    = (I @ I @ (X**a * Z**b)) << measured
+#+END_EXAMPLE
+* Exercises
+** Unitaries
+** Qudits
+** Branching
 * COMMENT Exercises
 \[
 U(\omega, \alpha, \beta, \gamma) = e^{i\omega} e^{i\alpha X}e^{i\beta Y}e^{i\gamma Z}

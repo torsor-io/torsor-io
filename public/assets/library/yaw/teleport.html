@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title><i>Teleportation in</i> yaw</title>
-<!-- 2025-12-14 Sun 19:14 -->
+<!-- 2025-12-16 Tue 06:50 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -210,13 +210,15 @@ protocol. It has a few moving parts:
 <ul class="org-ul">
 <li>Alice has a state \(\psi\);
 </li>
-<li>And Alice share a Bell state \(\phi_{00}\);
+<li>Bob and Alice share a Bell state \(\phi_{00}\);
 </li>
 <li>Alice measures in the Bell basis \(\Pi_{ab}\);
 </li>
 <li>Bob now has a "masked" state \(Z^b X^a \triangleleft \psi\);
 </li>
-<li>Alice sends \(a, b\) to Bob and he unmasks the state.
+<li>Alice sends \(a, b\) to Bob;
+</li>
+<li>Bob applies \(X^a Z^b\) to unmask the teleported state.
 </li>
 </ul>
 
@@ -239,7 +241,7 @@ an operator to \(\pi_0\):
 <pre class="example">
 yaw&gt; $alg = qubit()
 yaw&gt; pi0 = char(Z, 0)
-yaw&gt; def aliceSends(U):
+yaw&gt; def alice(U):
 ...    return U &lt;&lt; pi0
 </pre>
 <p>
@@ -265,12 +267,21 @@ yaw&gt; phi  = phi_circ &lt;&lt; pi0 @ pi0
 The combined initial state is just <code>aliceSends(U)</code> tensored with <code>phi</code>:
 </p>
 <pre class="example">
-yaw&gt; def totalSends(U):
-...    return aliceSends(U) @ phi
+yaw&gt; def initial_state(U):
+...    return alice(U) @ phi
 </pre>
 <p>
-To summarize, Alice has the state she wants to send, and shares a Bell
-pair with Bob.
+Unfortunately, this has a nested tensor structure which <code>yaw</code>
+currently has trouble with. This needs to be manually "flattened" by
+defining 
+</p>
+<pre class="example">
+yaw&gt; def initial_state(U):
+...      return (U @ phi_circ) &lt;&lt; pi0 @ pi0 @ pi0
+</pre>
+<p>
+This is exactly the same thing, but without parantheses separating the
+tensor products!
 </p>
 </div>
 </div>
@@ -283,6 +294,14 @@ of entangled <b>Bell states</b>
 \[
 \phi_{ab} = \text{CNOT}(H\otimes I) \triangleleft (\pi_a \otimes \pi_b).
 \]
+In <code>yaw</code>:
+</p>
+<pre class="example">
+yaw&gt; def phi(a, b):
+...      init = char(Z, a) @ char(Z, b)
+...      return phi_circ &lt;&lt; init
+</pre>
+<p>
 The projectors \(\Pi_a = |a\rangle\langle a|\) are dual to the states
 \(\pi_a(\cdot) = \langle a |\cdot|a\rangle\), in the sense that
 \[
@@ -291,18 +310,236 @@ The projectors \(\Pi_a = |a\rangle\langle a|\) are dual to the states
 Similarly, the dual projectors to the Bell states \(\phi_{ab}\) are the
 <b>Bell projectors</b>
 \[
-\Phi_{ab} = \text{CNOT}(H\otimes I) \triangleright (\Pi_a \otimes \Pi_b)
+\Phi_{ab} = [\text{CNOT}(H\otimes I)]^\dagger \triangleright (\Pi_a \otimes \Pi_b).
 \]
+We can define them by <label for="mn-demo" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-demo" class="margin-toggle"/>
+<span class="marginnote">
+The <code>.e</code> after the projector forces it to expand
+algebraically; this is currently needed to prevent errors downstream,
+but will be fixed in future versions.
+</span>
+</p>
+<pre class="example">
+yaw&gt; def Phi(a, b):
+...      init = proj(Z, a).e @ proj(Z, b).e
+...      return phi_circ.d &gt;&gt; init
+</pre>
+<p>
+We can check these are dual, e.g.
+</p>
+<pre class="example">
+yaw&gt; Phi(1, 0) | phi(1, 0)
+1
+yaw&gt; Phi(1, 0) | phi(0, 0)
+0.0
+yaw&gt; Phi(1, 0) | phi(0, 1)
+0.0
+yaw&gt; Phi(1, 0) | phi(1, 1)
+0.0
+</pre>
+<p>
+Now that we've defined the projectors, we should measure
+with respect to them. But that requires us to introduce measurement!
 </p>
 </div>
 </div>
 </div>
 <div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> Measurement</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We'll first explain how to do projective measurement in general, and
+then apply it to Alice's Bell measurement in particular. We'll then
+apply Bob's correction and check he gets the right state! For a way to
+keep track of the "many worlds" involved in quantum measurement, check
+out the final exercise.
+</p>
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Projective measurement</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+A <b>projector-valued measurement (PVM)</b> or <b>projective measurement</b> is
+a set of projectors \(\Pi_i\) that are orthogonal and "resolve the
+identity":
+\[
+\Pi_i \Pi_j = \delta_{ij}\Pi_i, \quad \sum_i \Pi_i = I.
+\]
+If we measure in state \(\pi\), then (according to Born's rule) with
+probability
+\[
+p_i = \pi(\Pi_i),
+\]
+we observe \(i\), and (according to the Lüders rule) the post-measurement state is
+\[
+\pi'_i = \frac{1}{p_i} (\Pi_i \triangleleft \pi).
+\]
+This is stochastic. We can implement it in <code>yaw</code> using the <code>stMeasure</code>
+method, which returns the post-measurement state \(\pi'_i\) and index \(i\):
+</p>
+<pre class="example">
+yaw&gt; PVM = [Pi1, Pi2, ...]
+yaw&gt; measure = stMeasure(PVM, state)
+yaw&gt; measure()
+(measured_state, index)
+</pre>
+<p>
+The method <code>opMeasure</code> does something similar, but instead of
+returning the state \(\pi'_i\), returns the operator \(\Pi_i\). It works
+for channels more generally, but we leave a full discussion to another tutorial!
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Alice's measurement</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+For Alice's Bell measurement, we already have <code>initial_state(U)</code>, so
+we just need to define the Bell PVM. Since it does nothing to Bob's
+qubit, we can write
+</p>
+<pre class="example">
+yaw&gt; bell_PVM = [Phi(0,0)@I, Phi(0,1)@I, Phi(1,0)@I, Phi(1,1)@I]
+</pre>
+<p>
+We order them this way so that, from index \(i\) observed, we can easily
+read off the bits by simply converted into binary.
+The measurement is then
+</p>
+<pre class="example">
+yaw&gt; bell_measure = stMeasure(bell_PVM, initial_state(U))
+yaw&gt; measured, i = bell_measure()
+</pre>
+<p>
+Now, according to the usual lore, Bob has a masked version of Alice's
+state. Once she tells him <code>index</code>, he can unmask it!
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Bob's correction</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+In general, Bob will apply a correction operator based on the index
+\(ab\) in binary:
+</p>
+<pre class="example">
+yaw&gt; def correction(a, b):
+...      return X**a * Z**b
+</pre>
+<p>
+Running this experiment with \(U = H\), I get
+</p>
+<pre class="example">
+yaw&gt; i
+1
+</pre>
+<p>
+This correponds to \(ab = 01\) in binary. This means Bob applies \(Z\) to
+recover the state, i.e. the total state is
+</p>
+<pre class="example">
+yaw&gt; corrected = (I @ I @ correction(0, 1)) &lt;&lt; measured
+</pre>
+<p>
+We can test that this has the correct properties. For instance, for \(U
+= H\), the transported state \(\pi_+\) is characterized by its
+expectations:
+\[
+\pi_+(X)= \langle +|X|+\rangle = 1, \quad \pi_+(Y) = \pi_+(Z) = 0.
+\]
+We can check:
+</p>
+<pre class="example">
+yaw&gt; X | corrected
+1
+yaw&gt; Z | corrected
+0.0
+yaw&gt; X*Z | corrected
+0.0
+</pre>
+<p>
+So we have successfully teleported! Feel free to repeat the experiment
+with your own unitary \(U\) and see what happens. If you need some
+inspiration in picking a unitary, check out the first exercise below!
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Summary</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Let's briefly summarize the code, in compiled form:
+</p>
+<pre class="example">
+$alg = &lt;X, Z | herm, unit, anti&gt;
+
+# Basic definitions
+pi0      = char(Z, 0)
+H        = (X + Z)/sqrt(2)
+CNOT     = ctrl(Z, [I, X])
+phi_circ = CNOT*(H @ I)
+
+# Initial global state
+def initial_state(U):
+    return (U @ phi_circ) &lt;&lt; pi0 @ pi0 @ pi0
+
+# Bell states and dual projectors
+def phi(a, b):
+    init = char(Z, a) @ char(Z, b)
+    return phi_circ &lt;&lt; init
+
+def Phi(a, b):
+    init = proj(Z, a).e @ proj(Z, b).e
+    return phi_circ.d &gt;&gt; init
+
+# Measurement and correction
+bell_PVM     = [Phi(0,0)@I, Phi(0,1)@I, Phi(1,0)@I, Phi(1,1)@I]
+bell_measure = stMeasure(bell_PVM, initial_state(U))
+measured, i  = bell_measure()
+a, b         = int(f"{i:02b}"[0]), int(f"{i:02b}"[1])
+corrected    = (I @ I @ (X**a * Z**b)) &lt;&lt; measured
+</pre>
+<p>
+We can compact this further if we want to play code golf:
+</p>
+<pre class="example">
+$alg = &lt;X, Z | herm, unit, anti&gt;
+
+# Bell states and dual projectors
+def phi(a, b):
+    return ctrl(Z, [I, X])*((X + Z)/sqrt(2) @ I) &lt;&lt; char(Z, a) @ char(Z, b)
+
+def Phi(a, b):
+    return ctrl(Z, [I, X])*((X + Z)/sqrt(2) @ I).d &gt;&gt; proj(Z, a).e @ proj(Z, b).e
+
+# Measurement and correction
+bell_PVM     = [Phi(0,0)@I, Phi(0,1)@I, Phi(1,0)@I, Phi(1,1)@I]
+bell_measure = stMeasure(bell_PVM, (U @ ctrl(Z, [I, X])*((X + Z)/sqrt(2) @ I)) &lt;&lt; char(Z, 0) @ char(Z, 0) @ char(Z, 0))
+measured, i  = bell_measure()
+a, b         = int(f"{i:02b}"[0]), int(f"{i:02b}"[1])
+corrected    = (I @ I @ (X**a * Z**b)) &lt;&lt; measured
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> References</h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> Exercises</h2>
 <div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Unitaries</h3>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Qudits</h3>
+</div>
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Branching</h3>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
 <hr  />
 
 <ul class="org-ul">
