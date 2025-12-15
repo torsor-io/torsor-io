@@ -480,7 +480,7 @@ yaw> def phi(a, b):
 ...      init = X**a @ X**b << pi0 @ pi0
 ...      return CNOT*(H @ I) << init
 yaw> Z @ Z | phi(0,0)
-0.0
+1
 #+END_EXAMPLE
 To emphasize the power of ~yaw~'s basic combinators, let's write
 the full (compiler) code to generate the canonical Bell state $\phi$:
