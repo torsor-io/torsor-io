@@ -29,7 +29,11 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       <ul className="list-disc list-inside space-y-2">
         <li>
           <a href="/assets/library/yaw/yaw011.html" className="underline hover:opacity-70">Getting Started</a>
-          {': '} A first tutorial on running yaw.
+          {': '} A first tutorial on running <code>yaw</code>.
+              </li>
+        <li>
+          <a href="/assets/library/yaw/teleport.html" className="underline hover:opacity-70">Teleportation</a>
+          {': '} How to teleport quantum states in <code>yaw</code>.
         </li>
       </ul>
     ),
