@@ -236,7 +236,7 @@ at the end), and we've also introduced the prefix notation ~(@n)~ for repeated t
 powers. But it's remarkably compact for a complete implementation of
 teleportation: a magic trick with no sleight of hand!
 * Exercises
-To come!
+Under construction!
 ** Unitaries
 ** Qudits
 ** Branching
