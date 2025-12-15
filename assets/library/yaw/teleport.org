@@ -209,9 +209,10 @@ def Phi(a, b):
     init = proj(Z, a).e @ proj(Z, b).e
     return phi_circ.d >> init
 
+bell_PVM     = [Phi(0,0)@I, Phi(0,1)@I, Phi(1,0)@I, Phi(1,1)@I]
+
 # Measurement and correction
 def corrected(U):
-    bell_PVM     = [Phi(0,0)@I, Phi(0,1)@I, Phi(1,0)@I, Phi(1,1)@I]
     bell_measure = stMeasure(bell_PVM, initial_state(U))
     measured, i  = bell_measure()
     a, b         = int(f"{i:02b}"[0]), int(f"{i:02b}"[1])
