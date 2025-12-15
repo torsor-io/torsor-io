@@ -105,12 +105,8 @@ of generators and $\mathcal{R}$ relations.
 We adopt this in ~yaw~, and simply write the Pauli algebra as
 #+BEGIN_EXAMPLE python
 yaw> $alg = < X, Z | herm, unit, anti >
+Created algebra: <X, Z | herm, unit, anti>
 #+END_EXAMPLE
-@@html:<label for="mn-demo" class="margin-toggle">&#8853;</label>
-<input type="checkbox" id="mn-demo" class="margin-toggle"/>
-<span class="marginnote">
-  We omit REPL output unless it's useful!
-</span>@@
 where ~herm~ and ~unit~ means all generators are respectively
 Hermitian and unitary, and ~anti~ means they anticommute.
 Note that being Hermitian and unitary also implies $A^2 = A^*A = I$,
