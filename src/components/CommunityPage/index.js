@@ -59,6 +59,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         <li>
               <a href="/assets/library/svm/svm.html" className="underline hover:opacity-70">Transformers as SVMs (2024)</a>
           {': '} Linear attention is a support vector machine!
+          </li>
       </ul>
     ),
       link: '',
