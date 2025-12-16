@@ -264,7 +264,7 @@ U(\alpha_{0,0}, \ldots, \alpha_{d-1,d-1}) = \prod_{a,b=0}^{d-1} e^{i \alpha_{,ab
   conserving information and "monogamy" of entanglement.
 
 * COMMENT html export
-#+TITLE: /Teleportation in/ yaw
+#+TITLE: /Measurement and teleportation/
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="enhanced_tufte.css">
