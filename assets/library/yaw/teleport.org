@@ -177,7 +177,11 @@ expectations:
 \[
 \pi_+(X)= \langle +|X|+\rangle = 1, \quad \pi_+(Y) = \pi_+(Z) = 0.
 \]
-We can check:
+We can check:@@html:<label for="mn-demo" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-demo" class="margin-toggle"/>
+<span class="marginnote">
+These expectations are very slow for some reason. We're looking into it!
+</span>@@
 #+BEGIN_EXAMPLE python
 yaw> I @ I @X | corrected
 1
