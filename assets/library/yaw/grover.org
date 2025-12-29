@@ -3,8 +3,8 @@
 
 ~yaw~ is a ~Python~-based language for doing algebraic quantum
 programming. This tutorial explains how to perform
-Grover search, and discusses how qudit systems are treated in the language. We assume familiarity with prior tutorials: [[https://torsor.io/assets/library/yaw/yaw011.html][introductory
-tutorial]].
+Grover search, and discusses how qudit systems are treated in the
+language. We assume familiarity with prior tutorials: the [[https://torsor.io/assets/library/yaw/yaw011.html][introduction]] and [[https://torsor.io/assets/library/yaw/teleport.html][teleportation]].
 
 * Setup
 -----

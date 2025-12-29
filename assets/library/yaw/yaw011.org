@@ -505,7 +505,7 @@ Next time, we'll use these states to perform a magic trick called *teleportation
   mathematical companion to these tutorials.
 
 * COMMENT html export
-#+TITLE: Tutorial 1: Intro to ~yaw~
+#+TITLE: Tutorial 1: Getting started
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="enhanced_tufte.css">
