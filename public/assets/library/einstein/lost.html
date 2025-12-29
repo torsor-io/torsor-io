@@ -1,0 +1,1694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Modular relativity from relativity entropy</title>
+<!-- 2025-12-25 Thu 10:13 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="David Wakeham" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="enhanced_tufte.css">
+<script type="text/javascript" src="sidebar_darkmode.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>pre { padding-top: 25px !important; }</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Modular relativity from relativity entropy</h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Abstract</h2>
+<div class="outline-text-2" id="text-1">
+<p class="verse">
+We take an algebraic voyage suggested by Einstein's late unease with the continuum, starting with a von Neumann algebra of observables and exploring the ways in which a spacetime structure analogous to special relativity can emerge. In particular, we identify time with modular flow (in line with Connes and Rovelli's Thermal Time Hypothesis), space with the commutative shadow of an observer-dependent subalgebra, and observers themselves with cyclic, separating states. Comparisons between observers are governed by the Connes cocycle, with the real-time cocycle near \(t=0\) yielding relative entropy \(S\), interpreted as a comparison between modular “clocks”, and the Radon-Nikodym point \(t = -i/2\) giving a fidelity functional \(\mathcal{F}\) that we interpreted as a comparison of modular “rods”. In a Type I Gibbs model, these quantities admit a closed form relation \(\mathcal{F}^2 = e^{-S}\) in the well-localized (single eigenvalue) limit. We then analyze the Bisognano–Wichmann wedge, where the vacuum modular Hamiltonian generates Lorentz boosts, and discuss localized coherent excitations for which relative entropy is computable in terms of boost energy and the cocycle admits Gaussian closed forms at the Radon-Nikodym point. In this regime, special-relativistic kinematics emerges from modular data: rapidity appears as a localized relative-modular spectral parameter, while dispersion produces intrinsic “quantum” departures from rigid Lorentz scaling.<br  />
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Introduction</h2>
+<div class="outline-text-2" id="text-2">
+<p class="verse">
+One can give good reasons why reality cannot at all be represented by a continuous field. From the quantum phenomena it appears to follow with certainty that a finite system of finite energy can be completely described by a finite set of numbers (quantum numbers). This does not seem to be in accordance with a continuum theory and must lead to an attempt to find a purely algebraic theory for the representation of reality. But nobody knows how to find the basis for such a theory.<br  />
+</p>
+
+<p>
+This paragraph, appearing in the final appendix of Einstein's <i>The Meaning of
+Relativity</i> (fifth edition, 1955), is perhaps the last thing the
+great scientist committed to print. It reflects a deep pessimism
+about the use of the continuum in modeling a quantum-mechanical reality,
+and more than a whiff of despair about the unified field theory
+he had been labouring over for decades. Written a few months before he died,
+it's tempting to frame this as a jeremiad of defeat.
+Maybe so. But it has a specificity suggesting Einstein knows more
+than he is saying; that perhaps he has been considering the very “algebraic
+theory” he decries as unknown or unknowable. We are not talking about the mature
+fruit of scientific work; that he would have published. But the man
+who spent so many hours wandering the byways of Princeton, lost in
+thought, might have devoted some of those hours to an
+algebraic approach to reality. To borrow an image of Grothendieck,<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“The unknown thing to be known appeared to me as some stretch of earth
+or hard marl, resisting penetration... The sea advances insensibly and in silence,
+nothing seems to happen, nothing moves, the water is so far off you
+hardly hear it... yet it finally surrounds the resistant
+substance.” From <i>Récoltes et Semailles</i> (1986).
+</span>
+Einstein's sea might have been rising to insensibly to surround it.
+</p>
+
+<p>
+Let us suppose, then, that Einstein spent
+some of those Princeton rambles following his own hint, immersed in
+(or immersing) the problem of replacing the continuum in accord with
+the facts of quantum mechanics. What might it look like?
+The most obvious place to start would have been the work of
+Irving Segal,
+a former postdoc of Einstein's at the IAS, or his Princeton colleague John von Neumann, both
+of whom approached algebra from the viewpoint of quantum-mechanical foundations.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“Irreducible representations of operator algebras” and “Postulates for
+General Quantum Mechanics” (1947), Irving Segal; “Rings of
+Operators I” (1936) and “Rings of Operators II” (1937), Murray and von Neumann.
+</span>
+Von Neumann (and his colleague Francis Murray) had defined objects called ““rings of
+operators”, later to be known as <i>W*-algebras</i> or simply <i>von
+Neumann algebras</i>; Segal generalized these to a broader class of <i>C*-algebras</i>.
+The literature was (and is) highly technical, and one can easily
+imagine Einstein, fed up with mathematical jargon, concluding he was
+too old to learn new tricks and retreating to the <i>terra firma</i> of his
+unified field theory.
+</p>
+
+<p>
+But it is possible things went differently. Von Neumann was still at Princeton and dwelling on
+old flames; his 1954 ICM address on unsolved problems<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“Unsolved Problems in Mathematics" (1954), International Congress of
+Mathematics. The “soup” comment comes to us from Freeman Dyson via
+George Dyson, <i>Turing's Cathedral</i> (2012).
+</span> exclusively concerned technical, physical,
+and logical/probabilistic aspects of von Neumann algebras. To the
+assembled mathematicians, it seemed like “warmed-up soup”, but it may have
+reflected genuine mathematical recidivism rather than laziness. It is not impossible
+that Einstein and von Neumann crossed paths in New Jersey in 1954; and that,
+amidst the Institute banter, careful avoidance of nuclear politics, and standard issue shop talk, they
+touched on a problem dear to both: the application of algebraic
+methods to a quantum-mechanical reality.
+</p>
+
+<p>
+This essay is an attempt to honour this (perhaps) imaginary
+conversation between von Neumann and Einstein, and to trace out the few steps
+Einstein might have taken,
+armed with his delicate sense of physical truth, von Neumann's rings of operators, 
+and (anachronistically) a slew of 
+deep classification results that would not arrive until the late 60s and
+70s. This anachronism is regrettably necessary because, without the
+specific form of these results, it is impossible to imagine Einstein
+taking interest in something as <i>recherché</i> as the taxonomy of
+infinite-dimensional algebras.
+These results make the math physically meaningful, and flesh out
+familiar physics mathematically.
+We now embark on Einstein's lost voyage.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Background</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+This section will outline standard algebraic background material,
+albeit in a slightly nontraditional way. For that reason, we do not
+recommend experts skip these preliminaries; they not only provide
+motivation, but ground some eccentricities of presentation.
+</p>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Von Neumann algebras</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+A <i>von Neumann algebra</i> is a collection \(\mathfrak{M}\) of operators 
+which, roughly speaking, correspond to measurements an observer can
+make, actions they can perform, or equivalently, transitions between
+states of the observer. This means that:
+</p>
+<ul class="org-ul">
+<li>if \(a \in \mathfrak{M}\) and \(\lambda \in \mathbb{C}\), then \(\lambda a \in\mathfrak{M}\) since we
+can scale measurements;
+</li>
+<li>if \(a, b \in \mathfrak{M}\), then \(a + b \in \mathfrak{M}\) since we
+can add measurements;
+</li>
+<li>if \(a, b \in \mathfrak{M}\), then \(a\cdot b \in \mathfrak{M}\) since we
+can compose transformations;
+</li>
+<li>there is an antilinear operator \(*: \mathfrak{M}\to \mathfrak{M}\)
+satisfying \((ab)^* = b^* a^*\), with \(a^*\) meaning we apply to the
+final state; and
+</li>
+<li>there is a norm \(\Vert \cdot \Vert: \mathfrak{M}\to\mathbb{R}_{\geq
+  0}\) satisfying \(\Vert a\Vert^2 = \lambda_\max \in \mathbb{R}_{\geq 0}\)
+is a norm, where \(\lambda_\max\) is the largest absolute eigenvalue
+of \(a^*a\), since measurements are finite.
+</li>
+</ul>
+
+<p>
+So far, this defines a C*-algebra (once we supplement with standard axioms,
+e.g. \(\mathfrak{M}\) is a vector space, the product is associative, etc, I omit).
+The notion of a transition between states requires elaboration.
+Usually, a state \(\phi \in \mathfrak{M}^*_+\) is viewed as a linear
+functional \(\phi: \mathfrak{M} \to \mathbb{C}\) (written \(\phi \in \mathfrak{M}^*\)) which
+is positive, in that \(\phi(a^*a) \geq 0\) (written \(\phi \in
+\mathfrak{M}^*_+\)) and normalized so that \(\phi(e) = 1\), where \(e
+\in \mathfrak{M}\) is the identity. We denote Napier's constant by \(\text{e}\).
+</p>
+
+<p>
+Given a state, we can build a Hilbert space as follows: define the form
+\(\langle a, b\rangle = \phi(a^* b)\), quotient out the null space \(\mathscr{N}_\phi\),
+and define \(\mathscr{H}_\phi\) as the vector space formed by equivalence classes
+\(\mathfrak{M}/\mathscr{N}_\phi\), completed with respect to the
+inner product
+\[
+\langle \psi|\omega\rangle = \langle [a]_\phi, [b]_\phi\rangle =
+\phi(a^* b) \tag{1}
+\]
+where the elements \(\psi = [a]_\phi, \omega = [b]_\phi \in
+\mathscr{H}_\phi\).
+If the state \(\phi\) is <i>faithful</i>, meaning that \(\phi(a) = 0\) implies
+\(a = 0\) and hence the null space is trivial \(\mathscr{N}_\phi =
+\{0\}\), the induced Hilbert space \(\mathscr{H}_\phi\) 
+faithfully embeds \(\mathfrak{M}\subseteq \mathfrak{B}(\mathscr{H})_\phi\).
+We always think of a von Neumann algebra “concretely”, that is, as a
+subalgebra of bounded operators acting on some Hilbert space,
+\(\mathfrak{M}\subseteq \mathfrak{B}(\mathscr{H})\).
+</p>
+
+<p>
+We can view the inner product \(\langle \psi|\omega\rangle\) as computing a <i>transition amplitude</i>
+from \(\omega\) to \(\psi\). This gives the concrete interpretation of \(a^*\) as
+applying \(a\) to the final state, since
+\[
+\langle \psi |a|\omega\rangle = \langle \psi | a\omega \rangle, \quad \langle
+\psi |a^*|\omega\rangle = \langle a\psi |\omega\rangle. \tag{2}
+\]
+Now we come to the crux: in addition to the axioms above, a von
+Neumann is closed in the <i>weak operator topology</i>,<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+Called “weak” since it assumes less than another standard operator
+topology, known in contrast as the “strong operator topology”.
+</span> meaning that for
+any convergent sequence of operators \(a_n \to a\), the limit
+\[
+\langle \psi | a_n |\omega\rangle \to \langle \psi |a |\omega\rangle \tag{3}
+\]
+for any pair of vectors \(\psi\) and \(\omega\). More plainly, transition
+amplitudes are a continuous function of the transition operator \(a\).
+Physically, this corresponds to the ability to <i>approximate transition
+amplitudes</i>, a reasonable constraint for observers limited to
+finite-precision measurements.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+For a thoroughgoing introduction to von Neumann algebras, see
+<i>Fundamentals of the Theory of Operator Algebras: Advanced Theory</i>
+(1997), Kadison and Ringrose.
+</span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Space</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+As a starting point for the representation of reality, it seems pretty
+bare bones. We have no space, no time, nothing to pin the theory to
+a suspect continuum; just a few axioms about observation thrown
+together. Whether these are the right axioms, or some other flavour of
+algebraic object, is a matter of debate. But we will see that the
+structure of von Neumann algebras allows for something remarkable: the
+<i>emergence</i> of space and time.
+</p>
+
+<p>
+Let's start with space.
+Suppose for a moment that observables in \(\mathfrak{M}\) are labelled
+by location in time and space, \(a(\mathbf{x}, t)\). Two observables
+\(a(\mathbf{x}, t), b(\mathbf{x}', t)\) sharing the same time, but in
+different places, should not be able to influence each other, either
+as measurements or actions; this would correspond to instantaneous
+transmission of information. A robust feature of nature is that it is
+<i>local</i>, i.e. no instantaneous transmission allowed. In terms of
+transition amplitudes, this means that the order we apply them in
+should be immaterial,
+\[
+\langle \psi| a(\mathbf{x}, t)b(\mathbf{x}', t)|\omega\rangle
+= \langle \psi| b(\mathbf{x}', t)a(\mathbf{x}, t)|\omega\rangle \tag{4}
+\]
+for any initial and final states, or equivalently, \(ab - ba = [a, b] =
+0\). In words, \(a\) and \(b\) <i>commute</i>. On the other hand, if it is
+possible to send a message between two spacetime points \((\mathbf{x},
+t)\) and \((\mathbf{x}', t')\), and it is possible for the observer to
+distinguish them, we can construct initial and final states such that
+\[
+\langle \psi| a(\mathbf{x}, t)b(\mathbf{x}', t')|\omega\rangle
+\neq \langle \psi| b(\mathbf{x}', t')a(\mathbf{x},
+t)|\omega\rangle, \tag{6}
+\]
+and hence \([a, b] \neq 0\). The final state simply records which
+operator was observed first!
+</p>
+
+<p>
+We say that points which can message each other are
+<i>timelike-separated</i> and points that cannot are
+<i>spacelike-separated</i>. Operators at spacelike separated points commute.
+This provides a simple algebraic recipe for space: we consider a
+subalgebra \(\Sigma \subseteq \mathfrak{M}\) of commuting
+operators that cannot be enlarged, also called a <i>maximal abelian
+subalgebra (masa)</i>.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+There is a subtlety regarding maximality with respect to <i>which</i>
+algebra we will resolve in §5.
+</span>
+The operators do not give space as we usually understand it,
+that is, via coordinates.
+To induce coordinates, we use the <i>Gelfand isomorphism</i>. This
+associates a commutative C<sup>*</sup>-algebra \(\Sigma\) to its set of states,
+called in this context the <i>spectrum</i> \(X = \text{spec}(\Sigma)
+\subseteq \Sigma^*\). These give rise to coordinates in the sense that
+\(\Sigma\) can simply be viewed as continuous functions on \(X\), with
+\[
+\Sigma \cong C^0(X) \tag{7}
+\]
+as a norm-preserving isomorphism.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+With respect to the uniform norm on functions. For details, see
+<i>Introduction to Topology and Modern Analysis</i> (1964), George Simmons.
+</span> Concretely, the spaces are idenfied by the <i>Gelfand map</i>
+\(\Phi: \Sigma \to X\), whose seemingly innocuous definition
+\[
+\Phi(a)(\phi) = \phi(a) \tag{8}
+\]
+underlies Fourier series (\(\Sigma = \mathbb{S}^1\)), the Fourier
+transform (\(\Sigma = \mathbb{C}\)), and the Mellin transform (\(\Sigma =
+\mathbb{R}^\times_{>0}\)) among others.
+For instance, on the circle \(\Sigma = \mathbb{S}^1 = [0, 2\pi)\) (with
+endpoints idenfified), the characters
+are the exponential maps
+\[
+\phi_k(z) = \text{e}^{2\pi i kz} \tag{9}
+\]
+for \(k \in \mathbb{Z}\). Thus, we can view \(\text{spec}(\mathbb{S}^1) =
+\mathbb{Z}\) as the integers labelling the familiar Fourier modes on a circle.
+</p>
+
+<p>
+So, to identify space, we therefore first identity a masa \(\Sigma\),
+and arrive at coordinates \(X = \text{spec}(\Sigma)\) given by the
+states on the algebra. The algebra will have <i>projections</i>
+\[
+\Pi^2 = \Pi^* \Pi = \Pi \tag{10} \label{pi_1}
+\]
+which we can view as indicator functions on their <i>support</i>:
+\[
+\text{supp}(\Pi) = \{x \in X : \Pi(x) \neq 0\}. \tag{11} \label{pi_2}
+\]
+This allows to talk of regions of space; there is no guarantee we can
+talk about points (it depends on the projection structure of the masa)
+so this notion of space is already <i>non-local</i>. Given the difficulty
+of covariantly specifying a point, i.e. without coordinates, this is a
+feature rather than a bug!
+Since the structure of a masa in a von Neumann algebra is highly constrained, we can say more.
+It turns out that masa only come in three basic flavours:<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“Extensions of pure states” (1959), Kadison and Singer.
+</span>
+</p>
+<ul class="org-ul">
+<li>\(X\) finite, with model space \(X \cong \{1, 2, \ldots, n\}\);
+</li>
+<li>\(X\) infinite and discrete, with model space \(X \cong \mathbb{N}\); and
+</li>
+<li>\(X\) continuous, with \(X \cong [0, 1]\).
+</li>
+</ul>
+<p>
+We can also take direct sums of these basic types, so for instance a
+\(d\)-dimensional continuum corresponds to \(d\) copies of the third
+type. Only the first two allow us to project onto a point; the price of a
+continuum is non-locality. Einstein was right to be suspicious! So passes the glory of space.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Time</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Space is built out of what observers <i>cannot</i> measure. In contrast,
+there is no natural way to define a maximal set of non-commuting
+operators; we will tend to get back $\mathfrak{M}$!
+Time also has the puzzling phenomenological feature that (like the
+Marcusian man) it is <i>one-dimensional</i>. Finally, there should be a connection between
+thermodynamics and temporal flow, if we are to believe Eddington's
+thesis on the Arrow of Time.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+<i>The Nature of the Physical World</i> (1928), Arthur Eddington.
+</span> How can we reconcile these requirements with
+the algebraic approach?
+</p>
+
+<p>
+Recall the interpretation of \(a^*\): it is \(a\) applied to a final state
+rather than an initial state. Thus, given a unit vector \(|\Omega\rangle\)
+in the (faithful) Hilbert space \(\mathscr{H}_\phi\), we already have
+a notion of earlier and later in time, and can ferret out asymmetries by
+considering how \(a^*\) affects the state in contrast to
+\(a\). To probe this, it is not enough to consider
+\[
+\langle \psi|a |\psi\rangle \quad \text{vs} \quad \langle \psi|a^* |\psi\rangle, \tag{12}
+\]
+since these are complex conjugates and classical observers only have
+access to probabilities rather than amplitudes.
+Put differently, these quantities only differ by an unobservable global phase!
+The next simplest objects to consider are
+\[
+\langle \psi|a^*a |\psi\rangle \quad \text{vs} \quad \langle \psi|a a^* |\psi\rangle. \tag{13}
+\]
+When \(a\) is self-adjoint (\(a^* = a\)) or normal (\(a^*a=aa^*\)) these are
+trivially related, but for a general operator there is no immediate
+connection. To see why this might be useful, consider the case of a
+harmonic oscillator with creation operator \(a^*\) and annihilation
+operator \(a\).<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+Technically, this isn't quite a von Neumann algebra, but we shouldn't let
+technical niceties get in the way of a good story. The correct
+treatment uses the CCR algebra, taming unbounded ladder operators by
+exponentiation.
+</span>
+First of all, \(N = a^*a\) is the <i>number operator</i>, and second, \(a\) and
+\(a^*\) <i>anticommute</i>, so the difference obeys
+\[
+\langle \psi|a^*a |\psi\rangle - \langle \psi|aa^* |\psi\rangle = 2\langle N\rangle_\psi, \tag{14}
+\]
+i.e. is twice the average number of particles in state
+\(|\psi\rangle\). This example pleasingly illustrates that, in contrast to
+the commuting spatial case, time does appear to be tied to
+antcommutation, albeit between operators and their adjoints.
+</p>
+
+<p>
+Let us try to capture the asymmetry more precisely.
+Consider the “adjoint swap” or <i>modular operator</i> \(\Delta_v\), defined by
+\[
+\langle \psi| a^* \Delta_\psi b|\psi\rangle = \langle \psi| ab^* |\psi\rangle \tag{15}
+\]
+for all \(a, b \in \mathfrak{M}\). Let us specialize to the case where the unit
+vector \(|v\rangle\) is <i>cyclic</i>, meaning that \(\mathfrak{M}|\psi\rangle\)
+is dense in the Hilbert space \(\mathscr{H}\) that \(\mathfrak{M}\) acts on:
+\[
+\overline{\mathfrak{M}|\psi\rangle} = \mathscr{H}. \tag{16}
+\]
+Then the modular operator is automatically positive, since
+\(|av\rangle\) is dense in the full Hilbert space \(\mathscr{H}\), and 
+\[
+\langle a\psi| \Delta_\psi|a\psi\rangle = \langle \psi|aa^*|\psi\rangle \geq 0, \tag{17}
+\]
+making tacit use of the weak closure property to densely
+approximate. Since \(\Delta_\psi\) is positive, it is diagonalizable with positive eigenvalues \(\text{e}^{-\lambda}\);<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+We choose these so that λ can be arbitrary and real, and bounded
+below just in case the modular operator is bounded.
+</span>
+these are precisely the operator asymmetries for the corresponding
+eigenvectors \(a_\lambda |\psi\rangle\).
+Thus, if the map \(\Delta_\psi\) exists, it tells us how wonky each
+operator is with respect to swapping initial and final states, or
+equivalently, the ability of a state to tell the time from measuring
+observables and their adjoints.
+</p>
+
+<p>
+So far, we have only the discrete choice of initial or final
+state. From this binary, we would like to concoct a continuous, one-dimensional flow of
+time. This seems quixotic, but if \(\Delta_\psi\) is bounded, then the positive
+eigenvalues \(\text{e}^{-\lambda}\) are bounded below, and hence the \(\lambda\)
+are bounded below. 
+This suggests we can view them as energy levels of
+a <i>modular Hamiltonian</i> \(K_\psi\) defined by
+\[
+\Delta_\psi = \text{e}^{-K_\psi}. \tag{18}
+\]
+If \(|\psi\rangle\) is also <i>separating</i>, meaning
+\(a |\psi\rangle = 0\) implies \(a = 0\), then \(\lambda = \infty\) is not an
+eigenvalue and \(K_\psi\) is itself bounded; this will prove to be a useful
+technical assumption.
+Time evolution with respect to the modular Hamiltonian is given by a
+propagator
+\[
+\text{e}^{-it K_\psi} = \Delta^{it}_\psi. \tag{19}
+\]
+Since the state is naturally fixed (this is all based on a
+choice of reference state \(|\psi\rangle\)), we instead consider the Heisenberg
+picture evolution of an observable:
+\[
+a \overset{t}{\mapsto} \Delta^{-it}_\psi a \Delta^{it}_\psi = \sigma^t_\psi(a). \tag{20}
+\]
+Note that \(\Delta_\psi\) is generically <i>not</i> contained in
+\(\mathfrak{M}\), but rather operates on the larger Hilbert space
+\(\mathscr{H}\). However, 
+Remarkably, a series of deep theorems proved by Tomita and championed by
+Takesaki<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“On canonical forms of von Neumann algebras” (1967), Minoru Tomita;
+<i>Tomita's theory of modular Hilbert algebras and its
+applications</i> (1970), Masamichi Takesaki.
+</span>
+imply that, not only does this Heisenberg evolution stay inside the
+algebra, \(\sigma^t_\psi(\mathfrak{M}) \subseteq
+\mathfrak{M}\), but represents a \(1\)-parameter family of
+automorphisms of \(\mathfrak{M}\), i.e. \(\sigma^t_\psi: \mathfrak{M}\to
+\mathfrak{M}\) is an automorphism for any \(t\in\mathbb{R}\).
+</p>
+
+<p>
+Under modular flow, observables do not “leak out” of \(\mathfrak{M}\)
+and into the ambient space of bounded operators
+\(\mathfrak{B}(\mathscr{H})\); instead, they are quietly rearranged, like unitary time evolution
+in ordinary quantum mechanics.
+This suggests that modular flow might be identified with physical
+time, a proposal called the <i>Thermal Time Hypothesis</i> first made by Connes and
+Rovelli.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“Von Neumann algebra automorphisms and time-thermodynamics relation in
+generally covariant quantum theories” (1994), Alain Connes and Carlo Rovelli.
+</span>
+Although this proposal has many merits, it is poor in concrete predictions.
+To learn what it means, we need to move
+into a bigger universe.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Observers</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+A lone observer makes for a dull cosmology. Introducing a second
+observer corresponds to introducing a second (cyclic, separating)
+state \(|\omega\rangle\). The <i>relative modular operator</i> \(\Delta_{\omega|\psi}\) is
+defined by
+\[
+\langle \omega | a^* \Delta_{\omega|\psi} b |\omega\rangle = \langle \psi|a b^* |\psi\rangle, \tag{21}
+\]
+so it not only swaps adjoints, but changes the reference state. As a
+simple example, \(\Delta_{\omega|\psi}\) converts the expectation of a
+self-adjoint observable \(b^*=b\) in state \(|\omega\rangle\) to an expectation
+in state \(|\psi\rangle\):
+\[
+\langle \omega | \Delta_{\omega|\psi} b |\omega\rangle = \langle \psi|b |\psi\rangle. \tag{22}
+\]
+Again, \(\Delta_{\omega|\psi}\) is positive with eigenvalues
+$ \text{e}<sup>-&lambda;</sup>$ for bounded \(\lambda\), giving a bounded <i>relative
+modular Hamiltonian</i> \(K_{\omega|\psi} =
+-\log\Delta_{\omega|\psi}\). Morally, \(K_\psi\) captures the speed
+at which operators are moving when flipped relative to \(\psi\), while
+\(K_{\omega|\psi}\) captures how fast they are moving when flipped
+between states.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+If this sounds like nonsense, try substituting a
+large eigenvalue into the defining equation.
+</span>
+It can be shown that the <i>relative modular flow</i> is identical to the
+modular flow induced by \(\omega\):
+\[
+\sigma^t_{\omega|\psi}(a) = \Delta^{-it}_{\omega|\psi} a
+\Delta^{it}_{\omega|\psi} = \Delta^{-it}_{\omega} a
+\Delta^{it}_{\omega} = \sigma^t_{\omega}(a). \tag{23}
+\]
+Formally, we can transition from the flow \(\sigma^t_{\omega|\psi}=\sigma^t_{\omega}\) to the flow
+\(\sigma^t_{\psi}\) by conjugating with the <i>Connes cocycle</i>, defined by
+\[
+[D\omega: D\psi]_t := \Delta^{-it}_{\omega|\psi}\Delta^{it}_\psi. \tag{24}\label{cocycle}
+\]
+Both \(\Delta_{\omega|\psi}\) and \(\Delta_{\psi}\) live in the larger
+algebra \(\mathfrak{B}(\mathscr{H})\) rather than \(\mathfrak{M}\) itself,
+but remarkably, Connes showed that the parts outside \(\mathfrak{M}\)
+always cancel, so (\ref{cocycle}) is in \(\mathfrak{M}\).
+This result, called <i>Connes' Cocycle Theorem</i>,<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+<i>Noncommutative Geometry</i> (1990), Alain Connes.
+</span>
+is physically deep; it tells us that, for any two
+(suitably well-behaved) states, the modular flows they induce are
+equivalent up to an operator in \(\mathfrak{M}\).
+It's a bit like timelike trajectories, which may differ in their
+precise bearing, but always point into the forward lightcone.
+</p>
+
+<p>
+This raises a question: if space is defined by a commuting
+algebra \(\Sigma\), are modular flows \(\sigma^t_\psi\) “timelike”, in the
+sense they point away from \(\Sigma\)?
+More precisely, do operators generically commute with their modular
+evolutions:
+\[
+[a, \sigma^t_\psi(a)] \overset{?}{=} 0. \tag{25}
+\]
+A short
+calculation shows that
+\[
+\frac{\text{d}}{\text{d}t} [a, \sigma^t_\psi(a)]\big|_{t=0} = [a,
+[iK_\psi, a]], \tag{26}
+\]
+so commuting with modular flow means commuting with the modular
+Hamiltonian.
+In the finite-dimensional case, \(K_\psi\) is a matrix, and we can
+easily build non-commuting operators \(a\) which are not diagonal in the
+modular energy basis.
+This construction remains valid (with some bells and whistles) into
+infinite dimensions, so provided the modular Hamiltonian is not
+proportional to the identity \(K_\psi \propto e\), modular flows are
+timelike in the sense described.
+</p>
+
+<p>
+By zooming in on \(t=0\), we just evaluated the initial “velocity
+vector” of a modular trajectory. We can perform a similar trick with
+two distinct observers, \(\psi\) and \(\omega\), albeit with respect to
+the cocycle.
+If \(\psi = \omega\), then
+\[
+[D \omega: D\psi]_t = \Delta^{-it}_{\omega|\psi}\Delta^{it}_\psi =
+\Delta^{-it}_{\psi}\Delta^{it}_\psi = e \tag{27}
+\]
+for all \(t\in\mathbb{R}\). We might hope that the departure from the
+identity at small \(t\) encodes the divergence between the flows of the
+two states. To convert an operator into a scalar, we can just plug it
+into one of the states, say \(\omega\). Differentiating and taking \(t=0\)
+gives the <i>relative entropy</i>
+\[
+S(\omega \Vert \psi) = i\frac{\text{d}}{\text{d}t}\langle\omega|
+[D\omega : D\psi]_t |\omega\rangle \big|_{t=0} \tag{28}
+\]
+where the constant is chosen so that (by the
+Baker-Campbell-Hausdorff formula)
+\[
+S(\omega \Vert \psi) = i\langle\omega|\left(i \log\Delta_{\omega|\psi} - i\log\Delta_\psi\right)|\omega\rangle.
+\tag{29}\label{relent1}
+\]
+Assuming that \(|\omega\rangle\) is normalized, the term
+\[
+\langle \omega| \log\Delta_\omega|\omega\rangle =
+\log(\langle\omega|\Delta_\omega|\omega\rangle) =\log(\langle\omega|\omega\rangle) = 0 \tag{30}
+\]
+vanishes, leaving \(S(\omega \Vert \psi) = -\langle \omega | \log\Delta_{\omega|\psi} |\omega\rangle\).
+Substituting the real inequality \(\log x \leq x - 1\), we get an operator inequality with lower bound
+\[
+S(\omega\Vert\psi) \geq 1 - \langle\omega |
+\Delta_{\omega|\psi}|\omega \rangle = 1 - \langle\psi|\psi\rangle = 0. \tag{31}
+\]
+It follows that relative entropy is always non-negative.
+With a little more work, one can show that \(S(\omega \Vert \psi) = 0\)
+just in case \(\omega = \psi\), so cocycle behaviour in the vicinity of
+\(t = 0\) precisely encodes when states are the same or different.
+One again, behaviour in the vicinity of \(t=0\) yields a telling
+“information displacement vector” which perfectly distinguishes observers.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Modular relativity</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+We now have the ingredients needed to start asking whether our
+algebraic definitions of space (a masa \(\Sigma \subseteq
+\mathfrak{M}\)), time (modular flow), and observers (cyclic, separating
+states) make sense.
+We will see that they can be coherently assembled into a theory of
+<i>modular relativity</i>, extending the Thermal Time Hypothesis from a
+single global modular flow, with reference to a mysteriously chosen
+universal state, to states-as-observers with compatibly timelike but
+locally different behaviour. The form of these local difference is
+highly constrained and suggests ways in which special and general
+relativity — Einstein's deepest contributions to physics — might emerge from the
+algebraic perspective.
+</p>
+</div>
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Clocks</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+We will start by recasting the relative entropy in a suggestive
+form. We have been associating modular flow to Hamiltonians of various
+sorts, which interpret eigenvalues as scaling factors (for real time)
+or frequencies (for imaginary time). We can perform the same trick
+with the cocycle itself, although it has a slightly different
+structure. Define the <i>cocycle Hamiltonian</i> by \([D\omega: D\psi]_t =
+\text{e}^{-itH}\), so
+\[
+\varphi(t) = \langle \omega | [D\omega: D\psi]_s |\omega  \rangle =
+\langle \text{e}^{-itH}\rangle_\omega \tag{32}
+\]
+is the <i>characteristic function</i> of \(-H\) in state \(\omega\). 
+Expanding in eigenfrequencies, we obtain
+\[
+\varphi(t) = \int \text{e}^{-i\lambda t}\, \text{d}\mu(\lambda) = 1 - it\int
+\lambda \, \text{d}\mu(\lambda) + \mathcal{O}(t^2). \tag{33}
+\]
+By definition, \(\varphi'(0) = i S(\omega \Vert \psi)\), and hence we learn
+that relative entropy equals mean cocycle frequency:
+\[
+S(\omega \Vert \psi) = \int \lambda \, \text{d}\mu(\lambda).
+\]
+Positivity of relative entropy<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+Here, positivity is a euphimism for non-negativity.
+</span> then implies an interesting fact: the mean cocycle frequency
+is always positive, and vanishes just in case the states coincide.
+</p>
+
+<p>
+We can make this picture more physical using the notion of the
+<i>Loschmidt echo</i>.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+Named after (but not by) Johann Josef Loschmidt, who took
+Ludwig Boltzmann to task over issues of reversibility in <i>classical</i> physics. See
+“Dynamics of Loschmidt echoes and fidelity decay” (2006), Thomas
+Gorin, Tomaz Prosen, Thomas H. Seligman, and Marko Znidaric for a
+thorough review.
+</span> In general, we can compare two Hamiltonians \(H_0\)
+and \(H_1\) on a reference state \(|\phi\rangle\) by evolving forward a
+time \(t\) with \(H_1\), then backward with \(H_0\) (or vice-versa), and
+taking the overlap with \(|\phi\rangle\):
+\[
+\mathcal{L}_{H_0,H_1}^{\phi}(t) = \langle \phi|\text{e}^{itH_0}\text{e}^{-itH_1}|\phi\rangle. \tag{34}
+\]
+The difference between Hamiltonian spectra will manifest as
+<i>dephasing</i>, resulting in a loss of overlap.
+Typically, the focus is on the Loschdmit probability, i.e. the <i>squared
+amplitude</i> \(|\mathcal{L}_{H_0,H_1}^{\psi}(t)|^2\), which automatically
+cancels the first order term and is guaranteed to be non-increasing at second
+order because \(t = 0\) is a maximum:
+\[|
+\mathcal{L}_{H_0,H_1}^{\psi}(t)|^2 = 1 - t^2 |\Delta| + \mathcal{O}(t^4). \tag{35}
+\]
+We are more interested in the linear term, whose sign is not
+constrained in general.
+To understand what it signifies, consider a simple situation where
+\(|\psi\rangle\) is an eigenvector of the two Hamiltonians, with
+eigenvalue \(\lambda_0, \lambda_1\) respectively. Then
+\[
+\mathcal{L}_{H_0,H_1}^{\psi}(t) = \text{e}^{-it(\lambda_1 - \lambda_0)} = 1
+-it(\lambda_1 - \lambda_0) + \mathcal{O}(t^2), \tag{36}
+\]
+so the Loschdmit echo records the frequency difference at first
+order. In plain language, it tells us which Hamiltonian <i>runs
+faster</i>. In general, we can use Baker-Campbell-Hausdorff to write
+\[
+\text{e}^{itH_0}\text{e}^{-itH_1} = \left(1 +
+\mathcal{O}(t^2)\right) \text{e}^{-it (H_1 - H_0)} = \left(1 + \mathcal{O}(t^2)\right)
+\int \text{e}^{-it\lambda}\,\text{d}\lambda, \tag{37}
+\]
+where we integrate over the spectrum of \(H_1 - H_0\). Expanding
+\(|\phi\rangle\) in eigenstates \(a_\lambda|\phi\rangle\) (taking
+\(|\phi\rangle\) cyclic), with coefficients \(c_\lambda\), gives
+\[
+\mathcal{L}_{H_0,H_1}^{\psi}(t) = \left(1 + \mathcal{O}(t^2)\right)
+\int
+\text{e}^{-it\lambda}c_\lambda\langle\psi|a_\lambda|\psi\rangle\,\text{d}\lambda.
+\tag{38}
+\]
+This tells us which Hamiltonian runs faster <i>on average</i>, as measured
+by \(|\phi\rangle\) in the sense that it is weighted by \(\text{d}\mu(\lambda) = c_\lambda
+\langle \psi|a_\lambda|\psi\rangle \,\text{d}\lambda\), i.e. how much each
+eigenvector contributes \(|\phi\rangle\). For a first order term
+\(-it\Delta\), \(H_1\) runs faster for \(\Delta > 0\) and \(H_0\) runs
+faster for \(\Delta < 0\).
+</p>
+
+<p>
+This leads us to a second interpretation of the characteristic
+function \(\varphi(t)\) as a Loschdmit echo between modular time evolution
+for states \(\omega\) and \(\psi\) respectively.
+In this case, we are evolving <i>backward</i> in time \(t\) first (due to
+our “physics-style” convention for conjugating operators) with
+reference state \(|\omega\rangle\), \(H_0 = K_{\psi}\) and \(H_1 =
+K_{\omega|\psi}\).
+Since \(\sigma^t_{\omega|\psi} =
+\sigma^t_\omega\), we can simplify by replacing \(K_{\omega|\psi}\) with
+\(K_{\omega}\) in the cocycle structure, which yields
+\[
+\varphi(t) = \mathcal{L}^\omega_{K_{\omega},K_{\psi}}(-t). \tag{39}
+\]
+The fact we first evolve backwards implies that, for first order term
+\(-it\Delta\), \(K_{\psi}\) runs faster for \(\Delta < 0\) and \(K_{\omega}\)
+runs faster for \(\Delta > 0\).
+Positivity of relative entropy then implies a remarkable conclusion: a
+state \(|\omega\rangle\) measures its own modular evolution to
+run faster, on average, than any other state. This is what it means
+for the mean cocycle frequency to be positive.
+This should of course remind of something else: a clock always
+measures its own time to run faster than any clock moving relative to
+it, an effect known as <i>time dilation</i>.
+(We will see below that modular time dilation is not precisely
+analogous to time dilation, but the analogy is good enough for the moment.)
+As with regular time dilation, the puzzling symmetry of modular time
+dilation — which Hamiltonian really runs faster? — is resolved by the
+fact that measurements are performed <i>with respect to a state</i>. Observer
+\(|\omega\rangle\) measures \(|\psi\rangle\) to run slower, and vice
+versa, because measurement itself breaks the symmetry.
+</p>
+
+<p>
+Time dilation is a cornerstone of Einstein's theory of special
+relativity. The existence of a modular analogue raises three natural
+questions:
+</p>
+<ul class="org-ul">
+<li>What invariance grounds this <i>modular time dilation</i> principle, akin
+to the constancy of the speed of light?
+</li>
+<li>In special relativity, time dilation <i>implies</i> length
+contraction. Is there a modular length contraction principle?
+</li>
+<li>Finally, how does modular time dilation relate to
+special-relativistic time dilation?
+</li>
+</ul>
+<p>
+We will answer these questions in turn. The first is the simplest. The
+speed of light can be measured by, say, bouncing a laser off a
+mirror. The invariance of \(c\) means that the result of this experiment
+is the same even when we asymmetrically boost the mirror into an
+inertial reference frame moving relative to us, or equivalently, we
+boost ourselves.
+These boosts are <i>symmetries of the vacuum</i>, so in effect, this says
+that if we asymmetrically apply a symmetry of the vacuum, experiments
+determining \(c\) are invariant.
+In the modular case, we treat the state \(|\psi\rangle\) as the
+vacuum. Instead a change of frame, we will have a \(*\)-automorphism \(\alpha: \mathfrak{M}
+\to \mathfrak{M}\) relabelling elements of the algebra; this is a
+symmetry of \(|\psi\rangle\) just in case
+\[
+\psi \circ \alpha (a) = \langle \psi|\alpha(a)|\psi\rangle = \langle
+\psi|a|\psi\rangle = \psi(a). \tag{40} \label{auto-psi}
+\]
+Bouncing lasers off mirrors compares frames; in our case, we identify
+with a frame \(|\omega\rangle\) and “bounce off” the vacuum
+\(|\psi\rangle\). Instead of computing a speed, the simplest thing we
+can compute is the relative entropy itself, \(S(\omega \Vert
+\psi)\). Asymmetrically “boosting” ourselves
+means applying the automorphism \(\alpha\) to our frame. This gives
+\[
+S(\omega\circ \alpha \Vert \psi) = S(\omega\circ \alpha \Vert \psi
+\circ \alpha), \tag{41}
+\]
+using the symmetry (\ref{auto-psi}). But applying an automorphism to
+<i>both</i> reference states cannot change the relative entropy; it
+relabels the eigenvectors of the cocycle Hamiltonian but leaves the
+spectrum invariant. Thus, we learn that relative entropy is the quantum information
+invariant that grounds time dilation.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Rods</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Next, we turn to length contraction. This is an intrinsically trickier
+problem; clocks are localized so a comparison is direct, whereas volumes
+are spread out. Luckily, there is a beautiful analogue to the relative
+entropy story. Instead of evaluating the cocycle at real time \(t \in\mathbb{R}\), or
+equivalently, we look at a specific point in imaginary time \(t = -i/2\):
+\[
+\Delta_{\text{RN}}^{1/2} = [D\omega:D\psi]_{-i/2} = \Delta_{\omega|\psi}^{-1/2}\Delta_{\psi}^{1/2},
+\tag{42} \label{RN-point}
+\]
+where RN stands for <i>Radon-Nikodym</i>.
+This corresponds to an “imaginary” Loschmidt echo, probing the spatial
+rather than the temporal structure of the cocycle:
+\[
+\mathcal{F}(\omega, \psi) = \mathcal{L}^\psi_{K_\omega,K_\psi}(i/2) = \int \text{e}^{-\lambda/2}\,
+\text{d}\mu(\lambda) + \text{corrections}, \tag{43} \label{RN-fid}
+\]
+where \(\text{d}\mu(\lambda)=c_\lambda\psi(a_\lambda)\) as above. Up to
+a series of corrections from Baker-Campbell-Hausdorff (suppressed when
+\([K_\omega,K_\psi]\) is small), this is just the weighted mean eigenvalue of
+\(\Delta_{\text{RN}}\). This may seem like an arbitrary place to look, but this
+is precisely the point that converts between <i>spatial measures</i> on a
+masa \(\Sigma\), so it is the natural object to evaluate! More
+precisely, given a function \(f \in C^0(\text{spec}(\Sigma),
+\mathbb{C}) \cong \Sigma\), the <i>weight</i> of the function in a state is simply the
+evaluation, e.g.
+\[
+\psi(f) = \int_{\text{spec}(\Sigma)} f(x) \, \text{d}\mu_\psi(x). \tag{44}
+\]
+In particular, for the projector \(\Pi_R\) associated to a region \(R
+\subseteq \text{spec}(\Sigma)\), the <i>volume</i> of the region is simply
+\[
+\mathcal{V}_\psi(R) = \psi(\Pi_R) = \int_{\text{spec}(\Sigma)} \mathbf{1}_R(x) \,
+\text{d}\mu_\psi(x) = \int_{R} \text{d}\mu_\psi(x). \tag{45}
+\]
+To convert to the measure in another state \(\psi\), we use the
+<i>Radon-Nikodym derivative</i> \(\text{d}\mu_\omega/\text{d}\mu_\psi\). It
+is discussed at length in any measure theory text,<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+For instance <i>Real and Complex Analysis</i> (1990), Walter Rudin.
+</span> but for our purposes,
+simply converts between measures:
+\[
+\omega(f) = \int_{\text{spec}(\Sigma)} f(x) \,
+\text{d}\mu_\omega(x) = \int_{\text{spec}(\Sigma)} f(x)
+\frac{\text{d}\mu_\omega}{\text{d}\mu_\psi}\Bigg|_x\,
+\text{d}\mu_\psi(x). \tag{46}
+\]
+Connes showed<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+<i>Noncommutative Geometry</i> (1990), Alain Connes. Hence his
+self-deprecating terminology of <i>Radon-Nikodym cocycle</i>.
+</span>
+that, when restricted to a masa, the cocycle (\ref{RN-point}) is
+precisely the square root of the Radon-Nikodym derivative, and hence,
+by commutativity, the volume in state \(|\psi\rangle\) is related to
+\(|\omega\rangle\) via
+\[
+\omega(f) = \langle\psi|\Delta_\text{RN}^{1/2} f \Delta_\text{RN}^{1/2}|\psi\rangle \quad \Longrightarrow \mathcal{V}_\omega(R) = \langle \psi |\Delta_\text{RN}^{1/2}\Pi_R
+\Delta_\text{RN}^{1/2}|\psi\rangle. \tag{47}\label{swap}
+\]
+This motivates us to study the overlap of this modified Radon-Nikodym
+state \(\Delta_\text{RN}^{1/2}|\psi\rangle\) with \(|\psi\rangle\) itself,
+which is precisely the expression (\ref{RN-fid}):
+\[
+\mathcal{F}(\omega, \psi) = \langle
+\psi|\Delta_\text{RN}^{1/2}|\psi\rangle = \langle\omega|\Delta_\text{RN}^{-1/2}|\omega\rangle, \tag{48}
+\]
+noting a pleasingly symmetric definition in terms of \(|\omega\rangle\)
+which follows immediately from (\ref{swap}), and is consistent with
+\(\Delta_\text{RN}^{-1} = \text{d}\mu_\psi/\text{d}\mu_\omega\). When
+the states are equal, \(\text{d}\mu_\omega/\text{d}\mu_\psi = I\) and
+hence
+\[
+\mathcal{F}(\omega,\psi)=\langle
+\psi|\Delta_\text{RN}^{1/2}|\psi\rangle =1. \tag{49}
+\]
+Moreoever, since \(\langle \psi|\Delta_\text{RN}|\psi\rangle = \langle
+\omega|\omega\rangle = 1\), Cauchy-Schwarz shows that
+\[ |\mathcal{F}(\omega,\psi)|^2 = |\langle
+\psi |\Delta_\text{RN}^{1/2}|\psi\rangle|^2 \leq 1. \tag{50} \label{fid-bound}
+\]
+Less trivial is the statement that the
+inequality is <i>strict</i> when \(\omega \neq \psi\), just like relative
+entropy.
+The imaginary Loschmidt echo \(\mathcal{F}(\omega,\psi)\) is more
+commonly known as the <i>fidelity</i> in the quantum information literature,<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+See for instance <i>Quantum Computation and Quantum Information</i>
+(2000), Michael Nielsen and Isaac Chuang.
+</span>
+and is a robust measure of the difference between quantum states.
+</p>
+
+<p>
+In the same way that relative entropy grounds time dilation, fidelity
+is the invariant which grounds modular length contraction; it is
+invariant under automorphisms that preserve \(|\psi\rangle\) for the
+same reason.
+In terms of (\ref{RN-fid}), and focusing on the leading terms in the
+\(\lambda\) integral,
+\[
+\int \text{e}^{-\lambda/2} \, \text{d}\mu(\lambda) \lesssim 1.  \tag{51}
+\]
+Interpreting \(\text{e}^{-\lambda/2}\) as a length contraction factor, it seems
+that moving rulers shrink on average in the same way that moving clocks slow on average,
+albeit with slightly different averages. But they are directly
+connected in the case of a single, perfectly localized eigenvalue
+\(\text{d}\mu(\lambda) = \delta(\lambda - \lambda_0) \,\text{d}\lambda\),
+where we have the striking relation
+\[
+\mathcal{F}(\omega, \psi)^{2} = \text{e}^{-\lambda_0} = \text{e}^{-S(\omega \Vert \psi)}. \tag{52}
+\]
+When there is dispersion, Jensen's inequality is
+strict and they disagree, with \(\mathcal{F} > \text{e}^{-S/2}\). Thus, we can
+think of a well-localized spectrum as a sort of <i>classical limit</i> of
+modular relativity. In contrast, the difference
+\[
+\mathcal{K}(\omega, \psi) = \log[\mathcal{F}(\omega,\psi)^2 \text{e}^{S(\omega\Vert \psi)}] \geq 0 \tag{53}
+\]
+represents the sum of higher cumulants (\(\mathcal{K}\) stands for
+“kumulant”).
+A novel prediction of this theory is that generically \(K >0\), though
+we will discuss mechanisms for classical localization of the
+cocycle spectrum below.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Phenomenology</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Our third question regarded the connection between modular relativity
+and special relativity.
+We have been referring rather loosely to “time dilation”, “length
+contraction” and “boosts”. To see how this terminology holds up, we
+can consider the vacuum state on the Rindler wedge. The groundbreaking
+theorem of Bisognano and Wichmann<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“On the duality condition for a Hermitian scalar field” (1975),
+Bisognano and Wichmann.
+</span> shows that the
+modular Hamiltonian can identified with the boost generator up to a constant,
+\(\Delta_\psi = \text{e}^{-2\pi K_\text{boost}}\).
+The <i>rapidity</i> is related to modular time by \(\eta = 2\pi t\), or equivalently
+\(\Delta_\psi^{it} = \text{e}^{-\eta K_\text{boost}}\), and diagonalizes in
+<i>null coordinates</i> \(x^\pm = t \mp x\) with
+\[
+x^\pm \mapsto \text{e}^{\pm \eta} x^{\pm}. \tag{54}
+\]
+This suggests we identify
+\[|
+\langle\eta\rangle| = C \cdot S(\omega \Vert \psi) \tag{55}
+\]
+i.e. the average rapidity is the relative entropy, up to a prefactor,
+with modular time dilation in the null coordinate
+\(x^{\text{sgn}(\eta)}\) and modular length contraction in the complementary
+null coordinate \(x^{-\text{sgn}(\eta)}\).
+Thus, the names “time dilation” and “length contraction” might be better called <i>modular null contraction</i> and
+<i>modular null dilation</i>.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+In view of this terminology, we could call σ² the
+“modular null asymmetry”; “variance” is friendlier if less exact.
+</span>
+They identify modular time as stretched along one null direction
+(positive rapidity) and modular space as squeezed along the other
+(negative rapidity). This is equivalent to \(\mathcal{K}(\omega,\psi) \geq 0\), so the identification of directions is tied to
+both invariants.
+We discuss the information-geometric aspect of this story further below.
+</p>
+
+<p>
+You might wonder why our earlier arguments didn't reproduce the
+standard time dilation and length contraction factors.
+What went wrong?
+The short answer is that the frequencies associated to modular
+evolution are connected in geometric settings to boosts, and these
+act diagonally in the null directions. The Radon-Nikodym derivative is really the
+Jacobian of a change of <i>spacetime</i> measure, restricted to a spacelike surface.
+The \(\text{e}^\eta\) scaling in modular time induces a \(\text{e}^{-\eta}\) scaling in
+modular space, which shows up in the change of measure formula.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+To be clear, spacelike surfaces do not contain a null direction! The
+point is that the contraction is diagonal when parameterized by the
+appropriate null direction. Rindler space is the canonical example of
+this phenomenon, where the spacelike surfaces fan out from the origin
+and undergo negative rapidity compression.
+</span>
+That said, we can recover the familiar Lorentz factor from basic
+kinematics. Recall that \(\gamma\) is
+related to rapidity by
+\[
+\gamma = \cosh(\eta) = \frac{1}{2}(\text{e}^\eta + \text{e}^{-\eta}). \tag{56}
+\]
+A moving clock slows by \(\gamma\), since (setting \(x=0\), i.e. stationary in original frame)
+\[
+t =\frac{1}{2}(x^+ + x^-)
+\mapsto t' = \frac{1}{2}(\text{e}^\eta + \text{e}^{-\eta})t = \gamma t. \tag{57}
+\]
+On the other hand, a moving ruler is measured to have simultaneous
+endpoints, or
+\[
+\Delta t \mapsto \Delta t' = \frac{1}{2}(\text{e}^\eta + \text{e}^{-\eta})t +
+\frac{1}{2}(\text{e}^\eta - \text{e}^{-\eta})x = 0. \tag{58}
+\]
+We can substitute this into the expression for \(\Delta x'\):
+</p>
+\begin{align}
+\Delta x = \frac{1}{2}(\Delta x^+ -\Delta x^-)
+\mapsto \Delta x' & = \frac{1}{2}[\text{e}^\eta (\Delta t + \Delta x) - \text{e}^{-\eta}(\Delta t -\Delta x)] \\ 
+& = \frac{1}{2}(\text{e}^\eta - \text{e}^{-\eta}) \Delta t + \frac{1}{2}(\text{e}^\eta + \text{e}^{-\eta}) \Delta x \\
+& = \frac{1}{2}\left[\frac{-(\text{e}^\eta - \text{e}^{-\eta})^2}{(\text{e}^\eta +\text{e}^{-\eta})} + (\text{e}^\eta + \text{e}^{-\eta}) \right] \Delta x \\
+& = \frac{1}{2}\left[\frac{4}{(\text{e}^\eta +\text{e}^{-\eta})}\right] \Delta x = \frac{\Delta x}{\gamma},
+\end{align}
+<p>
+using the simultaneity condition on the third line.
+We therefore obtain the standard Lorentz phenomenology from the modular null
+scalings.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Examples</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+In this section, we explore some simple, tractable examples which
+ground the identification of relative entropy with (average) rapidity,
+and shed light on the relative modular spectrum.
+We first consider a finite-dimensional toy model, then a simple field theory example where we compare the vacuum
+state to a coherent excited state.
+</p>
+</div>
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> A toy model</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Consider a commutative algebra \(\mathfrak{M}\) of mixed states,
+diagonal in some common basis:
+\[
+\rho_i = \sum_{E} p_i(E) |E\rangle\langle E|. \tag{59}
+\]
+Since these commute, so the calculations become effectively classical.
+Suppose the algebra acts on a Hilbert space \(\mathscr{H}\), with
+commutant (i.e. operators which commute with each element) \(\mathfrak{M}'\).
+The theory of finite-dimensional modular flow tells us that
+\[
+\Delta_{i} = \rho_i \otimes \rho_i^{-1}, \quad \Delta_{i|j} = \rho_i
+\otimes \rho_j^{-1}, \quad [D\rho_i: D\rho_j]_{-i} =
+\rho_i\rho_j^{-1} \otimes e. \tag{60}
+\]
+Thus, evaluated at a fixed energy \(E\), the relative modular operator
+is just the likelihood ratio, and the cocycle spectral distribution is
+the log likelihood:
+\[
+[D\rho_i: D\rho_j]_{-i} = \frac{p_{i}(E)}{p_{j}(E)}, \quad  \tag{61}
+\lambda(E) = -\log \Delta_{i|j}(E) = \log \left[\frac{p_{j}(E)}{p_{i}(E)}\right].
+\]
+The relative entropy is the expected log likelihood or KL divergence:
+\[
+S(\rho_i \Vert \rho_j) = \mathbb{E}_{j} \left[\log
+\frac{p_j}{p_i}\right] = \mathbb{E}_{j} [\lambda(E)]. \tag{62}
+\]
+Thus, \(\lambda(E)\) is the spectral density of the cocycle
+Hamiltonian, \(S(\rho_i\Vert\rho_j)\) is the averaged spectral density,
+and treating Hamiltonian as a boost generator, the relative entropy is
+the average rapidity. 
+At the RN point, \([D\rho_i: D\rho_j]_{-i/2} =
+\rho_j^{1/2}\rho_i^{-1/2}\), and hence
+\[
+\mathcal{F}(\rho_i, \rho_j)=\mbox{Tr}\big[\rho_j [D\rho_i:
+D\rho_j]_{-i/2}\big] = \mbox{Tr}[\sqrt{\rho_i}\sqrt{\rho_j}] =
+\sum_E \sqrt{p_i(E)p_j(E)}, \tag{63}
+\]
+the classical Bhattacharyya distance. This can also be written
+\[
+\mathcal{F}(\rho_i, \rho_j) =
+\mathbb{E}_{j}\left[\text{e}^{-\lambda/2}\right] \tag{64}
+\]
+in accord with the integral (\ref{RN-fid}).
+To explore localization of the spectrum, note that, by Taylor expand
+the exponential and the log, we have
+\[
+\log \mathcal{F} = \log \mathbb{E}_j \left[\text{e}^{-\lambda/2}\right] =
+-\frac{1}{2}\mathbb{E}_j[\lambda] + \frac{1}{8}\sigma^2_j[\lambda] -
+\frac{1}{48}\kappa_3 + \cdots, \tag{65}
+\]
+or equivalently
+\[
+\mathcal{K} = \log (\mathcal{F}^2\text{e}^{S}) = \frac{1}{4}\sigma^2 + \mathcal{O}(\kappa_3),\tag{66}
+\]
+so \(\mathcal{K}\) is indeed a sum of higher cumulants, as
+claimed earlier.
+As a special case, we can consider thermal density matrices with
+respect to the same Hamiltonian,
+\[
+\rho_i = \frac{1}{Z(\beta_i)} \text{e}^{-\beta_i H}, \quad Z(\beta_i) =
+\mbox{Tr}[\text{e}^{-\beta_i H}]. \tag{67}
+\]
+In this case, a short calculation shows that
+\[
+\sigma^2_j[\lambda] = (\beta_j - \beta_i) \sigma^2_j[E] =  (\beta_j -
+\beta_i) \partial_\beta^2 \log Z(\beta)\bigg|_{\beta=\beta_j} =
+\frac{\Delta\beta \cdot C_v(T_j)}{k_B \beta_j^2}. \tag{68}
+\]
+Thus, the cocycle spectrum is effectively localized (small variance)
+provided the inverse temperature is much larger than the heat capacity:
+\[
+C_v(T_j) \ll \frac{k_B\beta^2}{\Delta\beta} = \frac{1}{T_j(1 + T_j/T_i)}. \tag{69}
+\]
+For a finite-level system, we typically have<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+This is called the <i>Schottky anomaly</i>.
+</span> \(C_v(T) \propto T^{-2}\),
+so localization occurs in the high-temperature limit.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> Coherent states</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+While the toy model illustrates the basic structure, we now turn to a 
+quantum field theory example which exhibits the full richness of 
+modular relativity in a geometric setting.
+Consider the right Rindler wedge
+\[
+W = \{(t, x_1, \mathbf{x}) \in \mathbb{R}^{0, d} : x_1 > |t|\}, \tag{70}
+\]
+and the associated algebra of local excitations for a Hermitian field
+\[
+\mathfrak{A}(W) = \{\phi(x) : x \in W\}. \tag{71}
+\]
+If \(|\psi\rangle\) is the Minkowski
+vacuum (the unique state invariant under Poincaré transformations) restricted to \(W\), then
+by the Reeh-Schlieder theorem<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“Bemerkungen zur Unitäräquivalenz von Lorentzinvarianten Feldern”
+(1961), Helmut Reeh and Siegfried Schlieder. The technical definition of the vacuum is rather
+involved, but our caricature is a common one. See “An algebraic approach to quantum field theory” (1964), Rudolf
+Haag and Daniel Kastler.
+</span>
+it is cyclic and separating. Bisognano and Wichmann proved that
+the modular Hamiltonian is precisely the
+<i>boost generator</i> up to a reparameterization factor of \(2\pi\):
+\[
+K_\psi = 2\pi K_\text{boost},
+\tag{72}
+\]
+with parameter \(\eta =2\pi t\) the <i>rapidity</i>. A localized coherent
+excitation is produced by a Weyl unitary \(W(f)\) acting on the vacuum,
+\(|\omega_f\rangle = W(f)|\psi\rangle\); this is also cyclic and
+separating.
+Assuming for simplicity that the smearing function \(f\) is localized to
+the right wedge. Then Casini, Grillo and Pontello show that<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“Relative entropy for coherent states from Araki formula”
+(2019), Horacio Casini, Sergio Grillo, and Diego Pontello.
+</span>
+\[
+S(\omega_f \Vert \psi) = 2\pi \langle f, k_1
+f\rangle_{\mathscr{H}_\text{1P}}, \tag{73}
+\]
+where \(k_1\) is the one-particle boost generator and
+\(\mathscr{H}_\text{1P}\) is the one-particle Hilbert space (we omit the
+subscript from now on).
+If we expand the spectrum of the one-particle boost generator as
+\[
+k_1 = \int \lambda \, \text{d}\varsigma(\lambda)
+\tag{75}
+\]
+and substitute into the relative entropy, we obtain
+\[
+S(\omega_f \Vert \psi) = 2\pi \langle f, f\rangle\int \lambda \,
+\mathrm{d}\mu(\lambda), \quad \text{d}\mu(\lambda) = \frac{\langle f,
+\text{d}\varsigma(\lambda) f\rangle}{\langle f, f\rangle}. \tag{76}
+\]
+Again, we have a direct connection to the spectrum of boosts, up to a
+prefactor \(2\pi \langle f, f\rangle\). If we set \(\text{d}\mu(\lambda)
+= \delta(\lambda-\lambda_0) \,\text{d}\lambda\), we find \(S(\omega_f
+\Vert \psi) = 2\pi \langle f, f\rangle \lambda_0\).
+Casini, Grillo and Pontello also prove that the Connes cocycle takes
+the form
+\[
+[D\omega_f : D\psi]_t = W(f)\sigma^t_\psi [W(f)^*] = W(f)W(f_t),
+\tag{77}
+\]
+where \(f_t\) is a boosted smearing function.
+Taking the vacuum overlaps, Cadamuro and Del
+Vecchio compute the closed form<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“Relative entropy of coherent states on general CCR algebras” (2022), Daniela Cadamuro and Simone Del
+Vecchio.
+</span>
+\[
+\bigg|
+\langle\psi |[D\omega_f : D\psi]_{-i/2}|\psi\rangle\bigg|^2 =
+\exp\left[-\langle\Delta_\psi^{1/2} f - f, \Delta_\psi^{1/2} f - f\rangle\right].
+\tag{78}
+\]
+Specializing to the Rindler wedge, we have \(\Delta_\psi^{1/2} =
+\text{e}^{-\pi k_1}\) and for a small, localized eigenpacket
+(\(\Delta_{\psi}^{1/2} - e \approx -\pi k_1\)) we get
+\[
+\bigg|
+\langle\psi |[D\omega_f : D\psi]_{-i/2}|\psi\rangle\bigg|^2 \approx
+\text{e}^{-2\pi \langle f, f\rangle \lambda_0}, \tag{79}
+\]
+which precisely agrees with \(\text{e}^{-S}\), as we expect for the
+well-localized limit. Note that for this to occur, we need
+localization at small eigenvalues, otherwise corrections
+(corresponding to higher terms in the
+\(\lambda\)-integral (\ref{RN-fid})) spoil the agreement. We therefore
+predict nonzero \(\mathcal{K}\) at high boost.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Open questions</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Below, we discuss some unresolved problems we hope to take
+up in future work: localization, the nature
+of observers, the quantum information geometry,
+and extensions to curvature.
+</p>
+
+<p>
+In our examples, we identified two regimes where localization of the
+modular spectrum held: the high-temperature limit of a
+finite-dimensional system, with states sharing an eigenbasis; and for
+coherent excitations in Rindler space with a narrow boost eigenpacket
+at small average value of \(\lambda\). In this case, the kumulant function \(\mathcal{K}
+\approx 0\) and the fidelity is directly related to the relative
+entropy.
+There are two sorts of corrections to this picture: higher cumulants
+of the modular spectrum, and Baker-Campbell-Hausdorff corrections to
+the Radon-Nikodym density.
+These can loosely be viewed as stochastic and quantum effects
+respectively. This leads to the question:
+</p>
+<p class="verse">
+How does classical spacetime suppress corrections to modular localization?<br  />
+</p>
+<p>
+One possibility is that the relative modular Hamiltonian acts as a
+pointer basis for decoherence,<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+“Decoherence, einselection, and the quantum origins of the classical”
+(2001), Wojciech Zurek.
+</span>
+but this would only suppress quantum corrections, not stochastic.
+</p>
+
+<p>
+Modular relativity involves a notion of time given by a state dependent modular flow \(\sigma^t_\psi\),
+and a notion of space given by a maximal commutative subalgebra \(\Sigma\). Although we discussed
+an observer-independent \(\Sigma\) for simplicity, it seems natural to promote
+this to a function of the observer, \(\Sigma_\psi\).
+Then the <i>accessible algebra</i> accessible to an observer is<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+This is a fancy way of saying the smallest von Neumann algebra
+containing the image of the commutative subalgebra under modular flow.
+</span>
+\[
+\mathfrak{M}_\psi = [\sigma^\mathbb{R}_\psi(\Sigma_\psi)]''. \tag{80}
+\]
+This is not always the whole algebra \(\mathfrak{M}\), and in fact,
+\(\Sigma\) need not be maximal with respect to \(\mathfrak{M}\).
+In the Rindler wedge \(W\), for instance, we take a spatial slice
+\(\Sigma_\psi = \mathbb{R}_{>0}\) and modular
+flow given by hyperbolic trajectories. The accessible algebra in this
+case is simply the wedge algebra \(\mathfrak{M}_\psi =
+\mathfrak{A}(W)\).
+Although \(\Sigma_\psi\) is not maximal with respect to \(\mathfrak{M}\),
+it <i>is</i> maximal with respect to \(\mathfrak{M}_\psi\).
+This suggests that we require \(\Sigma_\psi\) to be a masa within \(\mathfrak{M}_\psi\); this may seem circular, but
+the point is that completion into a von Neumann
+algebra shouldn't be needed to fill in holes in \(\Sigma_\psi\). 
+This is a start, but can we constrain this more strongly?
+</p>
+<p class="verse">
+What is the nature of the spatial system \(\Sigma_\psi\) associated to an observer \(|\psi\rangle\)?<br  />
+</p>
+<p>
+One possible type of constraint is <i>thermodynamic</i> in origin. A large
+part of Connes and Rovelli's motivation for using modular time was its
+thermal nature, since each state is KMS, by definition, with respect
+to its induced modular flow. One issue with the TTH in this context is
+that this is almost too strong; each observer appears to be in
+equilibrium by definition, but it is precisely the non-equilibrium
+effects which seem to account for the arrow of time.
+Thus:
+</p>
+<p class="verse">
+Does modular relativity encode non-equilbrium interactions between observers?<br  />
+</p>
+<p>
+The interplay between relative entropy and fidelity is a natural place
+to seek such effects. Relative entropy
+governs boosts, while fidelity controls the Radon-Nikodym Jacobian.
+At the same time, relative entropy governs the well-known Fisher
+information metric for quantum and classical states.<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+See for instance “Statistical distance and the geometry of quantum states”
+(2001), Samuel Braunstein and Carlton Caves.
+</span>
+Given that observers <i>are</i> states in our formulation, this raises the
+question:
+</p>
+<p class="verse">
+What is the Fisher information metric associated with many observers?<br  />
+</p>
+<p>
+Relating this metric to the emergence of a familiar spacetime, and the
+role of fidelity (particularly for nonzero kumulant) are natural
+sequels. Regarding the former, of particular interest is <i>general
+relativity</i>, which generalizes special relativity to situations
+to a manifold with local Lorentz symmetry. This parallels the
+development of <i>algebraic quantum field theory</i>, which generalizes a
+single von Neumann algebra to a net of local algebras. Hence:
+</p>
+<p class="verse">
+Does modular relativity for a net of local algebras lead to general relativity?<br  />
+</p>
+<p>
+This is closely related to Borchers' program for recovering Lorentz
+symmetry,<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+<i>On Revolutionizing of Quantum Field Theory
+with Tomita's Modular Theory</i>
+(1999), H.J. Borchers.
+</span>
+but applied to local Lorentz symmetry. Given that observers may
+exhibit nontrivial thermal physics, it's natural to wonder how this
+ties into proposals<label for="sn"
+class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="mn-demo" class="margin-toggle sidenote-number"/>
+<span class="sidenote">
+For instance “Thermodynamics of Spacetime: The Einstein Equation of State”
+(2001), Ted Jacobson.
+</span>
+relating general relativity to thermodynamics.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Conclusion</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Einstein’s late suspicion was not merely that the continuum is “too
+big,” but that it is structurally mismatched to what quantum theory
+seems to demand: finite information about finite systems, encoded
+algebraically rather than geometrically. In the opening vignette, we
+imagined him drifting—perhaps unwillingly—toward von Neumann’s “rings
+of operators,” not as a mathematician chasing abstraction, but as a
+physicist chasing a language in which reality is what can be acted on
+and measured. This essay took that premise seriously: start with the
+algebra of operations \(\mathfrak{M}\), and ask whether the familiar
+furniture of spacetime can be recovered as <b>derived</b> structure rather
+than assumed background. 
+</p>
+
+<p>
+What emerged is a remarkably tight triad. <i>Space</i> appears as the
+maximal commutative shadow of \(\mathfrak{M}\): a (possibly
+observer-dependent) “spatial” subalgebra whose spectrum behaves like a
+coordinate space, though one that naturally trades point-locality for
+projection-locality. Time appears not as an external parameter but
+as the intrinsic one-parameter automorphism group \(\sigma_\psi^t\)
+associated to a state \(|\psi\rangle\) via Tomita–Takesaki theory: a
+canonical dynamical flow that exists precisely because the algebra is
+noncommutative and the state is sufficiently rich (cyclic and
+separating). And finally, observers appear not as extra ingredients but as
+states themselves, with relations between observers encoded by the
+relative modular operator and Connes’ cocycle—the minimal “bridge”
+allowing one state’s modular world to be compared to another’s.
+</p>
+
+<p>
+Once one admits observers-as-states, the familiar relativity questions
+can be asked in a purely information-theoretic dialect. The cocycle
+evaluated near \(t=0\) produces relative entropy, which we
+interpreted as an intrinsic “clock comparison”: a modular
+analogue of time dilation grounded not in the invariance of \(c\), but
+in the invariance of <i>distinguishability</i> under symmetries of the
+reference state. Passing from real time to the Radon–Nikodym point
+\(t=-i/2\) produces fidelity, which we read as the spatial
+analogue: a Jacobian-like factor converting measures on (commutative)
+spatial slices, thus a modular analogue of length contraction. In
+the well-localized limit these invariants lock together
+(\(\mathcal{F}^2 \approx e^{-S}\)), while dispersion in the relative
+modular spectrum produces a genuinely new correction term
+\(\mathcal{K}\)—a quantitative reminder that “classical kinematics” is
+the special case where the cocycle spectrum behaves almost like a
+single rapidity.
+</p>
+
+<p>
+The Rindler example shows that this is not merely metaphor. In the
+wedge algebra, Bisognano–Wichmann identifies the modular Hamiltonian
+of the vacuum with the Lorentz boost generator (up to \(2\pi\)), so
+modular time becomes rapidity, and the “dilation/contraction” language
+becomes literally geometric, i.e. diagonal in null coordinates. The
+coherent-state comparison then supplies a second anchor: relative
+entropy and the cocycle admit closed expressions in terms of the
+one-particle boost generator and boosted smearings, making the
+information-theoretic invariants computable and the localization
+discussion concrete rather than rhetorical. The upshot is that
+special-relativistic phenomenology is not imposed, but appears as
+the geometric face of modular structure in a setting where the algebra
+already knows about causal localization. 
+</p>
+
+<p>
+So what becomes of Einstein’s pessimism? If the continuum is indeed
+the wrong primitive, then the “purely algebraic theory” he regarded as
+unknowable may not look like a discrete lattice, or a combinatorial
+replacement for \(\mathbb{R}^4\), but rather like a theory in which
+spacetime is the macroscopic organization of information:
+commutative subalgebras as spatial surfaces, modular flows as temporal
+directions, and observer-comparisons governed by invariants (relative
+entropy, fidelity) that do not care about coordinates. In that light,
+the sea-image from the introduction is apt: one does not break the
+continuum; one quietly surrounds it, until geometry is no longer
+foundational but emergent.
+</p>
+
+<p>
+The open questions in §5 are therefore not epilogues but the real
+beginning: what selects the “right” \(\Sigma_\psi\) for an observer;
+how classical localization suppresses cumulants and Baker-Campbell-Hausdorff corrections;
+how the Fisher metric on state space becomes the seed of spacetime
+geometry; and whether a net of local algebras forces a
+general-relativistic analogue of local Lorentz symmetry. If modular
+relativity is more than a parable, its next tests will come precisely
+where Einstein’s instincts were sharpest: in the tension between
+locality, covariance, and thermodynamics, where “time” is not a
+background parameter but something an observer extracts from the
+algebra of the world.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
