@@ -8,17 +8,15 @@ language. We assume familiarity with prior tutorials: the [[https://torsor.io/as
 
 * Setup
 -----
-We'll assume that you're familiar with the basic teleportation
-protocol. It has a few moving parts:
-- Alice has a state $\psi$;
-- Bob and Alice share a Bell state $\phi_{00}$;
-- Alice measures in the Bell basis $\Pi_{ab}$;
-- Bob now has a "masked" state $Z^b X^a \triangleleft \psi$;
-- Alice sends $a, b$ to Bob;
-- Bob applies $X^a Z^b$ to unmask the teleported state.
-
-We'll set up everything but the measurement, explain how to do
-measurements in general, then tie it all together.
+In this tutorial, we'll be using /qudits/, the higher-dimensional
+cousin of qubits. These are natural for unstructured search, with a
+database of $d$ objects corresponding to a qudit with $d$ orthogonal
+states.
+We'll be using the algebraic approach, however, which is less familiar
+and requires some preparation.
+** The algebra of qudits
+With qubits, we typically set up 
+* COMMENT Search algorithm
 ** Alice's state
 Suppose Alice possesses a pure state $\psi = U \triangleleft \pi_0$ of
 a qubit (equivalently, $|\psi\rangle = U|\psi_0\rangle$) where
@@ -104,7 +102,7 @@ yaw> Phi(1, 0) | phi(1, 1)
 #+END_EXAMPLE
 Now that we've defined the projectors, we should measure
 with respect to them. That necessitates that we introduce measurement!
-* Measurement
+* COMMENT Measurement
 We'll first explain how to do projective measurement in general, and
 then apply it to Alice's Bell measurement in particular. We'll then
 apply Bob's correction and check he gets the right state! For a way to
@@ -237,31 +235,11 @@ powers. But it's remarkably compact for a complete implementation of
 teleportation: a magic trick with no sleight of hand!
 * Exercises
 Under construction!
-** Unitaries
-** Qudits
-** Branching
-* COMMENT Exercises
-\[
-U(\omega, \alpha, \beta, \gamma) = e^{i\omega} e^{i\alpha X}e^{i\beta Y}e^{i\gamma Z}
-\]
-for some real angles $\alpha, \beta, \gamma, \phi \in [0, 2\pi)$.
-Though this is well-known, less well-known is the analogous universality
-relation for qudits of dimension $d$:
-\[
-U(\alpha_{0,0}, \ldots, \alpha_{d-1,d-1}) = \prod_{a,b=0}^{d-1} e^{i \alpha_{,ab}X^aZ^b}.
-\]
 * References
 -----
 
 - [[https://www.amazon.ca/Quantum-Computation-Information-10th-Anniversary/dp/1107002176][/Quantum Computation and Quantum Information/]] (2000), Michael
-  Nielsen and Isaac Chuang. Describes teleportation, and shows you the
-  algebra works, early on.
-- [[https://torsor.io/assets/siqpDRAFT.pdf][“SIQP I: Foundations”]] (2025), David Wakeham. If you want more
-  background about measurement in the algebraic computing framework.
-- [[https://torsor.io/#blog/teleportation][“Why Does teleportation work?”]] (2025), David Wakeham. Short blog
-  post explaining how teleportation is an inevitable consequence of
-  conserving information and "monogamy" of entanglement.
-
+  Nielsen and Isaac Chuang. Describes Grover search in detail.
 * COMMENT html export
 #+TITLE: Tutorial 3: Grover search
 #+HTML_CONTAINER: div
