@@ -1,5 +1,5 @@
-#+ATTR_HTML: :alt wizard image :align center :width 400px :style display:inline;margin:-20px;
-[[https://torsor.io/#software][file:../../img/teleport.png]]
+#+ATTR_HTML: :alt wizard image :align center :width 200px :style display:inline;margin:-20px;
+[[https://torsor.io/#software][file:../../img/grover.png]]
 
 ~yaw~ is a ~Python~-based language for doing algebraic quantum
 programming. This tutorial explains how to perform
@@ -263,7 +263,7 @@ U(\alpha_{0,0}, \ldots, \alpha_{d-1,d-1}) = \prod_{a,b=0}^{d-1} e^{i \alpha_{,ab
   conserving information and "monogamy" of entanglement.
 
 * COMMENT html export
-#+TITLE: Tutorial 3: Grover search with qudits
+#+TITLE: Tutorial 3: Grover search
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="enhanced_tufte.css">
