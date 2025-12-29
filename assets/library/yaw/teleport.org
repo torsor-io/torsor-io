@@ -4,7 +4,7 @@
 ~yaw~ is a ~Python~-based language for doing algebraic quantum
 programming. This tutorial explains how to perform
 teleportation, and along the way, how to do projective
-measurements. We assume familiarity with the [[https://torsor.io/assets/library/yaw/yaw011.html][intro
+measurements. We assume familiarity with the [[https://torsor.io/assets/library/yaw/yaw011.html][introductory
 tutorial]].
 
 * Setup
