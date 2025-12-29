@@ -3,7 +3,7 @@
 
 ~yaw~ is a ~Python~-based language for doing algebraic quantum
 programming. This tutorial explains how to perform
-Grover search, introducing . We assume familiarity with prior tutorials: [[https://torsor.io/assets/library/yaw/yaw011.html][introductory
+Grover search, and discusses how qudit systems are treated in the language. We assume familiarity with prior tutorials: [[https://torsor.io/assets/library/yaw/yaw011.html][introductory
 tutorial]].
 
 * Setup
@@ -263,7 +263,7 @@ U(\alpha_{0,0}, \ldots, \alpha_{d-1,d-1}) = \prod_{a,b=0}^{d-1} e^{i \alpha_{,ab
   conserving information and "monogamy" of entanglement.
 
 * COMMENT html export
-#+TITLE: /Measurement and teleportation/
+#+TITLE: Tutorial 3: Grover search with qudits
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="enhanced_tufte.css">
