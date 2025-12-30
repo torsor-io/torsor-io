@@ -222,7 +222,7 @@ t^* = \frac{\pi}{2\langle +|H_M | M\rangle} = \frac{\pi}{4\langle
 +|M\rangle} = \frac{\pi}{4}\sqrt{\frac{d}{|M|}}.
 \]
 More marked items requires fewer steps, which makes sense!
-* Grover's code
+* Grover in ~yaw~
 After all the work needed to understand the algorithm, the code is
 fairly straightforward.
 ** Line by line
