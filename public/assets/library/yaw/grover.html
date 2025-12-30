@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Tutorial 3: Grover search</title>
-<!-- 2025-12-30 Tue 20:21 -->
+<!-- 2025-12-30 Tue 20:25 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Wakeham" />
@@ -284,8 +284,9 @@ where <code>braid(ω)</code> means that <code>X*Z = ω*Z*X</code>.
 <h2 id="sec-2"><span class="section-number-2">2</span> Grover's algorithm*</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-This is a pedagogical overview of Grover's algorithm, albeit
-nonstandard in its presentation. If you already feel comfortable with
+This presents Grover's algorithm from a slightly unconventional
+perspective, focused on justifying <i>why</i> it works from the more
+advanced perspective of simulation and speed limits. If you already feel comfortable with
 the material, feel free to skip to the implementation in the next
 section!
 </p>
@@ -417,7 +418,7 @@ For this purpose, it is helpful to think of the exponent in
 \[
 H_m = \Pi_+ + \Pi_m.
 \]
-Iterating the Grover operator is equivalent to evolving for time \(t =r\alpha\) with this Hamiltonian.
+Iterating the Grover operator is equivalent to evolving with this Hamiltonian.
 The exercises show that evolution with the operator from the previous
 section stays within a two-level subspace spanned by \(|+\rangle\) and
 \(|m\rangle\); for this type of evolution, the <i>minimum</i> time \(t^*\)
@@ -494,9 +495,8 @@ def grover(mark, d):
     $alg = qudit(d)
 </pre>
 <p>
-Next, we define a helper function to turn projectors onto a state
-\(\Pi\) into operators \(R(\Pi) = I - 2\Pi\) that "flip" that
-state:<label for="mn-demo"
+Next, we define a helper function to turn projectors \(\Pi\)
+into operators \(R(\Pi) = I - 2\Pi\) that "flip" the space projected onto:<label for="mn-demo"
 class="margin-toggle">&#8853;</label>
 <input type="checkbox" id="mn-demo" class="margin-toggle"/>
 <span class="marginnote">
