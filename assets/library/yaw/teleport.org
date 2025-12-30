@@ -1,4 +1,4 @@
-#+ATTR_HTML: :alt wizard image :align center :width 400px :style display:inline;margin:-20px;
+#+ATTR_HTML: :alt wizard image :align center :width 200px :style display:inline;margin:-20px;
 [[https://torsor.io/#software][file:../../img/teleport.png]]
 
 ~yaw~ is a ~Python~-based language for doing algebraic quantum
