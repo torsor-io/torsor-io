@@ -259,7 +259,7 @@ U(\alpha_{0,0}, \ldots, \alpha_{d-1,d-1}) = \prod_{a,b=0}^{d-1} e^{i \alpha_{,ab
   algebra works, early on.
 - [[https://torsor.io/assets/siqpDRAFT.pdf][“SIQP I: Foundations”]] (2025), David Wakeham. If you want more
   background about measurement in the algebraic computing framework.
-- [[https://torsor.io/#blog/teleportation][“Why Does teleportation work?”]] (2025), David Wakeham. Short blog
+- [[https://torsor.io/#blog/teleportation][“Why does teleportation work?”]] (2025), David Wakeham. Short blog
   post explaining how teleportation is an inevitable consequence of
   conserving information and "monogamy" of entanglement.
 
