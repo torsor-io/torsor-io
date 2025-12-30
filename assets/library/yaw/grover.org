@@ -67,8 +67,9 @@ yaw> $alg = < X, Z|unit, pow(d), braid(exp(-2*pi*I/d)) >
 #+END_EXAMPLE
 where ~braid(ω)~ means that ~X*Z = ω*Z*X~.
 * Grover's algorithm*
-This is a pedagogical overview of Grover's algorithm, albeit
-nonstandard in its presentation. If you already feel comfortable with
+This presents Grover's algorithm from a slightly unconventional
+perspective, focused on justifying /why/ it works from the more
+advanced perspective of simulation and speed limits. If you already feel comfortable with
 the material, feel free to skip to the implementation in the next
 section!
 ** Introduction
@@ -175,7 +176,7 @@ For this purpose, it is helpful to think of the exponent in
 \[
 H_m = \Pi_+ + \Pi_m.
 \]
-Iterating the Grover operator is equivalent to evolving for time $t =r\alpha$ with this Hamiltonian.
+Iterating the Grover operator is equivalent to evolving with this Hamiltonian.
 The exercises show that evolution with the operator from the previous
 section stays within a two-level subspace spanned by $|+\rangle$ and
 $|m\rangle$; for this type of evolution, the /minimum/ time $t^*$
@@ -232,9 +233,8 @@ discussed above, we can invoke the ~qudit(d)~ convenience function:
 def grover(mark, d):
     $alg = qudit(d)
 #+END_EXAMPLE
-Next, we define a helper function to turn projectors onto a state
-$\Pi$ into operators $R(\Pi) = I - 2\Pi$ that "flip" that
-state:@@html:<label for="mn-demo"
+Next, we define a helper function to turn projectors $\Pi$
+into operators $R(\Pi) = I - 2\Pi$ that "flip" the space projected onto:@@html:<label for="mn-demo"
 class="margin-toggle">&#8853;</label>
 <input type="checkbox" id="mn-demo" class="margin-toggle"/>
 <span class="marginnote">
