@@ -275,7 +275,7 @@ def grover(mark, d):
     _, guess = measure(Z, (G**r) << char(X, 0))()
     return guess
 #+END_EXAMPLE
-Let's run and get some numbers!
+Let's run it and get some numbers!
 ** Some numerics
 Under construction!
 * Exercises
