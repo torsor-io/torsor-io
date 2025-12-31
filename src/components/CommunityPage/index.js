@@ -41,7 +41,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
           </li>
         <li>
               <a href="/assets/library/yaw/six_lines.pdf" className="underline hover:opacity-70">Tutorial 4 (sort of): Fourier sampling in six lines</a>
-              {'. '} A cheeky pre-preprint on how to perform Fourier sampling in six lines of code, and period finding in seven! Tutorial proper to come.
+              {'. '} A cheeky pre-preprint on Fourier sampling.
         </li>
       </ul>
     ),
@@ -58,7 +58,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       <ul className="list-disc list-inside space-y-2">
         <li>
               <a href="/assets/library/duality-PI/modular_relativity.pdf" className="underline hover:opacity-70">Relativity from Relative Entropy (2025)</a>
-              {': '} An attempt to follow Einstein's hint that the theory of reality might be purely algebraic.
+              {': '} Could relativity emerge from a purely algebraic theory?
               </li>
               <li>
               <a href="/assets/library/duality-PI/PI-talk.html" className="underline hover:opacity-70">Duality from Stone to Isbell (2025)</a>
