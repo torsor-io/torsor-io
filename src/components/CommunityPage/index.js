@@ -57,7 +57,7 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       outcome: (
       <ul className="list-disc list-inside space-y-2">
         <li>
-              <a href="/assets/library/duality-PI/modular_relativity.pdf" className="underline hover:opacity-70">Relativity from Relative Entropy (2025)</a>
+              <a href="/assets/library/modular_relativity.pdf" className="underline hover:opacity-70">Relativity from Relative Entropy (2025)</a>
               {': '} Could relativity emerge from a purely algebraic theory?
               </li>
               <li>
