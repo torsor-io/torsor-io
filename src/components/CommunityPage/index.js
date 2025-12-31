@@ -38,6 +38,10 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         <li>
               <a href="/assets/library/yaw/grover.html" className="underline hover:opacity-70">Tutorial 3: Grover search</a>
               {'. '} How to perform Grover search, using qudits for simplicity. Exercises to come!
+          </li>
+        <li>
+              <a href="/assets/library/yaw/six_lines.pdf" className="underline hover:opacity-70">Tutorial 4 (sort of): Fourier sampling in six lines</a>
+              {'. '} A cheeky pre-preprint on how to perform Fourier sampling in six lines of code, and period finding in seven! Tutorial proper to come.
         </li>
       </ul>
     ),
@@ -53,6 +57,10 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       outcome: (
       <ul className="list-disc list-inside space-y-2">
         <li>
+              <a href="/assets/library/duality-PI/modular_relativity.pdf" className="underline hover:opacity-70">Relativity from Relative Entropy (2025)</a>
+              {': '} An attempt to follow Einstein's hint that the theory of reality might be purely algebraic.
+              </li>
+              <li>
               <a href="/assets/library/duality-PI/PI-talk.html" className="underline hover:opacity-70">Duality from Stone to Isbell (2025)</a>
               {': '} A tour through duality theorems in logic, algebra, and category theory.
               </li>
