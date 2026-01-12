@@ -35,14 +35,6 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               <a href="/assets/library/yaw/teleport.html" className="underline hover:opacity-70">Tutorial 2: Teleportation</a>
           {'. '} How to teleport quantum states in <code>yaw</code>. Exercises to come!
           </li>
-        <li>
-              <a href="/assets/library/yaw/grover.html" className="underline hover:opacity-70">Tutorial 3: Grover search</a>
-              {'. '} How to perform Grover search, using qudits for simplicity. Exercises to come!
-          </li>
-        <li>
-              <a href="/assets/library/yaw/six_lines.pdf" className="underline hover:opacity-70">Tutorial 4 (sort of): Fourier sampling in six lines</a>
-              {'. '} A cheeky pre-preprint on Fourier sampling.
-        </li>
       </ul>
     ),
 	link: 'https://github.com/torsor-io/yaw',
