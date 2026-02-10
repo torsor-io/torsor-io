@@ -18,7 +18,17 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
     ? 'bg-gradient-to-b from-slate-900 to-slate-1000' 
     : 'bg-gradient-to-b from-amber-50 to-amber-100';
 
-  const research = [
+    const research = [
+    {
+      id: 'RfRE',
+      title: 'Relativity from Relative Entropy',
+      organization: 'David Wakeham',
+      type: 'Quantum',
+      brief: 'We initiate a program which derives spacetime structure from algebraic structure alone.',
+      outcome: 'Can spacetime kinematics emerge from purely algebraic structure? We show that relative entropy and fidelity between observer states naturally encode time dilation and length contraction, recovering special relativity's kinematic structure in the Rindler wedge where modular flow generates boosts.',
+	link: 'https://zenodo.org/records/18582025',
+	tags: ['Spacetime', 'Time', 'Algebra', 'Entropy']
+    },
     {
       id: 'SIQP1',
       title: 'The Structure and Interpretation of Quantum Programs I',
