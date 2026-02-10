@@ -25,7 +25,7 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
       organization: 'David Wakeham',
       type: 'Quantum',
       brief: 'We initiate a program which derives spacetime structure from algebraic structure alone.',
-      outcome: 'Can spacetime kinematics emerge from purely algebraic structure? We show that relative entropy and fidelity between observer states naturally encode time dilation and length contraction, recovering special relativity's kinematic structure in the Rindler wedge where modular flow generates boosts.',
+      outcome: 'Can spacetime kinematics emerge from algebraic structure? We show that relative entropy and fidelity between observer states naturally encode time dilation and length contraction, recovering special relativity\'s kinematic structure in the Rindler wedge where modular flow generates boosts.',
 	link: 'https://zenodo.org/records/18582025',
 	tags: ['Spacetime', 'Time', 'Algebra', 'Entropy']
     },
