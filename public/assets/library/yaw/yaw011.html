@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Tutorial 1: Getting started</title>
+<!-- 2025-12-29 Mon 14:35 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="David Wakeham" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="enhanced_tufte.css">
+<script type="text/javascript" src="sidebar_darkmode.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>pre { padding-top: 25px !important; }</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Tutorial 1: Getting started</h1>
+
+<div class="figure">
+<p><a href="https://torsor.io/#software" alt="wizard image" align="center" width="200px" style="display:inline;margin:-20px;"><img src="../../img/wizard.png" alt="wizard image" align="center" width="200px" style="display:inline;margin:-20px;" /></a>
+</p>
+</div>
+
+<p>
+<code>yaw</code> is a <code>Python</code>-based language for doing algebraic quantum
+programming. This tutorial explains how to use <code>yaw</code> and describes
+some basic concepts, assuming a first course in quantum computing (at
+the level of Nielsen and Chuang, chapters 1–2) and some <code>Python</code>
+programming experience.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Getting started</h2>
+<div class="outline-text-2" id="text-1">
+<hr  />
+<p>
+There are three ways to use <code>yaw</code>: using the <code>yaw REPL</code> (interpreted),
+using <code>.yaw</code> files and <code>y2py</code> (compiled), and finally as a package in <code>Python</code>. The
+first two options use streamlined <code>yaw</code> syntax, but for tasks
+requiring <code>Python</code> integration the latter is useful. We'll focus on
+the first two in this tutorial. But first, we'll see how to install!
+</p>
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Installation</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The first step is to clone the <code>yaw</code> repository via <code>git</code>:
+</p>
+<pre class="example">
+git clone https://github.com/torsor-io/yaw.git
+cd yaw
+pip install -r requirements.txt  # Just sympy and numpy for now
+</pre>
+<p>
+You now have access to all the files you need!
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> REPL</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+To use the REPL, navigate to the top level folder and run
+</p>
+<pre class="example">
+python yaw/yaw_repl.py
+</pre>
+<p>
+This shows a banner followed by a command prompt:
+</p>
+<pre class="example">
+           ┓    ┓     •
+┓┏┏┓┓┏┏  ┏┓┃┏┓┏┓┣┓┏┓┏┓┓┏  ┓┏┏┏┓┓┏
+┗┫┗┻┗┻┛  ┗┻┗┗┫┗ ┗┛┛ ┗┻┗┗  ┗┻┛┗┻┗┫
+ ┛           ┛                  ┛
+Yaw: Algebraic QC w/ context management
+Version 0.1.0
+Torsor Labs, 2025
+────────────────────────────────────────────────────────────
+Type 'help' or 'credits' for more information.
+yaw&gt; $alg = qubit()
+Created algebra: &lt;X, Z | herm, unit, anti&gt;
+</pre>
+
+<p>
+Here, we've defined the algebra of a qubit, <code>$alg = qubit()</code>. We'll
+explain the output below.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Compiler</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Alternatively, we can save a <code>.yaw</code> file containing the single line:
+</p>
+<pre class="example">
+$alg = qubit()
+</pre>
+<p>
+Let's call this <code>qubit.yaw</code>. We can compile this to <code>Python</code> and run
+in one fell swoop using
+</p>
+<pre class="example">
+python yaw/y2py.py qubit.yaw -o qubit.py
+python qubit.py
+</pre>
+<p>
+We won't get any output this time, since print statements like
+<code>Created algebra: &lt;X, Z | herm, unit, anti&gt;</code> are REPL-only verbosity, and we
+haven't done anything but define a lone qubit.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Package</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Finally, we can use <code>yaw</code> as a package inside <code>Python</code>. The syntax is
+clunkier but it can interface directly with other <code>Python</code> packages. 
+</p>
+<pre class="example">
+from yaw import *
+pauli = Algebra(gens=['X', 'Z'], rels=['herm', 'unit', 'anti'])
+</pre>
+<p>
+In this tutorial, we will largely focus on native <code>yaw</code> syntax;
+this is the way the language is intended to be used.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Statics</h2>
+<div class="outline-text-2" id="text-2">
+<hr  />
+<p>
+In this section, we'll define the basic objects of algebraic quantum
+programming: algebras, operators, and states, and the basic operations
+on them. Any math we need we will introduce as we go along.
+</p>
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Algebras</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+An <b>algebra</b> \(\mathcal{A}\) is a collection of observables. We can take
+complex linear combinations of observables, multiply them, and take
+Hermitian conjugates, aka <b>adjoints</b>. Thus, for operators \(A, B \in \mathcal{A}\),
+\[
+\alpha A + \beta B, \quad A \cdot B, \quad  A^*, B^* \in \mathcal{A},
+\]
+for any \(\alpha, \beta \in \mathcal{C}\). We also assume a
+<b>multiplicative identity</b> \(I \in\mathcal{A}\). I won't go into the
+properties of these operations, since these are exactly what you
+expect from ordinary dealings with Hilbert space. Crucially, operators
+also have a size satisfying \(\Vert A \Vert = \Vert A^* \Vert \geq 0\),
+but we won't worry about this for now. Already, the situation is a bit
+easier than when we deal with normalized states in Hilbert space; we
+can freely add without having to re-normalize anything.
+</p>
+
+<p>
+To define an algebra in <code>yaw</code>, we use <b>generators</b> and
+<b>relations</b>. Generators are the symbolic alphabet we use to write down
+all operators, like \(x, y, z, \ldots\) of high school algebra, while
+relations are equations these generators satisfy. The simplest example
+is the algebra of a qubit, called the <b>Pauli algebra</b>. The smallest
+generating set is just \(X\) and \(Z\), subject to the relations
+\[
+X^* = X, Z^* = Z, \quad X^*X = Z^*Z= I, \quad ZX = -XZ.
+\]
+Put differently, \(X\) and \(Z\) are Hermitian, unitary, and anticommute.
+</p>
+
+<p>
+The notation for generators and relations is \(\mathcal{A} =
+\langle\mathcal{G}|\mathcal{R}\rangle\), where \(\mathcal{G}\) is a set
+of generators and \(\mathcal{R}\) relations.
+We adopt this in <code>yaw</code>, and simply write the Pauli algebra as
+</p>
+<pre class="example">
+yaw&gt; $alg = &lt; X, Z | herm, unit, anti &gt;
+Created algebra: &lt;X, Z | herm, unit, anti&gt;
+</pre>
+<p>
+where <code>herm</code> and <code>unit</code> means all generators are respectively
+Hermitian and unitary, and <code>anti</code> means they anticommute.
+Note that being Hermitian and unitary also implies \(A^2 = A^*A = I\),
+i.e. operators square to the identity, which is expressed by the relation <code>pow(2)</code>.
+This is automatically inferred.
+Finally, the notation <code>$alg</code> is meant to evoke global variables in
+<code>UNIX</code>; here, the algebra is a global object.
+</p>
+
+<p>
+We can specify individual operator relations simply by appending
+symbols, e.g. the Pauli algebra can also be written
+</p>
+<pre class="example">
+yaw&gt; $alg = &lt; X, Z | herm(X, Z), unit(X, Z), anti(X, Z) &gt;
+</pre>
+<p>
+Other relation builders include <code>comm</code> (for commuting) and <code>braid</code>
+(for braiding relations which generalize both <code>comm</code> and <code>anti</code>).
+This means we can define qudits immediately, though to save the user
+trouble, we have shortcuts
+</p>
+<pre class="example">
+yaw&gt; $alg = qubit()
+</pre>
+<p>
+and more generally
+</p>
+<pre class="example">
+yaw&gt; $alg = qudit(d)
+</pre>
+<p>
+We will cover the algebra of qudits, and the generalization to
+oscillators, in more detail elsewhere, but for the record, <code>qudit(d)</code>
+stands for
+</p>
+<pre class="example">
+yaw&gt; &lt;X, Z | herm, unit, pow(d), braid(exp(2*pi*I/d))&gt;
+</pre>
+<p>
+and <code>braid(ω)</code> means \(XZ = \omega ZX\), with \(X\) being "to the left" of
+\(Z\) in the generator ordering meaning that we take the braiding in
+this direction.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Operators</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Once we have an algebra, we can start to build things with the basic
+operators at our disposal.
+We can recover familiar single-qubit operators, for instance
+</p>
+<pre class="example">
+yaw&gt; Y = 1j*X*Z
+yaw&gt; H = (X + Z)/sqrt(2)
+</pre>
+<p>
+We use "engineering" notation <code>1j</code> for the imaginary unit
+\(\sqrt{-1}\).
+We can check these satisfy the usual relations, for instance <label for="mn-demo" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-demo" class="margin-toggle"/>
+<span class="marginnote">
+Currently, there are (harmless) bugs in the REPL output meaning we
+sometimes get <code>1.0</code> instead of <code>I</code>.
+</span>
+</p>
+<pre class="example">
+yaw&gt; Y*Y
+1
+yaw&gt; Y*X
+-1j*Z
+yaw&gt; H*X == Z*H
+True
+yaw&gt; H.d == H
+True
+</pre>
+<p>
+The notation <code>.d</code> stands for "dagger", or adjoint. Operators have a
+<b>spectrum</b> of eigenvalues; in the absence of vectors (note that we haven't defined
+these yet!) we say \(\lambda \in \text{spec}(A)\) is an eigenvalue just in case
+\[
+(A - \lambda I)^{-1}
+\]
+does not exist, i.e. \(A - \lambda I\) has no multiplicative inverse.
+This spectrum is obtained numerically via
+</p>
+<pre class="example">
+yaw&gt; spec(Y)
+[1, -1]
+</pre>
+<p>
+A shortcut to finding eigenvalues is the <b>minimal polynomial</b>
+that \(A\) is a root of:
+\[
+p_\min^{(A)}(A) = \sum_{k=0}^n c_k A^k = 0,
+\]
+which can produce using relations, e.g. \(X^2 - I = 0\) for the Pauli \(X\).
+The eigenvalues are the roots of \(p_\min^{(A)}(x)\).
+The polynomial and its solutions are produced as follows:
+</p>
+<pre class="example">
+yaw&gt; minimal_poly(Y)[0]
+Poly(x**2 - 1, x, domain='RR')
+</pre>
+<p>
+Observables correspond to self-adjoint operators, which in turn have
+a real spectrum.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> States</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+The last entry in our cast of characters is the <b>state</b>. In the
+algebraic approach, states are not defined as normalized vectors in a
+Hilbert space; we haven't even defined a Hilbert space! But the
+transition isn't radical.
+Instead of thinking about the vector \(|\psi\rangle\), we think about
+the <b>expectation</b> it induces on operators:
+\[|\psi\rangle
+\in \mathcal{H} \quad \longrightarrow \quad \langle \psi |
+\cdot |\psi\rangle = \psi(\cdot) \in
+\mathcal{L}(\mathcal{A},\mathbb{C}),
+\]
+where \(\mathcal{L}(\mathcal{A},\mathbb{C})\) indicates the set of
+linear functions from \(\mathcal{A}\) to \(\mathbb{C}\), also called
+<b>linear functionals</b> on \(\mathcal{A}\). An important class is
+<b>eigenstates</b> of operators. If \(|\psi\rangle\) is an eigenstate of \(A \in\mathcal{A}\),
+then for any \(B \in\mathcal{A}\), we have the defining property
+\[
+\langle \psi | AB|\psi\rangle = \langle \psi | A|\psi\rangle\langle
+\psi| B|\psi\rangle = \langle \psi | BA|\psi\rangle
+\]
+or \(\psi(AB)=\psi(A)\psi(B)\). The expectation \(\psi(A) \in
+\text{spec}(A)\), so we indicate eigenstates not by eigenvalue, but by
+the spot on the list of eigenvalues (in decreasing order). For
+instance, the eigenstate
+</p>
+<pre class="example">
+yaw&gt; char(Z, 0)
+</pre>
+<p>
+has eigenvalue \(1\), the largest eigenvalue of the Pauli
+\(Z\); in the conventional approach this eigenstate is denoted
+\(|0\rangle\), but in the algebraic approach, we label the functional by
+\(\pi_0\). We can combine states, but since they are now interpreted as
+expectations, we cannot take arbitrary linear combinations; instead,
+we must respect probability and take <b>convex combinations</b>, i.e.
+\[
+\rho = p \pi + (1 - p) \pi'
+\]
+for \(p \in [0, 1]\). This is nothing other than mixing states. <label for="mn-demo" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-demo" class="margin-toggle"/>
+<span class="marginnote">
+  The careless linear combination of states is a source of many bugs
+in ordinary quantum code, so we make it more or less impossible by design.
+</span>
+<code>yaw</code> performs this mixture in a natural way, for example
+</p>
+<pre class="example">
+yaw&gt; rho = 0.3*char(Z,0) + 0.7*char(Z,1)
+0.300*char(Z, 0) + 0.700*char(Z, 1)
+</pre>
+<p>
+We have said that a state is algebraically viewed as an
+expectation. To take expectations like \(\psi(A) = \langle
+\psi|A|\rangle\), or more generally \(\rho(A) = \mbox{Tr}[\rho A]\), we
+use the vertical bar <code>|</code> and postfix notation:
+</p>
+<pre class="example">
+yaw&gt; Z | rho
+-0.400
+yaw&gt; Y | rho
+0.0
+</pre>
+<p>
+As with generators and relations, or conditional probability, the bar
+means "given"; in this case, the value of an observable given a state
+as probabilistic context. This also recalls the pipe notation from
+<code>UNIX</code>, and indeed, we are piping the operator as an argument to a
+function. So it works on both levels!
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Dynamics</h2>
+<div class="outline-text-2" id="text-3">
+<hr  />
+<p>
+We've dealt so far with the "statics" of algebraic quantum
+programming, the basic objects we define and use. Now, we turn to
+"dynamics": the art of making things change, from which algorithms
+emerge.
+</p>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Conjugation</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+One of the simplest ways to modify an operator is a change of basis,
+otherwise called <b>conjugation</b>:
+\[
+A \mapsto B^* A B = B \triangleright A.
+\]
+This satisfies various laws, most importantly
+\[
+B \triangleright (B' \triangleright A) = BB' \triangleright A.
+\]
+In quantum computing, \(U\) is often a unitary. For instance, the
+standard recipe is to start with a state \(|0\rangle\), describe a
+circuit \(U\), and measure a fixed observable \(M\) in state
+\(U|0\rangle\). If \(M\) is an projector-valued measurement (we explain
+more below) with projectors \(\Pi_i\), then the resulting distribution
+has probabilities
+\[
+p_i = \langle 0| U^* \Pi_i U |0\rangle = \langle 0| (U\triangleright \Pi_i)|0\rangle.
+\]
+Alternatively, we can view \(\langle 0| \cdot |0\rangle\)
+as a functional, and define conjugation of a state via
+\[
+U \triangleleft \langle 0| \cdot |0\rangle = \langle 0|U^* \cdot U|0\rangle.
+\]
+Thus, if \(\pi_0(\cdot) = \langle 0| \cdot |0\rangle\), then
+\[
+p_i = \pi_0(U \triangleright \Pi_i) = [U \triangleleft \pi_0](\Pi_i).
+\]
+This models the general situation:
+\[
+\pi(B \triangleright A) = \pi(B^* A B) = [B \triangleleft \pi](A).
+\]
+In <code>yaw</code>, we replace \(\triangleright\) and \(\triangleleft\) with <code>&gt;&gt;</code> and <code>&lt;&lt;</code>:
+</p>
+<pre class="example">
+yaw&gt; H &gt;&gt; X
+Z
+yaw&gt; Z | X &lt;&lt; char(Z, 0)
+-1
+yaw&gt; Z | X &lt;&lt; char(Z, 0) == X &gt;&gt; Z | char(Z, 0)
+True
+</pre>
+<p>
+So, now we have a basic way to transform operators and states.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Tensor products</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Conjugation provides compositional structure, which is effective
+structure in time. The easiest way to add structure in
+<i>space</i> is to make a composite systems using the <b>tensor product</b>,
+\(\mathcal{A} \otimes \mathcal{A}'\). This consists of all linear
+combinations of operators
+of the form \(A \otimes A'\) for \(A \in\mathcal{A}, A' \in
+\mathcal{A}'\).<label for="mn-demo" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-demo" class="margin-toggle"/>
+<span class="marginnote">
+Technically, we have to fill in "holes" with respect to a norm
+function. This is quite involved, so we won't go
+into the details.
+</span>
+The tensor product of the set of states is exactly the set of states
+of the tensor product. More precisely,
+\[
+\mathcal{L}(\mathcal{A}\otimes \mathcal{A}',\mathbb{C}) \cong
+\mathcal{L}(\mathcal{A},\mathbb{C}) \otimes \mathcal{L}(\mathcal{A}',\mathbb{C}),
+\]
+where \(\cong\) indicates these structures are isomorphic.
+Thus, we can cobble together tensor products of states and get every
+state on the tensor product.
+</p>
+
+<p>
+For now, we focus on multiple copies of the same algebra, written
+\(\mathcal{A}^{\otimes n} = \mathcal{A} \otimes \cdots \otimes
+\mathcal{A}\). This is the situation we typically encounter with, say,
+\(n\) qubits.
+In <code>yaw</code>, tensor products are invoked with <code>@</code>. You can add and
+multiply as usual:
+</p>
+<pre class="example">
+yaw&gt; (X @ X)*(X @ X)
+I @ I
+yaw&gt; 2*(X@X) - (X@X)
+X @ X
+</pre>
+<p>
+We can conjugate tensor products of both states and operators:
+</p>
+<pre class="example">
+yaw&gt; (H @ H) &gt;&gt; (X @ X)
+Z @ Z
+yaw&gt; (X @ X) &lt;&lt; (char(Z, 0) @ char(Z, 0))
+char(Z, 1) @ char(Z, 1)
+</pre>
+<p>
+So now we have structure in both time and space!
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Selection</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Conjugation composes operations in time, tensor products in
+space. Another important operation is <i>selection</i>. This is implemented
+by <b>projectors</b>, also called <i>projection operators</i>, satisfying
+\[
+\Pi^2 = \Pi, \quad \Pi^* = \Pi,
+\]
+i.e. <i>Hermitian idempotents</i>.
+These are the operator analogue of Boolean variables, since they have
+precisely two eigenvalues, corresponding to Boolean values:
+\[
+\Pi^2 - \Pi = 0 \quad \Longrightarrow \quad \text{spec}(\Pi) = \{0, 1\}.
+\]
+We can always decompose a well-behaved operator \(N\) <label for="mn-demo" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-demo" class="margin-toggle"/>
+<span class="marginnote">
+By the spectral theorem, any normal operator (which commutes with its
+adjoint) can be so decomposed.
+</span> into a sum of orthogonal projectors, each associated to a
+distinct eigenvalue \(\lambda_i\):
+\[
+N = \sum_i \lambda_i \Pi_i, \quad \Pi_i \Pi_j = \delta_{ij} \Pi_i.
+\]
+In <code>yaw</code>, we can pluck out the relevant projector \(\Pi_i\) using the
+ordering of eigenvalues, in the same way we label eigenstates:
+</p>
+<pre class="example">
+yaw&gt; proj0 = proj(Z,0)
+proj(Z, 0)
+yaw&gt; pi0 = char(Z,0)
+char(Z, 0)
+yaw&gt; proj0 | pi0
+1
+</pre>
+<p>
+<i>Optional.</i> Under the hood, we actually construct projectors from the minimal
+polynomial; if you find the details boring, feel free to skip to the next
+section. When \(N\) is diagonalizable, the minimal polynomial takes the form
+\[
+p_\min^{(N)}(x) = \prod_i (x - \lambda_i)
+\]
+for distinct \(\lambda_i\).
+Focusing on \(\lambda_j\), we can divide out the associated linear factor:
+\[
+p_j^{(N)}(x) = \prod_{i\neq j} (x - \lambda_i).
+\]
+Note that
+\[
+p_\min^{(N)}(N) = 0 \quad \Longrightarrow \quad p_j^{(N)}(N)N =
+\lambda_j p_j^{(N)}(N).
+\]
+Thus, \(p_j^{(N)}(N)\) resembles \(\Pi_j\), which also acts as \(\Pi_j N =
+\lambda_j\Pi_j\). To nail this identification, we need to check the
+\(p_j^{(N)}(N)\) are orthogonal and idempotent. Orthogonality follows immediately since
+\[
+0 = p_\min^{(N)}(N) | p_j^{(N)}(N) p_k^{(N)}(N)
+\]
+for any \(j \neq k\). For idempotence, suppose
+\[
+p_j^{(N)}(x) = \sum_{k=0}^d c_k x^k.
+\]
+Then, using \(p_j^{(N)}(N)N =\lambda_j p_j^{(N)}(N)\), the square
+\[
+\left[p_j^{(N)}(N)\right]^2 = p_j^{(N)}(N) \sum_{k=0}^d c_k N^k = p_j^{(N)}(N) \sum_{k=0}^d c_k \lambda_j^k = p_j^{(N)}(N)
+p_j^{(N)}(\lambda_j).
+\]
+Thus, the idempotent variable is not \(p_j^{(N)}(N)\) itself, but the
+scaled version
+\[
+\Pi_j = \frac{p_j^{(N)}(N)}{p_j^{(N)}(\lambda_j)}.
+\]
+Technically, this is just an instance of the <b>Lagrange interpolation
+formula</b>, but that's another story!
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Control</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+A naturally corollary to selection is <b>controlled operations</b>. Usually, these
+are introduced in Hilbert space, and in a basis-dependent way. Here,
+we use a completely algebraic formulation which is independent of
+basis. The idea is simple: instead of controlling on the state of a
+qubit, with \(|0\rangle\) ignoring a target system and \(|1\rangle\)
+performing operation \(U\), we can <i>project</i> on the control system, and write a 
+combined operator
+\[
+\text{C}U = \Pi_0 \otimes I + \Pi_1 \otimes U.
+\]
+We can implement the \(\text{CNOT}\) (\(\text{C}X\)) operation as well as
+as the Toffoli (\(\text{CCNOT}\)) in <code>yaw</code>:
+</p>
+<pre class="example">
+yaw&gt; CNOT = ctrl(Z,[I,X])
+proj(Z, 0) @ I + proj(Z, 1) @ X
+yaw&gt; CCNOT = ctrl(Z,[I @ I,CNOT])
+proj(Z, 0) @ I @ I + proj(Z, 1) @ CNOT
+</pre>
+<p>
+If we want to replace a qubit with a qudit, decomposed as \(N = \sum_i
+\lambda_i \Pi_i\), and \(U\) with a collection \(U_i\), then the
+corresponding controlled operator is
+\[
+\text{C}U = \sum_i \Pi_i \otimes U_i.
+\]
+For instance, the qutrit version of \(\text{C}X\) is
+</p>
+<pre class="example">
+yaw&gt; $alg = qudit(3)
+Created algebra: &lt;X, Z | herm, unit, pow(3), braid(exp(2*pi*I/3))&gt;
+yaw&gt; CX = ctrl(Z, [I, X, X**2])
+proj(Z, 0) @ I + proj(Z, 1) @ X + proj(Z, 2) @ X**2
+</pre>
+<p>
+We will explore further applications of this idea in future tutorials.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> Example: Bell states</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+We finish with a simple example that combines all of the above ideas:
+generating entanglement. The famous entangled state
+\[ |\phi\rangle
+= \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
+\]
+is actually one of a family of quadruplets, individually entangled
+but mutually orthogonal, called the <b>Bell states</b>:
+\[|\phi_{ab}\rangle
+= \frac{1}{\sqrt{2}}(|0b\rangle + (-1)^a |1\overline{b}\rangle),
+\]
+where \(\overline{b} = 1 - b\).
+The way to prepare these states is to apply the usual Bell
+state-preparing circuit, but to \(|ab\rangle\):
+\[|
+\phi_{ab}\rangle = \text{CNOT} (H \otimes I) |ab\rangle,
+\]
+which I leave as an exercise. In the algebraic setting, the circuit
+\(U\) acting on \(|0\rangle\) becomes conjugation of \(\pi_0(\cdot) =
+\langle 0|\cdot|0 \rangle\) by \(U\), so
+</p>
+<pre class="example">
+yaw&gt; def phi(a, b):
+...      init = X**a @ X**b &lt;&lt; pi0 @ pi0
+...      return CNOT*(H @ I) &lt;&lt; init
+yaw&gt; Z @ Z | phi(0,0)
+1
+</pre>
+<p>
+To emphasize the power of <code>yaw</code>'s basic combinators, let's write
+the full (compiler) code to generate the canonical Bell state \(\phi\):
+</p>
+<pre class="example">
+$alg = &lt;X, Z | herm, unit, anti&gt;
+H    = (X + Z)/sqrt(2)
+pi0 = char(Z, 0)
+CNOT = ctrl(Z, [I, X])
+phi  = CNOT*(H @ I) &lt;&lt; pi0 @ pi0
+</pre>
+<p>
+That's it; five lines, and we've defined everything from scratch.
+Next time, we'll use these states to perform a magic trick called <b>teleportation</b>!
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
+<hr  />
+
+<ul class="org-ul">
+<li><a href="https://www.amazon.ca/Quantum-Computation-Information-10th-Anniversary/dp/1107002176"><i>Quantum Computation and Quantum Information</i></a> (2000), Michael
+Nielsen and Isaac Chuang. The classic introduction to the
+quantum.
+</li>
+<li><a href="https://torsor.io/assets/siqpDRAFT.pdf">“SIQP I: Foundations”</a> (2025), David Wakeham. The (much longer)
+mathematical companion to these tutorials.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

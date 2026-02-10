@@ -1,0 +1,279 @@
+#+ATTR_HTML: :alt wizard image :align center :width 200px :style display:inline;margin:-20px;
+[[https://torsor.io/#software][file:../../img/teleport.png]]
+
+~yaw~ is a ~Python~-based language for doing algebraic quantum
+programming. This tutorial explains how to perform
+teleportation, and along the way, how to do projective
+measurements. We assume familiarity with the [[https://torsor.io/assets/library/yaw/yaw011.html][introductory
+tutorial]].
+
+* Setup
+-----
+We'll assume that you're familiar with the basic teleportation
+protocol. It has a few moving parts:
+- Alice has a state $\psi$;
+- Bob and Alice share a Bell state $\phi_{00}$;
+- Alice measures in the Bell basis $\Pi_{ab}$;
+- Bob now has a "masked" state $Z^b X^a \triangleleft \psi$;
+- Alice sends $a, b$ to Bob;
+- Bob applies $X^a Z^b$ to unmask the teleported state.
+
+We'll set up everything but the measurement, explain how to do
+measurements in general, then tie it all together.
+** Alice's state
+Suppose Alice possesses a pure state $\psi = U \triangleleft \pi_0$ of
+a qubit (equivalently, $|\psi\rangle = U|\psi_0\rangle$) where
+$\pi_0(\cdot) = \langle 0| \cdot |0\rangle$, and $U$ is a unitary operator. (We'll discuss
+the specific form unitaries take, and generalizations to qudits, in
+the exercises below.) In ~yaw~, we can define a function which applies
+an operator to $\pi_0$:
+#+BEGIN_EXAMPLE python
+yaw> $alg = qubit()
+yaw> pi0 = char(Z, 0)
+yaw> def alice(U):
+...    return U << pi0
+#+END_EXAMPLE
+For instance, the $\pi_+(\cdot) = \langle +|\cdot|+\rangle$ state is
+simply $H \triangleleft \pi_0$ (the analogue of $H|0\rangle = |+\rangle$).
+** The shared Bell pair
+The next stage is to prepare a Bell pair $\phi$. We covered this at
+the end of the the [[https://torsor.io/assets/library/yaw/yaw011.html][introductory tutorial]], but we'll review it briefly.:
+#+BEGIN_EXAMPLE python
+yaw> H = (X + Z)/sqrt(2)
+yaw> CNOT = ctrl(Z, [I, X])
+yaw> phi_circ = CNOT*(H @ I)
+yaw> phi  = phi_circ << pi0 @ pi0
+#+END_EXAMPLE
+The combined initial state is just ~aliceSends(U)~ tensored with ~phi~:
+#+BEGIN_EXAMPLE python
+yaw> def initial_state(U):
+...    return alice(U) @ phi
+#+END_EXAMPLE
+Unfortunately, this has a nested tensor structure which ~yaw~
+currently has trouble with. This needs to be manually "flattened" by
+defining 
+#+BEGIN_EXAMPLE python
+yaw> def initial_state(U):
+...      return (U @ phi_circ) << pi0 @ pi0 @ pi0
+#+END_EXAMPLE
+This is exactly the same thing, but without parantheses separating the
+tensor products!
+** The Bell basis
+Recall from the [[https://torsor.io/assets/library/yaw/yaw011.html][previous tutorial]] that for two qubits, we have a set
+of entangled *Bell states*
+\[
+\phi_{ab} = \text{CNOT}(H\otimes I) \triangleleft (\pi_a \otimes \pi_b).
+\]
+In ~yaw~:
+#+BEGIN_EXAMPLE python
+yaw> def phi(a, b):
+...      init = char(Z, a) @ char(Z, b)
+...      return phi_circ << init
+#+END_EXAMPLE
+The projectors $\Pi_a = |a\rangle\langle a|$ are dual to the states
+$\pi_a(\cdot) = \langle a |\cdot|a\rangle$, in the sense that
+\[
+\pi_a(\Pi_b) = \delta_{ab}.
+\]
+Similarly, the dual projectors to the Bell states $\phi_{ab}$ are the
+*Bell projectors*
+\[
+\Phi_{ab} = [\text{CNOT}(H\otimes I)]^\dagger \triangleright (\Pi_a \otimes \Pi_b).
+\]
+We can define them by @@html:<label for="mn-demo" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-demo" class="margin-toggle"/>
+<span class="marginnote">
+The <code>.e</code> after the projector forces it to expand
+algebraically; this is currently needed to prevent errors downstream,
+but will be fixed in future versions.
+</span>@@
+#+BEGIN_EXAMPLE python
+yaw> def Phi(a, b):
+...      init = proj(Z, a).e @ proj(Z, b).e
+...      return phi_circ.d >> init
+#+END_EXAMPLE
+We can check these are dual, e.g.
+#+BEGIN_EXAMPLE python
+yaw> Phi(1, 0) | phi(1, 0)
+1
+yaw> Phi(1, 0) | phi(0, 0)
+0.0
+yaw> Phi(1, 0) | phi(0, 1)
+0.0
+yaw> Phi(1, 0) | phi(1, 1)
+0.0
+#+END_EXAMPLE
+Now that we've defined the projectors, we should measure
+with respect to them. That necessitates that we introduce measurement!
+* Measurement
+We'll first explain how to do projective measurement in general, and
+then apply it to Alice's Bell measurement in particular. We'll then
+apply Bob's correction and check he gets the right state! For a way to
+keep track of the "many worlds" involved in quantum measurement, check
+out the final exercise.
+** Projective measurement
+A *projector-valued measurement (PVM)* or *projective measurement* is
+a set of projectors $\Pi_i$ that are orthogonal and "resolve the
+identity":
+\[
+\Pi_i \Pi_j = \delta_{ij}\Pi_i, \quad \sum_i \Pi_i = I.
+\]
+If we measure in state $\pi$, then (according to Born's rule) with
+probability
+\[
+p_i = \pi(\Pi_i),
+\]
+we observe $i$, and (according to the Lüders rule) the post-measurement state is
+\[
+\pi'_i = \frac{1}{p_i} (\Pi_i \triangleleft \pi).
+\]
+This is stochastic. We can implement it in ~yaw~ using the ~stMeasure~
+method, which returns the post-measurement state $\pi'_i$ and index $i$:
+#+BEGIN_EXAMPLE python
+yaw> PVM = [Pi1, Pi2, ...]
+yaw> measure = stMeasure(PVM, state)
+yaw> measure()
+(measured_state, index)
+#+END_EXAMPLE
+The method ~opMeasure~ does something similar, but instead of
+returning the state $\pi'_i$, returns the operator $\Pi_i$. It works
+for channels more generally, but we leave a full discussion to another tutorial!
+** Alice's measurement
+For Alice's Bell measurement, we already have ~initial_state(U)~, so
+we just need to define the Bell PVM. Since it does nothing to Bob's
+qubit, we can write
+#+BEGIN_EXAMPLE python
+yaw> bell_PVM = [Phi(0,0)@I, Phi(0,1)@I, Phi(1,0)@I, Phi(1,1)@I]
+#+END_EXAMPLE
+We order them this way so that, from index $i$ observed, we can easily
+read off the bits by simply converted into binary.
+The measurement is then
+#+BEGIN_EXAMPLE python
+yaw> bell_measure = stMeasure(bell_PVM, initial_state(U))
+yaw> measured, index = bell_measure()
+#+END_EXAMPLE
+Now, according to the usual lore, Bob has a masked version of Alice's
+state. Once she tells him ~index~, he can unmask it!
+** Bob's correction
+In general, Bob will apply a correction operator based on the index
+$ab$ in binary:
+#+BEGIN_EXAMPLE python
+yaw> def correction(a, b):
+...      return X**a * Z**b
+#+END_EXAMPLE
+Running this experiment with $U = H$, I get
+#+BEGIN_EXAMPLE python
+yaw> index
+1
+#+END_EXAMPLE
+This correponds to $ab = 01$ in binary. This means Bob applies $Z$ to
+recover the state, i.e. the total state is
+#+BEGIN_EXAMPLE python
+yaw> corrected = (I @ I @ correction(0, 1)) << measured
+#+END_EXAMPLE
+We can test that this has the correct properties. For instance, for $U
+= H$, the transported state $\pi_+$ is characterized by its
+expectations:
+\[
+\pi_+(X)= \langle +|X|+\rangle = 1, \quad \pi_+(Y) = \pi_+(Z) = 0.
+\]
+We can check:
+#+BEGIN_EXAMPLE python
+yaw> I @ I @X | corrected
+1
+yaw> I @ I @ Z | corrected
+0.0
+yaw> I @ I @ X*Z | corrected
+0.0
+#+END_EXAMPLE
+So we have successfully teleported! Feel free to repeat the experiment
+with your own unitary $U$ and see what happens. If you need some
+inspiration picking a unitary, check out the first exercise below!
+** Summary
+Let's briefly summarize the code, in compiled form:
+#+BEGIN_EXAMPLE python
+$alg = <X, Z | herm, unit, anti>
+
+# Basic definitions
+pi0      = char(Z, 0)
+H        = (X + Z)/sqrt(2)
+CNOT     = ctrl(Z, [I, X])
+phi_circ = CNOT*(H @ I)
+
+# Initial global state
+def initial_state(U):
+    return (U @ phi_circ) << pi0 @ pi0 @ pi0
+
+# Bell states and dual projectors
+def Phi(a, b):
+    init = proj(Z, a).e @ proj(Z, b).e
+    return phi_circ.d >> init
+
+bell_PVM     = [Phi(0,0)@I, Phi(0,1)@I, Phi(1,0)@I, Phi(1,1)@I]
+
+# Measurement and correction
+def corrected(U):
+    bell_measure = stMeasure(bell_PVM, initial_state(U))
+    measured, i  = bell_measure()
+    a, b         = int(f"{i:02b}"[0]), int(f"{i:02b}"[1])
+    return (I @ I @ (X**a * Z**b)) << measured
+#+END_EXAMPLE
+Note that on the second last line, we write $i$ as a binary string and
+extract the bits.
+We can condense this further if we want to play code golf:
+#+BEGIN_EXAMPLE python
+$alg = <X, Z | herm, unit, anti>
+
+phi_circ = ctrl(Z,[I,X])*((X+Z)/sqrt(2) @ I)
+
+def ψ(U): return (U @ phi_circ) << (@3) char(Z, 0)
+def Φ(a, b): return phi_circ.d >> proj(Z,a).e @ proj(Z,b).e
+def corrected(U):
+    m, i  = stMeasure([Φ(a,b)@I for a in (0,1) for b in (0,1)], ψ(U))()
+    return (I @ I @ (X**((i >> 1) & 1)) * Z**(i & 1))) << m
+#+END_EXAMPLE
+At seven lines, it's far less intelligible (in particular the bit-shifting
+at the end), and we've also introduced the prefix notation ~(@n)~ for repeated tensor
+powers. But it's remarkably compact for a complete implementation of
+teleportation: a magic trick with no sleight of hand!
+* Exercises
+Under construction!
+** Unitaries
+** Qudits
+** Branching
+* COMMENT Exercises
+\[
+U(\omega, \alpha, \beta, \gamma) = e^{i\omega} e^{i\alpha X}e^{i\beta Y}e^{i\gamma Z}
+\]
+for some real angles $\alpha, \beta, \gamma, \phi \in [0, 2\pi)$.
+Though this is well-known, less well-known is the analogous universality
+relation for qudits of dimension $d$:
+\[
+U(\alpha_{0,0}, \ldots, \alpha_{d-1,d-1}) = \prod_{a,b=0}^{d-1} e^{i \alpha_{,ab}X^aZ^b}.
+\]
+* References
+-----
+
+- [[https://www.amazon.ca/Quantum-Computation-Information-10th-Anniversary/dp/1107002176][/Quantum Computation and Quantum Information/]] (2000), Michael
+  Nielsen and Isaac Chuang. Describes teleportation, and shows you the
+  algebra works, early on.
+- [[https://torsor.io/assets/siqpDRAFT.pdf][“SIQP I: Foundations”]] (2025), David Wakeham. If you want more
+  background about measurement in the algebraic computing framework.
+- [[https://torsor.io/#blog/teleportation][“Why does teleportation work?”]] (2025), David Wakeham. Short blog
+  post explaining how teleportation is an inevitable consequence of
+  conserving information and "monogamy" of entanglement.
+
+* COMMENT html export
+#+TITLE: Tutorial 2: Teleportation
+#+HTML_CONTAINER: div
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="enhanced_tufte.css">
+#+HTML_HEAD: <script type="text/javascript" src="sidebar_darkmode.js"></script>
+#+HTML_HEAD: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+HTML_HEAD: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+#+HTML_LINK_UP:
+#+HTML_MATHJAX: 
+#+INFOJS_OPT:
+#+LATEX_HEADER:
+#+OPTIONS: html-postamble:nil toc:nil 
+#+HTML_HEAD_EXTRA: <style>pre { padding-top: 25px !important; }</style>
