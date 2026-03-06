@@ -74,9 +74,9 @@ const SoftwarePage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <ul className="space-y-3">
     <li className={`${subtleText}`}>
           • <a 
-        href="/assets/yaw101.html" 
+        href="/assets/library/yaw/yaw101.html" 
         className={`hover:underline`}
-      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw 101</b></a>. This tutorial previews basic syntax, culminating in superdense coding.
+      ><b className={`font-comfortaa ${textColor} mb-3`}>yaw 101</b></a>. This tutorial previews basic syntax, culminating in teleportation.
 	  </li>
   </ul>
                 </div>
