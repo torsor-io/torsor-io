@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title></title>
+<!-- 2023-08-30 Wed 12:26 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" ><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> <h1><b>Dis/entangled representations</b></h1>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title"></h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Introduction</a></li>
+<li><a href="#sec-2">2. Representation learning</a>
+<ul>
+<li><a href="#sec-2-1">2.1. Generic priors</a></li>
+<li><a href="#sec-2-2">2.2. The curse of dimensionality</a></li>
+<li><a href="#sec-2-3">2.3. Invariance and disentanglement</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. Disentangled representations</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Group actions</a></li>
+<li><a href="#sec-3-2">3.2. Inheriting symmetries</a></li>
+<li><a href="#sec-3-3">3.3. Quantum disentanglement</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. References</a></li>
+</ul>
+</div>
+</div>
+<div class="right">
+<p>
+<i>Wherein feature engineering is rescued from the wilds of
+semi-empiricism and restored to the bosom of pure mathematics. A summary, additional context, and bonus nonsense for [<a href="#DisRep">1</a>].</i> 
+</p>
+
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<hr  />
+<ul class="org-ul">
+<li>I'll be reviewing Higgins, et al. [<a href="#DisRep">1</a>], a neat paper from 2018 which makes connections
+between deep learning and group actions. The HSP generalizes to
+finding stabilizers, so this may be a good place to
+look for applications.
+</li>
+<li>Since the formalism in both cases is very simple, I'll start with some
+broader context, trying to get at a basic question: what the heck should
+we learn?
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Representation learning</h2>
+<div class="outline-text-2" id="text-2">
+<hr  />
+<ul class="org-ul">
+<li>Bengio et al.'s review of representation learning [<a href="#RepLer">3</a>] is
+one of the most cited papers in machine learning. It
+defines representation learning, its philosophy and goals, and some
+concrete model-building heuristics, including "generic" priors
+which, it is hoped, lead to "good" representations. One of these
+generic priors is that the representation should <i>disentangle
+factors of variation</i>. I'll talk about this shortly
+</li>
+<li>We can think of a representation, broadly
+speaking, as some way of pre-processing raw data (\(X\) below) into a new feature space (denoted \(F\)) to help train a
+model (perhaps involving supervised learning with an output space \(Y\)). Put differently, we would
+like to perform <i>unsupervised feature learning</i> on the raw data, and
+use these features downstream. We want to automate feature engineering!
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/box1.png" alt="cat/spider image" align="center" width="230px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Generic priors</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>What are some good ways to approach this? Well, it's hard to say a
+priori. We have no alternative but to go out into the world and
+gather some "semi-empirical" observations about natural
+data-generating processes! We then use these to inform generic,
+task-independent meta-heuristics about what sort of
+structures are useful. It's some kind of meta-learning
+process!
+</li>
+<li>Here are some of the priors suggested by Bengio and friends:
+<ul class="org-ul">
+<li><b>Smoothness.</b> The functions we learn are smoothly approximable. Or, to paraphrase
+Carl Bender, <i>the functions are not out to get us</i>. Nature is lazy
+and smoothness is easier!
+
+<div class="figure">
+<p><img src="./img/generic1.png" alt="cat/spider image" align="center" width="160px" style="display:inline;margin:-30px;" />
+</p>
+</div>
+</li>
+<li><b>Distribution.</b> There are multiple factors, that
+can be independently varied. The model is
+"hinged".
+
+<div class="figure">
+<p><img src="./img/generic2.png" alt="cat/spider image" align="center" width="160px" style="display:inline;margin:-30px;" />
+</p>
+</div>
+</li>
+<li><b>Hierarchy.</b> Explanatory factors have a global hierarchy. This
+presumably underlies the success of deep learning!
+
+<div class="figure">
+<p><img src="./img/generic3.png" alt="cat/spider image" align="center" width="220px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+</li>
+<li><b>Simplicity.</b> Although there is a global hierarchy, local
+relations in the hierarchy are simple, e.g. linear.
+
+<div class="figure">
+<p><img src="./img/generic4.png" alt="cat/spider image" align="center" width="220px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+</li>
+<li><b>Sparsity.</b> For a given observation, only a small number of
+factors is relevant.
+
+<div class="figure">
+<p><img src="./img/generic5.png" alt="cat/spider image" align="center" width="220px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+</li>
+<li><b>Manifolds.</b> Distributions tend to concentrate on low-dimensional
+submanifolds of the original data space. Different values of
+categorical variables lie on different submanifolds, with low
+measure overlaps.
+
+<div class="figure">
+<p><img src="./img/generic6.png" alt="cat/spider image" align="center" width="250px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li><b>Coherence.</b> (Temporally) consecutive or (spatially) adjacent
+observations tend to vary slowly on the appropriate categorical
+submanifold.
+
+<div class="figure">
+<p><img src="./img/generic7.png" alt="cat/spider image" align="center" width="250px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li><b>Semi-supervision.</b> Representations that help to explain the (unsupervised) input
+distribution, \(p(x)\), tend to be useful for learning a
+(supervised) output distribution \(p(y|x)\) or associated task,
+e.g. transfer learning. Simply put, features share structure with
+outputs.
+
+<div class="figure">
+<p><img src="./img/generic8.png" alt="cat/spider image" align="center" width="280px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> The curse of dimensionality</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>These assumptions can basically be divided into a local
+regularity conditions (smoothness, simplicity, coherence) and global
+structure (distribution, hierarchy, sparsity, semi-supervision). The
+manifold condition is both, since it tells us it tells us embeddings
+are locally smooth, but globally high codimension and approximately
+disjoint for different values of a categorical variable.
+</li>
+<li>Global assumptions show their worth when we consider the <i>curse of
+dimensionality</i>.
+Some learning methods are based only on smoothness. We pick a nice
+family of target functions, and our
+job is to use "examples to explicitly map out the wrinkles". We
+collect local bumps via training and smoothly interpolate between them.
+
+<div class="figure">
+<p><img src="./img/generic9.png" alt="cat/spider image" align="center" width="260px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li>The problem with this type of <i>local generalization</i> is that,
+if we work in the raw input space \(X\), the number of possible bumps
+can grow exponentially with the dimension of the data. For instance, for
+\(n\) binary categorical features, if we work at the level of raw
+strings we have an exponentially large hypercube of bumps to map out. Snaking around it linearly will require \(O(2^n)\) features.
+
+<div class="figure">
+<p><img src="./img/dist1.png" alt="cat/spider image" align="center" width="260px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li>The same lesson applies to kernel methods, where we
+usually pick a kernel a priori (equivalent to a local smoothness
+assumption) and then train it by solving some optimization problem
+to interpolate between examples. Indeed, kernel methods, traditional
+clustering algorithms, Gaussian mixtures, nearest neighbours, etc,
+are all a form of <i>one-hot encoding</i>, a maximally sparse
+representation with a totally flat/local feature hierarchy. As a
+binary representation, it places a single \(1\) at the
+bump location, and \(0\) elsewhere.
+
+<div class="figure">
+<p><img src="./img/dist2.png" alt="cat/spider image" align="center" width="450px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li>Clearly, this description of the cube can be
+compressed at the cost of some sparseness. If we learn the
+<i>dimensions</i> of the hypercube instead of traversing the vertices, we
+need only \(O(n)\) features. This is expressive and distributed in the
+sense given above. If we would like to sparsify our features, we can
+learn lower-dimensional features, e.g. faces or
+edges. Separate subcubes are one-hot indexed, but within the subcube
+we use binary.
+
+<div class="figure">
+<p><img src="./img/dist3.png" alt="cat/spider image" align="center" width="260px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li>That said, local generalization methods aren't useless. They
+are maximally sparse, analytically tractable, and have other
+nice properties.
+In fact, we can combine them with representation learning!
+An important example is kernel methods, where instead of picking a
+kernel a priori, we <i>learn the kernel</i>, i.e. use the learned
+representation \(F\) as the feature space, and then perform our
+supervised learning task. This is an example of semi-supervision.
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/box1.png" alt="cat/spider image" align="center" width="230px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Invariance and disentanglement</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>It would be nice to take these high-level intuitions and make them formal. A
+good place to start is the notion of <i>invariance</i>. The idea is that,
+if we have a hierarchical representation, abstract features at a
+high level should be invariant to perturbations lower down. A cat is
+still a cat even if it's missing some whiskers.
+
+<div class="figure">
+<p><img src="./img/inv1.png" alt="cat/spider image" align="center" width="280px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li>We can imagine categorical submanifolds as splitting into
+lower-dimensional sections. Perturbations may bump us off that
+section, but not out of the ambient categorical manifold. A
+cat without whiskers is not a dog.
+
+<div class="figure">
+<p><img src="./img/inv2.png" alt="cat/spider image" align="center" width="300px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li>More generally, <i>invariant features</i> are features with "reduced
+sensitivity in the direction of invariance", for instance, along a
+categorical manifold (blue directions) rather than away from it (red
+direction).
+
+<div class="figure">
+<p><img src="./img/inv3.png" alt="cat/spider image" align="center" width="300px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li>I'm leaning a bit heavily on intuitions about categorical manifolds;
+just imagine that instead of separate submanifolds, we have level
+sets of a continuous function. It's a limit of the categorical case.
+
+<div class="figure">
+<p><img src="./img/inv4.png" alt="cat/spider image" align="center" width="280px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li>The other thing I haven't explained is "sensitivity". This is a
+task-specific notion, so that "invariant" really means "doesn't
+affect models trained to do X". Whiskers might not affect the task
+of distinguishing cats and dogs, but they do affect the task of
+distinguishing pets with and without supplementary facial hair.
+
+<div class="figure">
+<p><img src="./img/inv5.png" alt="cat/spider image" align="center" width="230px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li>If invariance is task-dependent, how can we learn invariant features
+without supervision? We can't! Instead, we have to get a
+handle on the distribution from the data itself, i.e. using
+<i>variation</i>. We may not know about cats and dogs, but we might see
+these submanifold-approximate clusters, or gradients in the smoothed
+density of data points which are flat in some directions and not
+others.
+It's then natural to seek features which correspond to, and separate, factors of variation. This
+is called a <i>disentangled representation</i>.
+
+<div class="figure">
+<p><img src="./img/inv6.png" alt="cat/spider image" align="center" width="310px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+<li>Before moving on, note that this is a bit like PCA, which looks for factors of variation
+(directions of variance) and separates them (directions are
+orthogonal). For representation learning we don't expect to have a
+global linear structure. We will need something like "local
+PCA". I'll return to this below.
+
+<div class="figure">
+<p><img src="./img/inv7.png" alt="cat/spider image" align="center" width="200px" style="display:inline;margin:-10px;" />
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Disentangled representations</h2>
+<div class="outline-text-2" id="text-3">
+<hr  />
+<ul class="org-ul">
+<li>However, instead of geometry, we're going to go down the path of algebra!
+The basic, clever observation is that disentangled representations
+are a special case of invariance, since factors
+should be <i>invariant with respect to changes of the other
+factors</i>. They are invariant features of the distribution
+itself.
+</li>
+<li>The word "invariant" should immediately conjure other words like
+"symmetry" and "group", namely the transformations our data is
+invariant to. The goal of [<a href="#DisRep">1</a>] is to formalize the notion of a
+disentangled representation using groups.
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Group actions</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>To start off, recall that a group \(G\) <i>acts on</i> a set \(X\) when
+element \(a \in G\) is a permutation (i.e. bijection) \(\varphi_a: X \to X\)
+such that the permutation of a product \(ab\) is the product of permutations:
+\[
+  \varphi_{ab} = \varphi_a \circ \varphi_{b}.
+  \]
+This is a homomorphism \(\varphi: G \to S_X\), where
+\(S_X\) is the group of permutations of \(X\) under composition.
+Visually, \(\varphi\) maps a "multiplication triangle" in \(G\) to a
+"composition triangle" in \(X\) (or \(S_X\)).
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/group1.png" alt="cat/spider image" align="center" width="370px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+<ul class="org-ul">
+<li>We also need to take products of groups. If \(G = G_1 \times G_2
+  \times \cdots \times G_n\), we turn \(G\) into a group by multiplying
+"vectors" of group elements coordinate-wise:
+\[
+  (a_1, a_2, \ldots, a_n) \cdot (b_1, b_2, \ldots, b_n) = (a_1\cdot
+  b_1, \ldots, a_n \cdot b_n),
+  \]
+for \((a_1, \ldots, a_n), (b_1, \ldots, b_n) \in G\). Visually, a
+multiplication triangle of vectors splits into a vector of
+triangles.
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/group2.png" alt="cat/spider image" align="center" width="500px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+<ul class="org-ul">
+<li>We can also define a <i>projection map</i> \(\pi_i: G \to
+  G_i\). This mapping of triangles means \(\pi\) commutes with
+multiplication, in the sense that
+\[
+  \pi(\vec{a} \cdot \vec{b}) = \pi(\vec{a}) \cdot \pi(\vec{b}).
+  \]
+We can either perform multiplication then project, or project and
+then multiply.
+</li>
+<li>If each factor group \(G_i\) acts on a set \(X_i\), then the product of
+the groups \(G\) acts on the Cartesian product of the sets, \(X = X_1
+  \times \cdots \times X_n\). Put simply, the permutation of a vector
+is a vector of permutations:
+\[
+  \varphi_{(a_1, \ldots, a_n)} = (\varphi_{a_1}, \ldots, \varphi_{a_n}).
+  \]
+We'll call such a group action <i>disentangled</i>. Visually, a vector of
+mulitiplication triangles gets mapped to a vector of composition
+triangles.
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/group3.png" alt="cat/spider image" align="center" width="450px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+<ul class="org-ul">
+<li>In fact, if we want to be fancy, we can capture the factorization
+property and the group action property in one diagram. Loosely, the
+projection \(\pi\) and group action \(\varphi\) commute, so we we can
+draw them as a <i>commutative diagram</i>, where maps are arrows,
+domain/range are vertices, and composition is <i>path-independent</i>:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/group4.png" alt="cat/spider image" align="center" width="450px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+<ul class="org-ul">
+<li>The last notion we need is that of <i>equivariance</i>. Suppose that \(G\)
+acts on \(X\) and \(Y\). A function \(f: X \to Y\) is \(G\)-equivariant if,
+for all \(a \in G\),
+\[
+  f \circ \varphi_a^{(X)} = \varphi_a^{(Y)} \circ f.
+  \]
+With some mild abuse of notation, we can simply say \(\varphi\) and \(f\)
+commute. As a commutative diagram:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/comm1.png" alt="cat/spider image" align="center" width="170px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+<ul class="org-ul">
+<li>When our set is a vector space \(V\), we can choose our group action \(\varphi:
+  G \to \mathrm{GL}(V)\) to assign group elements to invertible
+matrices. A disentangled action is defined in a similar way, except
+that we use the direct sum notation \(V = V_1 \oplus \cdots \oplus
+  V_n\). In this case, the action is called a <i>representation</i>.
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/group5.png" alt="cat/spider image" align="center" width="270px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Inheriting symmetries</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>A disentangled group action is not quite enough to define a
+disentangled representation. The problem is that the group can act
+on multiple things: the world itself (underlying the data
+distribution), the data, or the features. In fact, we want our
+features to <i>inherit</i> or learn the symmetries of the world! But it
+is constrained to go through the data.
+</li>
+<li>Let \(W\) denote states of the world. Different states correspond to
+different data distributions, \(p(x|w) = p_w(x)\), for a state \(w \in
+  W\) and datum \(x \in X\). We'll also suppose that \(G\) is a set of
+symmetries of \(W\) that factorizes, \(G = G_1 \times \cdots \times
+  G_n\).
+</li>
+<li>Note that we don't require the world \(W\) to be carved into neat
+factors on which \(G\) acts in a disentangled way. This is an
+important point! The world is typically messy and entangled, so our
+goal is not to model the world per se, but the explanatory factors
+underlying it.
+</li>
+<li>Now, suppose we gather enough data to learn \(p_w\). A representation
+maps this distribution (or equivalently, \(p_w\)) to a point in our
+feature space \(F\).
+Let's call this representation process \(\mathcal{R}: W \to F\).
+</li>
+<li>Then \(\mathcal{R}\) is a <i>disentangled representation</i> if
+<ul class="org-ul">
+<li>our feature space \(F = F_1 \times \cdots \times F_n\) carries a
+disentangled action of \(G\), and
+</li>
+<li>it is \(G\)-equivariant, \(\mathcal{R} \circ \varphi = \varphi \circ
+    \mathcal{R}\).
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/comm2.png" alt="cat/spider image" align="center" width="170px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+<ul class="org-ul">
+<li>If \(F = F_1 \oplus \cdots \oplus F_n\) is a vector space, and \(\varphi: G
+  \to F\) is a representation, then
+\(\mathcal{R}\) is a <i>linearly disentangled representation</i> under the
+same conditions, i.e. 
+<ul class="org-ul">
+<li>\(G\) acts in a disentangled manner on \(F\),
+\[
+    \varphi(a_1, \ldots, a_n) = (\varphi_1(a_1), \cdots, \varphi_n(a_n)),
+    \]
+where \(\varphi_i(a_i)\) is a representation of \(F_i\), and
+</li>
+<li>\(\mathcal{R}\) is \(G\)-equivariant.
+</li>
+</ul>
+</li>
+<li>That's it for the formal definition! To illustrate, there is a toy
+example, using a variational autoencoder on a coloured donut. It
+makes a sequence of single pixel observations, top left. These are
+used to train some latent factors \(z_1, z_2, z_3\), whose traversals
+(vary one, fix others) are pictured top right. The bottom shows how
+world states get mapped to features in an equivariant way.
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/vae.png" alt="cat/spider image" align="center" width="600px" style="display:inline;margin:-20px;" />
+</p>
+</div>
+<ul class="org-ul">
+<li>In fact, they use a variant of the vanilla VAE called the
+\(\beta\)-VAE, where \(\beta\) is a hyperparameter which reweights the
+KL divergence in the loss function. We can view \(\beta\) from the
+information bottleneck perspective as penalizing shared information
+between factors, so higher values lead to higher disentanglement!
+It's cool, but beyound our scope. See [<a href="#UVAE">4</a>] for details.
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Quantum disentanglement</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>Amusingly, this overlaps a recent quantum information paper on
+entanglement [<a href="#MultEnt">2</a>]; the relevant notions of "disentanglement" are
+suprisingly similar.
+</li>
+<li>Usually, entanglement is a number, for instance von Neumann entropy,
+Schmidt number, distillable entanglement, etc.
+The insight of [<a href="#MultEnt">2</a>] is that we can directly define an <i>entanglement
+group</i> associated to the state.
+This captures the operational power of entanglement in a direct way.
+</li>
+<li>Consider a multipartite Hilbert space,
+\[
+  \mathcal{H} = \mathcal{H}_1 \otimes \cdots \otimes \mathcal{H}_n.
+  \]
+A state \(|\psi\rangle \in \mathcal{H}\) is entangled when operations
+on one tensor factor affect another tensor factor; operations on one
+factor can therefore be <i>undone</i> on another. This is the algebraic
+version of "spooky action at a distance".
+</li>
+<li>More formally, note that the product group
+\[
+  \mathrm{U}(\mathcal{H}) = \mathrm{U}(\mathcal{H}_1)
+  \]
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
+<hr  />
+<ol class="org-ol">
+<li><a href="https://arxiv.org/pdf/1812.02230.pdf">"Towards a Definition of Disentangled Representations"</a>
+(2018). Higgins, Amos, Pfau, Racaniere, Matthey, Rezende, and
+Lerchner. <a id="DisRep" name="DisRep"></a>
+</li>
+<li><a href="https://arxiv.org/pdf/2307.06437.pdf">"Multipartite entanglement groups"</a> (2023). Jiang, Kabat, Lifschytz,
+and Marthandan. <a id="MultEnt" name="MultEnt"></a>
+</li>
+<li><a href="https://arxiv.org/pdf/1206.5538.pdf">"Representation Learning: A Review and New Perspectives"</a> (2014).
+Bengio, Courville and Vincent. <a id="RepLer" name="RepLer"></a>
+</li>
+<li><a href="https://arxiv.org/pdf/1804.03599.pdf">"Understanding disentangling in β-VAE"</a> (2018), Burgess, Higgins, Pal, Matthey,
+Watters, Desjardins, Lerchner. <a id="UVAE" name="UVAE"></a>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</body>
+</html>
