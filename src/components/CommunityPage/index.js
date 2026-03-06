@@ -60,6 +60,9 @@ const CommunityPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
               <a href="/assets/library/svm/svm.html" className="underline hover:opacity-70">Transformers as SVMs (2024)</a>
           {': '} Linear attention is a support vector machine!
           </li>
+              <a href="/assets/library/rep-learn/rep-learn.html" className="underline hover:opacity-70">Symmetry disentangled features (2023)</a>
+          {': '} A cool connection between feature learning and group theory.
+          </li>
       </ul>
     ),
       link: '',
