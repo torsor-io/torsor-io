@@ -131,13 +131,6 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
             </p>
             </div>
 	
-          {/* Sigil Card */}
-<div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
-  <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>ςil</h3>
-  <p className={subtleText}>
-            Future-proof your Turing tests, agent workflows, and training stack.
-            </p>
-          </div>
             </motion.div>
 	    </motion.div>
 
