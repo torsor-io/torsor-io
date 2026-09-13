@@ -119,7 +119,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBg} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}><a href="https://yawlang.dev">yaw</a></h3>
   <p className={subtleText}>
-            Stop programming in quantum machine code and use high-school algebra instead.
+            A simple, high-level alternative to programming with qubits.
             </p> 
           </div>
 
@@ -128,7 +128,7 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>λix</h3>
   <p className={subtleText}>
             {/* Any sufficiently advanced system is indistinguishable from a computer. */}
-	    Compiling, transpiling, and correcting quantum systems.
+	    A pipeline for compiling, transpiling, and correcting quantum code.
             </p>
             </div>
 	
