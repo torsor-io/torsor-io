@@ -49,7 +49,7 @@ const Navbar = ({
             <a href="" className={`${navText} hover:opacity-50 text-xl`}>
               <HomeModernIcon className={`h-6 w-6 mt-0 mr-2 stroke-1 ${navText}`} />
             </a>
-            <a href="#blog" className={`${navText} hover:opacity-50`}>Blog</a>
+          {/*<a href="#blog" className={`${navText} hover:opacity-50`}>Blog</a>*/}
             <a href="#research" className={`${navText} hover:opacity-50`}>Research</a>
           {/*<a href="#library" className={`${navText} hover:opacity-50`}>Library</a>
              <a href="#works" className={`${navText} hover:opacity-50`}>Works</a> */}
