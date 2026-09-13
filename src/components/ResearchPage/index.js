@@ -1,4 +1,4 @@
-import { CommandLineIcon } from '@heroicons/react/24/solid';
+import { AcademicCap } from '@heroicons/react/24/solid';
 import WaveBackground from '../shared/WaveBackground';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../shared/Navbar';
@@ -162,10 +162,10 @@ const ResearchPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
         {/* Collaboration CTA */}
             <div className={`text-med text-center ${subtleText} mt-8`}>
               <a 
-                href="https://github.com/torsor-io" 
+                href="https://scholar.google.com/citations?user=WAgYEwYAAAAJ&hl=en" 
                 className={`inline-block ${buttonBg} ${textColor} text-l px-6 py-3 rounded-lg transition-colors border ${borderColor}`}
               >
-                <CommandLineIcon className={`h-6 w-6 ${textColor}`} />
+                <AcademicCap className={`h-6 w-6 ${textColor}`} />
           </a>
           </div>
         </main>
