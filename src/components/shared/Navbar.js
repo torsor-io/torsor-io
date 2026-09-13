@@ -51,8 +51,8 @@ const Navbar = ({
             </a>
           {/*<a href="#blog" className={`${navText} hover:opacity-50`}>Blog</a>*/}
             <a href="#research" className={`${navText} hover:opacity-50`}>Research</a>
-          {/*<a href="#library" className={`${navText} hover:opacity-50`}>Library</a>
-             <a href="#works" className={`${navText} hover:opacity-50`}>Works</a> */}
+          {/*<a href="#library" className={`${navText} hover:opacity-50`}>Library</a> */}
+      {/*   <a href="#works" className={`${navText} hover:opacity-50`}>Works</a> */}
           <a href="#team" className={`${navText} hover:opacity-50`}>Team</a>
           </div>
         </nav>
