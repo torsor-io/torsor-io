@@ -127,7 +127,8 @@ const AboutPage = ({ isDark, setIsDark, waveState, setWaveState }) => {
 <div className={`${cardBgOff} rounded-lg p-6 border ${borderColor}`}>
   <h3 className={`font-comfortaa text-2xl font-bold ${textColor} mb-3`}>λix</h3>
   <p className={subtleText}>
-            Any sufficiently advanced system is indistinguishable from a computer.
+            <!-- Any sufficiently advanced system is indistinguishable from a computer. -->
+	    Compiling, transpiling, and correcting quantum systems.
             </p>
             </div>
 	
